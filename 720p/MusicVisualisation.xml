@@ -1,0 +1,171 @@
+﻿<window id="2006">
+	<defaultcontrol>-</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+        <onload>Dialog.Close(pvrguideinfo)</onload>
+        <onload>Dialog.Close(movieinformation)</onload>
+        <onload>Dialog.Close(musicinformation)</onload>
+	<controls>
+		<control type="visualisation" id="2">
+			<!-- FIX ME Music Visualization needs to have an id of 2 in this window to be able to lock or change preset -->
+			<description>visualisation</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+		</control>
+                <control type="image">
+                        <description>Fanart Image for Artist</description>
+                        <left>0</left>
+                        <top>0</top>
+                        <width>1280</width>
+                        <height>720</height>
+                        <texture background="true">$INFO[Player.Art(fanart)]</texture>
+                        <colordiffuse>66FFFFFF</colordiffuse>
+                        <visible>!IsEmpty(Player.Art(fanart)) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+                        <fadetime>600</fadetime>
+                </control>
+            <control type="image">
+                        <description>background image for lyrics</description>
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1280</width>
+                        <height>720</height>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+                        <texture border="0,0,0,0">black-back.png</texture>
+						<visible>Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
+                </control>
+		<!-- media infos -->
+		<control type="group">
+			<animation effect="fade" time="200">VisibleChange</animation>
+<!--			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD) | Window.IsActive(107)] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList)]  | Player.Paused</visible>-->
+			<visible>Player.ShowInfo | Window.IsActive(MusicOSD) | Player.Paused | Window.IsActive(107)</visible>
+			<control type="group">
+				<visible>!Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
+				<include>Clock</include>
+			</control>
+			<control type="group">
+				<posx>20</posx>
+				<posy>260</posy>
+				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-20</posy>
+					<width>360</width>
+					<height>410</height>
+					<visible>!IsEmpty(MusicPlayer.Cover)</visible>
+					<texture border="15">RecentAddedBack.png</texture>
+					<colordiffuse>AAFFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<description>Cover image</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>320</width>
+					<height>320</height>
+					<aspectratio aligny="top">keep</aspectratio>
+					<texture>$INFO[MusicPlayer.Cover]</texture>
+                    <bordertexture border="8">ThumbBorder.png</bordertexture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="label">
+					<description>Artist Label</description>
+					<posx>0</posx>
+					<posy>320</posy>
+					<height>20</height>
+					<width>320</width>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>font13_title</font>
+					<visible>!IsEmpty(MusicPlayer.Cover)</visible>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+                <control type="label">
+					<description>Album Label</description>
+					<posx>0</posx>
+					<posy>350</posy>
+					<height>20</height>
+					<width>320</width>
+					<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year, (,)]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>font13_title</font>
+					<visible>!IsEmpty(MusicPlayer.Cover)</visible>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="label">
+					<description>Artist Label</description>
+					<posx>0</posx>
+					<posy>360</posy>
+					<height>20</height>
+					<width>320</width>
+					<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ]$INFO[MusicPlayer.Year, (,)]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>font13_title</font>
+					<visible>IsEmpty(MusicPlayer.Cover)</visible>
+					<textcolor>grey</textcolor>
+					<shadowcolor>black</shadowcolor>
+					</control>
+				</control>
+				<include>FullScreenMediaInfo</include>
+			</control>
+		<!-- codec & viz infos -->
+		<control type="group" id="0">
+			<posx>0</posx>
+			<posy>50</posy>
+			<visible>Player.ShowCodec + ![Window.IsVisible(script-XBMC_Lyrics-main.xml) | Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList)]</visible>
+			<animation effect="fade" time="200">VisibleChange</animation>
+			<control type="image">
+				<description>media info background image</description>
+				<posx>30</posx>
+				<posy>-10</posy>
+				<width>1220</width>
+				<height>135</height>
+                                <texture border="20">ContentPanel.png</texture>
+<!--                            <texture>black-back.png</texture>-->
+                                <colordiffuse>DDFFFFFF</colordiffuse>
+			</control>
+			<control type="label">
+				<description>row 1 label</description>
+				<posx>50</posx>
+				<posy>10</posy>
+				<label>-</label>
+				<align>left</align>
+				<label>$INFO[musicplayer.Codec,$LOCALIZE[21446]: ,]$INFO[musicplayer.Bitrate, · $LOCALIZE[623]: ,kbps]$INFO[musicplayer.bitspersample, · $LOCALIZE[612]: ,bit]$INFO[musicplayer.Samplerate, · $LOCALIZE[613]: ,kHz]$INFO[musicplayer.Channels, · $LOCALIZE[21444]: ]</label>
+				<font>font12</font>
+			</control>
+			<control type="label">
+				<description>row 2 label</description>
+				<posx>50</posx>
+				<posy>40</posy>
+				<label>-</label>
+				<align>left</align>
+				<label>$INFO[Visualisation.Name] [I][COLOR=orange]($LOCALIZE[20166])[/COLOR][/I] · fps: $INFO[System.FPS]</label>
+				<font>font12</font>
+				<visible>Visualisation.Locked</visible>
+			</control>
+			<control type="label">
+				<description>Unlocked row 2 label</description>
+				<posx>50</posx>
+				<posy>40</posy>
+				<label>-</label>
+				<align>left</align>
+				<label>$INFO[Visualisation.Name] · fps: $INFO[System.FPS]</label>
+				<font>font12</font>
+				<visible>!Visualisation.Locked</visible>
+			</control>
+			<control type="label">
+				<description>row 3 label</description>
+				<posx>50</posx>
+				<posy>70</posy>
+				<label>-</label>
+				<align>left</align>
+				<label>$LOCALIZE[13388]: $INFO[Visualisation.Preset]</label>
+				<font>font12</font>
+			</control>
+		</control>
+	</controls>
+</window>

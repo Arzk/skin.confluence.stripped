@@ -1,0 +1,587 @@
+<window id="2005">
+ <defaultcontrol>2</defaultcontrol>
+        <onload>Dialog.Close(pvrguideinfo)</onload>
+        <onload>Dialog.Close(movieinformation)</onload>
+        <onload>Dialog.Close(musicinformation)</onload>
+	<controls>
+		<!-- Unpause button-->
+		<control type="button" id="1">
+			<posx>0</posx>
+			<posy></posy>
+			<width>1280</width>
+			<height>720</height>
+			<onclick>Pause</onclick>
+			<texturefocus>-</texturefocus>
+			<visible>Player.Paused</visible>
+		</control>
+
+		<control type="group" id="1"> <!-- Media Information-->
+<!--			<visible>[Player.ShowInfo | Window.IsActive(VideoOSD) | Window.IsVisible(107) | [Player.Paused + ![Player.Paused + Player.Caching]]] + ![Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>-->
+			<visible>Player.ShowInfo | Window.IsActive(VideoOSD) | Window.IsVisible(107) | [Player.Paused + Skin.HasSetting(ShowInfoPaused) + !Player.Caching] | [Skin.HasSetting(TouchMode) + Window.IsActive(VideoOSD) + Skin.HasSetting(OSDInfo)]</visible>
+                <animation effect="fade" time="200">VisibleChange</animation>
+	            <control type="group" id="1">
+	                        <visible>Skin.HasSetting(ShowClock) + !Skin.HasSetting(TouchMode)</visible>
+	                        <posx>120r</posx>
+	                        <posy>0</posy>
+	                        <control type="image" id="1">
+	                                <description>time background</description>
+	                                <posx>0</posx>
+	    	                        <posy>0</posy>
+	                                <width>220</width>
+	                                <height>35</height>
+	                                <texture flipx="true" border="32,0,0,0">header.png</texture>
+	                        </control>
+	                        <control type="label" id="1">
+	                                <description>time label</description>
+	                                <posx>30</posx>
+	                                <posy>0</posy>
+	                                <width>70</width>
+	                                <height>28</height>
+	                                <align>left</align>
+	                                <aligny>center</aligny>
+	                                <font>font12</font>
+	                                <textcolor>white</textcolor>
+	                                <label>$INFO[System.Time]</label>
+	                        </control>
+	            </control>
+	            <control type="group" id="2">
+	                <posx>0</posx>
+	                <posy>225r</posy>
+				<visible>[Player.ShowInfo | [Skin.HasSetting(TouchMode) + Window.IsActive(VideoOSD) + Skin.HasSetting(VideoOSDInfo)]] + ![Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+				<!-- Plot background -->
+		                <control type="image" id="1">
+		                        <posx>-20</posx>
+		                        <posy>0</posy>
+		                        <width>1320</width>
+		                        <height>157</height>
+	                                <texture border="0,5,0,0">ContentPanel.png</texture>
+					<colordiffuse>CCFFFFFF</colordiffuse>			
+		                        <visible>VideoPlayer.Content(LiveTV) | !IsEmpty(VideoPlayer.Plot)</visible>
+				</control>
+				<!-- Channel icon -->
+				<control type="image" id="1">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>180</width>
+					<height>140</height>
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<align>left</align>
+					<texture>$INFO[Player.Art(thumb)]</texture>
+					<visible>VideoPlayer.Content(LiveTV) + !IsEmpty(Player.Art(thumb))</visible>
+				</control>
+				<!-- Plot with no clearart-->
+	                        <control type="textbox" id="1">
+	                                <description>Plot Label</description>
+	                                <posx>25</posx>
+	                                <posy>10</posy>
+	                                <width>1145</width>
+	                                <height>140</height>
+                                        <align>justify</align>
+	                                <aligny>top</aligny>
+					<autoscroll delay="3000" time="3000" repeat="5000">!IsEmpty(VideoPlayer.Plot)</autoscroll>
+	                                <font>font12</font>
+	                                <textcolor>white</textcolor>
+		                        <label>$INFO[VideoPlayer.Plot]</label>
+					<visible>!Skin.HasSetting(ShowClearArt) | [!VideoPlayer.Content(LiveTV) + IsEmpty(Player.Art(clearart)) + IsEmpty(Player.Art(clearlogo)) + IsEmpty(Player.Art(tvshow.clearart)) + IsEmpty(Player.Art(tvshow.clearlogo))]</visible>
+				</control>
+				<!-- Plot with clearart-->
+	                        <control type="textbox" id="1">
+	                                <description>Plot Label</description>
+	                                <posx>245</posx>
+	                                <posy>10</posy>
+	                                <width>925</width>
+	                                <height>140</height>
+									<align>justify</align>
+	                                <aligny>top</aligny>
+					<autoscroll delay="3000" time="3000" repeat="5000">!IsEmpty(VideoPlayer.Plot)</autoscroll>
+	                                <font>font12</font>
+	                                <textcolor>white</textcolor>
+		                        <label>$INFO[VideoPlayer.Plot]</label>
+					<visible>Skin.HasSetting(ShowClearArt) + !VideoPlayer.Content(LiveTV) + ![IsEmpty(Player.Art(clearart)) + IsEmpty(Player.Art(clearlogo)) + IsEmpty(Player.Art(tvshow.clearart)) + IsEmpty(Player.Art(tvshow.clearlogo))]</visible>
+				</control>
+				<!-- Livetv plot-->
+                <control type="textbox" id="1">
+					<description>Plot Label</description>
+	                                <posx>205</posx>
+	                                <posy>10</posy>
+	                                <width>925</width>
+	                                <height>100</height>
+                                        <align>justify</align>
+	                                <aligny>top</aligny>
+					<autoscroll delay="3000" time="3000" repeat="5000">!IsEmpty(VideoPlayer.Plot)</autoscroll>
+	                                <font>font12</font>
+	                                <textcolor>white</textcolor>
+		                        <label>$INFO[VideoPlayer.Plot]</label>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+	                        </control>
+				<control type="label" id="1">
+					<description>LiveTV Info label</description>
+					<posx>205</posx>
+					<posy>125</posy>
+					<width>925</width>
+					<height>25</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>font12</font>
+					<textcolor>grey</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[VideoPlayer.ChannelNumber,(,)] $INFO[VideoPlayer.ChannelName]</label>
+                	                <visible>VideoPlayer.Content(LiveTV)</visible>
+				</control>
+            </control>
+				<!--Clearart-->
+			<control type="group" id="2">
+                <posx>0</posx>
+                <posy>223r</posy>
+
+				<!-- TODO: Show delayed when paused. -->
+				<!-- These animations cause a bug when paused -> info -->
+
+<!--		     	        <animation type="Conditional" condition="Player.Paused + !Player.ShowInfo">
+		                        <effect type="slide" start="0,0" end="0,-220" time="100" delay="5000" tween="quadratic" easing="out" reversible="false" />
+		                </animation>
+		     	        <animation type="Conditional" condition="Player.ShowInfo">
+		                        <effect type="slide" start="0,0" end="0,-220" time="0" reversible="false" />
+		                </animation>-->
+<!--				<visible>[Player.Paused | Player.ShowInfo] + ![Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>-->
+
+				<visible>[Player.ShowInfo | Skin.HasSetting(TouchMode) + Window.IsActive(VideoOSD) + Skin.HasSetting(OSDInfo)] + ![Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+				<control type="image" id="1">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>220</width>
+					<height>140</height>
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<align>left</align>
+					<texture background="true">$INFO[Player.Art(clearart)]</texture>
+					<visible>Skin.HasSetting(ShowClearArt) + !VideoPlayer.Content(LiveTV) + !VideoPlayer.Content(Episodes) + !IsEmpty(Player.Art(clearart))</visible>
+				</control>
+				<control type="image" id="1">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>220</width>
+					<height>140</height>
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<align>left</align>
+					<texture background="true">$INFO[Player.Art(clearlogo)]</texture>
+					<visible>Skin.HasSetting(ShowClearArt) + !VideoPlayer.Content(LiveTV) + !VideoPlayer.Content(Episodes) + IsEmpty(Player.Art(clearart))</visible>
+				</control>
+				<control type="image" id="1">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>220</width>
+					<height>140</height>
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<align>left</align>
+					<texture background="true">$INFO[Player.Art(tvshow.clearart)]</texture>
+					<visible>Skin.HasSetting(ShowClearArt) + !VideoPlayer.Content(LiveTV) + VideoPlayer.Content(Episodes) + !IsEmpty(Player.Art(tvshow.clearart))</visible>
+				</control>
+				<control type="image" id="1">
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>220</width>
+					<height>140</height>
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<align>left</align>
+					<texture background="true">$INFO[Player.Art(tvshow.clearlogo)]</texture>
+					<visible>Skin.HasSetting(ShowClearArt) + !VideoPlayer.Content(LiveTV) + VideoPlayer.Content(Episodes) + IsEmpty(Player.Art(tvshow.clearart))</visible>
+				</control>
+				<!-- Studio Logo -->
+<!--				<control type="image" id="1">
+					<posx>160r</posx>
+					<posy>10</posy>
+					<width>160</width>
+					<height>140</height>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<texture background="true">flagging/studio/$INFO[VideoPlayer.Studio,,.png]</texture>
+					<colordiffuse>99FFFFFF</colordiffuse>			
+					<visible>Skin.HasSetting(ShowStudioLogo) + !VideoPlayer.Content(LiveTV) + !IsEmpty(VideoPlayer.Studio)</visible>
+				</control>-->
+			</control>
+	
+			<include>FullScreenMediaInfo</include>
+		</control>
+
+				<!-- codec info -->
+                <control type="group" id="0">
+                        <left>0</left>
+                        <top>20</top>
+                        <animation effect="fade" time="200">VisibleChange</animation>
+                        <control type="image">
+                                <description>media info background image</description>
+                                <left>-20</left>
+                                <top>-30</top>
+                                <width>1320</width>
+                                <height>195</height>
+                                <texture border="0,0,0,5" flipy="true">ContentPanel.png</texture>
+				<colordiffuse>CCFFFFFF</colordiffuse>
+	                        <visible>![Player.ShowCodec + VideoPlayer.Content(LiveTV) + system.getbool(pvrplayback.signalquality)]</visible>
+<!--                                <texture>black-back.png</texture>-->
+                        </control>
+                        <control type="image">
+                                <description>media info background image</description>
+                                <left>-20</left>
+                                <top>-30</top>
+                                <width>1320</width>
+                                <height>430</height>
+                                <texture border="0,0,0,5" flipy="true">ContentPanel.png</texture>
+				<colordiffuse>CCFFFFFF</colordiffuse>
+	                        <visible>Player.ShowCodec + VideoPlayer.Content(LiveTV) + system.getbool(pvrplayback.signalquality)</visible>
+<!--                                <texture>black-back.png</texture>-->
+                        </control>
+                        <control type="label" id="10">
+                                <description>row 1 label</description>
+                                <left>50</left>
+                                <top>10</top>
+                                <width>1180</width>
+                                <height>30</height>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <label>-</label>
+                        </control>
+                        <control type="label" id="11">
+                                <description>row 2 label</description>
+                                <left>50</left>
+                                <top>55</top>
+                                <width>1180</width>
+                                <height>30</height>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <label>-</label>
+                        </control>
+                        <control type="label" id="12">
+                                <description>row 3 label</description>
+                                <left>50</left>
+                                <top>100</top>
+                                <width>1180</width>
+                                <height>45</height>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <label>-</label>
+                        </control>
+                </control>
+                <control type="selectbutton" id="503">
+                        <left>440</left>
+                        <top>100</top>
+                        <width>400</width>
+                        <height>100</height>
+                        <font>font13</font>
+                        <description>TV Channel Group Select Button</description>
+                        <texturebg border="20">OverlayDialogBackground.png</texturebg>
+                        <onleft>503</onleft>
+                        <onright>503</onright>
+                        <onup>500</onup>
+                        <ondown>500</ondown>
+                        <include>VisibleFadeEffect</include>
+                </control>
+                <control type="group">
+                        <visible>Player.ShowCodec + VideoPlayer.Content(LiveTV) + system.getbool(pvrplayback.signalquality)</visible>
+                        <top>165</top>
+<!--                        <control type="image">
+                                <description>media info background image</description>
+                                <left>0</left>
+                                <top>0</top>
+                                <width>1280</width>
+                                <height>220</height>
+                                <texture>black-back.png</texture>
+                        </control>-->
+                        <control type="label">
+                                <description>Header</description>
+                                <left>50</left>
+                                <top>5</top>
+                                <width>1200</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19005]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font13_title</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Backend</description>
+                                <left>50</left>
+                                <top>40</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19012]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Backend value</description>
+                                <left>220</left>
+                                <top>40</top>
+                                <width>1000</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamClient]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Device</description>
+                                <left>50</left>
+                                <top>65</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19006]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Device value</description>
+                                <left>220</left>
+                                <top>65</top>
+                                <width>1000</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamDevice]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Status</description>
+                                <left>50</left>
+                                <top>90</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19007]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Status value</description>
+                                <left>220</left>
+                                <top>90</top>
+                                <width>1000</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamStatus]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Signal</description>
+                                <left>50</left>
+                                <top>115</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19008]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="progress">
+                                <description>Progressbar</description>
+                                <left>220</left>
+                                <top>122</top>
+                                <width>910</width>
+                                <height>14</height>
+                                <info>PVR.ActStreamProgrSignal</info>
+                        </control>
+                        <control type="label">
+                                <description>Signal value</description>
+                                <left>1200</left>
+                                <top>115</top>
+                                <width>180</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamSignal]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>SNR</description>
+                                <left>50</left>
+                                <top>140</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19009]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="progress">
+                                <description>Progressbar</description>
+                                <left>220</left>
+                                <top>147</top>
+                                <width>910</width>
+                                <height>14</height>
+                                <overlaytexture>-</overlaytexture>
+                                <info>PVR.ActStreamProgrSNR</info>
+                        </control>
+                        <control type="label">
+                                <description>SNR value</description>
+                                <left>1200</left>
+                                <top>140</top>
+                                <width>180</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamSNR]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>BER</description>
+                                <left>50</left>
+                                <top>165</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19010]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>BER value</description>
+                                <left>220</left>
+                                <top>165</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamBER]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>UNC</description>
+                                <left>390</left>
+                                <top>165</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19011]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>UNC value</description>
+                                <left>560</left>
+                                <top>165</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamUNC]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Service</description>
+                                <left>730</left>
+                                <top>165</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19099]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Service value</description>
+                                <left>900</left>
+                                <top>165</top>
+                                <width>330</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamServiceName]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Encryption</description>
+                                <left>50</left>
+                                <top>190</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19015]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Encryption value</description>
+                                <left>220</left>
+                                <top>190</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamEncryptionName]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Provider</description>
+                                <left>390</left>
+                                <top>190</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19101]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Provider value</description>
+                                <left>560</left>
+                                <top>190</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamProviderName]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Mux</description>
+                                <left>730</left>
+                                <top>190</top>
+                                <width>165</width>
+                                <height>25</height>
+                                <label>$LOCALIZE[19100]:</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                        </control>
+                        <control type="label">
+                                <description>Mux value</description>
+                                <left>900</left>
+                                <top>190</top>
+                                <width>330</width>
+                                <height>25</height>
+                                <label>$INFO[PVR.ActStreamMux]</label>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <font>font12</font>
+                                <textcolor>white</textcolor>
+                        </control>
+                </control>
+
+	</controls>
+</window>

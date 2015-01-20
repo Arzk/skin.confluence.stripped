@@ -1,0 +1,851 @@
+<includes>
+	<include name="HomeSubMenuVideos">
+		<control type="image" id="90101">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+            <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="90102">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>342</label>
+			<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+			<visible>Library.HasContent(Movies) + Skin.HasSetting(HomeMenuNoMoviesButton) + !Skin.HasSetting(SubmenuVideoMovies.Hidden)</visible>
+		</control>
+		<control type="button" id="90103">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>20343</label>
+			<onclick>ActivateWindow(Videos,TvShowTitles,return)</onclick>
+			<visible>Library.HasContent(TVShows) + Skin.HasSetting(HomeMenuNoTVShowsButton) + !Skin.HasSetting(SubmenuVideoTVShows.Hidden)</visible>
+		</control>
+		<control type="button" id="90104">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>20389</label>
+			<onclick>ActivateWindow(Videos,MusicVideoTitles,return)</onclick>
+			<visible>Library.HasContent(MusicVideos) + !Skin.HasSetting(SubmenuVideoMusicVideos.Hidden)</visible>
+		</control>
+		<control type="button" id="90105">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>744</label>
+			<onclick>ActivateWindow(Videos,Files,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoFiles.Hidden)</visible>
+		</control>
+		<control type="button" id="90106">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>14022</label>
+			<onclick>ActivateWindow(Videos,Root)</onclick>
+                        <visible>Library.HasContent(Video) + !Skin.HasSetting(SubmenuVideoLibrary.Hidden)</visible>
+		</control>
+<!--                <control type="button" id="90107">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>24069</label>
+                        <onclick>UpdateLibrary(video)</onclick>
+                        <visible>Library.HasContent(Video) + !Skin.HasSetting(SubmenuVideoUpdate.Hidden)</visible>
+                </control>-->
+                <control type="button" id="90108">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>24001</label>
+                        <onclick>ActivateWindow(Videos,Addons,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoAddons.Hidden)</visible>
+                </control>
+                <control type="button" id="90109">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuVideoCustom.1.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuVideoCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuVideoCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuVideoCustom.1.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuVideoCustom.1.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuVideoCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuVideoCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuVideoCustom.1.Label))</visible>
+                </control>
+                <control type="button" id="90110">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuVideoCustom.2.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuVideoCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuVideoCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuVideoCustom.2.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuVideoCustom.2.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuVideoCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuVideoCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuVideoCustom.2.Label))</visible>
+                </control>
+                <control type="button" id="90111">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuVideoCustom.3.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuVideoCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuVideoCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuVideoCustom.3.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuVideoCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuVideoCustom.3.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuVideoCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuVideoCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuVideoCustom.3.Label))</visible>
+                </control>
+		<control type="image" id="90112">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuMovies">
+		<control type="image" id="10011">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+                <control type="button" id="10012">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>31328</label>
+                        <onclick>ActivateWindow(Videos,RecentlyAddedMovies,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieRecent.Hidden)</visible>
+                </control>
+		<control type="button" id="10013">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>20434</label>
+			<onclick>ActivateWindow(Videos,MovieSets,return)</onclick>
+                        <visible>Library.HasContent(MovieSets) + !Skin.HasSetting(SubmenuMovieSets.Hidden)</visible>
+		</control>
+                <control type="button" id="10014">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>369</label>
+                        <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieTitles.Hidden)</visible>
+                </control>
+		<control type="button" id="10015">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>20459</label>
+			<onclick>ActivateWindow(Videos,MovieTags,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieTags.Hidden)</visible>
+		</control>
+		<control type="button" id="10016">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>135</label>
+			<onclick>ActivateWindow(Videos,MovieGenres,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieGenres.Hidden)</visible>
+		</control>
+                <control type="button" id="10017">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>652</label>
+                        <onclick>ActivateWindow(Videos,MovieYears,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieYears.Hidden)</visible>
+                </control>
+                <control type="button" id="10018">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>344</label>
+                        <onclick>ActivateWindow(Videos,MovieActors,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieActors.Hidden)</visible>
+                </control>
+<!--		<control type="button" id="10019">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>14022</label>
+			<onclick>ActivateWindow(Videos,Root)</onclick>
+			<visible>Library.HasContent(Video)</visible>
+                        <visible>!Skin.HasSetting(SubmenuVideoLibrary.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>
+		<control type="button" id="10020">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>744</label>
+			<onclick>ActivateWindow(Videos,Files,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoFiles.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>
+		<control type="button" id="10021">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+			<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoAddons.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>-->
+                <control type="button" id="10022">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuMovieCustom.1.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMovieCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMovieCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuMovieCustom.1.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMovieCustom.1.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuMovieCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuMovieCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuMovieCustom.1.Label))</visible>
+                </control>
+                <control type="button" id="10023">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuMovieCustom.2.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMovieCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMovieCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuMovieCustom.2.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMovieCustom.2.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuMovieCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuMovieCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuMovieCustom.2.Label))</visible>
+                </control>
+                <control type="button" id="10024">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuMovieCustom.3.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMovieCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMovieCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuMovieCustom.3.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMovieCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMovieCustom.3.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMovieCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuMovieCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuMovieCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuMovieCustom.3.Label))</visible>
+                </control>
+		<control type="image" id="10025">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+	</include>
+	<include name="HomeSubMenuTVShows">
+		<control type="image" id="90171">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="90172">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>31328</label>
+			<onclick>ActivateWindow(Videos,RecentlyAddedEpisodes,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuTVRecent.Hidden)</visible>
+		</control>
+		<control type="button" id="90173">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>369</label>
+			<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuTVTitles.Hidden)</visible>
+		</control>
+		<control type="button" id="90174">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>135</label>
+			<onclick>ActivateWindow(Videos,TVShowGenres,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuTVGenres.Hidden)</visible>
+		</control>
+                <control type="button" id="90175">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>652</label>
+                        <onclick>ActivateWindow(Videos,TVShowYears,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuTVYears.Hidden)</visible>
+                </control>
+                <control type="button" id="90176">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>344</label>
+                        <onclick>ActivateWindow(Videos,TVShowActors,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuTVActors.Hidden)</visible>
+                </control>
+<!--		<control type="button" id="90177">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>14022</label>
+			<onclick>ActivateWindow(Videos,Root)</onclick>
+			<visible>Library.HasContent(Video)</visible>
+                        <visible>!Skin.HasSetting(SubmenuVideoLibrary.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>
+		<control type="button" id="90178">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>744</label>
+			<onclick>ActivateWindow(Videos,Files,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoFiles.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>
+		<control type="button" id="90179">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+			<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoAddons.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>-->
+                <control type="button" id="90180">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuTVCustom.1.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuTVCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuTVCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuTVCustom.1.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuTVCustom.1.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuTVCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuTVCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuTVCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuTVCustom.1.Label))</visible>
+                </control>
+                <control type="button" id="90181">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuTVCustom.2.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuTVCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuTVCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuTVCustom.2.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuTVCustom.2.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuTVCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuTVCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuTVCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuTVCustom.2.Label))</visible>
+                </control>
+                <control type="button" id="90182">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuTVCustom.3.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuTVCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuTVCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuTVCustom.3.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuTVCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuTVCustom.3.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuTVCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuTVCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuTVCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuTVCustom.3.Label))</visible>
+                </control>
+		<control type="image" id="90183">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuMusic">
+		<control type="image" id="90121">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+	                <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+                <control type="button" id="90122">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>133</label>
+                        <onclick>ActivateWindow(MusicLibrary,Artists,return)</onclick>
+                        <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicArtists.Hidden)</visible>
+                </control>
+		<control type="button" id="90123">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>132</label>
+			<onclick>ActivateWindow(MusicLibrary,Albums,return)</onclick>
+                        <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAlbums.Hidden)</visible>
+		</control>
+		<control type="button" id="90124">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>134</label>
+			<onclick>ActivateWindow(MusicLibrary,Songs,return)</onclick>
+                        <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicSongs.Hidden)</visible>
+		</control>
+		<control type="button" id="90125">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>135</label>
+			<onclick>ActivateWindow(MusicLibrary,Genres,return)</onclick>
+                        <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicGenres.Hidden)</visible>
+		</control>
+		<control type="button" id="90126">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>3</label>
+			<onclick>ActivateWindow(Videos,MusicVideoTitles,return)</onclick>
+                        <visible>Library.HasContent(MusicVideos) + !Skin.HasSetting(SubmenuMusicVideos.Hidden)</visible>
+		</control>
+		<control type="button" id="90127">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>14022</label>
+			<onclick>ActivateWindow(MusicLibrary)</onclick>
+			<visible>Library.HasContent(Music)</visible>
+                        <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicLibrary.Hidden)</visible>
+		</control>
+		<control type="button" id="90128">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>744</label>
+			<onclick>ActivateWindow(MusicFiles)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMusicFiles.Hidden)</visible>
+		</control>
+		<control type="button" id="90129">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+			<onclick>ActivateWindow(MusicLibrary,Addons,return)</onclick>
+			<visible>Library.HasContent(Music)</visible>
+                        <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAddons.Hidden)</visible>
+		</control>
+                <control type="button" id="90130">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>24001</label>
+                        <onclick>ActivateWindow(MusicFiles,Addons,return)</onclick>
+                        <visible>!Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAddons.Hidden)</visible>
+                </control>
+                <control type="button" id="90131">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuMusicCustom.1.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.1.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.1.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMusicCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Label))</visible>
+                </control>
+                <control type="button" id="90132">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuMusicCustom.2.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.2.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.2.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMusicCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Label))</visible>
+                </control>
+                <control type="button" id="90133">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuMusicCustom.3.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.3.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.3.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuMusicCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Label))</visible>
+                </control>
+
+		<control type="image" id="90134">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuSystem">
+		<control type="image" id="10044">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+                <control type="button" id="10045">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>5</label>
+                        <onclick>ActivateWindow(Settings)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuSystemSettings.Hidden)</visible>
+                </control>
+                <control type="button" id="10046">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>90042</label>
+                        <onclick condition="System.HasAddon(os.openelec.settings)">RunAddon(os.openelec.settings)</onclick>
+                        <onclick condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</onclick>
+                        <visible>[System.HasAddon(os.openelec.settings) | System.HasAddon(service.openelec.settings)] + !Skin.HasSetting(SubmenuSystemOpenELEC.Hidden)</visible>
+                </control>
+		<control type="button" id="10047">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>7</label>
+			<onclick>ActivateWindow(FileManager)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuSystemFileManager.Hidden)</visible>
+		</control>
+		<control type="button" id="10048">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>130</label>
+			<onclick>ActivateWindow(SystemInfo)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuSystemInfo.Hidden)</visible>
+		</control>
+                <control type="button" id="10049">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>13200</label>
+                        <onclick>ActivateWindow(Profiles)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuSystemProfiles.Hidden)</visible>
+                </control>
+                <control type="button" id="100150">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>20077</label>
+                        <onclick>ActivateWindow(SkinSettings)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuSystemSkin.Hidden)</visible>
+                </control>
+
+                <control type="button" id="10051">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>31963</label>
+                        <onclick>ActivateWindow(Shutdownmenu)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
+                </control>
+
+		<control type="image" id="10052">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+        <include name="HomeSubMenuPlayDisc">
+                <control type="image" id="90161">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+                </control>
+                <control type="button" id="90162">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuDiscCustom.1.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.1.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuDiscCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuDiscCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuDiscCustom.1.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuDiscCustom.1.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuDiscCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuDiscCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuDiscCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuDiscCustom.1.Label))</visible>
+                </control>
+                <control type="button" id="90163">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuDiscCustom.2.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.2.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuDiscCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuDiscCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuDiscCustom.2.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuDiscCustom.2.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuDiscCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuDiscCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuDiscCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuDiscCustom.2.Label))</visible>
+                </control>
+                <control type="button" id="90164">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuDiscCustom.3.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.3.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuDiscCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuDiscCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuDiscCustom.3.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuDiscCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuDiscCustom.3.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuDiscCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuDiscCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuDiscCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuDiscCustom.3.Label))</visible>
+                </control>
+                <control type="button" id="90165">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>600</label>
+                        <onclick>SetFocus(9000)</onclick>
+                        <onclick>RipCD</onclick>
+                        <visible>!Skin.HasSetting(SubmenuDiscRip.Hidden)</visible>
+                </control>
+                <control type="button" id="90166">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>13391</label>
+                        <onclick>SetFocus(9000)</onclick>
+                        <onclick>EjectTray()</onclick>
+                        <visible>!Skin.HasSetting(SubmenuDiscEject.Hidden)</visible>
+                </control>
+                <control type="image" id="90167">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+	                <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+                </control>
+        </include>
+	<include name="HomeSubMenuPictures">
+		<control type="image" id="10055">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+	                <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="10056">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+			<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPictureAddons.Hidden)</visible>
+		</control>
+                <control type="button" id="10057">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuPictureCustom.1.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuPictureCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuPictureCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuPictureCustom.1.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuPictureCustom.1.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPictureCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuPictureCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuPictureCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuPictureCustom.1.Label))</visible>
+                </control>
+                <control type="button" id="10058">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuPictureCustom.2.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuPictureCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuPictureCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuPictureCustom.2.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuPictureCustom.2.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPictureCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuPictureCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuPictureCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuPictureCustom.2.Label))</visible>
+                </control>
+                <control type="button" id="10059">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuPictureCustom.3.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuPictureCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuPictureCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuPictureCustom.3.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPictureCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuPictureCustom.3.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPictureCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuPictureCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuPictureCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuPictureCustom.3.Label))</visible>
+                </control>
+		<control type="image" id="10060">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuLiveTV">
+		<control type="image" id="90141">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+                <control type="button" id="90142">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>19019</label>
+                        <onclick>ActivateWindow(TVChannels)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPVRChannels.Hidden)</visible>
+                </control>
+                <control type="button" id="90143">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>19069</label>
+                        <onclick>ActivateWindow(TVGuide)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPVREPG.Hidden)</visible>
+                </control>
+
+		<control type="button" id="90144">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>19163</label>
+			<onclick>ActivateWindow(TVRecordings)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPVRRecordings.Hidden)</visible>
+		</control>
+		<control type="button" id="90145">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>19040</label>
+			<onclick>ActivateWindow(TVTimers)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPVRTimer.Hidden)</visible>
+		</control>
+                <control type="button" id="90146">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuPVRCustom.1.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuPVRCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuPVRCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuPVRCustom.1.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuPVRCustom.1.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPVRCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuPVRCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuPVRCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuPVRCustom.1.Label))</visible>
+                </control>
+                <control type="button" id="90147">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuPVRCustom.2.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuPVRCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuPVRCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuPVRCustom.2.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuPVRCustom.2.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPVRCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuPVRCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuPVRCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuPVRCustom.2.Label))</visible>
+                </control>
+                <control type="button" id="90148">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuPVRCustom.3.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuPVRCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuPVRCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuPVRCustom.3.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuPVRCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuPVRCustom.3.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuPVRCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuPVRCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuPVRCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuPVRCustom.3.Label))</visible>
+                </control>
+		<control type="image" id="90149">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+            <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuPrograms">
+		<control type="image" id="90151">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="90152">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+                        <onclick>ActivateWindow(Programs,Addons,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuProgramsAddons.Hidden)</visible>
+		</control>
+                <control type="button" id="90153">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuProgramsCustom.1.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuProgramsCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuProgramsCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuProgramsCustom.1.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuProgramsCustom.1.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuProgramsCustom.1.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuProgramsCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuProgramsCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuProgramsCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuProgramsCustom.1.Label))</visible>
+                </control>
+                <control type="button" id="90154">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuProgramsCustom.2.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuProgramsCustom.2.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuProgramsCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuProgramsCustom.2.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuProgramsCustom.2.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuProgramsCustom.2.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuProgramsCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuProgramsCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuProgramsCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuProgramsCustom.2.Label))</visible>
+                </control>
+                <control type="button" id="90155">
+                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+                        <label>$INFO[Skin.String(SubmenuProgramsCustom.3.Label)]</label>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuProgramsCustom.3.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuProgramsCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuProgramsCustom.3.Path)],return)</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuProgramsCustom.3.Path)]</onclick>
+                        <onclick condition="Stringcompare(Skin.String(SubmenuProgramsCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuProgramsCustom.3.Path)])</onclick>
+                        <visible>!Skin.HasSetting(SubmenuProgramsCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuProgramsCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuProgramsCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuProgramsCustom.3.Label))</visible>
+                </control>
+		<control type="image" id="90159">
+			<width>35</width>
+			<height>35</height>
+			<texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+        <include name="HomeMenuItems">
+                                        <item id="12">
+                                                <label>[UPPERCASE]$LOCALIZE[31502][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(TVGuide)</onclick>
+                                                <icon>special://skin/backgrounds/tv.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomePVRBG)]</thumb>
+			                        <property name="MenuIcon">icons/tv.png</property>
+                                                <visible>System.GetBool(pvrmanager.enabled) + Skin.HasSetting(TouchMode)</visible>
+                                        </item>
+                                        <item id="7">
+                                                <label>[UPPERCASE]$LOCALIZE[8][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(Weather)</onclick>
+                                                <icon>special://skin/backgrounds/weather.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeWeatherBG)]</thumb>
+			                        <property name="MenuIcon">icons/weather.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoWeatherButton) + !IsEmpty(Weather.Plugin)</visible>
+                                        </item>
+                                        <item id="4">
+                                                <label>[UPPERCASE]$LOCALIZE[1][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(Pictures)</onclick>
+                                                <icon>special://skin/backgrounds/pictures.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomePicturesBG)]</thumb>
+			                        <property name="MenuIcon">icons/pictures.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoPicturesButton)</visible>
+                                        </item>
+                                        <item id="2">
+                                                <label>[UPPERCASE]$LOCALIZE[3][/UPPERCASE]</label>
+                                                <onclick condition="StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos)</onclick>
+                                                <onclick condition="!StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos,root)</onclick>
+                                                <icon>special://skin/backgrounds/videos.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeVideoBG)]</thumb>
+			                        <property name="MenuIcon">icons/videos.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+                                        </item>
+                                        <item id="10">
+                                                <label>[UPPERCASE]$LOCALIZE[20342][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+                                                <icon>special://skin/backgrounds/videos.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeMoviesBG)]</thumb>
+			                        <property name="MenuIcon">icons/movies.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
+                                        </item>
+                                        <item id="11">
+                                                <label>[UPPERCASE]$LOCALIZE[20343][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
+                                                <icon>special://skin/backgrounds/videos.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeTVBG)]</thumb>
+			                        <property name="MenuIcon">icons/tvshows.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoTVShowsButton) + Library.HasContent(TVShows)</visible>
+                                        </item>
+                                        <item id="12">
+                                                <label>[UPPERCASE]$LOCALIZE[31502][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(TVGuide)</onclick>
+                                                <icon>special://skin/backgrounds/tv.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomePVRBG)]</thumb>
+			                        <property name="MenuIcon">icons/tv.png</property>
+                                                <visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(TouchMode)</visible>
+                                        </item>
+                                        <item id="3">
+                                                <label>[UPPERCASE]$LOCALIZE[2][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(MusicLibrary,Artists,return)</onclick>
+                                                <icon>special://skin/backgrounds/music.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeMusicBG)]</thumb>
+			                        <property name="MenuIcon">icons/music.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoMusicButton)</visible>
+                                        </item>
+                                        <item id="1">
+                                                <label>[UPPERCASE]$LOCALIZE[0][/UPPERCASE]</label>
+                                                <onclick condition="!System.Platform.Android">ActivateWindow(Programs,Addons,return)</onclick>
+                                                <onclick condition="System.Platform.Android">ActivateWindow(Programs)</onclick>
+                                                <icon>special://skin/backgrounds/programs.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeProgramsBG)]</thumb>
+			                        <property name="MenuIcon">icons/programs.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
+                                        </item>
+                                        <item id="13">
+                                                <label>[UPPERCASE]$LOCALIZE[31990][/UPPERCASE]</label>
+                                                <onclick>RunAddon(script.games.rom.collection.browser)</onclick>
+                                                <icon>special://skin/backgrounds/games.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeGamesBG)]</thumb>
+			                        <property name="MenuIcon">icons/games.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoGamesButton) + System.HasAddon(script.games.rom.collection.browser)</visible>
+                                        </item>
+                                        <item id="6">
+                                                <label>[UPPERCASE]$LOCALIZE[341][/UPPERCASE]</label>
+                                                <onclick>PlayList.Clear</onclick>
+                                                <onclick>XBMC.PlayDVD()</onclick>
+                                                <icon>special://skin/backgrounds/playdisc.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeDiscBG)]</thumb>
+			                        <property name="MenuIcon">icons/disc.png</property>
+                                                <visible>System.HasMediaDVD</visible>
+                                        </item>
+                                        <item id="5">
+                                                <label>[UPPERCASE]$LOCALIZE[13000][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(Settings)</onclick>
+                                                <icon>special://skin/backgrounds/settings.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeSettingsBG)]</thumb>
+												<property name="MenuIcon">icons/settings.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoSystemButton) + [!Skin.HasSetting(SettingsToCategories) | Skin.HasSetting(TouchMode)]</visible>
+                                        </item>
+                                        <item id="5">
+                                                <label>[UPPERCASE]$LOCALIZE[13000][/UPPERCASE]</label>
+                                                <onclick>ActivateWindow(appearancesettings)</onclick>
+                                                <icon>special://skin/backgrounds/settings.jpg</icon>
+                                                <thumb>$INFO[Skin.String(HomeSettingsBG)]</thumb>
+			                        <property name="MenuIcon">icons/settings.png</property>
+                                                <visible>!Skin.HasSetting(HomeMenuNoSystemButton) + [Skin.HasSetting(SettingsToCategories) + !Skin.HasSetting(TouchMode)]</visible>
+                                        </item>
+
+        </include>
+
+</includes>

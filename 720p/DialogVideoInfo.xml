@@ -1,0 +1,1526 @@
+<window>
+        <defaultcontrol always="true">5</defaultcontrol>
+        <allowoverlay>no</allowoverlay>
+        <onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(ActivateTvTunesInfo)">XBMC.RunScript(script.tvtunes,backend=True&amp;loop=False)</onload>
+	<onload condition="System.HasAddon(script.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
+	<onload condition="System.HasAddon(script.videolanguage) + [Container.Content(movies) | Container.Content(episodes)]">RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>
+        <controls>
+            <control type="group">
+                <visible>![Window.IsVisible(script-Actors-DialogInfo.xml) | Window.IsVisible(script-Actors-Browser.xml) | Window.IsVisible(script-Actors-DialogVideoInfo.xml) | Window.IsVisible(FileBrowser)]</visible>
+				<control type="group">
+<!--				<control type="group">
+					<visible>Control.HasFocus(12)</visible>
+					<posy>78</posy>
+					<posx>70</posx>
+					<include>VisibleFadeEffect</include>
+					<control type="image">
+						<description>Current Fanart image</description>
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>760</width>
+						<height>380</height>
+						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<bordertexture border="5">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+						<aspectratio>keep</aspectratio>
+						<visible>!IsEmpty(Listitem.Art(fanart))</visible>
+					</control>
+					<control type="group">
+						<visible>IsEmpty(Listitem.Art(fanart))</visible>
+						<control type="image">
+							<description>No Fanart Back</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>760</width>
+							<height>380</height>
+							<texture>Fanart_Fallback_Small.jpg</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>4</bordersize>
+							<aspectratio>stretch</aspectratio>
+							<colordiffuse>99FFFFFF</colordiffuse>
+						</control>
+						<control type="label">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>760</width>
+							<height>380</height>
+							<font>font30_title</font>
+							<textcolor>white</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>31311</label>
+						</control>
+					</control>
+				</control>-->
+				<control type="group">
+					<posy>78</posy>
+					<posx>70</posx>
+					<visible>Control.HasFocus(15)</visible>
+					<include>VisibleFadeEffect</include>
+					<control type="image">
+						<description>Border</description>
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>760</width>
+						<height>250</height>
+						<texture border="5">button-nofocus.png</texture>
+					</control>
+<!--					<control type="image">
+						<description>background</description>
+						<posx>5</posx>
+						<posy>5</posy>
+						<width>740</width>
+						<height>330</height>
+						<texture>black-back.png</texture>
+					</control>-->
+					<control type="label">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>760</width>
+						<height>250</height>
+						<font>font30_title</font>
+						<textcolor>grey2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>31330</label>
+						<visible>!Player.HasVideo</visible>
+					</control>
+					<control type="videowindow">
+						<description>No Fanart Back</description>
+						<posx>5</posx>
+						<posy>5</posy>
+						<width>750</width>
+						<height>250</height>
+						<visible>Player.HasVideo</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>[!container.content(tvshows) + !container.content(episodes) + !container.content(musicvideos)] + ![Control.HasFocus(12) | Control.HasFocus(15)]</visible>
+					<posy>78</posy>
+					<posx>70</posx>
+                                        <visible>!Control.IsVisible(50)</visible>
+					<control type="group">
+						<posy>0</posy>
+						<posx>540</posx>
+						<include>StudioFlaggingConditions</include>
+					</control>
+					<control type="list" id="49">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>740</width>
+						<height>250</height>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+<!--						<onup>50</onup>
+						<ondown>50</ondown>-->
+                                                <onup>9000</onup>
+                                                <ondown>61</ondown>
+						<pagecontrol>-</pagecontrol>
+						<scrolltime>200</scrolltime>
+						<itemlayout height="25">
+							<control type="label">
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>160</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>selected</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>175</posx>
+								<posy>0</posy>
+								<width>565</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</itemlayout>
+						<focusedlayout height="25">
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>740</width>
+								<height>25</height>
+								<visible>Control.HasFocus(49)</visible>
+								<texture>MenuItemFO.png</texture>
+								<include>VisibleFadeEffect</include>
+							</control>
+							<control type="label">
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>160</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>selected</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>175</posx>
+								<posy>0</posy>
+								<width>565</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</focusedlayout>
+						<content>
+							<item>
+								<label>$LOCALIZE[20376]:</label>
+								<label2>$INFO[ListItem.OriginalTitle]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.OriginalTitle) + !stringcompare(ListItem.OriginalTitle,Listitem.Title)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20339]:</label>
+								<label2>$INFO[ListItem.Director]</label2>
+								<onclick condition="!System.HasAddon(script.metadata.actors)">SendClick(2003,13)</onclick>
+								<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Director])</onclick>
+								<visible>!IsEmpty(ListItem.Director)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20417]:</label>
+								<label2>$INFO[ListItem.Writer]</label2>
+								<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Writer])</onclick>
+								<visible>!IsEmpty(ListItem.Writer)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[572]:</label>
+								<label2>$INFO[ListItem.Studio]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Studio)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[515]:</label>
+								<label2>$INFO[ListItem.Genre]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Genre)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[562]:</label>
+								<label2>$INFO[ListItem.Year]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Year)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[2050]:</label>
+								<label2>$INFO[ListItem.Duration] $LOCALIZE[12391]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Duration)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[563]:</label>
+								<label2>$INFO[ListItem.RatingAndVotes]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[202]:</label>
+								<label2>$INFO[ListItem.TagLine]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.TagLine)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[203]:</label>
+								<label2>$INFO[ListItem.PlotOutline]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.PlotOutline)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20074]:</label>
+								<label2>$INFO[ListItem.mpaa]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.mpaa)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[15311]</label>
+								<label2>$INFO[ListItem.FilenameAndPath]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.FilenameAndPath)</visible>
+							</item>
+						</content>
+					</control>
+<!--					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>270</width>
+						<height>380</height>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="5">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>-->
+<!--					<control type="image">
+						<posx>290</posx>
+						<posy>370</posy>
+						<width>740</width>
+						<height>4</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>separator.png</texture>
+					</control>-->
+				</control>
+				<control type="group">
+					<visible>Container.Content(TVShows) + !Control.HasFocus(12)</visible>
+					<posy>78</posy>
+					<posx>70</posx>
+                                        <visible>!Control.IsVisible(50)</visible>
+                                        <control type="group">
+                                                <posy>0</posy>
+                                                <posx>540</posx>
+                                                <include>StudioFlaggingConditions</include>
+                                        </control>
+<!--					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>270</width>
+						<height>380</height>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="5">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+						<texture background="true">$VAR[PosterThumb]</texture>
+					</control>-->
+					<control type="list" id="49">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>740</width>
+						<height>250</height>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>9000</onup>
+						<ondown>61</ondown>
+						<pagecontrol>-</pagecontrol>
+						<scrolltime>200</scrolltime>
+						<itemlayout height="25">
+							<control type="label">
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>160</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>selected</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>175</posx>
+								<posy>0</posy>
+								<width>565</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</itemlayout>
+						<focusedlayout height="25">
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>740</width>
+								<height>25</height>
+								<visible>Control.HasFocus(49)</visible>
+								<texture>MenuItemFO.png</texture>
+								<include>VisibleFadeEffect</include>
+							</control>
+							<control type="label">
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>160</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>selected</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>175</posx>
+								<posy>0</posy>
+								<width>565</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</focusedlayout>
+						<content>
+							<item>
+								<label>$LOCALIZE[33054]:</label>
+								<label2>$INFO[ListItem.Property(TotalSeasons)]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Property(TotalSeasons))</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20360]:</label>
+								<label2>$INFO[ListItem.Episode] [COLOR=grey] ($INFO[ListItem.Property(WatchedEpisodes),, $LOCALIZE[16102]] - $INFO[ListItem.Property(UnWatchedEpisodes), , $LOCALIZE[16101]])[/COLOR]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Episode)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[126]:</label>
+		                                                <label2>$INFO[Window(Home).Property(NextAired.Status)]</label2>
+								<onclick>-</onclick>
+		                                                <visible>!IsEmpty(Window(Home).Property(NextAired.Status)) + System.HasAddon(script.tv.show.next.aired)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[31322]:</label>
+								<label2>$INFO[ListItem.Premiered]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Premiered)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[572]:</label>
+								<label2>$INFO[ListItem.Studio]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Studio)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[515]:</label>
+								<label2>$INFO[ListItem.Genre]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Genre)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[562]:</label>
+								<label2>$INFO[ListItem.Year]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Year)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[563]:</label>
+								<label2>$INFO[ListItem.Rating]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Rating)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[15311]</label>
+								<label2>$INFO[ListItem.FilenameAndPath]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.FilenameAndPath)</visible>
+							</item>
+						</content>
+					</control>
+<!--					<control type="image">
+						<posx>290</posx>
+						<posy>370</posy>
+						<width>740</width>
+						<height>4</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>separator.png</texture>
+					</control>-->
+				</control>
+				<control type="group">
+					<visible>container.content(episodes) + !Control.HasFocus(12)</visible>
+					<posy>78</posy>
+					<posx>70</posx>
+                                        <visible>!Control.IsVisible(50)</visible>
+                                        <control type="group">
+                                                <posy>0</posy>
+                                                <posx>540</posx>
+                                                <include>StudioFlaggingConditions</include>
+                                        </control>
+<!--					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>380</width>
+						<height>250</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<bordertexture border="5">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>250</posy>
+						<width>380</width>
+						<height>250</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<bordertexture border="5"  flipy="true" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+						<texture background="true" flipy="true" diffuse="diffuse_mirror2.png">$INFO[ListItem.Icon]</texture>
+					</control>-->
+					<control type="list" id="49">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>740</width>
+						<height>250</height>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>9000</onup>
+						<ondown>61</ondown>
+						<pagecontrol>-</pagecontrol>
+						<scrolltime>200</scrolltime>
+						<itemlayout height="25">
+							<control type="label">
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>160</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>selected</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>175</posx>
+								<posy>0</posy>
+								<width>565</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</itemlayout>
+						<focusedlayout height="25">
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>740</width>
+								<height>25</height>
+								<visible>Control.HasFocus(49)</visible>
+								<texture>MenuItemFO.png</texture>
+								<include>VisibleFadeEffect</include>
+							</control>
+							<control type="label">
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>160</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>selected</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>175</posx>
+								<posy>0</posy>
+								<width>565</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</focusedlayout>
+						<content>
+							<item>
+								<label>$LOCALIZE[20364]:</label>
+								<label2>$INFO[ListItem.TVShowTitle]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.TVShowTitle)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20373]:</label>
+								<label2>$INFO[ListItem.Season]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Season)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20359]:</label>
+								<label2>$INFO[ListItem.Episode]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Episode)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[31322]:</label>
+								<label2>$INFO[ListItem.Premiered]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Premiered)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[515]:</label>
+								<label2>$INFO[ListItem.Genre]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Genre)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20339]:</label>
+								<label2>$INFO[ListItem.Director]</label2>
+								<onclick condition="!System.HasAddon(script.metadata.actors)">SendClick(2003,13)</onclick>
+								<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Director])</onclick>
+								<visible>!IsEmpty(ListItem.Director)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20417]:</label>
+								<label2>$INFO[ListItem.Writer]</label2>
+								<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Writer])</onclick>
+								<visible>!IsEmpty(ListItem.Writer)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[562]:</label>
+								<label2>$INFO[ListItem.Year]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Year)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[2050]:</label>
+								<label2>$INFO[ListItem.Duration] $LOCALIZE[12391]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Duration)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[563]:</label>
+								<label2>$INFO[ListItem.Rating]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Rating)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[15311]</label>
+								<label2>$INFO[ListItem.FilenameAndPath]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.FilenameAndPath)</visible>
+							</item>
+						</content>
+					</control>
+<!--					<control type="image">
+						<posx>290</posx>
+						<posy>370</posy>
+						<width>740</width>
+						<height>4</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>separator.png</texture>
+					</control>-->
+				</control>
+				<control type="group">
+					<visible>container.content(musicvideos) + !Control.HasFocus(12)</visible>
+					<posy>78</posy>
+					<posx>70</posx>
+                                        <visible>!Control.IsVisible(50)</visible>
+                                        <control type="group">
+                                                <posy>0</posy>
+                                                <posx>540</posx>
+                                                <include>StudioFlaggingConditions</include>
+                                        </control>
+<!--					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>380</width>
+						<height>360</height>
+						<aspectratio>keep</aspectratio>
+						<bordertexture border="5">button-nofocus.png</bordertexture>
+						<bordersize>4</bordersize>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>-->
+					<control type="list" id="49">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>740</width>
+						<height>250</height>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>9000</onup>
+						<ondown>61</ondown>
+						<pagecontrol>-</pagecontrol>
+						<scrolltime>200</scrolltime>
+						<itemlayout height="25">
+							<control type="label">
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>160</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>selected</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>175</posx>
+								<posy>0</posy>
+								<width>565</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</itemlayout>
+						<focusedlayout height="25">
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>740</width>
+								<height>25</height>
+								<visible>Control.HasFocus(49)</visible>
+								<texture>MenuItemFO.png</texture>
+								<include>VisibleFadeEffect</include>
+							</control>
+							<control type="label">
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>160</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>selected</selectedcolor>
+								<info>ListItem.Label</info>
+							</control>
+							<control type="label">
+								<posx>175</posx>
+								<posy>0</posy>
+								<width>565</width>
+								<height>25</height>
+								<font>font12</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>white</textcolor>
+								<selectedcolor>white</selectedcolor>
+								<info>ListItem.Label2</info>
+							</control>
+						</focusedlayout>
+						<content>
+							<item>
+								<label>$LOCALIZE[557]:</label>
+								<label2>$INFO[ListItem.Artist]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Artist)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[558]:</label>
+								<label2>$INFO[ListItem.Album]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Album)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[515]:</label>
+								<label2>$INFO[ListItem.Genre]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Genre)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[572]:</label>
+								<label2>$INFO[ListItem.Studio]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Studio)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20417]:</label>
+								<label2>$INFO[ListItem.Writer]</label2>
+								<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Writer])</onclick>
+								<visible>!IsEmpty(ListItem.Writer)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[20339]:</label>
+								<label2>$INFO[ListItem.Director]</label2>
+								<onclick condition="!System.HasAddon(script.metadata.actors)">SendClick(2003,13)</onclick>
+								<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Director])</onclick>
+								<visible>!IsEmpty(ListItem.Director)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[562]:</label>
+								<label2>$INFO[ListItem.Year]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Year)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[2050]:</label>
+								<label2>$INFO[ListItem.Duration] $LOCALIZE[12391]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Duration)</visible>
+							</item>
+							<item>
+								<label>$LOCALIZE[15311]</label>
+								<label2>$INFO[ListItem.FilenameAndPath]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.FilenameAndPath)</visible>
+							</item>
+						</content>
+					</control>
+<!--					<control type="image">
+						<posx>390</posx>
+						<posy>370</posy>
+						<width>640</width>
+						<height>4</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>separator.png</texture>
+					</control>-->
+				</control>
+				<control type="scrollbar" id="60">
+	                                <posx>55</posx>
+	                                <posy>78</posy>
+	                                <width>25</width>
+	                                <height>561</height>
+	                                <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+	                                <texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+	                                <texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+	                                <textureslidernib>ScrollBarNib.png</textureslidernib>
+	                                <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+	                                <showonepage>false</showonepage>
+	                                <orientation>vertical</orientation>
+	                                <visible>Control.IsVisible(50)</visible>
+	                        </control>
+				<control type="image">
+					<posx>78</posx>
+					<posy>339</posy>
+					<width>740</width>
+					<height>4</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>separator.png</texture>
+                                        <visible>!Control.IsVisible(50) + ![Control.HasFocus(12) | Control.HasFocus(15)] </visible>
+				</control>
+				<control type="textbox" id="400">
+					<description>Description Value for Movies</description>
+					<posx>78</posx>
+					<posy>345</posy>
+					<width>740</width>
+					<height>265</height>
+					<font>font13</font>
+					<align>justify</align>
+					<textcolor>white</textcolor>
+					<pagecontrol>61</pagecontrol>
+					<label>$INFO[ListItem.Plot]</label>
+					<autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(61) + Skin.HasSetting(AutoScroll)</autoscroll>
+					<visible>!Control.IsVisible(50)</visible>
+				</control>
+				<control type="spincontrol" id="61">
+					<description>Next page button</description>
+					<posx>758</posx>
+					<posy>615</posy>
+					<subtype>page</subtype>
+					<font>-</font>
+					<onleft>61</onleft>
+					<onright>61</onright>
+					<ondown>9000</ondown>
+					<onup>49</onup>
+					<textcolor>-</textcolor>
+					<showonepage>false</showonepage>
+	                                <visible>Control.IsVisible(400)</visible>
+				</control>
+				<control type="grouplist">
+					<posx>70</posx>
+					<posy>603</posy>
+					<height>35</height>
+					<width>680</width>
+					<orientation>horizontal</orientation>
+					<visible>![Control.HasFocus(12) | Control.HasFocus(15)]</visible>
+                                        <visible>!Control.IsVisible(50)</visible>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(AudioLanguage.1))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Audio Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                             	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/AudioLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(AudioLanguage.1)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+                                       	</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(AudioLanguage.2))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Audio Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                             	<width>80</width>
+                                                      	<height>35</height>
+                                                       	<texture>flagging/AudioLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(AudioLanguage.2)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+                                      	</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(AudioLanguage.3))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Audio Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+                                                     	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/AudioLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(AudioLanguage.3)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(AudioLanguage.4))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Audio Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                             	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/AudioLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(AudioLanguage.4)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(AudioLanguage.5))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Audio Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                             	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/AudioLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(AudioLanguage.5)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(AudioLanguage.6))</visible>
+                                                <control type="image">
+                                               		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Audio Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                             	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/AudioLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                             	        <label>$INFO[Window.Property(AudioLanguage.6)]</label>
+                                              	        <textcolor>grey</textcolor>
+                                              	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(AudioLanguage.7))</visible>
+	                                               <control type="image">
+                                               		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Audio Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+       	                                               	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/AudioLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(AudioLanguage.7)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(AudioLanguage.8))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Audio Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+ 	                                               	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/AudioLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(AudioLanguage.8)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(SubtitleLanguage.1)) + IsEmpty(Window.Property(AudioLanguage.8))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Subtitle Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                             	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/SubLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(SubtitleLanguage.1)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(SubtitleLanguage.2)) + IsEmpty(Window.Property(AudioLanguage.7))</visible>
+	                                        <control type="image">
+                                                      	<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Subtitle Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+       	                                               	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/SubLang.png</texture>
+                                                </control>
+                                                <control type="label">
+                                                        <left>23</left>
+                                                        <top>0</top>
+                                                        <width>57</width>
+                                                        <height>35</height>
+                                                        <font>font12</font>
+                                                        <align>center</align>
+                                                        <aligny>center</aligny>
+                                                        <label>$INFO[Window.Property(SubtitleLanguage.2)]</label>
+                                                        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+	                                <control type="group">
+	                                        <width>80</width>
+	                                        <height>35</height>
+						<visible>!IsEmpty(Window.Property(SubtitleLanguage.3)) + IsEmpty(Window.Property(AudioLanguage.6))</visible>
+	                                               <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Subtitle Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+       	                                               	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/SubLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(SubtitleLanguage.3)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(SubtitleLanguage.4)) + IsEmpty(Window.Property(AudioLanguage.5))</visible>
+                                                <control type="image">
+                                             		<left>0</left>
+                                                       	<top>0</top>
+                                                      	<description>Subtitle Language Image</description>
+                                                      	<aspectratio align="right">stretch</aspectratio>
+                                                   	<width>80</width>
+                                                       	<height>35</height>
+                                                      	<texture>flagging/SubLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(SubtitleLanguage.4)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(SubtitleLanguage.5)) + IsEmpty(Window.Property(AudioLanguage.4))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Subtitle Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                               	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/SubLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(SubtitleLanguage.5)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(SubtitleLanguage.6)) + IsEmpty(Window.Property(AudioLanguage.3))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Subtitle Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                              	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/SubLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(SubtitleLanguage.6)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(SubtitleLanguage.7)) + IsEmpty(Window.Property(AudioLanguage.2))</visible>
+                                                <control type="image">
+                                              		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Subtitle Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                             	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/SubLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(SubtitleLanguage.7)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+						</control>
+	                                        <control type="group">
+                                                <width>80</width>
+                                                <height>35</height>
+						<visible>!IsEmpty(Window.Property(SubtitleLanguage.8)) + IsEmpty(Window.Property(AudioLanguage.1))</visible>
+                                                <control type="image">
+                                             		<left>0</left>
+                                                       	<top>0</top>
+                                                       	<description>Subtitle Language Image</description>
+                                                       	<aspectratio align="right">stretch</aspectratio>
+      	                                              	<width>80</width>
+                                                       	<height>35</height>
+                                                       	<texture>flagging/SubLang.png</texture>
+                                               	</control>
+                                               	<control type="label">
+                                               	        <left>23</left>
+                                               	        <top>0</top>
+                                               	        <width>57</width>
+                                               	        <height>35</height>
+                                               	        <font>font12</font>
+                                               	        <align>center</align>
+                                               	        <aligny>center</aligny>
+                                               	        <label>$INFO[Window.Property(SubtitleLanguage.8)]</label>
+                                               	        <textcolor>grey</textcolor>
+                                               	</control>
+					</control>
+				</control>
+				<control type="list" id="50">
+					<posx>70</posx>
+					<posy>78</posy>
+					<width>760</width>
+					<height>561</height>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onup>49</onup>
+					<ondown>49</ondown>
+					<viewtype label="">list</viewtype>
+					<pagecontrol>60</pagecontrol>
+					<scrolltime>200</scrolltime>
+					<orientation>vertical</orientation>
+					<itemlayout height="40" width="760">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>760</width>
+							<height>41</height>
+							<texture border="0,2,0,2">MenuItemNF.png</texture>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>0</posy>
+							<width>740</width>
+							<height>40</height>
+							<font>font13</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>grey2</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<info>ListItem.Label</info>
+						</control>
+					</itemlayout>
+					<focusedlayout height="40" width="760">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>760</width>
+							<height>41</height>
+							<visible>!Control.HasFocus(50)</visible>
+							<texture border="0,2,0,2">MenuItemNF.png</texture>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>740</width>
+							<height>41</height>
+							<visible>Control.HasFocus(50)</visible>
+							<texture border="0,2,0,2">MenuItemFO.png</texture>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>0</posy>
+							<width>690</width>
+							<height>40</height>
+							<font>font11</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<info>ListItem.Label</info>
+							<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Label])</onclick>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="grouplist" id="9000">
+					<posx>0</posx>
+					<posy>68r</posy>
+					<width>1280</width>
+					<height>40</height>
+					<itemgap>0</itemgap>
+					<align>center</align>
+					<orientation>horizontal</orientation>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onup>61</onup>
+					<ondown>50</ondown>
+					<control type="togglebutton" id="8">
+						<description>Play/browse to Show</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>208</label>
+						<alttexturefocus border="2">button-focus.png</alttexturefocus>
+						<alttexturenofocus border="2">button-nofocus.png</alttexturenofocus>
+						<altlabel>1024</altlabel>
+						<usealttexture>Container.Content(TVShows)</usealttexture>
+					</control>
+					<control type="button" id="5">
+						<description>Cast/Review</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>206</label>
+					</control>
+					<control type="button" id="7">
+						<description>actor info button</description>
+						<onclick>RunScript(script.metadata.actors,$INFO[Container(50).Listitem.Label])</onclick>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>Actor Info</label>
+						<visible>Control.IsVisible(50) + System.HasAddon(script.metadata.actors)</visible>
+						</control> 
+					<control type="button" id="11">
+						<description>Play Trailer</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>20410</label>
+						<visible>!IsEmpty(ListItem.Trailer) + !Skin.HasSetting(WindowedTrailer)</visible>
+					</control>
+					<control type="button" id="15">
+						<description>Play Trailer Windowed</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>20410</label>
+						<onclick>PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+						<visible>!IsEmpty(ListItem.Trailer) + Skin.HasSetting(WindowedTrailer)</visible>
+					</control>
+					<control type="button" id="105">
+					    	<description>Extras</description>
+					    	<include>ButtonInfoDialogsCommonValues</include>
+					    	<label>Extras</label>
+					    	<onclick>XBMC.RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
+					    	<visible>System.HasAddon(script.videoextras)
+					    	 + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows)
+					    	 | Container.Content(musicvideos)]
+					    	 + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
+					</control>
+					<control type="button" id="6">
+						<description>Refresh</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>184</label>
+					</control>
+                                        <control type="button" id="101">
+                                                <description>script.libraryeditor</description>
+                                                <include>ButtonInfoDialogsCommonValues</include>
+                                                <label>21435</label>
+                                                <onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
+                                                <visible>System.HasAddon(script.libraryeditor)</visible>
+                                        </control>
+					<control type="button" id="10">
+						<description>Get Thumb</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>13511</label>
+					</control>
+                                        <control type="button" id="99">
+                                                <description>Artwork Downloader</description>
+                                                <include>ButtonInfoDialogsCommonValues</include>
+                                                <label>90000</label>
+                                                <onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+	                                        <onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+					 	<onclick condition="Container.Content(musicvideos)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=musicvideo, dbid=$INFO[ListItem.DBID])</onclick>
+	                                        <visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) | Container.Content(musicvideos)] + system.hasaddon(script.artwork.downloader)</visible>
+                                        </control>
+					<control type="button" id="100">
+						<description>Fetch TvTunes stuff</description>
+						<include>ButtonInfoDialogsCommonValues</include>
+						<label>31127</label>
+						<onclick>XBMC.RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[ListItem.FilenameAndPath]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
+						<visible>Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes) + Container.Content(TVShows)</visible>
+					</control>
+				</control>
+	                        <control type="group">
+	                                <posx>840</posx>
+	                                <posy>78</posy>
+	                                <visible>Container.Content(Seasons) | Container.Content(TVShows)</visible>
+	                                <visible>!Control.IsVisible(50)</visible>
+	                                <control type="image">
+	                                        <posx>0</posx>
+	                                        <posy>10</posy>
+	                                        <width>360</width>
+	                                        <height>515</height>
+	                                        <aspectratio aligny="bottom">keep</aspectratio>
+	                                        <texture background="true">$INFO[ListItem.Icon]</texture>
+	                                        <bordertexture border="8">ThumbShadow.png</bordertexture>
+	                                        <bordersize>8</bordersize>
+						<visible>!Control.IsVisible(50)</visible>
+	                                </control>
+	                                <control type="label">
+	                                        <description>Next Episode</description>
+	                                        <posx>0</posx>
+	                                        <posy>540</posy>
+	                                        <width>360</width>
+	                                        <height>20</height>
+<!--             	                           <label>[COLOR=white]$INFO[Window(Home).Property(NextAired.NextDate)]:[/COLOR] $INFO[Window(Home).Property(NextAired.NextTitle)]</label>-->
+                 	                       <label>$INFO[Window(Home).Property(NextAired.NextTitle)]</label>
+                 	                       <align>center</align>
+                 	                       <aligny>center</aligny>
+                 	                       <font>font12</font>
+                 	                       <textcolor>grey2</textcolor>
+                 	                       <shadowcolor>black</shadowcolor>
+       	         	                       <visible>!IsEmpty(Window(Home).Property(NextAired.NextTitle)) + System.HasAddon(script.tv.show.next.aired)</visible>
+ 	    	                        </control>
+	                                <control type="label">
+	                                        <description>Next Episode Date</description>
+	                                        <posx>0</posx>
+	                                        <posy>520</posy>
+	                                        <width>360</width>
+	                                        <height>20</height>
+	                                        <label>  $LOCALIZE[19031]: [COLOR=white]$INFO[Window(Home).Property(NextAired.NextDate)]:[/COLOR] S$INFO[Window(Home).Property(NextAired.NextSeasonNumber)]E$INFO[Window(Home).Property(NextAired.NextEpisodeNumber)]</label>
+	                                        <align>center</align>
+	                                        <aligny>center</aligny>
+	                                        <font>font12</font>
+	                                        <textcolor>grey2</textcolor>
+	                                        <shadowcolor>black</shadowcolor>
+	                                        <visible>!IsEmpty(Window(Home).Property(NextAired.NextDate)) + System.HasAddon(script.tv.show.next.aired)</visible>
+	                                </control>
+<!--	                                <control type="label">
+	                                        <description>TV Show status</description>
+	                                        <posx>0</posx>
+	                                        <posy>525</posy>
+	                                        <width>360</width>
+	       	                                <height>25</height>
+	    	                                <label>$INFO[Window(Home).Property(NextAired.Status)]</label>
+	                                        <align>center</align>
+	                                        <aligny>center</aligny>
+	                                        <font>font12</font>
+	                                        <textcolor>grey2</textcolor>
+	                                        <shadowcolor>black</shadowcolor>
+	                                        <visible>IsEmpty(Window(Home).Property(NextAired.NextDate)) + System.HasAddon(script.tv.show.next.aired)</visible>
+	                                </control>-->
+
+<!--	                                <control type="label">
+	                                        <description>Watched Count</description>
+	                                        <posx>0</posx>
+	                                        <posy>535</posy>
+	                                        <width>360</width>
+	                                        <height>25</height>
+	                                        <label>[COLOR=white]$LOCALIZE[20360]:[/COLOR] $INFO[ListItem.Property(WatchedEpisodes),([COLOR=white],[/COLOR]) $LOCALIZE[16102]] $INFO[ListItem.Property(UnWatchedEpisodes),([COLOR=white],[/COLOR]) $LOCALIZE[16101]]</label>
+	                                        <align>center</align>
+	                                        <aligny>center</aligny>
+	                                        <font>font12</font>
+	                                        <textcolor>grey2</textcolor>
+	                                        <shadowcolor>black</shadowcolor>
+						<visible>!Control.IsVisible(50) + [!System.HasAddon(script.tv.show.next.aired) | [System.HasAddon(script.tv.show.next.aired) + IsEmpty(Window(Home).Property(NextAired.NextDate))]]</visible>
+	                                </control>-->
+	                        </control>
+	                        <control type="group">
+	                                <posx>840</posx>
+	                                <posy>78</posy>
+	                                <visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(Episodes) | Container.Content(MusicVideos)</visible>
+	                                <control type="image">
+	                                        <posx>0</posx>
+	                                        <posy>10</posy>
+	                                        <width>360</width>
+	                                        <height>515</height>
+	                                        <aspectratio aligny="bottom">keep</aspectratio>
+	                                        <texture background="true">$VAR[PosterThumb]</texture>
+	                                        <bordertexture border="8">ThumbShadow.png</bordertexture>
+	                                        <bordersize>8</bordersize>
+						<visible>!Control.IsVisible(50)</visible>
+	                                </control>
+                                        <control type="grouplist">
+                                                <description>Video Codec Flagging Images</description>
+                                                <posx>20</posx>
+                                                <posy>480</posy>
+                                                <width>360</width>
+                                                <align>left</align>
+                                                <itemgap>65</itemgap>
+                                                <orientation>horizontal</orientation>
+                                                <include>VideoMPAAFlaggingConditions</include>
+                                                <include>VideoTypeHackFlaggingConditions</include>
+						<visible>!Control.IsVisible(50)</visible>
+                                        </control>
+	                                <control type="grouplist">
+	                                        <description>Media Codec Flagging Images</description>
+	                                        <posx>0</posx>
+	                                        <posy>525</posy>
+	                                        <width>360</width>
+	                                        <align>center</align>
+	                                        <itemgap>2</itemgap>
+	                                        <orientation>horizontal</orientation>
+	                                        <include>VideoStereoscopicsFlaggingConditions</include>
+	                                        <include>VideoCodecFlaggingConditions</include>
+	                                        <include>AudioCodecFlaggingConditions</include>
+	                                        <include>AudioChannelsFlaggingConditions</include>
+	                                        <include>AspectCodecFlaggingConditions</include>
+						<visible>!Control.IsVisible(50)</visible>
+	                                </control>
+	                        </control>
+				<control type="image">
+					<description>Actor image</description>
+					<posx>840</posx>
+					<posy>88</posy>
+					<width>360</width>
+					<height>515</height>
+					<texture>$INFO[Container(50).Listitem.Icon]</texture>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<visible>Control.IsVisible(50)</visible>
+				</control>
+			</control>
+		</control>
+		 <include condition="Skin.HasSetting(TouchMode)">TopBar</include>
+		 <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
+	</controls>
+</window>
+

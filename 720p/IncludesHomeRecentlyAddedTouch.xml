@@ -1,0 +1,859 @@
+<includes>
+	<include name="HomeRecentlyAddedWidgetTouch">
+		<control type="group" id="9003">
+			<onup>9900</onup>
+			<ondown>9900</ondown>
+			<onback>9900</onback>
+			<visible>!Window.IsVisible(Favourites)</visible>
+            <include>VisibleAnimation</include>
+			<include>VisibleFadeEffect</include>
+			<visible>Skin.HasSetting(EnableWidgets)</visible>
+			<control type="group">
+				<posx>320</posx>
+				<posy>150</posy>
+                <include>VisibleFadeEffect</include>
+				<include>VisibleAnimation</include>
+<!--				<control type="image">
+					<description>background</description>
+					<posx>-20</posx>
+					<posy>-20</posy>
+					<width>900</width>
+					<height>540</height>
+					<texture border="15">RecentAddedBack.png</texture>
+				</control>
+				<control type="image">
+					<posx>-20</posx>
+					<posy>-20</posy>
+					<width>900</width>
+					<height>40</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>GlassTitleBar.png</texture>
+					<colordiffuse>99FFFFFF</colordiffuse>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>-15</posy>
+					<label>[UPPERCASE]$LOCALIZE[31328][/UPPERCASE]</label>
+					<height>20</height>
+					<width>900</width>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>font12</font>
+					<textcolor>white</textcolor>	
+					<shadowcolor>black</shadowcolor>
+				</control>-->
+				<!-- Recently Added Movies -->
+				<control type="panel" id="8000">
+                <visible>Library.HasContent(Movies)</visible>
+				<visible>Container(9900).HasFocus(2) + StringCompare(Skin.String(HomeVideoWidget),recentmovies) | 
+						 Container(9900).Hasfocus(10) + StringCompare(Skin.String(HomeMovieWidget),recent)
+				</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>870</width>
+					<height>480</height>
+					<onleft>8000</onleft>
+					<onright>8000</onright>
+					<onup>8000</onup>
+					<ondown>8000</ondown>
+					<onback>9900</onback>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="circle" easing="inout">150</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>0</focusposition>
+					<itemlayout height="240" width="174">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>152</width>
+							<height>200</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<aspectratio>keep</aspectratio>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>148</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="240" width="174">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>152</width>
+							<height>200</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-focus.png</bordertexture>
+							<aspectratio>keep</aspectratio>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8000)</visible>
+							</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>152</width>
+							<height>200</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8000)</visible>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>148</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>148</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8000)</visible>
+						</control>
+					</focusedlayout>
+					<content>
+						<include>HomeRecentMovieWidgetContent</include>
+					</content>
+				</control>
+				<control type="panel" id="8003">
+                <visible>Library.HasContent(MusicVideos)</visible>
+				<visible>Container(9900).HasFocus(3) + StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos) |
+						 Container(9900).HasFocus(2) + StringCompare(Skin.String(HomeVideoWidget),recentmusicvideos)
+				</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>870</width>
+					<height>480</height>
+					<onleft>8003</onleft>
+					<onright>8003</onright>
+					<onup>8003</onup>
+					<ondown>8003</ondown>
+					<onback>9900</onback>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="circle" easing="inout">150</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>0</focusposition>
+					<itemlayout height="240" width="174">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>152</width>
+							<height>200</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<aspectratio>keep</aspectratio>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>148</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="240" width="174">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>152</width>
+							<height>200</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-focus.png</bordertexture>
+							<aspectratio>keep</aspectratio>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8003)</visible>
+							</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>152</width>
+							<height>200</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8003)</visible>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>148</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>148</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8003)</visible>
+						</control>
+					</focusedlayout>
+					<content>
+						<include>HomeRecentMusicVideoWidgetContent</include>
+					</content>
+				</control>
+
+				<control type="panel" id="8001">
+					<visible>Library.HasContent(TVShows)</visible>
+					<visible>Container(9900).HasFocus(2) + StringCompare(Skin.String(HomeVideoWidget),recentepisodes) | 
+						 Container(9900).Hasfocus(11) + StringCompare(Skin.String(HomeTVShowWidget),recent)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>870</width>
+					<height>480</height>
+					<onleft>8001</onleft>
+					<onright>8001</onright>
+					<onup>8001</onup>
+					<ondown>8001</ondown>
+					<onback>9900</onback>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="circle" easing="inout">150</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>0</focusposition>
+					<itemlayout height="240" width="290">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>270</width>
+							<height>180</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						</itemlayout>
+					<focusedlayout height="240" width="290">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>270</width>
+							<height>180</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8001)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>270</width>
+							<height>180</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8001)</visible>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8001)</visible>
+						</control>
+					</focusedlayout>
+					<content>
+						<include>HomeRecentEpisodesWidgetContent</include>
+					</content>
+				</control>
+				<control type="panel" id="8005">
+					<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired)</visible>
+					<visible>Container(9900).Hasfocus(11) + StringCompare(Skin.String(HomeTVShowWidget),nextaired) | 
+					Container(9900).Hasfocus(2) + StringCompare(Skin.String(HomeVideoWidget),nextaired)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>870</width>
+					<height>480</height>
+					<onleft>8005</onleft>
+					<onright>8005</onright>
+					<onup>8005</onup>
+					<ondown>8005</ondown>
+					<onback>9900</onback>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="circle" easing="inout">150</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>0</focusposition>
+					<itemlayout height="240" width="290">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>270</width>
+							<height>160</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>170</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(date)]</label>
+						</control>-->
+						</itemlayout>
+					<focusedlayout height="240" width="290">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>270</width>
+							<height>160</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8005)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>270</width>
+							<height>160</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8005)</visible>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>170</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8005)</visible>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>270</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(date)]</label>
+						</control>
+					</focusedlayout>
+					<content>
+						<include>HomeNextAiredWidgetContent</include>
+					</content>
+				</control>
+				<control type="panel" id="8002">
+					<visible>Container(9900).HasFocus(3) + StringCompare(Skin.String(HomeMusicWidget),recentalbums)</visible>
+					<visible>Library.HasContent(Music)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>870</width>
+					<height>480</height>
+					<onleft>8002</onleft>
+					<onright>8002</onright>
+					<onup>8002</onup>
+					<ondown>8002</ondown>
+					<onback>9900</onback>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="circle" easing="inout">150</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>0</focusposition>
+					<itemlayout height="240" width="217">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>197</width>
+							<height>180</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="240" width="217">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>197</width>
+							<height>180</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8002)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>197</width>
+							<height>180</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8002)</visible>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8002)</visible>
+						</control>
+					</focusedlayout>
+					<content>
+						<include>HomeRecentAlbumsWidgetContent</include>
+					</content>
+				</control>
+
+				<!-- Most Played Roms -->
+				<control type="panel" id="8006">
+<!--					<visible>System.HasAddon(script.games.rom.collection.browser)</visible>-->
+					<visible>Container(9900).HasFocus(1) + StringCompare(Skin.String(HomeProgramsWidget),mostplayed) |
+						 Container(9900).HasFocus(13) + StringCompare(Skin.String(HomeProgramsWidget),mostplayed)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>870</width>
+					<height>480</height>
+					<onleft>8006</onleft>
+					<onright>8006</onright>
+					<onup>8006</onup>
+					<ondown>8006</ondown>
+					<onback>9900</onback>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime tween="circle" easing="inout">150</scrolltime>
+					<orientation>Horizontal</orientation>
+					<focusposition>0</focusposition>
+					<itemlayout height="240" width="217">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>197</width>
+							<height>180</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="240" width="217">
+						<control type="image">
+							<description>background</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>100%</width>
+							<height>100%</height>
+							<texture border="15">RecentAddedBack.png</texture>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>197</width>
+							<height>180</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-focus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>Control.HasFocus(8006)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>10</posy>
+							<width>197</width>
+							<height>180</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="5">button-nofocus.png</bordertexture>
+							<bordersize>5</bordersize>
+							<visible>!Control.HasFocus(8006)</visible>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>190</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>grey2</textcolor>
+							<shadowcolor>black</shadowcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>10</posx>
+							<posy>210</posy>
+							<width>197</width>
+							<height>20</height>
+							<font>font10</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>selected</selectedcolor>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(8006)</visible>
+						</control>
+					</focusedlayout>
+					<content>
+					<include>HomeMostPlayedGamesWidgetContent</include>
+					</content>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

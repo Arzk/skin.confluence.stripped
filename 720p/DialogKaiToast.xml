@@ -1,0 +1,6 @@
+<window id="107">
+	<controls>
+	<include condition="!Skin.HasSetting(TouchMode)">KaiToast</include>
+	<include condition="Skin.HasSetting(TouchMode)">KaiToastTouch</include>
+	</controls>
+</window>

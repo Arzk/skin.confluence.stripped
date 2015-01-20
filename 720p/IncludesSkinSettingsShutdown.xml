@@ -1,0 +1,224 @@
+<includes>
+    <include name="SkinSettingsShutdown">
+                                <control type="grouplist" id="9007">
+                                        <visible>Container(9000).Hasfocus(7)</visible>
+                                        <posx>290</posx>
+                                        <posy>10</posy>
+                                        <width>750</width>
+                                        <height>545</height>
+                                        <itemgap>-1</itemgap>
+										<pagecontrol>60</pagecontrol>
+                                        <onleft>9000</onleft>
+                                        <onright>9000</onright>
+                                        <onup>9007</onup>
+                                        <ondown>9007</ondown>
+                                        <control type="label" id="700">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13_title</font>
+                                                <label>90058</label>
+                                                <textcolor>white</textcolor>
+                                                <shadowcolor>black</shadowcolor>
+                                                <align>left</align>
+                                                <aligny>center</aligny>
+                                        </control>
+                                        <control type="radiobutton" id="701">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>13012</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideQuit)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideQuit)</selected>
+                                                <visible>System.ShowExitButton</visible>
+                                        </control>
+                                        <control type="radiobutton" id="702">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>5</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideSettings)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideSettings)</selected>
+                                        </control>
+                                        <control type="radiobutton" id="703">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>20077</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideSkinSettings)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideSkinSettings)</selected>
+                                        </control>
+                                        <control type="radiobutton" id="704">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>130</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideInfo)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideInfo)</selected>
+                                        </control>
+                                        <control type="radiobutton" id="705">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>10003</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideFile)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideFile)</selected>
+                                        </control>
+                                        <control type="radiobutton" id="706">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>13016</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHidePower)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHidePower)</selected>
+                                                <visible>System.CanPowerDown</visible>
+                                        </control>
+                                        <control type="radiobutton" id="707">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>20150</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideTimer)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideTimer)</selected>
+                                                <visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
+                                        </control>
+                                        <control type="radiobutton" id="708">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>13011</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideSuspend)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideSuspend)</selected>
+                                                <visible>System.CanSuspend</visible>
+                                        </control>
+                                        <control type="radiobutton" id="709">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>13010</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideHibernate)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideHibernate)</selected>
+                                                <visible>System.CanHibernate</visible>
+                                        </control>
+                                        <control type="radiobutton" id="710">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>13013</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideReboot)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideReboot)</selected>
+                                                <visible>System.CanReboot</visible>
+                                        </control>
+                                        <control type="radiobutton" id="711">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>20126</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideLogoff)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideLogoff)</selected>
+                                                <visible>[System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)] + System.Loggedon</visible>
+                                        </control>
+                                        <control type="radiobutton" id="712">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>20046</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShutdownHideMaster)</onclick>
+                                                <selected>!Skin.HasSetting(ShutdownHideMaster)</selected>
+                                                <visible>System.HasLocks</visible>
+                                        </control>
+                                        <control type="radiobutton" id="713">
+                                                <description>Custom item</description>
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>$LOCALIZE[90020]</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <selected>Skin.HasSetting(ShutdownMenuCustom.1.Enabled)</selected>
+                                                <onclick>Skin.ToggleSetting(ShutdownMenuCustom.1.Enabled)</onclick>
+                                                <onclick>Skin.Reset(ShutdownMenuCustom.1.Path)</onclick>
+                                                <onclick>Skin.Reset(ShutdownMenuCustom.1.Label)</onclick>
+                                        </control>
+                                        <control type="button" id="714">
+                                                <description>Item selection</description>
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label> • $LOCALIZE[90008]</label>
+                                                <label2>[COLOR=selected]$INFO[Skin.String(ShutdownMenuCustom.1.Label)][/COLOR]</label2>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>RunScript(script.favourites,property=ShutdownMenuCustom.1)</onclick>
+                                                <onclick>Skin.Reset(ShutdownMenuCustom.1.Label)</onclick>
+                                                <visible>Skin.HasSetting(ShutdownMenuCustom.1.Enabled)</visible>
+                                        </control>
+                                        <control type="button" id="715">
+                                                <description>Label</description>
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label> • $LOCALIZE[90011]</label>
+                                                <label2>[COLOR=selected]$INFO[Skin.String(ShutdownMenuCustom.1.Label)][/COLOR]</label2>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus>MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.SetString(ShutdownMenuCustom.1.Label)</onclick>
+                                                <visible>Skin.HasSetting(ShutdownMenuCustom.1.Enabled)</visible>
+                                        </control>
+
+			</control>
+	</include>
+</includes>

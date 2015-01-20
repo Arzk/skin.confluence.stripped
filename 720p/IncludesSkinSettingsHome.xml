@@ -1,0 +1,260 @@
+<includes>
+        <include name="SkinSettingsHome">
+				<control type="grouplist" id="9002">
+					<visible>Container(9000).Hasfocus(2)</visible>
+					<posx>290</posx>
+					<posy>10</posy>
+					<width>750</width>
+					<height>545</height>
+					<itemgap>-1</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onup>9002</onup>
+					<ondown>9002</ondown>
+					<control type="label" id="200">
+						<width>750</width>
+						<height>40</height>
+						<font>font13_title</font>
+						<label>31101</label>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="radiobutton" id="201">
+						<description>Single background in home</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>31012</label>
+						<onclick>Skin.ToggleSetting(homepageSingleBackground)</onclick>
+						<selected>Skin.HasSetting(homepageSingleBackground)</selected>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<visible>!Skin.HasSetting(SingleBackground)</visible>
+					</control>
+					<control type="radiobutton" id="202">
+						<description>enable video info</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>20176</label>
+						<onclick>Skin.ToggleSetting(homepageVideoinfo)</onclick>
+						<selected>!Skin.HasSetting(homepageVideoinfo)</selected>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="203">
+						<description>enable music info</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>20083</label>
+						<onclick>Skin.ToggleSetting(homepageMusicinfo)</onclick>
+						<selected>!Skin.HasSetting(homepageMusicinfo)</selected>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="204">
+						<description>Enable Skin Widgets</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[90001]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(EnableWidgets)</onclick>
+						<selected>Skin.HasSetting(EnableWidgets)</selected>
+						<visible>System.HasAddon(service.skin.widgets)</visible>
+					</control>
+					<control type="radiobutton" id="205">
+						<description>enable weather info</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>20084</label>
+						<onclick>Skin.ToggleSetting(homepageWeatherinfo)</onclick>
+						<selected>Skin.HasSetting(homepageWeatherinfo)</selected>
+						<texturefocus>MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<visible>!IsEmpty(Weather.Plugin)</visible>
+					</control>
+<!--					<control type="radiobutton" id="205">
+						<description>Enable Live TV RSS Widget</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>32008</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(EnableTVRSSWidget)</onclick>
+						<selected>Skin.HasSetting(EnableTVRSSWidget)</selected>
+					</control>-->
+<!--                                        <control type="button" id="206">
+                                                <description>Label</description>
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
+                                                <label>90011</label>
+                                                <label2>[COLOR=selected]$INFO[Skin.String(TVRSSWidgetLabel)][/COLOR]</label2>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus border="5">MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.SetString(TVRSSWidgetLabel)</onclick>
+                                                <visible>Skin.HasSetting(EnableTVRSSWidget)</visible>
+                                        </control>-->
+
+
+					<control type="radiobutton" id="207">
+						<description>Custom menu before submenu</description>
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<label>32004</label>
+						<onclick>Skin.ToggleSetting(CustomMenuFirst)</onclick>
+						<selected>Skin.HasSetting(CustomMenuFirst)</selected>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="label" id="208">
+						<width>750</width>
+						<height>40</height>
+						<font>font13_title</font>
+						<label>32002</label>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="radiobutton" id="209">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31994</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SidebarShowHiddenItems)</onclick>
+						<selected>Skin.HasSetting(SidebarShowHiddenItems)</selected>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="radiobutton" id="210">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[8]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SidebarWeatherButton)</onclick>
+						<selected>Skin.HasSetting(SidebarWeatherButton)</selected>
+						<visible>Skin.HasSetting(HomeMenuNoWeatherButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="radiobutton" id="211">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[1]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SidebarPicturesButton)</onclick>
+						<selected>Skin.HasSetting(SidebarPicturesButton)</selected>
+						<visible>Skin.HasSetting(HomeMenuNoPicturesButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="radiobutton" id="212">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[3]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SidebarVideosButton)</onclick>
+						<selected>Skin.HasSetting(SidebarVideosButton)</selected>
+						<visible>Skin.HasSetting(HomeMenuNoVideosButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="radiobutton" id="213">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[2]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SidebarMusicButton)</onclick>
+						<selected>Skin.HasSetting(SidebarMusicButton)</selected>
+						<visible>Skin.HasSetting(HomeMenuNoMusicButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="radiobutton" id="214">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[0]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SidebarProgramsButton)</onclick>
+						<selected>Skin.HasSetting(SidebarProgramsButton)</selected>
+						<visible>Skin.HasSetting(HomeMenuNoProgramsButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="radiobutton" id="215">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>$LOCALIZE[13000]</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SidebarSystemButton)</onclick>
+						<selected>Skin.HasSetting(SidebarSystemButton)</selected>
+						<visible>Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+					<control type="radiobutton" id="220">
+						<width>750</width>
+						<height>40</height>
+						<font>font13</font>
+						<label>31995</label>
+						<textcolor>grey2</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<texturefocus border="5">MenuItemFO.png</texturefocus>
+						<texturenofocus>MenuItemNF.png</texturenofocus>
+						<onclick>Skin.ToggleSetting(SidebarShowSystemSubmenu)</onclick>
+						<selected>Skin.HasSetting(SidebarShowSystemSubmenu)</selected>
+						<visible>Skin.HasSetting(SidebarSystemButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+						<visible>!Skin.HasSetting(TouchMode)</visible>
+					</control>
+				</control>
+        </include>
+</includes>

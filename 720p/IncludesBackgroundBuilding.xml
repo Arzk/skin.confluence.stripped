@@ -1,0 +1,395 @@
+<includes>
+	<include name="BottomBlade">
+	<!-- Hidden button to prevent fullscreen video -->
+		<control type="button">
+			<posx>0</posx>
+			<posy>75r</posy>
+			<width>1280</width>
+			<height>90</height>
+			<texturefocus>-</texturefocus>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>75r</posy>
+			<width>1280</width>
+			<height>90</height>
+			<texture border="0,6,0,6" flipy="true">MediaBladeSubTop.png</texture>
+		            <colordiffuse>DDFFFFFF</colordiffuse>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>72r</posy>
+			<width>1280</width>
+			<height>6</height>
+			<texture>HomeOverlay1.png</texture>
+		</control>
+			<control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>55</width>
+                <height>650</height>
+                <texture border="0,0,10,0" flipy="true">MediaBladeSub.png</texture>
+                <colordiffuse>DDFFFFFF</colordiffuse>
+				<visible>Skin.HasSetting(TouchMode)</visible>
+				<visible>!Window.IsVisible(Home)</visible>
+            </control>
+	</include>
+	<include name="CommonMediaPlayingBackground">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture align="center">special://skin/media/black.png</texture>
+			<visible>Player.HasVideo + !Skin.HasSetting(ShowBackgroundVideo)</visible>
+		</control>
+		<control type="visualisation">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<visible>Player.HasAudio + !Skin.HasSetting(ShowBackgroundVis)</visible>
+			<visible>!SubString(Window(videolibrary).Property(TvTunesIsAlive),True)</visible>
+		</control>
+	        <control type="image">
+			<description>Fanart Image for Artist</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[Player.Art(fanart)]</texture>
+			<colordiffuse>66FFFFFF</colordiffuse>
+			<visible>Player.HasAudio + !Skin.HasSetting(ShowBackgroundVis)</visible>
+			<visible>!IsEmpty(Player.Art(fanart)) + !Skin.HasSetting(HideVisualizationFanart)</visible>
+			<fadetime>600</fadetime>
+		</control>
+		<control type="videowindow">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<visible>Player.HasVideo + !Skin.HasSetting(ShowBackgroundVideo)</visible>
+		</control>
+	</include>
+	<include name="SingleBackground">
+                <control type="multiimage">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>1280</width>
+                        <height>720</height>
+                        <imagepath fallback="special://skin/backgrounds/SKINDEFAULT.jpg" background="true">$INFO[Skin.String(HomeBG)]</imagepath>
+                        <timeperimage>8000</timeperimage>
+                        <randomize>true</randomize>
+                        <fadetime>1000</fadetime>
+                </control>
+                <control type="image"> <!-- Games fanart -->
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1280</width>
+                        <height>720</height>
+                        <texture>$INFO[ListItem.Property(background)]</texture>
+                        <include>backgroundfade</include>
+                        <fadetime>FanartCrossfadeTime</fadetime>
+                        <visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(background))</visible>
+                        <include>Window_OpenClose_Animation</include>
+                </control>
+                <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1280</width>
+                        <height>720</height>
+                        <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+                        <include>backgroundfade</include>
+                        <fadetime>FanartCrossfadeTime</fadetime>
+                        <visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+                        <include>Window_OpenClose_Animation</include>
+                </control>
+	</include>
+	<include name="CommonVideoBackground">
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/videos.jpg" background="true">$INFO[Skin.String(HomeVideoBG)]</imagepath>
+			<imagepath background="true">$INFO[Skin.String(Home_Custom_Back_Video_Folder)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+            <visible>![Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)]</visible>
+			<fadetime>1000</fadetime>
+		</control>
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/videos.jpg" background="true">$INFO[Skin.String(HomeTVBG)]</imagepath>
+			<imagepath background="true">$INFO[Skin.String(Home_Custom_Back_Video_Folder)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+            <visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | SubString(Container.FolderPath,library://video/tvshows,left) | SubString(Container.FolderPath,videodb://2/,left)]</visible>
+			<fadetime>1000</fadetime>
+		</control>
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/videos.jpg" background="true">$INFO[Skin.String(HomeMoviesBG)]</imagepath>
+			<imagepath background="true">$INFO[Skin.String(Home_Custom_Back_Video_Folder)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+            <visible>[Container.Content(movies) | SubString(Container.FolderPath,library://video/movies,left) | SubString(Container.FolderPath,videodb://1/,left)]</visible>
+			<fadetime>1000</fadetime>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			<include>Window_OpenClose_Animation</include>
+		</control>
+	</include>
+	<include name="CommonTVBackground">
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/tv.jpg" background="true">$INFO[Skin.String(HomePVRBG)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+		</control>
+	</include>
+	<include name="CommonMusicBackground">
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/music.jpg" background="true">$INFO[Skin.String(HomeMusicBG)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			<include>Window_OpenClose_Animation</include>
+		</control>
+	</include>
+	<include name="CommonPictureBackground">
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/pictures.jpg" background="true">$INFO[Skin.String(HomePicturesBG)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			<include>Window_OpenClose_Animation</include>
+                        <visible>!Control.IsVisible(510)</visible>
+		</control>
+	</include>
+	<include name="CommonProgramsBackground">
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/programs.jpg" background="true">$INFO[Skin.String(HomeProgramsBG)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			<include>Window_OpenClose_Animation</include>
+		</control>
+	</include>
+	<include name="CommonGamesBackground">
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/programs.jpg" background="true">$INFO[Skin.String(HomeGamesBG)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+                        <texture>$INFO[ListItem.Property(background)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(background))</visible>
+			<include>Window_OpenClose_Animation</include>
+		</control>
+	</include>
+	<include name="CommonWeatherBackground">
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/weather.jpg" background="true">$INFO[Skin.String(HomeWeatherBG)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+			<visible>![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]</visible>
+		</control>
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+			<visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))</visible>
+			<animation effect="fade" time="200">WindowClose</animation>
+		</control>
+	</include>
+	<include name="CommonSettingsBackground">
+		<control type="multiimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath fallback="special://skin/backgrounds/settings.jpg" background="true">$INFO[Skin.String(HomeSettingsBG)]</imagepath>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(HideBackGroundFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			<include>Window_OpenClose_Animation</include>
+		</control>
+	</include>
+	<include name="ContentPanelBackgrounds">
+		<control type="group">
+			<control type="image">
+				<posx>50</posx>
+				<posy>60</posy>
+				<width>1180</width>
+				<height>590</height>
+				<texture border="15">ContentPanel.png</texture>
+		        <colordiffuse>EEFFFFFF</colordiffuse>
+				<include>dialogeffect</include>
+				<visible>!Skin.HasSetting(NoContentBackgrounds)</visible>
+			</control>
+			<control type="image">
+				<posx>-100</posx>
+				<posy>-100</posy>
+				<width>1480</width>
+				<height>920</height>
+				<texture>ContentPanel.png</texture>
+		        <colordiffuse>CCFFFFFF</colordiffuse>
+				<include>dialogeffect</include>
+				<visible>Skin.HasSetting(NoContentBackgrounds)</visible>
+			</control>
+			<!-- Hidden button to prevent fullscreen video -->
+			<control type="button">
+				<right>50</right>
+				<posy>60</posy>
+				<width>1180</width>
+				<height>590</height>
+				<texturefocus>-</texturefocus>
+				<visible>!Skin.HasSetting(NoContentBackgrounds)</visible>
+			</control>
+			<control type="button">
+				<right>0</right>
+				<posy>0</posy>
+				<width>1280</width>
+				<height>720</height>
+				<texturefocus>-</texturefocus>
+				<visible>Skin.HasSetting(NoContentBackgrounds)</visible>
+			</control>
+		</control>
+		<include>BottomBlade</include>
+	</include>
+
+	<include name="ContentPanelBackgroundsSettings">
+		<control type="group">
+			<control type="image">
+				<posx>95</posx>
+				<posy>55</posy>
+				<width>1090</width>
+				<height>595</height>
+				<texture border="15">ContentPanel.png</texture>
+                <colordiffuse>EEFFFFFF</colordiffuse>
+				<visible>!Skin.HasSetting(NoContentBackgrounds)</visible>
+			</control>
+			<!-- Hidden button to prevent fullscreen video -->
+			<control type="button">
+				<right>95</right>
+				<posy>55</posy>
+				<width>1090</width>
+				<height>595</height>
+				<visible>!Skin.HasSetting(NoContentBackgrounds)</visible>
+				<texturefocus>-</texturefocus>
+			</control>
+			<control type="image">
+				<posx>-100</posx>
+				<posy>-100</posy>
+				<width>1480</width>
+				<height>920</height>
+				<texture>ContentPanel.png</texture>
+		        <colordiffuse>CCFFFFFF</colordiffuse>
+				<include>dialogeffect</include>
+				<visible>Skin.HasSetting(NoContentBackgrounds)</visible>
+			</control>
+			<control type="button">
+				<right>0</right>
+				<posy>0</posy>
+				<width>1280</width>
+				<height>720</height>
+				<texturefocus>-</texturefocus>
+				<visible>Skin.HasSetting(NoContentBackgrounds)</visible>
+			</control>
+		</control>
+		<include>BottomBlade</include>
+	</include>
+</includes>
+

@@ -1,0 +1,536 @@
+<includes>
+	<include name="TouchTools">
+		<include>TouchMediaControls</include>
+		<include>VerticalMenu</include>
+		<include>TouchNavigationControls</include>
+<!--		<include>MediaSubMenu</include>-->
+	</include>
+	<include name="TopBar">
+		<control type="grouplist">
+			<animation effect="slide" start="0,0" end="135,0" time="250" condition="Window.IsActive(Home)">conditional</animation>
+			<description>Top bar</description>
+			<posx>50</posx>
+			<posy>0</posy>
+			<width>1000</width>
+			<height>55</height>
+			<align>left</align>
+			<itemgap>0</itemgap>
+			<orientation>horizontal</orientation>			
+			<!-- Home -->
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>$LOCALIZE[1034]</label>
+				<onclick>Skin.ToggleSetting(HomeSubMenuVisible)</onclick>
+				<selected>Skin.HasSetting(HomeSubMenuVisible)</selected>
+				<visible>Window.IsActive(Home)</visible>
+			</control>
+
+			<!-- Videos --> 
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Recent Movies</label>
+				<onclick condition="!StringCompare(Skin.String(HomeVideoWidget),recentmovies)">Skin.SetString(HomeVideoWidget,recentmovies)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeVideoWidget),recentmovies)">Skin.Reset(HomeVideoWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeVideoWidget),recentmovies)</selected>
+				<visible>Library.HasContent(Movies) + Window.IsActive(Home) + Container(9900).HasFocus(2)</visible>
+			</control>
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Recent Episodes</label>
+				<onclick condition="!StringCompare(Skin.String(HomeVideoWidget),recentepisodes)">Skin.SetString(HomeVideoWidget,recentepisodes)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeVideoWidget),recentepisodes)">Skin.Reset(HomeVideoWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeVideoWidget),recentepisodes)</selected>
+				<visible>Library.HasContent(TVShows) + Window.IsActive(Home) + Container(9900).HasFocus(2)</visible>
+			</control>
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Next Aired</label>
+				<onclick condition="!StringCompare(Skin.String(HomeVideoWidget),nextaired)">Skin.SetString(HomeVideoWidget,nextaired)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeVideoWidget),nextaired)">Skin.Reset(HomeVideoWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeVideoWidget),nextaired)</selected>
+				<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired) + Window.IsActive(Home) + Container(9900).HasFocus(2)</visible>
+			</control>
+
+
+			<!-- Movies --> 
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Recent</label>
+				<onclick condition="!StringCompare(Skin.String(HomeMovieWidget),recent)">Skin.SetString(HomeMovieWidget,recent)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeMovieWidget),recent)">Skin.Reset(HomeMovieWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeMovieWidget),recent)</selected>
+				<visible>Library.HasContent(Movies) + Window.IsActive(Home) + Container(9900).HasFocus(10)</visible>
+			</control>
+			<!-- TV Shows --> 
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Recent</label>
+				<onclick condition="!StringCompare(Skin.String(HomeTVShowWidget),recent)">Skin.SetString(HomeTVShowWidget,recent)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeTVShowWidget),recent)">Skin.Reset(HomeTVShowWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeTVShowWidget),recent)</selected>
+				<visible>Library.HasContent(TVShows) + Window.IsActive(Home) + Container(9900).HasFocus(11)</visible>
+			</control>
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Next Aired</label>
+				<onclick condition="!StringCompare(Skin.String(HomeTVShowWidget),nextaired)">Skin.SetString(HomeTVShowWidget,nextaired)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeTVShowWidget),nextaired)">Skin.Reset(HomeTVShowWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeTVShowWidget),nextaired)</selected>
+				<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired) + Window.IsActive(Home) + Container(9900).HasFocus(11)</visible>
+			</control>
+			<!-- Music --> 
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Albums</label>
+				<onclick condition="!StringCompare(Skin.String(HomeMusicWidget),recentalbums)">Skin.SetString(HomeMusicWidget,recentalbums)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeMusicWidget),recentalbums)">Skin.Reset(HomeMusicWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeMusicWidget),recentalbums)</selected>
+				<visible>Library.HasContent(Music) + Window.IsActive(Home) + Container(9900).HasFocus(3)</visible>
+			</control>
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Music Videos</label>
+				<onclick condition="!StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos)">Skin.SetString(HomeMusicWidget,recentmusicvideos)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos)">Skin.Reset(HomeMusicWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos)</selected>
+				<visible>Library.HasContent(MusicVideos) + Window.IsActive(Home) + Container(9900).HasFocus(3)</visible>
+			</control>
+			<!-- Games --> 
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Most Played ROMs</label>
+				<onclick condition="!StringCompare(Skin.String(HomeProgramsWidget),mostplayed)">Skin.SetString(HomeProgramsWidget,mostplayed)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeProgramsWidget),mostplayed)">Skin.Reset(HomeProgramsWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeProgramsWidget),mostplayed)</selected>
+				<visible>System.HasAddon(script.games.rom.collection.browser) + Window.IsActive(Home) + [Container(9900).HasFocus(1) | Container(9900).HasFocus(13)]</visible>
+			</control>
+			
+			
+
+			<!-- Others -->
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>$LOCALIZE[33063]</label>
+				<onclick>Skin.ToggleSetting(SideBarVisible)</onclick>
+				<visible>!Window.IsActive(Home)</visible>
+			</control>
+			<control type="image" id="90101">
+				<width>55</width>
+				<height>55</height>
+				<texture border="0,0,0,5">HomeSubEnd.png</texture>
+				<colordiffuse>CCFFFFFF</colordiffuse>
+			</control>
+		</control>
+	</include>
+
+	<include name="TouchMediaControls">
+<!--		<include>TopBlade</include>-->
+<!-- Hidden button to prevent fullscreen video -->
+			<control type="button">
+				<right>0</right>
+				<posy>0</posy>
+				<width>55</width>
+				<height>650</height>
+				<texturefocus>-</texturefocus>
+			</control>
+        <control type="image">
+            <right>0</right>
+            <posy>0</posy>
+            <width>55</width>
+            <height>650</height>
+            <texture border="10,0,0,0" flipy="true" flipx="true">MediaBladeSub.png</texture>
+            <colordiffuse>DDFFFFFF</colordiffuse>
+			<visible>Player.HasMedia</visible>
+        </control>
+		<control type="button" id="206">
+			<description>Go to fullscreen Playback</description>
+			<right>5</right>
+			<top>5</top>
+			<width>35</width>
+			<height>35</height>
+			<label>31008</label>
+			<font>-</font>
+			<texturefocus>GoFullscreen.png</texturefocus>
+			<texturenofocus>GoFullscreen.png</texturenofocus>
+			<onclick>Dialog.Close(VideoOSD,true)</onclick>
+			<onclick>Dialog.Close(MusicOSD,true)</onclick>
+			<onclick>fullscreen</onclick>
+			<visible>Player.HasMedia</visible>
+		</control>
+		<control type="grouplist">
+			<visible>!VideoPlayer.Content(LiveTV) + Player.HasMedia</visible>
+			<right>0</right>
+			<top>180</top>
+			<width>45</width>
+			<orientation>vertical</orientation>
+			<control type="button" id="200">
+				<width>45</width>
+				<height>45</height>
+				<label>210</label>
+				<font>-</font>
+				<texturefocus>OSDPrevTrackFO.png</texturefocus>
+				<texturenofocus>OSDPrevTrackNF.png</texturenofocus>
+				<onclick>PlayerControl(Previous)</onclick>
+			</control>
+			<control type="button" id="201">
+				<width>45</width>
+				<height>45</height>
+				<label>31354</label>
+				<font>-</font>
+				<texturefocus>OSDRewindFO.png</texturefocus>
+				<texturenofocus>OSDRewindNF.png</texturenofocus>
+				<onclick>PlayerControl(Rewind)</onclick>
+			</control>
+			<control type="togglebutton" id="202">
+				<width>45</width>
+				<height>45</height>
+				<label>31351</label>
+				<altlabel>208</altlabel>
+				<font>-</font>
+				<texturefocus>OSDPauseFO.png</texturefocus>
+				<texturenofocus>OSDPauseNF.png</texturenofocus>
+				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+				<alttexturefocus>OSDPlayFO.png</alttexturefocus>
+				<alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
+				<onclick>PlayerControl(Play)</onclick>
+			</control>
+			<control type="button" id="203">
+				<width>45</width>
+				<height>45</height>
+				<label>31352</label>
+				<font>-</font>
+				<texturefocus>OSDStopFO.png</texturefocus>
+				<texturenofocus>OSDStopNF.png</texturenofocus>
+				<onclick>PlayerControl(Stop)</onclick>
+			</control>
+			<control type="button" id="204">
+				<width>45</width>
+				<height>45</height>
+				<label>31353</label>
+				<font>-</font>
+				<texturefocus>OSDForwardFO.png</texturefocus>
+				<texturenofocus>OSDForwardNF.png</texturenofocus>
+				<onclick>PlayerControl(Forward)</onclick>
+			</control>
+			<control type="button" id="205">
+				<width>45</width>
+				<height>45</height>
+				<label>209</label>
+				<font>-</font>
+				<texturefocus>OSDNextTrackFO.png</texturefocus>
+				<texturenofocus>OSDNextTrackNF.png</texturenofocus>
+				<onclick>PlayerControl(Next)</onclick>
+			</control>
+		</control>
+		<control type="group">
+			<visible>!VideoPlayer.Content(LiveTV) + Player.HasMedia</visible>
+			<bottom>75</bottom>
+			<right>0</right>
+			<height>90</height>
+			<width>45</width>
+			<control type="button" id="606">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<label>$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</label>
+				<font>-</font>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>XBMC.PlayerControl(Repeat)</onclick>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<texture>OSDRepeatNF.png</texture>
+				<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+				<visible>!Control.HasFocus(606)</visible>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<texture>OSDRepeatFO.png</texture>
+				<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+				<visible>Control.HasFocus(606)</visible>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<texture>OSDRepeatOneNF.png</texture>
+				<visible>Playlist.IsRepeatOne</visible>
+				<visible>!Control.HasFocus(606)</visible>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<texture>OSDRepeatOneFO.png</texture>
+				<visible>Playlist.IsRepeatOne</visible>
+				<visible>Control.HasFocus(606)</visible>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<texture>OSDRepeatAllNF.png</texture>
+				<visible>Playlist.IsRepeat</visible>
+				<visible>!Control.HasFocus(606)</visible>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>45</width>
+				<height>45</height>
+				<texture>OSDRepeatAllFO.png</texture>
+				<visible>Playlist.IsRepeat</visible>
+				<visible>Control.HasFocus(606)</visible>
+			</control>
+			<control type="togglebutton" id="607">
+				<posx>0</posx>
+				<posy>45</posy>
+				<width>45</width>
+				<height>45</height>
+				<label>$LOCALIZE[590]$INFO[Playlist.Random, : ]</label>
+				<font>-</font>
+				<texturefocus>OSDRandomOffFO.png</texturefocus>
+				<texturenofocus>OSDRandomOffNF.png</texturenofocus>
+				<usealttexture>Playlist.IsRandom</usealttexture>
+				<alttexturefocus>OSDRandomOnFO.png</alttexturefocus>
+				<alttexturenofocus>OSDRandomOnNF.png</alttexturenofocus>
+				<onclick>XBMC.PlayerControl(Random)</onclick>
+			</control>
+		</control>
+
+		<!-- LiveTV controls -->
+		<control type="grouplist">
+			<visible>VideoPlayer.Content(LiveTV) + Player.HasMedia</visible>
+			<right>0</right>
+			<top>180</top>
+			<width>45</width>
+			<orientation>vertical</orientation>
+			<control type="button" id="300">
+				<width>45</width>
+				<height>45</height>
+				<label>210</label>
+				<font>-</font>
+				<texturefocus>OSDChannelUPFO.png</texturefocus>
+				<texturenofocus>OSDChannelUPNF.png</texturenofocus>
+				<onclick>PlayerControl(Previous)</onclick>
+			</control>
+			<control type="button" id="301">
+				<width>45</width>
+				<height>45</height>
+				<label>31354</label>
+				<font>-</font>
+				<texturefocus>OSDChannelDownFO.png</texturefocus>
+				<texturenofocus>OSDChannelDownNF.png</texturenofocus>
+				<onclick>PlayerControl(Next)</onclick>
+			</control>
+			<control type="button" id="302">
+				<width>45</width>
+				<height>45</height>
+				<label>31354</label>
+				<font>-</font>
+				<texturefocus>OSDRewindFO.png</texturefocus>
+				<texturenofocus>OSDRewindNF.png</texturenofocus>
+				<onclick>PlayerControl(Rewind)</onclick>
+				<enable>Player.SeekEnabled</enable>
+				<animation effect="fade" start="100" end="50" time="100" condition="!Player.SeekEnabled">Conditional</animation>
+			</control>
+			<control type="togglebutton" id="303">
+				<width>45</width>
+				<height>45</height>
+				<label>31351</label>
+				<altlabel>208</altlabel>
+				<font>-</font>
+				<texturefocus>OSDPauseFO.png</texturefocus>
+				<texturenofocus>OSDPauseNF.png</texturenofocus>
+				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+				<alttexturefocus>OSDPlayFO.png</alttexturefocus>
+				<alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
+				<onclick>PlayerControl(Play)</onclick>
+				<enable>Player.PauseEnabled</enable>
+				<animation effect="fade" start="100" end="50" time="100" condition="!Player.PauseEnabled">Conditional</animation>
+			</control>
+			<control type="button" id="304">
+				<width>45</width>
+				<height>45</height>
+				<label>31351</label>
+				<font>-</font>
+				<texturefocus>OSDStopFO.png</texturefocus>
+				<texturenofocus>OSDStopNF.png</texturenofocus>
+				<onclick>PlayerControl(Stop)</onclick>
+			</control>
+			<control type="button" id="305">
+				<width>45</width>
+				<height>45</height>
+				<label>31353</label>
+				<font>-</font>
+				<texturefocus>OSDForwardFO.png</texturefocus>
+				<texturenofocus>OSDForwardNF.png</texturenofocus>
+				<onclick>PlayerControl(Forward)</onclick>
+				<enable>Player.SeekEnabled</enable>
+				<animation effect="fade" start="100" end="50" time="100" condition="!Player.SeekEnabled">Conditional</animation>
+			</control>
+			<control type="togglebutton" id="353">
+				<width>45</width>
+				<height>45</height>
+				<label>31351</label>
+				<altlabel>208</altlabel>
+				<font>-</font>
+				<texturefocus>OSDRecordOffFO.png</texturefocus>
+				<texturenofocus>OSDRecordOffNF.png</texturenofocus>
+				<usealttexture>Player.Recording</usealttexture>
+				<alttexturefocus>OSDRecordOnFO.png</alttexturefocus>
+				<alttexturenofocus>OSDRecordOnNF.png</alttexturenofocus>
+				<onclick>PlayerControl(Record)</onclick>
+				<enable>Player.CanRecord</enable>
+				<animation effect="fade" start="100" end="50" time="100" condition="!Player.CanRecord">Conditional</animation>
+			</control>
+		</control>
+	</include>
+	
+	<include name="VerticalMenu">
+		<control type="group">
+			<left>0</left>
+			<top>0</top>
+			<animation effect="slide" start="0,0" end="-135,0" time="250" condition="!Window.IsActive(Home)">conditional</animation>
+<!--			<visible>!Controlgroup(9900).HasFocus</visible>-->
+<!-- Hidden button to prevent fullscreen video -->
+			<control type="button">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>200</width>
+				<height>720</height>
+			<texturefocus>-</texturefocus>
+			</control>
+			<control type="list" id="9900">
+				<left>0</left>
+				<top>90</top>
+				<width>200</width>
+				<height>480</height>
+				<onleft>9900</onleft>
+				<onright>9900</onright>
+				<pagecontrol>-</pagecontrol>
+				<scrolltime tween="sine" easing="inout">150</scrolltime>
+				<itemlayout height="60" width="180">
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>130</width>
+						<height>60</height>
+						<font>font24_title</font>
+						<textcolor>grey2</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<top>15</top>
+						<width>30</width>
+						<height>30</height>
+						<align>right</align>
+						<aligny>center</aligny>
+			                        <texture>$INFO[ListItem.Property(MenuIcon)]</texture>
+			                        <colordiffuse>DDFFFFFF</colordiffuse>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60" width="180">
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>130</width>
+						<height>60</height>
+						<font>font24_title</font>
+						<textcolor>grey2</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<top>15</top>
+						<width>30</width>
+						<height>30</height>
+						<align>right</align>
+						<aligny>center</aligny>
+			            <texture>$INFO[ListItem.Property(MenuIcon)]</texture>
+			            <colordiffuse>DDFFFFFF</colordiffuse>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>HomeMenuItems</include>
+				</content>
+			</control>
+		</control>
+	</include>
+	<include name="TouchNavigationControls">
+	<!-- home button -->
+		<control type="group">
+			<visible>!Window.IsActive(Home)</visible>
+			<control type="button">
+				<left>0</left>
+				<top>10</top>
+				<description>Home push button</description>
+				<width>45</width>
+				<height>45</height>
+				<label>31003</label>
+				<font>-</font>
+				<onclick>ActivateWindow(home)</onclick>
+				<texturefocus border="5">HomeIcon.png</texturefocus>
+				<onleft>9900</onleft>
+				<onright>9900</onright>
+				<onup>9900</onup>
+				<ondown>9900</ondown>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>10</top>
+				<width>45</width>
+				<height>45</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<texture>HomeIcon.png</texture>
+				<colordiffuse>DDFFFFFF</colordiffuse>
+			</control>
+		</control>
+		<!-- Back Button -->
+		<control type="group">
+			<visible>!Window.IsActive(Home)</visible>
+			<control type="button">
+				<description>Back push button</description>
+				<left>0</left>
+				<bottom>80</bottom>
+				<width>45</width>
+				<height>45</height>
+				<label>1036</label>
+				<font>-</font>
+				<onclick>back</onclick>
+				<texturefocus border="5">icon_back.png</texturefocus>
+				<onleft>9900</onleft>
+				<onright>9900</onright>
+				<onup>9900</onup>
+				<ondown>9900</ondown>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<bottom>80</bottom>
+				<width>45</width>
+				<height>45</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<texture>icon_back.png</texture>
+				<colordiffuse>DDFFFFFF</colordiffuse>
+			</control>
+		</control>
+	</include>
+</includes>

@@ -1,0 +1,287 @@
+<includes>
+	<include name="HomeAddonVideos">
+		<control type="image" id="662001">
+        	        <width>35</width>
+        	        <height>35</height>
+        	       	<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+		<control type="button" id="662002">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton1))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton1)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton1))</visible>
+		</control>
+		<control type="button" id="662003">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton2))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton2)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton2))</visible>
+		</control>
+		<control type="button" id="662004">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton3))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton3)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton3))</visible>
+		</control>
+		<control type="button" id="662005">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton4))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton4)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton4))</visible>
+		</control>
+		<control type="button" id="662006">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton5))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton5)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton5))</visible>
+		</control>
+                <control type="image" id="662010">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+                </control>
+	</include>		
+	<include name="HomeAddonMovies">
+		<control type="image" id="662001">
+        	        <width>35</width>
+        	        <height>35</height>
+        	       	<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+		<control type="button" id="662002">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton1))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton1)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton1))</visible>
+		</control>
+		<control type="button" id="662003">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton2))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton2)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton2))</visible>
+		</control>
+		<control type="button" id="662004">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton3))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton3)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton3))</visible>
+		</control>
+		<control type="button" id="662005">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton4))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton4)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton4))</visible>
+		</control>
+		<control type="button" id="662006">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton5))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton5)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton5))</visible>
+		</control>
+                <control type="image" id="662010">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+                </control>
+	</include>		
+	<include name="HomeAddonTVShows">
+		<control type="image" id="662001">
+        	        <width>35</width>
+        	        <height>35</height>
+        	       	<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+		<control type="button" id="662002">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton1))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton1)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton1))</visible>
+		</control>
+		<control type="button" id="662003">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton2))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton2)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton2))</visible>
+		</control>
+		<control type="button" id="662004">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton3))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton3)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton3))</visible>
+		</control>
+		<control type="button" id="662005">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton4))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton4)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton4))</visible>
+		</control>
+		<control type="button" id="662006">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeVideosButton5))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeVideosButton5)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeVideosButton5))</visible>
+		</control>
+                <control type="image" id="662009">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+                </control>
+	</include>		
+	<include name="HomeAddonMusic">
+		<control type="image" id="663001">
+        	        <width>35</width>
+        	        <height>35</height>
+        	       	<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+		<control type="button" id="663002">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeMusicButton1))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeMusicButton1)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeMusicButton1))</visible>
+		</control>
+		<control type="button" id="663003">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeMusicButton2))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeMusicButton2)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeMusicButton2))</visible>
+		</control>
+		<control type="button" id="663004">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeMusicButton3))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeMusicButton3)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeMusicButton3))</visible>
+		</control>
+		<control type="button" id="663005">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeMusicButton4))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeMusicButton4)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeMusicButton4))</visible>
+		</control>
+		<control type="button" id="663006">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeMusicButton5))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeMusicButton5)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeMusicButton5))</visible>
+		</control>
+                <control type="image" id="663010">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+                </control>
+	</include>	
+        <include name="HomeAddonPictures">
+		<control type="image" id="664001">
+        	        <width>35</width>
+        	        <height>35</height>
+        	       	<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+		<control type="button" id="664002">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomePictureButton1))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePictureButton1)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomePictureButton1))</visible>
+		</control>
+		<control type="button" id="664003">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomePictureButton2))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePictureButton2)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomePictureButton2))</visible>
+		</control>
+		<control type="button" id="664004">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomePictureButton3))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePictureButton3)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomePictureButton3))</visible>
+		</control>
+		<control type="button" id="664005">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomePictureButton4))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePictureButton4)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomePictureButton4))</visible>
+		</control>
+		<control type="button" id="664006">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomePictureButton5))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomePictureButton5)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomePictureButton5))</visible>
+		</control>		
+                <control type="image" id="664007">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+                </control>
+	</include>	
+        <include name="HomeAddonPrograms">
+		<control type="image" id="661001">
+        	        <width>35</width>
+        	        <height>35</height>
+        	       	<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+		<control type="button" id="661002">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton1))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton1)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeProgramButton1))</visible>
+		</control>
+		<control type="button" id="661003">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton2))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton2)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeProgramButton2))</visible>
+		</control>
+		<control type="button" id="661004">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton3))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton3)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeProgramButton3))</visible>
+		</control>
+		<control type="button" id="661005">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton4))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton4)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeProgramButton4))</visible>
+		</control>
+		<control type="button" id="661006">
+		        <include>ButtonHomeAddonCommonValues</include>
+			<label>$INFO[system.addontitle(Skin.String(HomeProgramButton5))]</label>
+			<onclick>RunAddon($INFO[Skin.String(HomeProgramButton5)])</onclick>
+			<visible>!IsEmpty(Skin.String(HomeProgramButton5))</visible>
+		</control>
+		<control type="button" id="661007">
+		        <include>ButtonHomeAddonCommonValues</include>
+                        <label>0</label>
+                        <onclick condition="!System.Platform.Android">ActivateWindow(Programs,Addons,return)</onclick>
+                        <onclick condition="System.Platform.Android">ActivateWindow(Programs)</onclick>
+                        <visible>Skin.HasSetting(HomeMenuNoProgramsButton) + !Skin.HasSetting(HomeMenuNoGamesButton) + System.HasAddon(script.games.rom.collection.browser)</visible>
+		</control>
+                <control type="image" id="661010">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+                </control>
+	</include>
+        <include name="HomeAddonLiveTV">
+		<control type="image" id="668001">
+        	        <width>35</width>
+        	        <height>35</height>
+        	       	<texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+		</control>
+                <control type="image" id="668005">
+                        <width>35</width>
+                        <height>35</height>
+                        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>
+                </control>
+	</include>
+</includes>

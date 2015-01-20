@@ -1,0 +1,172 @@
+<window id="115">
+	<defaultcontrol>1</defaultcontrol>
+	<visible>[Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding | Player.DisplayAfterSeek]</visible>
+<!--	<visible>[Window.IsVisible(2005) | Window.IsVisible(2006)] + [Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding]</visible>-->
+<!--	<visible>Player.Seeking</visible>-->
+	<controls>
+        	<control type="label">
+	       	        <posx>20r</posx>
+	       	        <posy>100r</posy>
+                        <description>Cache Label</description>
+                        <posx>0</posx>
+                        <width>300</width>
+                        <height>30</height>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <font>font12</font>
+                        <textcolor>grey</textcolor>
+                        <label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+                        <visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+                        <animation effect="slide" start="0,0" end="0,-25" time="0" condition="Window.IsVisible(Home)">conditional</animation>
+	       	</control>
+		<control type="group" id="1">
+                        <posx>0</posx>
+                        <posy>125r</posy>
+			<visible>[Player.Seeking | Player.Forwarding | Player.Rewinding] + ![Player.ShowInfo | Window.IsActive(VideoOSD) | Window.IsVisible(107) | Player.Paused]</visible>
+		        <animation effect="fade" time="200">VisibleChange</animation>
+                        <control type="image" id="1">
+                                <posx>-100</posx>
+                                <posy>40r</posy>
+                                <width>1480</width>
+                                <height>90</height>
+                                <texture border="0,6,0,6" flipy="true">MediaBladeSubTop.png</texture>
+                                <colordiffuse>99FFFFFF</colordiffuse>
+                        </control>
+                        <control type="image" id="1">
+                                <posx>0</posx>
+                                <posy>37r</posy>
+                                <width>1280</width>
+                                <height>6</height>
+                                <texture>HomeOverlay1.png</texture>
+                        </control>
+                </control>
+
+                <control type="group" id="1">
+                        <posx>20</posx>
+                        <posy>40r</posy>
+			<visible>Player.Seeking | Player.Rewinding | Player.Forwarding</visible>
+			<control type="label">
+				<description>Seek Time Label</description>
+                                <posx>0</posx>
+                                <posy>5</posy>
+                                <width>100</width>
+                                <height>35</height>
+                                <font>font12</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+				<label>$INFO[Player.SeekTime(h:mm:ss)]</label>
+				<visible>Player.Seeking</visible>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="label">
+				<description>Seek Time Label</description>
+                                <posx>-10</posx>
+                                <posy>5</posy>
+                                <width>140</width>
+                                <height>35</height>
+                                <font>font12</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+				<label>$INFO[Player.TimeSpeed(h:mm:ss)]</label>
+				<visible>Player.Rewinding | Player.Forwarding</visible>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="slider" id="401">
+				<description>Seek Slider</description>
+				<posx>100</posx>
+				<posy>13</posy>
+				<width>1040</width>
+				<height>12</height>
+				<texturesliderbar>seekslider.png</texturesliderbar>
+				<textureslidernib>osd_slider_nib.png</textureslidernib>
+				<textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
+				<visible>Player.Seeking</visible>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+			</control>
+                        <control type="progress" id="1">
+                                <description>ProgressbarCache</description>
+                                <posx>100</posx>
+                                <posy>15</posy>
+                                <width>1040</width>
+                                <height>16</height>
+                                <info>Player.ProgressCache</info>
+                                <midtexture border="6,0,6,0">OSDProgressMidLight.png</midtexture>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+                        </control>
+                        <control type="progress" id="1">
+                                <description>Progressbar</description>
+                                <posx>100</posx>
+                                <posy>15</posy>
+                                <width>1040</width>
+                                <height>16</height>
+                                <info>Player.Progress</info>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+                        </control>
+                        <control type="label" id="1">
+                                <posx>1240</posx>
+                                <posy>5</posy>
+                                <width>100</width>
+                                <height>35</height>
+                                <font>font12</font>
+                                <align>right</align>
+                                <aligny>center</aligny>
+                                <label>$INFO[Player.Duration(h:mm:ss)]</label>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+                        </control>
+<!-- LIVETV-->
+                        <control type="label" id="1">
+                                <posx>0</posx>
+                                <posy>5</posy>
+                                <width>100</width>
+                                <height>35</height>
+                                <font>font12</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <label>$INFO[Player.StartTime]</label>
+				<visible>VideoPlayer.Content(LiveTV)</visible>
+                        </control>
+			<control type="slider" id="401">
+				<description>Seek Slider</description>
+				<posx>100</posx>
+				<posy>13</posy>
+				<width>1040</width>
+				<height>12</height>
+				<texturesliderbar>seekslider.png</texturesliderbar>
+				<textureslidernib>osd_slider_nib.png</textureslidernib>
+				<textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
+				<visible>Player.Seeking</visible>
+				<visible>VideoPlayer.Content(LiveTV)</visible>
+			</control>
+                                <control type="progress" id="1">
+                                        <description>ProgressbarCache</description>
+                                        <posx>100</posx>
+                                        <posy>15</posy>
+                                        <width>1040</width>
+                                        <height>16</height>
+                                        <info>Player.ProgressCache</info>
+                                        <midtexture border="6,0,6,0">OSDProgressMidLight.png</midtexture>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+                                </control>
+                                <control type="progress" id="1">
+                                        <description>Progressbar</description>
+                                        <posx>100</posx>
+                                        <posy>15</posy>
+                                        <width>1040</width>
+                                        <height>16</height>
+                                        <info>Player.Progress</info>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+                                </control>
+                                <control type="label" id="1">
+                                        <posx>1240</posx>
+                                        <posy>5</posy>
+                                        <width>100</width>
+                                        <height>35</height>
+                                        <font>font12</font>
+                                        <align>right</align>
+                                        <aligny>center</aligny>
+                                        <label>$INFO[Player.FinishTime]</label>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+                                </control>
+		</control>
+	</controls>
+</window>

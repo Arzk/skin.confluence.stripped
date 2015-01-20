@@ -1,0 +1,29 @@
+<window id="120">
+	<defaultcontrol always="true">701</defaultcontrol>
+	<include>dialogeffect</include>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<controls>
+		<control type="slider" id="87">
+			<description>Seek Slider</description>
+			<left>120</left>
+			<top>27r</top>
+			<width>1040</width>
+			<height>12</height>
+			<onup>702</onup>
+			<ondown>26</ondown>
+			<action>seek</action>
+			<texturesliderbar>seekslider.png</texturesliderbar>
+			<textureslidernib>osd_slider_nib.png</textureslidernib>
+			<textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
+			<animation effect="fade" time="200">VisibleChange</animation>
+			<visible>system.getbool(input.enablemouse)</visible>
+			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | VideoPlayer.Content(LiveTV)]</visible>
+		</control>
+		<include condition="!Skin.HasSetting(TouchMode)">MusicOSD</include>
+		<include condition="Skin.HasSetting(TouchMode)">MediaOSDTouch</include>
+	</controls>
+ </window>

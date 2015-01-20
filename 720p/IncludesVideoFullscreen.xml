@@ -1,0 +1,376 @@
+<includes>
+	<include name="FullScreenMediaInfo">
+				<control type="image" id="1">
+					<posx>-100</posx>
+					<posy>75r</posy>
+					<width>1480</width>
+					<height>90</height>
+					<texture border="0,6,0,6" flipy="true">MediaBladeSubTop.png</texture>
+					<colordiffuse>DDFFFFFF</colordiffuse>
+				</control>
+				<control type="image" id="1">
+					<posx>0</posx>
+					<posy>72r</posy>
+					<width>1280</width>
+					<height>6</height>
+					<texture>HomeOverlay1.png</texture>
+				</control>
+			<control type="group" id="1">
+				<posx>0</posx>
+				<posy>125r</posy>
+
+				<control type="label" id="1">
+					<description>Music Video Artist label</description>
+					<posx>20</posx>
+					<posy>30</posy>
+					<width>1020</width>
+					<height>25</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>font16</font>
+					<textcolor>grey</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[VideoPlayer.Artist] $INFO[VideoPlayer.Album, - ]</label>
+					<visible>VideoPlayer.Content(MusicVideos)</visible>
+				</control>
+
+				<!-- TITLE LABEL -->
+				<control type="grouplist" id="1">
+					<visible>!Window.IsVisible(107)</visible>
+					<posx>20</posx>
+					<posy>60</posy>
+					<width>1260</width>
+					<height>35</height>
+					<itemgap>5</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="10" max="715">auto</width>
+						<height>30</height>
+						<font>font13_title</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[MusicPlayer.Title] $INFO[musicplayer.Playlistposition,(]$INFO[musicplayer.Playlistlength, / ,)]</label>
+						<textcolor>grey</textcolor>
+						<scroll>true</scroll>
+						</control>
+
+					<control type="label" id="1">
+						<width min="10" max="715">auto</width>
+						<height>30</height>
+						<font>font13_title</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<textcolor>grey</textcolor>
+						<scroll>true</scroll>
+						<visible>!VideoPlayer.Content(LiveTV) + !VideoPlayer.Content(Episodes)</visible>
+					</control>
+					<control type="label" id="1">
+						<width min="10" max="715">auto</width>
+						<height>30</height>
+						<font>font13_title</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[VideoPlayer.Title] (S$INFO[VideoPlayer.Season]E$INFO[VideoPlayer.Episode])</label>
+						<textcolor>grey</textcolor>
+						<scroll>true</scroll>
+						<visible>VideoPlayer.Content(Episodes)</visible>
+					</control>
+					<control type="label" id="1">
+						<width min="10" max="715">auto</width>
+						<height>30</height>
+						<font>font13_title</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<textcolor>grey</textcolor>
+						<scroll>true</scroll>
+						<visible>VideoPlayer.Content(LiveTV)</visible>
+					</control>
+				</control>
+
+				<!-- TITLE2 LABEL -->				
+				<control type="grouplist" id="1">
+					<posx>810r</posx>
+					<posy>60</posy>
+					<width>795</width>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<itemgap>0</itemgap>
+					<animation effect="fade" time="200">VisibleChange</animation>
+					<visible>Skin.HasSetting(TouchMode) | ![Skin.HasSetting(KeyboardMode) + Window.IsVisible(VideoOSD)]</visible>
+
+					<!-- Music Player -->
+					<control type="label">
+						<width>485</width>
+						<height>35</height>
+						<label>$LOCALIZE[209]: $INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
+						<align>right</align>
+						<aligny>center</aligny>
+						<font>font12</font>
+						<textcolor>grey</textcolor>
+						<scroll>true</scroll>
+						<visible>MusicPlayer.HasNext + !IsEmpty(MusicPlayer.offset(1).Title)</visible>
+                        <visible>!StringCompare(MusicPlayer.Artist, MusicPlayer.offset(1).Artist) | IsEmpty(MusicPlayer.offset(1).Artist)</visible>
+						<visible>!Window.IsVisible(107)</visible>
+					</control>
+					<control type="label">
+						<width>485</width>
+						<height>35</height>
+						<label>$LOCALIZE[209]: $INFO[MusicPlayer.offset(1).Title]</label>
+						<align>right</align>
+						<aligny>center</aligny>
+						<font>font12</font>
+						<textcolor>grey</textcolor>
+						<scroll>true</scroll>
+						<visible>MusicPlayer.HasNext + !IsEmpty(MusicPlayer.offset(1).Title)</visible>
+		                <visible>StringCompare(MusicPlayer.Artist, MusicPlayer.offset(1).Artist) | IsEmpty(MusicPlayer.offset(1).Artist)</visible>
+						<visible>!Window.IsVisible(107)</visible>
+					</control>
+
+					<!-- Video Player -->
+					<control type="label" id="1">
+						<description>Chapter Count Header label</description>
+						<width>485</width>
+						<height>35</height>
+						<align>right</align>
+						<aligny>center</aligny>
+						<font>font12</font>
+						<textcolor>grey2</textcolor>
+						<label>$INFO[Player.Chapter]$INFO[Player.ChapterCount, / ]</label>
+						<visible>Player.ChapterCount + !VideoPlayer.Content(LiveTV)</visible>
+						<visible>!Window.IsVisible(107)</visible>
+					</control>
+					<control type="label" id="1">
+						<width>485</width>
+						<height>35</height>
+						<label>$INFO[VideoPlayer.NextTitle,$LOCALIZE[209]: ]</label>
+						<align>right</align>
+						<aligny>center</aligny>
+						<font>font12</font>
+						<textcolor>grey2</textcolor>
+						<scroll>true</scroll>	
+						<visible>VideoPlayer.Content(LiveTV)</visible>
+						<visible>!Window.IsVisible(107)</visible>
+					</control>
+					<control type="label" id="1">	
+						<width>10</width>
+					</control>
+					<control type="image" id="1">
+						<width>35</width>
+						<height>35</height>
+						<aspectratio align="right">stretch</aspectratio>
+						<texture>PVR-IsRecordingOSD.png</texture>
+						<visible>VideoPlayer.Content(LiveTV) + Player.Recording</visible>
+	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+					</control>
+					<control type="image" id="1">
+						<description>Empty block</description>
+						<width>160</width>
+						<height>35</height>
+						<aspectratio align="right">stretch</aspectratio>
+	                    <visible>Player.HasVideo + !Skin.HasSetting(TouchMode) + [Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]] </visible>
+					</control>
+					<control type="image" id="1">
+						<description>Empty block</description>
+						<width>125</width>
+						<height>35</height>
+						<aspectratio align="right">stretch</aspectratio>
+						<visible>!Skin.HasSetting(TouchMode) + Window.IsVisible(MusicOSD) + !Window.IsVisible(VisualisationPresetList)</visible>
+					</control>
+					<control type="image" id="1">
+						<description>Empty block</description>
+						<width>37</width>
+						<height>35</height>
+						<aspectratio align="right">stretch</aspectratio>
+	                    <visible>Player.HasVideo + !Skin.HasSetting(TouchMode) + [Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]] </visible>
+					</control>
+					<control type="group" id="1">
+						<width>60</width>
+						<height>35</height>
+	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+						<visible>!IsEmpty(VideoPlayer.AudioLanguage)</visible>
+						<visible>!stringcompare(VideoPlayer.AudioLanguage,und)</visible>
+						<control type="image" id="1">
+							<left>0</left>
+							<top>0</top>
+							<description>Audio Language Image</description>
+							<aspectratio align="right">stretch</aspectratio>
+							<width>60</width>
+							<height>35</height>
+							<texture>flagging/AudioLang.png</texture>
+						</control>
+						<control type="label" id="1">
+							<left>23</left>
+							<top>0</top>
+							<width>37</width>
+							<height>35</height>
+							<font>font12</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[VideoPlayer.AudioLanguage]</label>
+							<textcolor>grey</textcolor>
+						</control>
+					</control>
+					<control type="group" id="1">
+						<width>60</width>
+						<height>35</height>
+						<visible>!IsEmpty(VideoPlayer.SubtitlesLanguage)</visible>
+	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+						<control type="image" id="1">
+							<left>0</left>
+							<top>0</top>
+							<width>60</width>
+							<height>35</height>
+							<aspectratio align="right">stretch</aspectratio>
+							<texture>flagging/SubLang.png</texture>
+						</control>
+						<control type="label" id="1">
+							<left>23</left>
+							<top>0</top>
+							<width>37</width>
+							<height>35</height>
+							<font>font12</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<label>$INFO[VideoPlayer.SubtitlesLanguage]</label>
+							<textcolor>grey</textcolor>
+						</control>
+					</control>
+					<control type="image" id="1">
+						<description>Video Resolution Image</description>
+						<height>35</height>
+						<width>50</width>
+						<aspectratio align="center">stretch</aspectratio>
+						<texture>$INFO[VideoPlayer.VideoResolution,flagging/video/,.png]</texture>
+						<visible>Skin.HasSetting(TouchMode) | [Player.ShowInfo + !Window.IsVisible(VideoOSD)]</visible>
+						<visible>Player.HasVideo + !IsEmpty(VideoPlayer.VideoResolution)</visible>
+					</control>
+					<control type="image" id="1">
+						<description>Audio Codec Image</description>
+						<width>75</width>
+						<height>35</height>
+						<aspectratio align="center">stretch</aspectratio>
+						<texture>$INFO[VideoPlayer.AudioCodec,flagging/audio/,.png]</texture>
+						<visible>Skin.HasSetting(TouchMode) | [Player.ShowInfo + !Window.IsVisible(VideoOSD)]</visible>
+						<visible>Player.HasVideo + !IsEmpty(VideoPlayer.AudioCodec)</visible>
+					</control>
+					<control type="image" id="1">
+						<description>Audio Channels Image</description>
+						<width>50</width>
+						<height>35</height>
+						<aspectratio align="center">stretch</aspectratio>
+						<texture>$INFO[VideoPlayer.AudioChannels,flagging/audio/,.png]</texture>
+						<visible>Skin.HasSetting(TouchMode) | [Player.ShowInfo + !Window.IsVisible(VideoOSD)]</visible>
+						<visible>Player.HasVideo + !IsEmpty(VideoPlayer.AudioChannels)</visible>
+					</control>
+					<control type="image" id="1">
+						<description>Audio Codec Image</description>
+						<width>75</width>
+						<height>35</height>
+						<aspectratio align="center">stretch</aspectratio>
+						<texture>$INFO[MusicPlayer.Codec,flagging/audio/,.png]</texture>
+						<visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(MusicOSD) | Window.IsVisible(VisualisationPresetList)</visible>
+						<visible>Player.HasAudio</visible>
+					</control>
+					<control type="image" id="1">
+						<description>Audio Channels Image</description>
+						<width>50</width>
+						<height>35</height>
+						<aspectratio align="center">stretch</aspectratio>
+						<texture>$INFO[MusicPlayer.Channels,flagging/audio/,.png]</texture>
+						<visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(MusicOSD) | Window.IsVisible(VisualisationPresetList)</visible>
+						<visible>Player.HasAudio</visible>
+					</control>
+					</control>
+   			</control>
+			<control type="group" id="2">
+				<posx>20</posx>
+				<posy>40r</posy>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+				<visible>IntegerGreaterThan(Player.Duration,0)</visible>
+				<visible>!Player.Seeking + !Player.Rewinding + !Player.Forwarding</visible>
+				<control type="label" id="1">
+					<posx>0</posx>
+					<posy>5</posy>
+					<width>100</width>
+					<height>35</height>
+					<font>font12</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Player.Time(h:mm:ss)]</label>
+				</control>
+				<control type="progress" id="1">
+					<description>ProgressbarCache</description>
+					<posx>100</posx>
+					<posy>15</posy>
+					<width>1040</width>
+					<height>16</height>
+					<info>Player.ProgressCache</info>
+					<midtexture border="6,0,6,0">OSDProgressMidLight.png</midtexture>
+				</control>
+				<control type="progress" id="1">
+					<description>Progressbar</description>
+					<posx>100</posx>
+					<posy>15</posy>
+					<width>1040</width>
+					<height>16</height>
+					<info>Player.Progress</info>
+				</control>
+				<control type="label" id="1">
+					<posx>1240</posx>
+					<posy>5</posy>
+					<width>100</width>
+					<height>35</height>
+					<font>font12</font>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$INFO[Player.Duration(h:mm:ss)]</label>
+				</control>
+			</control>
+			<control type="group" id="2">
+				<posx>20</posx>
+				<posy>40r</posy>
+				<visible>[VideoPlayer.Content(LiveTV) + VideoPlayer.HasEpg]</visible>
+				<visible>IntegerGreaterThan(Player.Duration,0)</visible>
+				<visible>!Player.Seeking + !Player.Rewinding + !Player.Forwarding</visible>
+				<control type="label" id="1">
+					<posx>0</posx>
+					<posy>5</posy>
+					<width>100</width>
+					<height>35</height>
+					<font>font12</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[VideoPlayer.StartTime]</label>
+				</control>
+				<control type="progress" id="1">
+					<description>ProgressbarCache</description>
+					<posx>100</posx>
+					<posy>15</posy>
+					<width>1040</width>
+					<height>16</height>
+					<info>Player.ProgressCache</info>
+					<midtexture border="6,0,6,0">OSDProgressMidLight.png</midtexture>
+				</control>
+				<control type="progress" id="1">
+					<description>Progressbar</description>
+					<posx>100</posx>
+					<posy>15</posy>
+					<width>1040</width>
+					<height>16</height>
+					<info>Player.Progress</info>
+				</control>
+				<control type="label" id="1">
+					<posx>1240</posx>
+					<posy>5</posy>
+					<width>100</width>
+					<height>35</height>
+					<font>font12</font>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$INFO[VideoPlayer.FinishTime]</label>
+				</control>
+			</control>
+	</include>
+</includes>
