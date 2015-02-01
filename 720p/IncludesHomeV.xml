@@ -2,7 +2,7 @@
 	<include name="VerticalHome">
 		<include>HomeTVRecordingInfo</include>
 	        <include>TopBar</include>
-		<include>TouchMediaControls</include>
+<!--		<include>TouchMediaControls</include>-->
 		<include condition="Skin.HasSetting(EnableWidgets)">HomeRecentlyAddedWidgetTouch</include>
 		<control type="image">
 	                <posx>0</posx>
@@ -13,35 +13,9 @@
 	                <colordiffuse>DDFFFFFF</colordiffuse>
 		</control>
 		<include>VerticalMenu</include>
-        <include>TouchTools</include>
+	        <include>TouchTools</include>
+                <include>BottomBlade</include>
 		<include>CommonNowPlaying</include>
-<!--		<control type="button" id="9003">
-			<description>Hidden Button to pass through navigation when recently added is disabled</description>
-			<left>-20</left>
-			<top>-20</top>
-			<width>1</width>
-			<height>1</height>
-			<label>-</label>
-			<font>-</font>
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onleft>9900</onleft>
-			<onright>9900</onright>
-			<onup>9900</onup>
-			<ondown>9900</ondown>
-			<visible>false</visible>
-		</control>-->
-<!--		<control type="button">
-			<description>Hidden button to close the window when its not focused</description>
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>ScreenWidth</width>
-			<height>ScreenHeight</height>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
-			<onclick>Skin.Reset(HomeSubMenuVisible)</onclick>
-			<visible>Skin.HasSetting(HomeSubMenuVisible)</visible>
-		</control>-->
 		<control type="group">
 			<posx>185</posx>
 			<posy>55</posy>

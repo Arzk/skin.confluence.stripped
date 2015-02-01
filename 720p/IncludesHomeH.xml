@@ -215,108 +215,8 @@
                                         <include>HomeAddonLiveTV</include> <!-- Buttons for the grouplist -->
                                 </control>
                         </control>
-			<control type="wraplist" id="9900">
-                                <animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
-                                <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<left>-110</left>
-				<top>68r</top>
-				<width>1500</width>
-				<height>60</height>
-				<onleft>9900</onleft>
-				<onright>9900</onright>
-<!--				<onup>9001</onup>-->
-                                <onup condition="System.HasAddon(script.globalsearch) + !Player.HasMedia">608</onup>
-                                <onup condition="!System.HasAddon(script.globalsearch) | Player.HasMedia">607</onup>
-				<ondown>9003</ondown>
-				<pagecontrol>-</pagecontrol>
-				<scrolltime tween="sine" easing="inout">150</scrolltime>
-				<focusposition>2</focusposition>
-				<movement>1</movement>
-				<orientation>Horizontal</orientation>
-			        <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
-				<visible>Skin.HasSetting(HomeWrapList)</visible>
-				<itemlayout height="60" width="300">
-					<control type="label">
-						<left>0</left>
-						<top>0</top>
-						<width>290</width>
-						<height>60</height>
-						<font>font_MainMenu</font>
-						<textcolor>fadedgrey</textcolor>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="60" width="300">
-					<control type="label">
-						<left>0</left>
-						<top>0</top>
-						<width>290</width>
-						<height>60</height>
-						<font>font_MainMenu</font>
-						<textcolor>white</textcolor>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(9900)">conditional</animation>
-					</control>
-				</focusedlayout>
-				<content>
-					<include>HomeMenuItems</include>
-				</content>
-			</control>
-			<control type="fixedlist" id="9900">
-                                <animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
-                                <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<left>-110</left>
-				<top>68r</top>
-				<width>1500</width>
-				<height>60</height>
-				<onleft>9900</onleft>
-				<onright>9900</onright>
-<!--				<onup>9001</onup>-->
-                                <onup condition="System.HasAddon(script.globalsearch) + !Player.HasMedia">608</onup>
-                                <onup condition="!System.HasAddon(script.globalsearch) | Player.HasMedia">607</onup>
-				<ondown>9003</ondown>
-				<pagecontrol>-</pagecontrol>
-				<scrolltime tween="sine" easing="inout">150</scrolltime>
-				<focusposition>2</focusposition>
-				<movement>1</movement>
-				<orientation>Horizontal</orientation>
-			        <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
-				<visible>!Skin.HasSetting(HomeWrapList)</visible>
-				<itemlayout height="60" width="300">
-					<control type="label">
-						<left>0</left>
-						<top>0</top>
-						<width>290</width>
-						<height>60</height>
-						<font>font_MainMenu</font>
-						<textcolor>fadedgrey</textcolor>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="60" width="300">
-					<control type="label">
-						<left>0</left>
-						<top>0</top>
-						<width>290</width>
-						<height>60</height>
-						<font>font_MainMenu</font>
-						<textcolor>white</textcolor>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(9900)">conditional</animation>
-					</control>
-				</focusedlayout>
-				<content>
-					<include>HomeMenuItems</include>
-				</content>
-			</control>
+			<include condition="Skin.HasSetting(HomeWrapList)">WrapHomeList</include>
+			<include condition="!Skin.HasSetting(HomeWrapList)">FixedHomeList</include>
 			<control type="image">
 				<left>0</left>
 				<top>68r</top>
@@ -334,5 +234,63 @@
 				<texture flipx="true">SideFade.png</texture>
 			</control>
 		</control>
+	</include>
+	<include name="WrapHomeList">
+		<control type="wraplist" id="9900">
+			<include>HomeMenuSys</include>
+			<include>HomeMenuItems</include>
+		</control>
+	</include>
+	<include name="FixedHomeList">
+		<control type="fixedlist" id="9900">
+			<include>HomeMenuSys</include>
+			<include>HomeMenuItems</include>
+		</control>
+	</include>
+	<include name="HomeMenuSys">
+	        <animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+                <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+		<left>-110</left>
+		<top>68r</top>
+		<width>1500</width>
+		<height>60</height>
+		<onleft>9900</onleft>
+		<onright>9900</onright>
+                <onup condition="System.HasAddon(script.globalsearch) + !Player.HasMedia">608</onup>
+		<onup condition="!System.HasAddon(script.globalsearch) | Player.HasMedia">607</onup>
+		<ondown>9003</ondown>
+		<pagecontrol>-</pagecontrol>
+		<scrolltime tween="sine" easing="inout">150</scrolltime>
+		<focusposition>2</focusposition>
+		<movement>1</movement>
+		<orientation>Horizontal</orientation>
+	        <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
+		<itemlayout height="60" width="300">
+			<control type="label">
+				<left>0</left>
+				<top>0</top>
+				<width>290</width>
+				<height>60</height>
+				<font>font_MainMenu</font>
+				<textcolor>fadedgrey</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout height="60" width="300">
+			<control type="label">
+				<left>0</left>
+				<top>0</top>
+				<width>290</width>
+				<height>60</height>
+				<font>font_MainMenu</font>
+				<textcolor>white</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(9900)">conditional</animation>
+			</control>
+		</focusedlayout>
 	</include>
 </includes>

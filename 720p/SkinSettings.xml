@@ -14,14 +14,14 @@
 		<control type="group">
 			<posx>90</posx>
 			<posy>55</posy>
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
-				<effect type="fade" start="0" end="100" time="300" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
-				<effect type="fade" start="100" end="0" time="300" />
-			</animation>
+                        <animation type="WindowOpen" reversible="false" condition="Window.Previous(Home)">
+                                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+                                <effect type="fade" start="0" end="100" time="300" />
+                        </animation>
+                        <animation type="WindowClose" reversible="false"condition="Window.Next(Home)">
+                                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+                                <effect type="fade" start="100" end="0" time="300" />
+                        </animation>
 <!--			<control type="button">
 				<description>Close Window button</description>
 				<posx>980</posx>
@@ -41,7 +41,7 @@
 			</control>-->
 			<control type="list" id="9000">
 				<posx>10</posx>
-				<posy>20</posy>
+				<posy>5</posy>
 				<width>260</width>
 				<height>560</height>
 				<onleft>9010</onleft>
@@ -50,67 +50,45 @@
 				<ondown>9000</ondown>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>300</scrolltime>
-				<itemlayout height="80" width="260">
+				<itemlayout height="60" width="260">
 					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
 						<width>240</width>
-						<height>81</height>
+						<height>60</height>
 						<texture border="5">MenuItemNF.png</texture>
 					</control>
 					<control type="label">
 						<posx>0</posx>
-						<posy>15</posy>
+						<posy>0</posy>
 						<width>240</width>
-						<height>25</height>
+						<height>60</height>
 						<font>font13_title</font>
 						<textcolor>grey2</textcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
-					<control type="label">
-						<posx>0</posx>
-						<posy>42</posy>
-						<width>240</width>
-						<height>25</height>
-						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<align>right</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
 				</itemlayout>
-				<focusedlayout height="80" width="260">
+				<focusedlayout height="60" width="260">
 					<control type="image">
-						<posx>1</posx>
+						<posx>0</posx>
 						<posy>0</posy>
 						<width>260</width>
-						<height>81</height>
+						<height>60</height>
 						<texture border="5">MenuItemFO.png</texture>
 						<animation effect="fade" start="100" end="30" time="100" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">
 						<posx>0</posx>
-						<posy>15</posy>
+						<posy>0</posy>
 						<width>240</width>
-						<height>25</height>
+						<height>60</height>
 						<font>font13_title</font>
 						<textcolor>white</textcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>0</posx>
-						<posy>42</posy>
-						<width>240</width>
-						<height>25</height>
-						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<align>right</align>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label2]</label>
 					</control>
 				</focusedlayout>
 				<content>
@@ -153,27 +131,6 @@
 					</item>
 				</content>
 			</control>
-<!--			<control type="image">
-				<posx>268</posx>
-				<posy>10</posy>
-				<width>804</width>
-				<height>100</height>
-				<aspectratio>stretch</aspectratio>
-				<texture>GlassTitleBar.png</texture>
-			</control>-->
-<!--			<control type="label">
-				<description>header label</description>
-				<posx>300</posx>
-				<posy>20</posy>
-				<width>740</width>
-				<height>30</height>
-				<font>font16</font>
-				<label>$LOCALIZE[20077] - $INFO[Container(9000).ListItem.Label]</label>
-				<align>left</align>
-				<aligny>center</aligny>
-				<textcolor>white</textcolor>
-				<shadowcolor>black</shadowcolor>
-			</control>-->
 			<control type="group" id="9010">
 				<include>SkinSettingsGeneral</include>
 				<include>SkinSettingsHome</include>

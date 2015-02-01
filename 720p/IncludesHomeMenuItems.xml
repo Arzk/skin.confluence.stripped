@@ -738,6 +738,7 @@
 		</control>
 	</include>
         <include name="HomeMenuItems">
+		<content>
                                         <item id="12">
                                                 <label>[UPPERCASE]$LOCALIZE[31502][/UPPERCASE]</label>
                                                 <onclick>ActivateWindow(TVGuide)</onclick>
@@ -845,7 +846,7 @@
 			                        <property name="MenuIcon">icons/settings.png</property>
                                                 <visible>!Skin.HasSetting(HomeMenuNoSystemButton) + [Skin.HasSetting(SettingsToCategories) + !Skin.HasSetting(TouchMode)]</visible>
                                         </item>
-
+		</content>
         </include>
 
 </includes>

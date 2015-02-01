@@ -1,3 +1,7 @@
+[B]1.2.2[/B]
+- More small fixes
+- Media info view integrated to List view
+
 [B]1.2.1[/B]
 - Small fixes
 - Option for single background in home or all around

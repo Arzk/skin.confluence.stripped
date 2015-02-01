@@ -95,10 +95,10 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
-				<posx>650</posx>
+				<posx>55</posx>
 				<posy>78</posy>
 				<width>25</width>
-				<height>560</height>
+				<height>561</height>
 				<texturesliderbackground border="10,14,10,14">ScrollBarV.png</texturesliderbackground>
 				<texturesliderbar border="10,14,10,14">ScrollBarV_bar.png</texturesliderbar>
 				<texturesliderbarfocus border="10,14,10,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
@@ -136,10 +136,14 @@
 					<aspectratio>keep</aspectratio>
 					<fadetime>200</fadetime>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<bordertexture border="8">ThumbShadow.png</bordertexture>
+<!--					<bordertexture border="8">ThumbShadow.png</bordertexture>-->
 					<bordersize>8</bordersize>
 				</control>
 				<control type="group">
+					<visible>!IsEmpty(ListItem.Property(Addon.Creator)) + 
+						 !IsEmpty(ListItem.Property(Addon.Version)) + 
+						 !IsEmpty(ListItem.Property(Addon.StarRating)) + 
+						 !IsEmpty(ListItem.Property(Addon.Description))</visible>
 					<posy>280</posy>
 					<control type="label">
 						<description>Author txt</description>
@@ -275,7 +279,7 @@
 						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 					<control type="label">
-						<posx>96</posx>
+						<posx>1</posx>
 						<posy>70</posy>
 						<width>190</width>
 						<height>25</height>
@@ -290,7 +294,7 @@
 						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 					<control type="label">
-						<posx>96</posx>
+						<posx>1</posx>
 						<posy>160</posy>
 						<width>190</width>
 						<height>25</height>
@@ -326,7 +330,7 @@
 						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 					<control type="label">
-						<posx>96</posx>
+						<posx>1</posx>
 						<posy>70</posy>
 						<width>190</width>
 						<height>25</height>
@@ -341,7 +345,7 @@
 						<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					</control>
 					<control type="label">
-						<posx>96</posx>
+						<posx>1</posx>
 						<posy>160</posy>
 						<width>190</width>
 						<height>25</height>
@@ -355,7 +359,7 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
-				<posx>850</posx>
+				<posx>55</posx>
 				<posy>78</posy>
 				<width>25</width>
 				<height>560</height>

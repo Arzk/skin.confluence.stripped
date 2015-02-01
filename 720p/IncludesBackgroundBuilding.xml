@@ -358,7 +358,7 @@
 				<width>1090</width>
 				<height>595</height>
 				<texture border="15">ContentPanel.png</texture>
-                <colordiffuse>EEFFFFFF</colordiffuse>
+		                <colordiffuse>EEFFFFFF</colordiffuse>
 				<visible>!Skin.HasSetting(NoContentBackgrounds)</visible>
 			</control>
 			<!-- Hidden button to prevent fullscreen video -->
@@ -388,6 +388,14 @@
 				<texturefocus>-</texturefocus>
 				<visible>Skin.HasSetting(NoContentBackgrounds)</visible>
 			</control>
+	                <animation type="WindowOpen" reversible="false" condition="Window.Previous(Home)">
+	                        <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+	                        <effect type="fade" start="0" end="100" time="300" />
+	                </animation>
+	                <animation type="WindowClose" reversible="false"condition="Window.Next(Home)">
+	                        <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+	                        <effect type="fade" start="100" end="0" time="300" />
+	                </animation>
 		</control>
 		<include>BottomBlade</include>
 	</include>

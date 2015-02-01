@@ -237,6 +237,18 @@
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13</font>
+                                                <label>32011</label>
+                                                <textcolor>grey2</textcolor>
+                                                <focusedcolor>white</focusedcolor>
+                                                <texturefocus border="5">MenuItemFO.png</texturefocus>
+                                                <texturenofocus>MenuItemNF.png</texturenofocus>
+                                                <onclick>Skin.ToggleSetting(ShowInfoPaused)</onclick>
+                                                <selected>Skin.HasSetting(ShowInfoPaused)</selected>
+                                        </control>
+                                        <control type="radiobutton" id="120">
+                                                <width>750</width>
+                                                <height>40</height>
+                                                <font>font13</font>
                                                 <label>32005</label>
                                                 <textcolor>grey2</textcolor>
                                                 <focusedcolor>white</focusedcolor>
@@ -245,7 +257,7 @@
                                                 <onclick>Skin.ToggleSetting(HideFavourites)</onclick>
                                                 <selected>!Skin.HasSetting(HideFavourites)</selected>
                                         </control>
-                                        <control type="button" id="120">
+                                        <control type="button" id="121">
                                                 <description>Page labels</description>
                                                 <width>750</width>
                                                 <height>40</height>
@@ -260,7 +272,7 @@
 		                                <onclick condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">Skin.SetString(PageCountPosition,None)</onclick>
 		                                <onclick condition="Stringcompare(Skin.String(PageCountPosition),None)">Skin.SetString(PageCountPosition,Default)</onclick>
                                         </control>
-                                        <control type="label" id="121">
+                                        <control type="label" id="122">
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13_title</font>
@@ -270,7 +282,7 @@
                                                 <align>left</align>
                                                 <aligny>center</aligny>
                                         </control>
-                                        <control type="radiobutton" id="122">
+                                        <control type="radiobutton" id="123">
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13</font>
@@ -282,7 +294,7 @@
                                                 <onclick>Skin.ToggleSetting(NoContentBackgrounds)</onclick>
                                                 <selected>Skin.HasSetting(NoContentBackgrounds)</selected>
                                         </control>
-                                        <control type="radiobutton" id="123">
+                                        <control type="radiobutton" id="124">
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13</font>
@@ -294,7 +306,7 @@
                                                 <onclick>Skin.ToggleSetting(HideBackGroundFanart)</onclick>
                                                 <selected>Skin.HasSetting(HideBackGroundFanart)</selected>
                                         </control>
-                                        <control type="radiobutton" id="124">
+                                        <control type="radiobutton" id="125">
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13</font>
@@ -306,7 +318,7 @@
                                                 <onclick>Skin.ToggleSetting(HideVisualizationFanart)</onclick>
                                                 <selected>Skin.HasSetting(HideVisualizationFanart)</selected>
                                         </control>
-                                        <control type="radiobutton" id="125">
+                                        <control type="radiobutton" id="126">
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13</font>
@@ -318,7 +330,7 @@
                                                 <onclick>Skin.ToggleSetting(ShowBackgroundVideo)</onclick>
                                                 <selected>!Skin.HasSetting(ShowBackgroundVideo)</selected>
                                         </control>
-                                        <control type="radiobutton" id="126">
+                                        <control type="radiobutton" id="127">
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13</font>
@@ -330,7 +342,7 @@
                                                 <onclick>Skin.ToggleSetting(ShowBackgroundVis)</onclick>
                                                 <selected>!Skin.HasSetting(ShowBackgroundVis)</selected>
                                         </control>
-	                                <control type="label" id="127">
+	                                <control type="label" id="128">
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13_title</font>
@@ -340,7 +352,7 @@
                                                 <align>left</align>
                                                 <aligny>center</aligny>
                                         </control>
-                                        <control type="radiobutton" id="128">
+                                        <control type="radiobutton" id="129">
                                                 <width>750</width>
                                                 <height>40</height>
                                                 <font>font13</font>
@@ -352,7 +364,7 @@
                                                 <onclick>Skin.ToggleSetting(Use_Startup_Playlist)</onclick>
                                                 <selected>Skin.HasSetting(Use_Startup_Playlist)</selected>
                                         </control>
-                                        <control type="button" id="129">
+                                        <control type="button" id="130">
                                                 <description>Startup Playlist Path</description>
                                                 <width>750</width>
                                                 <height>40</height>

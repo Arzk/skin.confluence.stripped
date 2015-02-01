@@ -896,3 +896,8 @@ msgctxt "#32010"
 msgid "Show battery level"
 msgstr ""
 
+msgctxt "#32011"
+msgid "Show video info bar when paused"
+msgstr ""
+
+

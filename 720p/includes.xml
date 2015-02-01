@@ -300,8 +300,8 @@
 			<visible>Player.HasMedia + !SubString(Window(videolibrary).Property(TvTunesIsAlive),TRUE)</visible>
                         <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
 	                <visible>![Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(pvrguideinfo)]</visible>
-<!--			<include>VisibleFadeEffect</include>-->
-			<include>dialogeffect</include>
+			<include>VisibleFadeEffect</include>
+<!--			<include>dialogeffect</include>-->
 			<control type="label">
 				<posx>78</posx>
 				<posy>58r</posy>

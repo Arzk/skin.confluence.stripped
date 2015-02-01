@@ -467,9 +467,7 @@
 			            <colordiffuse>DDFFFFFF</colordiffuse>
 					</control>
 				</focusedlayout>
-				<content>
-					<include>HomeMenuItems</include>
-				</content>
+				<include>HomeMenuItems</include>
 			</control>
 		</control>
 	</include>

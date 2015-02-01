@@ -123,7 +123,7 @@
 				</control>
 				<include>CommonNowPlaying_Controls</include>
 			</control>
-                        <include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar">CommonPageCountSidebar</include>
+                        <include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
 		</control>
 		<include>Clock</include>
         <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
