@@ -40,7 +40,7 @@
 			<posy>0</posy>
 			<width>1280</width>
 			<height>720</height>
-			<texture align="center">black.png</texture>
+			<texture aspectratio="stretch">special://skin/backgrounds/media-overlay.png</texture>
 			<visible>Player.HasVideo + !Skin.HasSetting(ShowBackgroundVideo)</visible>
 		</control>
 		<control type="visualisation">
