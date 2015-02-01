@@ -1,6 +1,0 @@
-<variables>
-	<variable name="SubLang">
-		<value>sdfdsf</value>
-		<value condition="Window(2003).Property(SubtitleLanguage.1,eng)>en</value>
-	</variable>
-</variables>
