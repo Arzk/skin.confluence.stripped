@@ -155,7 +155,6 @@
 					<onright>6760</onright>
 					<visible>Container(9900).HasFocus(6)</visible>
 					<include>HomeCustomMenuDisc</include> <!-- Buttons for the grouplist -->
-					<visible>!Skin.HasSetting(HomeCustomMenuDiscCombine)</visible>
 				</control>
 			</control>
                         <control type="group" id="9002">
@@ -235,6 +234,8 @@
 			</control>
 		</control>
 	</include>
+	
+	
 	<include name="WrapHomeList">
 		<control type="wraplist" id="9900">
 			<include>HomeMenuSys</include>
