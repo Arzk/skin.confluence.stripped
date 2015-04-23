@@ -835,7 +835,7 @@
                                                 <onclick>ActivateWindow(Settings)</onclick>
                                                 <icon>special://skin/backgrounds/settings.jpg</icon>
                                                 <thumb>$INFO[Skin.String(HomeSettingsBG)]</thumb>
-												<property name="MenuIcon">icons/settings.png</property>
+						<property name="MenuIcon">icons/settings.png</property>
                                                 <visible>!Skin.HasSetting(HomeMenuNoSystemButton) + [!Skin.HasSetting(SettingsToCategories) | Skin.HasSetting(TouchMode)]</visible>
                                         </item>
                                         <item id="5">
