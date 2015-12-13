@@ -7,7 +7,14 @@
 	</coordinates>
 	<include>dialogeffect</include>
 	<controls>
-		<include name="DialogBackgroundCommons">
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>830</width>
+			<height>660</height>
+			<texture border="40">DialogBack.png</texture>
+		</control>
+<!--		<include name="DialogBackgroundCommons">
 			<param name="DialogBackgroundWidth" value="830" />
 			<param name="DialogBackgroundHeight" value="660" />
 			<param name="DialogHeaderWidth" value="750" />
@@ -15,7 +22,7 @@
 			<param name="DialogHeaderId" value="2" />
 			<param name="CloseButtonLeft" value="740" />
 			<param name="CloseButtonNav" value="10" />
-		</include>
+		</include>-->
 		<control type="list" id="49">
 			<left>40</left>
 			<top>80</top>
@@ -36,7 +43,7 @@
 					<font>font13</font>
 					<align>left</align>
 					<aligny>center</aligny>
-					<textcolor>blue</textcolor>
+					<textcolor> white</textcolor>
 					<selectedcolor>selected</selectedcolor>
 					<info>ListItem.Label</info>
 				</control>
@@ -71,7 +78,7 @@
 					<font>font13</font>
 					<align>left</align>
 					<aligny>center</aligny>
-					<textcolor>blue</textcolor>
+					<textcolor> white</textcolor>
 					<selectedcolor>selected</selectedcolor>
 					<info>ListItem.Label</info>
 				</control>
@@ -159,7 +166,7 @@
 			<scroll>true</scroll>
 			<align>right</align>
 			<aligny>center</aligny>
-			<label>[COLOR=blue]$LOCALIZE[207][/COLOR]$INFO[Container(400).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(400).NumPages,/, )]</label>
+			<label>[COLOR= white]$LOCALIZE[207][/COLOR]$INFO[Container(400).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(400).NumPages,/, )]</label>
 		</control>
 		<control type="spincontrol" id="60">
 			<description>Next page button</description>

@@ -2,38 +2,38 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonSettingsBackground</include>
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonSettingsBackground</include>
 		<include>CommonMediaPlayingBackground</include>
-	        <include>ContentPanelBackgroundsSettings</include>
-                <control type="panel" id="9002">
-                        <visible>Skin.HasSetting(TouchMode)</visible>
-                        <include>VisibleFadeEffect</include>
-                        <include>SubMenuCommonLayout</include>
-                        <content>
-                                <item>
-                                        <label>13200</label>
-                                        <onclick>ActivateWindow(Profiles)</onclick>
-                                        <icon>icon_profile.png</icon>
-                                </item>
-                                <item>
-                                        <label>130</label>
-                                        <onclick>ActivateWindow(SystemInfo)</onclick>
-                                        <icon>icon_systeminfo.png</icon>
-                                </item>
-                        </content>
-                </control>
+	    <include>ContentPanelBackgroundsSettings</include>
+        <control type="panel" id="9002">
+            <visible>Skin.HasSetting(TouchMode)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>SubMenuCommonLayout</include>
+            <content>
+                <item>
+                        <label>13200</label>
+                        <onclick>ActivateWindow(Profiles)</onclick>
+                        <icon>icon_profile.png</icon>
+                </item>
+                <item>
+                        <label>130</label>
+                        <onclick>ActivateWindow(SystemInfo)</onclick>
+                        <icon>icon_systeminfo.png</icon>
+                </item>
+            </content>
+        </control>
 		<control type="group">
 			<posx>90</posx>
 			<posy>55</posy>
-                        <animation type="WindowOpen" reversible="false" condition="Window.Previous(Home)">
-                                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
-                                <effect type="fade" start="0" end="100" time="300" />
-                        </animation>
-                        <animation type="WindowClose" reversible="false"condition="Window.Next(Home)">
-                                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
-                                <effect type="fade" start="100" end="0" time="300" />
-                        </animation>
+            <animation type="WindowOpen" reversible="false" condition="Window.Previous(Home)">
+                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+                <effect type="fade" start="0" end="100" time="300" />
+            </animation>
+            <animation type="WindowClose" reversible="false"condition="Window.Next(Home)">
+                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+                <effect type="fade" start="100" end="0" time="300" />
+            </animation>
 			<control type="list" id="9000">
 				<posx>10</posx>
 				<posy>20</posy>

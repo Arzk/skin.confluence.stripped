@@ -369,7 +369,7 @@
 			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
 			<label>744</label>
-			<onclick>ActivateWindow(MusicFiles)</onclick>
+			<onclick>ActivateWindow(MusicLibrary,Files)</onclick>
                         <visible>!Skin.HasSetting(SubmenuMusicFiles.Hidden)</visible>
 		</control>
 		<control type="button" id="90129">
@@ -380,43 +380,43 @@
 			<visible>Library.HasContent(Music)</visible>
                         <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAddons.Hidden)</visible>
 		</control>
-                <control type="button" id="90130">
-                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+        <control type="button" id="90130">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
-                        <label>24001</label>
-                        <onclick>ActivateWindow(MusicFiles,Addons,return)</onclick>
-                        <visible>!Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAddons.Hidden)</visible>
-                </control>
-                <control type="button" id="90131">
-                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+            <label>24001</label>
+            <onclick>ActivateWindow(MusicFiles,Addons,return)</onclick>
+            <visible>!Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAddons.Hidden)</visible>
+        </control>
+        <control type="button" id="90131">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
-                        <label>$INFO[Skin.String(SubmenuMusicCustom.1.Label)]</label>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.1.Path)],return)</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.1.Path)],return)</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.1.Path)]</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.1.Path)])</onclick>
-                        <visible>!Skin.HasSetting(SubmenuMusicCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Label))</visible>
-                </control>
-                <control type="button" id="90132">
-                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+            <label>$INFO[Skin.String(SubmenuMusicCustom.1.Label)]</label>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.1.Path)],return)</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.1.Path)],return)</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.1.Path)]</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.1.Path)])</onclick>
+            <visible>!Skin.HasSetting(SubmenuMusicCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.1.Label))</visible>
+        </control>
+        <control type="button" id="90132">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
-                        <label>$INFO[Skin.String(SubmenuMusicCustom.2.Label)]</label>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.2.Path)],return)</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.2.Path)],return)</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.2.Path)]</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.2.Path)])</onclick>
-                        <visible>!Skin.HasSetting(SubmenuMusicCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Label))</visible>
-                </control>
-                <control type="button" id="90133">
-                        <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+            <label>$INFO[Skin.String(SubmenuMusicCustom.2.Label)]</label>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.2.Path)],return)</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.2.Path)],return)</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.2.Path)]</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.2.Path)])</onclick>
+            <visible>!Skin.HasSetting(SubmenuMusicCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.2.Label))</visible>
+        </control>
+        <control type="button" id="90133">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
-                        <label>$INFO[Skin.String(SubmenuMusicCustom.3.Label)]</label>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.3.Path)],return)</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.3.Path)],return)</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.3.Path)]</onclick>
-                        <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.3.Path)])</onclick>
-                        <visible>!Skin.HasSetting(SubmenuMusicCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Label))</visible>
-                </control>
+            <label>$INFO[Skin.String(SubmenuMusicCustom.3.Label)]</label>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Video Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuMusicCustom.3.Path)],return)</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuMusicCustom.3.Path)],return)</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuMusicCustom.3.Path)]</onclick>
+            <onclick condition="Stringcompare(Skin.String(SubmenuMusicCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuMusicCustom.3.Path)])</onclick>
+            <visible>!Skin.HasSetting(SubmenuMusicCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuMusicCustom.3.Label))</visible>
+        </control>
 
 		<control type="image" id="90134">
 			<width>35</width>

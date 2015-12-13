@@ -391,7 +391,7 @@
 				<height>150</height>
 				<aspectratio aligny="center" align="center">keep</aspectratio>
 				<texture>$INFO[Player.Art(poster)]</texture>
-				<visible>VideoPlayer.Content(Movies)</visible>
+				<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(MusicVideos)</visible>
 				<bordersize>5</bordersize>
 			</control>
 			<control type="group">
