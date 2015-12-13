@@ -386,6 +386,19 @@
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
+                                <control type="button" id="31">
+                                        <description>New channel Button</description>
+                                        <left>0</left>
+                                        <top>0</top>
+                                        <width>380</width>
+                                        <height>40</height>
+                                        <font>font12</font>
+                                        <texturefocus border="5">button-focus2.png</texturefocus>
+                                        <texturenofocus border="5">button-nofocus.png</texturenofocus>
+                                        <align>center</align>
+                                        <label>19204</label>
+                                </control>
+
 				<control type="button" id ="30">
 					<description>Group Manager Button</description>
 					<posx>0</posx>
@@ -436,7 +449,8 @@
 					<onup>13</onup>
 					<ondown>31</ondown>
 				</control>
-				<control type="button" id ="31">
+<!-- Isengard -->
+<!--				<control type="button" id ="31">
 					<description>Edit channel Button</description>
 					<posx>0</posx>
 					<posy>65</posy>
@@ -483,7 +497,7 @@
 					<onright>60</onright>
 					<onup>32</onup>
 					<ondown>9000</ondown>
-				</control>
+				</control>-->
 			</control>
 		</control>
 		<control type="group" id="9000">

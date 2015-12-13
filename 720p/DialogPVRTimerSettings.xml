@@ -142,6 +142,18 @@
 			<height>2</height>
 			<texture>separator2.png</texture>
 		</control>
+                <control type="label" id="14">
+                        <description>Default Label</description>
+                        <left>0</left>
+                        <top>0</top>
+                        <height>30</height>
+                        <label>-</label>
+                        <align>center</align>
+                        <aligny>bottom</aligny>
+                        <font>font13_title</font>
+                        <textcolor>grey</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                </control>
 		<control type="edit" id="12">
 			<description>Default Edit</description>
 			<height>40</height>

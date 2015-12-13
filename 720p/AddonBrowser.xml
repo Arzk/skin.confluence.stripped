@@ -86,6 +86,13 @@
 					<include>ButtonCommonValues</include>
 					<label>25000</label>
 				</control>
+				<control type="radiobutton" id ="9">
+					<description>Update button</description>
+					<posx>0</posx>
+					<posy>210</posy>
+					<include>ButtonCommonValues</include>
+					<label>24034</label>
+				</control>
 				<include>CommonNowPlaying_Controls</include>
 			</control>
 			<include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
