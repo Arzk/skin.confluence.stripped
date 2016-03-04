@@ -55,11 +55,11 @@
 					<visible>!Control.IsVisible(50)</visible>
 					<posy>78</posy>
 					<posx>70</posx>
-                                        <control type="group">
-                                                <posy>10</posy>
-                                                <posx>490</posx>
-                                                <include>RecordLabelFlaggingConditions</include>
-                                        </control>
+                    <control type="group">
+                            <posy>10</posy>
+                            <posx>490</posx>
+                            <include>RecordLabelFlaggingConditions</include>
+                    </control>
 <!--					<control type="image">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -322,57 +322,8 @@
 							</item>
 						</content>
 					</control>
-<!--					<control type="image">
-						<posx>390</posx>
-						<posy>370</posy>
-						<width>640</width>
-						<height>4</height>
-						<aspectratio>stretch</aspectratio>
-						<texture>separator.png</texture>
-					</control>-->
 				</control>
-<!--				<control type="label">
-					<posx>130r</posx>
-					<posy>480</posy>
-					<width>400</width>
-					<height>30</height>
-					<font>font13_title</font>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<scroll>true</scroll>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>[COLOR=white]$LOCALIZE[21821][/COLOR]$INFO[Container(4).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(4).NumPages,/, )]</label>
-					<visible>Control.IsVisible(4)</visible>
-				</control>
-				<control type="label">
-					<posx>130r</posx>
-					<posy>480</posy>
-					<width>400</width>
-					<height>30</height>
-					<font>font13_title</font>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<scroll>true</scroll>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>[COLOR=white]$LOCALIZE[182][/COLOR]$INFO[Container(50).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(50).NumPages,/, )]</label>
-					<visible>Control.IsVisible(50) + Container.Content(Albums)</visible>
-				</control>
-				<control type="label">
-					<posx>130r</posx>
-					<posy>480</posy>
-					<width>400</width>
-					<height>30</height>
-					<font>font13_title</font>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<scroll>true</scroll>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>[COLOR=white]$LOCALIZE[132][/COLOR]$INFO[Container(50).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(50).NumPages,/, )]</label>
-					<visible>Control.IsVisible(50) + Container.Content(Artists)</visible>
-				</control>-->
+
 				<control type="spincontrol" id="60">
 					<description>Next page button</description>
 					<posx>658</posx>
@@ -387,20 +338,20 @@
 					<showonepage>false</showonepage>
 					<visible>Control.IsVisible(4)</visible>
 				</control>
-                                <control type="scrollbar" id="61">
-                                        <posx>55</posx>
-                                        <posy>78</posy>
-                                        <width>25</width>
-                                        <height>561</height>
-                                        <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
-                                        <texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
-                                        <texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-                                        <textureslidernib>ScrollBarNib.png</textureslidernib>
-                                        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
-                                        <showonepage>false</showonepage>
-                                        <orientation>vertical</orientation>
-					<visible>Control.IsVisible(50)</visible>
-                                </control>
+                <control type="scrollbar" id="61">
+                        <posx>55</posx>
+                        <posy>78</posy>
+                        <width>25</width>
+                        <height>561</height>
+                        <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+                        <texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+                        <texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+                        <textureslidernib>ScrollBarNib.png</textureslidernib>
+                        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+                        <showonepage>false</showonepage>
+                        <orientation>vertical</orientation>
+                        <visible>Control.IsVisible(50)</visible>
+                </control>
 				<control type="textbox" id="4">
 					<description>Description</description>
 					<posx>78</posx>
@@ -455,7 +406,7 @@
 							<font>font13</font>
 							<align>left</align>
 							<aligny>center</aligny>
-                                                        <textcolor>grey2</textcolor>
+                            <textcolor>grey2</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Label]</label>
 						</control>
@@ -467,7 +418,7 @@
 							<font>font12</font>
 							<align>right</align>
 							<aligny>center</aligny>
-                                                        <textcolor>grey2</textcolor>
+                            <textcolor>grey2</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Duration]</label>
 						</control>
@@ -497,7 +448,7 @@
 							<font>font13</font>
 							<align>left</align>
 							<aligny>center</aligny>
-                                                        <textcolor>white</textcolor>
+                            <textcolor>white</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Label]</label>
 						</control>
@@ -509,7 +460,7 @@
 							<font>font12</font>
 							<align>right</align>
 							<aligny>center</aligny>
-                                                        <textcolor>grey2</textcolor>
+                            <textcolor>grey2</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Duration]</label>
 						</control>
@@ -530,22 +481,22 @@
 							<font>font13</font>
 							<align>left</align>
 							<aligny>center</aligny>
-                                                        <textcolor>grey2</textcolor>
+                            <textcolor>grey2</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
-	                                        <control type="label">
-	                                                <posx>20</posx>
-	                                                <posy>0</posy>
-	                                                <width>620</width>
-	                                                <height>40</height>
-	                                                <font>font12</font>
-	                                                <textcolor>grey2</textcolor>
-	                                                <selectedcolor>selected</selectedcolor>
-	                                                <align>right</align>
-	                                                <aligny>center</aligny>
-	                                                <label>$INFO[ListItem.Label2]</label>
-	                                        </control>
+                        <control type="label">
+                                <posx>20</posx>
+                                <posy>0</posy>
+                                <width>620</width>
+                                <height>40</height>
+                                <font>font12</font>
+                                <textcolor>grey2</textcolor>
+                                <selectedcolor>selected</selectedcolor>
+                                <align>right</align>
+                                <aligny>center</aligny>
+                                <label>$INFO[ListItem.Label2]</label>
+                        </control>
 					</itemlayout>
 					<focusedlayout condition="Container.Content(Artists)" height="40" width="640">
 						<control type="image">
@@ -572,22 +523,22 @@
 							<font>font13</font>
 							<align>left</align>
 							<aligny>center</aligny>
-                                                        <textcolor>white</textcolor>
+                            <textcolor>white</textcolor>
 							<selectedcolor>selected</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
-	                                        <control type="label">
-	                                                <posx>20</posx>
-	                                                <posy>0</posy>
-	                                                <width>620</width>
-	                                                <height>40</height>
-	                                                <font>font12</font>
-	                                                <textcolor>grey2</textcolor>
-	                                                <selectedcolor>selected</selectedcolor>
-	                                                <align>right</align>
-	                                                <aligny>center</aligny>
-	                                                <label>$INFO[ListItem.Label2]</label>
-	                                        </control>
+                        <control type="label">
+                            <posx>20</posx>
+                            <posy>0</posy>
+                            <width>620</width>
+                            <height>40</height>
+                            <font>font12</font>
+                            <textcolor>grey2</textcolor>
+                            <selectedcolor>selected</selectedcolor>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <label>$INFO[ListItem.Label2]</label>
+                        </control>
 					</focusedlayout>
 				</control>
 				<control type="grouplist" id="9000">

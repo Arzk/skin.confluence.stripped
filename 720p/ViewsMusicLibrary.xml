@@ -3,7 +3,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(506)</visible>
 			<include>VisibleFadeEffect</include>
-                        <visible>!Window.IsVisible(musicinformation)</visible>
+            <visible>!Window.IsVisible(musicinformation)</visible>
 			<control type="list" id="506">
 				<posx>70</posx>
 				<posy>78</posy>
@@ -123,7 +123,7 @@
 					<aspectratio aligny="bottom">keep</aspectratio>
 					<fadetime>IconCrossfadeTime</fadetime>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-<!--					<bordertexture border="8">ThumbShadow.png</bordertexture>-->
+					<bordertexture border="8">ThumbShadow.png</bordertexture>
 					<bordersize>8</bordersize>
 				</control>
 				<control type="label">
@@ -201,7 +201,6 @@
 	<include name="ArtistMediaListView">
 		<control type="group">
 			<visible>Control.IsVisible(512)</visible>
-                        <visible>!Window.IsVisible(musicinformation)</visible>
 			<include>VisibleFadeEffect</include>
 			<control type="list" id="512">
 				<posx>70</posx>

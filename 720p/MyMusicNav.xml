@@ -8,6 +8,7 @@
 		<include>CommonMediaPlayingBackground</include>
 		<include>ContentPanelBackgrounds</include>
 		<control type="group">
+			<visible>![Window.IsVisible(songinformation) | Window.IsVisible(musicinformation)]</visible>
 			<include>Window_OpenClose_Animation</include>
 			<include>CommonRootView</include> <!-- view id = 50 -->
 			<include>FullWidthList</include> <!-- view id = 51 -->

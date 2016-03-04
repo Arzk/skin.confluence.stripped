@@ -8,6 +8,9 @@
     <import addon="xbmc.gui" version="5.10.0"/>
     <import addon="script.favourites" version="4.0.9"/>
     <import addon="service.skin.widgets" version="0.0.27"/>
+    <import addon="resource.images.studios.white" version="0.0.1"/>
+    <import addon="resource.images.recordlabels.white" version="0.0.1"/>
+    
   </requires>
   <extension
     point="xbmc.gui.skin"

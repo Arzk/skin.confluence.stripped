@@ -95,18 +95,38 @@
 			<width>242</width>
 			<height>164</height>
 			<aspectratio align="right">keep</aspectratio>
-			<texture>flagging/studio/$INFO[ListItem.Studio,,.png]</texture>
+			<texture>resource://resource.images.studios.white/$INFO[ListItem.Studio,,.png]</texture>
 			<colordiffuse>66FFFFFF</colordiffuse>
 			<visible>Skin.HasSetting(ShowStudioLogo)</visible>
 		</control>
 	</include>
-	<include name="RecordLabelFlaggingConditions">
+<!--	<include name="StudioFlaggingConditions">
 		<control type="image">
+			<description>Studio Logo</description>
+			<width>242</width>
+			<height>164</height>
+			<aspectratio align="right">keep</aspectratio>
+			<texture>flagging/studio/$INFO[ListItem.Studio,,.png]</texture>
+			<colordiffuse>66FFFFFF</colordiffuse>
+			<visible>Skin.HasSetting(ShowStudioLogo)</visible>
+		</control>
+	</include>-->
+	<include name="RecordLabelFlaggingConditions">
+<!--		<control type="image">
 			<description>Record Label Logo</description>
 			<width>180</width>
 			<height>108</height>
 			<aspectratio align="right">keep</aspectratio>
 			<texture>flagging/recordlabel/$INFO[ListItem.Property(Album_Label),,.png]</texture>
+			<colordiffuse>66FFFFFF</colordiffuse>
+			<visible>Skin.HasSetting(ShowStudioLogo)</visible>
+		</control>-->
+		<control type="image">
+			<description>Record Label Logo</description>
+			<width>180</width>
+			<height>108</height>
+			<aspectratio align="right">keep</aspectratio>
+			<texture>resource://resource.images.recordlabels.white/$INFO[ListItem.Property(Album_Label),,.png]</texture>
 			<colordiffuse>66FFFFFF</colordiffuse>
 			<visible>Skin.HasSetting(ShowStudioLogo)</visible>
 		</control>

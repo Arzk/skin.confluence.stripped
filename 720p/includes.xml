@@ -22,6 +22,7 @@
 	<include file="IncludesHomeV.xml" />
 	<include file="IncludesTouchMode.xml" />
 	<include file="IncludesHomeMediaInfo.xml" />
+	<include file="IncludesListSupplements.xml" />
 	<include file="IncludesPlayerControls.xml" />
 	<include file="IncludesVideoOSD.xml" />
 	<include file="IncludesMusicOSD.xml" />

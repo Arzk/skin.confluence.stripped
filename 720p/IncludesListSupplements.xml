@@ -1,0 +1,36 @@
+<includes>
+	<include name="ListVideoSubtitleIcon">
+        <control type="image">
+            <left>625</left>
+            <top>8</top>
+            <width>26</width>
+            <height>26</height>
+            <aspectratio align="right">stretch</aspectratio>
+            <texture>flagging/SubLangList.png</texture>
+            <visible>!IsEmpty(ListItem.SubtitleLanguage) + !Skin.HasSetting(ShowSubtitleFlags)</visible>
+            <animation effect="slide" start="0,0" end="-10,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[562])">conditional</animation>
+            <animation effect="slide" start="0,0" end="-70,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[20074])">conditional</animation>
+            <animation effect="slide" start="0,0" end="-35,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[180])">conditional</animation>
+            <animation effect="slide" start="0,0" end="-70,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[552])">conditional</animation>
+            <animation effect="slide" start="0,0" end="-70,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[570])">conditional</animation>
+        </control>
+    </include>
+	
+    <include name="ListVideoSubtitleFlag">
+        <control type="image">
+            <left>601</left>
+            <top>8</top>
+            <width>40</width>
+            <height>26</height>
+            <aspectratio align="right">keep</aspectratio>
+            <texture>$INFO[ListItem.SubtitleLanguage,flagging/subtitles/,.png]</texture>
+            <visible>!IsEmpty(ListItem.SubtitleLanguage) + Skin.HasSetting(ShowSubtitleFlags)</visible>
+            <animation effect="slide" start="0,0" end="-10,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[562])">conditional</animation>
+            <animation effect="slide" start="0,0" end="-70,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[20074])">conditional</animation>
+            <animation effect="slide" start="0,0" end="-35,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[180])">conditional</animation>
+            <animation effect="slide" start="0,0" end="-70,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[552])">conditional</animation>
+            <animation effect="slide" start="0,0" end="-70,0" time="0" condition="StringCompare(Container.SortMethod,$LOCALIZE[570])">conditional</animation>
+        </control>
+    </include>    
+    
+</includes>

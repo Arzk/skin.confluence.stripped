@@ -5,7 +5,7 @@
 		<posx>335</posx>
 		<posy>35</posy>
 	</coordinates>
-        <zorder>2</zorder>
+<!--        <zorder>2</zorder>-->
 	<include>dialogeffect</include>
 	<controls>
 		<control type="image">
