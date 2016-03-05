@@ -2,6 +2,9 @@
 - Isengard and Jarvis changes
 - Repaired musicvideo list view
 - Todo: DSP manager has not been tested
+- Code cleanup
+- Added MusicVideos to home menuitem
+- Rewrote skin settings and submenus
 
 [B]1.2.2[/B]
 - More small fixes

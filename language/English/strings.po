@@ -900,4 +900,6 @@ msgctxt "#32011"
 msgid "Show video info bar when paused"
 msgstr ""
 
-
+msgctxt "#32012"
+msgid "Submenu"
+msgstr ""
