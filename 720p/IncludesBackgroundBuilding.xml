@@ -263,7 +263,7 @@
 				<posx>ContentPanelBackgroundLeft</posx>
 				<posy>ContentPanelBackgroundTop</posy>
 				<width>ContentPanelBackgroundWidth</width>
-				<height>ContentPanelBackgroundWidth</height>
+				<height>ContentPanelBackgroundHeight</height>
 				<texture border="15">ContentPanel.png</texture>
 		        <colordiffuse>EEFFFFFF</colordiffuse>
 				<include>dialogeffect</include>

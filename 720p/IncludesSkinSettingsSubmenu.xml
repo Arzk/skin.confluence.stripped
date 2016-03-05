@@ -834,10 +834,10 @@
                 <label>$INFO[Skin.String(MainMenuCustom.1.Label)] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
                 <selected>!Skin.HasSetting(NoMainMenuCustom.1Submenu)</selected>
                 <onclick>Skin.ToggleSetting(NoMainMenuCustom.1Submenu)</onclick>
-                <visible>!Skin.HasSetting(MainMenuCustom.1.Hidden) + !IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.1Button) + !IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))</visible>
             </control>					
                
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3302"/>
                 <param name="id2" value="3303"/>
                 <param name="id3" value="3304"/>
@@ -846,7 +846,7 @@
                 <param name="menutype" value="Submenu"/>
                 <param name="number" value="1"/>
             </include>
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3306"/>
                 <param name="id2" value="3307"/>
                 <param name="id3" value="3308"/>
@@ -855,7 +855,7 @@
                 <param name="menutype" value="Submenu"/>
                 <param name="number" value="2"/>
             </include>
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3310"/>
                 <param name="id2" value="3311"/>
                 <param name="id3" value="3312"/>
@@ -870,10 +870,10 @@
                 <label>$INFO[Skin.String(MainMenuCustom.2.Label)] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
                 <selected>!Skin.HasSetting(NoMainMenuCustom.2Submenu)</selected>
                 <onclick>Skin.ToggleSetting(NoMainMenuCustom.2Submenu)</onclick>
-                <visible>!Skin.HasSetting(MainMenuCustom.2.Hidden) + !IsEmpty(Skin.String(MainMenuCustom.2.Type)) + !IsEmpty(Skin.String(MainMenuCustom.2.Path)) + !IsEmpty(Skin.String(MainMenuCustom.2.Label))</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.2Button) + !IsEmpty(Skin.String(MainMenuCustom.2.Type)) + !IsEmpty(Skin.String(MainMenuCustom.2.Path)) + !IsEmpty(Skin.String(MainMenuCustom.2.Label))</visible>
             </control>					
                 
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3402"/>
                 <param name="id2" value="3403"/>
                 <param name="id3" value="3404"/>
@@ -882,7 +882,7 @@
                 <param name="menutype" value="Submenu"/>
                 <param name="number" value="1"/>
             </include>
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3406"/>
                 <param name="id2" value="3407"/>
                 <param name="id3" value="3408"/>
@@ -891,7 +891,7 @@
                 <param name="menutype" value="Submenu"/>
                 <param name="number" value="2"/>
             </include>
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3410"/>
                 <param name="id2" value="3411"/>
                 <param name="id3" value="3412"/>
@@ -907,10 +907,10 @@
                 <label>$INFO[Skin.String(MainMenuCustom.3.Label)] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
                 <selected>!Skin.HasSetting(NoMainMenuCustom.3Submenu)</selected>
                 <onclick>Skin.ToggleSetting(NoMainMenuCustom.3Submenu)</onclick>
-                <visible>!Skin.HasSetting(MainMenuCustom.3.Hidden) + !IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.3Button) + !IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))</visible>
             </control>					
                 
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3502"/>
                 <param name="id2" value="3503"/>
                 <param name="id3" value="3504"/>
@@ -919,7 +919,7 @@
                 <param name="menutype" value="Submenu"/>
                 <param name="number" value="1"/>
             </include>
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3506"/>
                 <param name="id2" value="3507"/>
                 <param name="id3" value="3508"/>
@@ -928,7 +928,7 @@
                 <param name="menutype" value="Submenu"/>
                 <param name="number" value="2"/>
             </include>
-            <include name="CustomButtonSelector">
+            <include name="CustomButtonSelectorHomeCustomItems">
                 <param name="id1" value="3510"/>
                 <param name="id2" value="3511"/>
                 <param name="id3" value="3512"/>
