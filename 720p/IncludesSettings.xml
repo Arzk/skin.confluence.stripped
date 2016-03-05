@@ -202,7 +202,7 @@
                 <description>Enable item $PARAM[number]</description>
                 <include>SettingsRadioButtonCommonValues</include>
                 <label>    $LOCALIZE[90020] $PARAM[number]</label>
-                <selected>Skin.HasSetting(MainMenu$PARAM[mainmenuitem].$PARAM[number].Enabled)</selected>
+                <selected>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</selected>
                 <onclick>Skin.ToggleSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path)</onclick>
@@ -216,11 +216,13 @@
                 <include>SettingsButtonCommonValues</include>
                 <label>     • $LOCALIZE[90007]</label>
                 <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type)][/COLOR]</label2>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | IsEmpty(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type))">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | 
+                                          IsEmpty(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type))">               Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
                 <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Favourite)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Music Playlist)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Playlist)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node)">    Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Music Playlist)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Node)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Playlist)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">     Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Icon)</onclick>
@@ -234,12 +236,15 @@
                 <label>     • $LOCALIZE[90008]</label>
                 <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)][/COLOR]</label2>
                 <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetFile($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,.xsp,special://videoplaylists)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node)">    Skin.SetPath($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,library://video/)</onclick>
                 <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetFile($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,.xsp|.m3u,special://musicplaylists)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">RunScript(script.favourites,property=$PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number])</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetAddon($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">     RunScript(script.favourites,property=$PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number])</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetAddon($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist) | Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label,$INFO[system.addontitle(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path))])</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist) | 
+                                    Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node) | 
+                                    Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label,$INFO[system.addontitle(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path))])</onclick>
                 <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
@@ -268,7 +273,7 @@
                 <description>Enable item $PARAM[number]</description>
                 <include>SettingsRadioButtonCommonValues</include>
                 <label>    $LOCALIZE[90020] $PARAM[number]</label>
-                <selected>Skin.HasSetting(MainMenu$PARAM[mainmenuitem].$PARAM[number].Enabled)</selected>
+                <selected>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</selected>
                 <onclick>Skin.ToggleSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path)</onclick>
@@ -283,11 +288,13 @@
                 <include>SettingsButtonCommonValues</include>
                 <label>     • $LOCALIZE[90007]</label>
                 <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type)][/COLOR]</label2>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | IsEmpty(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type))">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | 
+                                          IsEmpty(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type))">               Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
                 <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Favourite)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Music Playlist)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Playlist)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node)">    Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Music Playlist)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Node)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Playlist)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">     Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Icon)</onclick>
@@ -301,12 +308,19 @@
                 <label>     • $LOCALIZE[90008]</label>
                 <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)][/COLOR]</label2>
                 <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetFile($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,.xsp,special://videoplaylists)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node)">    Skin.SetPath($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,library://video/)</onclick>
                 <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetFile($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,.xsp|.m3u,special://musicplaylists)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">RunScript(script.favourites,property=$PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number])</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetAddon($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">     RunScript(script.favourites,property=$PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number])</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetAddon($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist) | Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label,$INFO[system.addontitle(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path))])</onclick>
+
+
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist) | 
+                                    Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node) | 
+                                    Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label,$INFO[system.addontitle(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path))])</onclick>
+
+
                 <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Type)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Path)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Label))</visible>
@@ -349,11 +363,13 @@
                 <include>SettingsButtonCommonValues</include>
                 <label> • $LOCALIZE[90007]</label>
                 <label2>[COLOR=selected]$INFO[Skin.String(MainMenu$PARAM[name].$PARAM[number].Type)][/COLOR]</label2>
-                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Favourite) | IsEmpty(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type))">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Addon)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Favourite) |
+                                                         IsEmpty(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type))">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Addon)</onclick>
                 <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Music Playlist)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Favourite)</onclick>
-                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Video Playlist)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Music Playlist)</onclick>
-                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Addon)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Video Playlist)</onclick>
-                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Favourite)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Addon)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Video Node)">    Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Music Playlist)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Video Playlist)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Video Node)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Addon)">         Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Video Playlist)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Favourite)">     Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Type,Addon)</onclick>
                 <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].Path)</onclick>
                 <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].Label)</onclick>
                 <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].Icon)</onclick>
@@ -365,12 +381,15 @@
                 <label> • $LOCALIZE[90008]</label>
                 <label2>[COLOR=selected]$INFO[Skin.String(MainMenu$PARAM[name].$PARAM[number].Label)][/COLOR]</label2>
                 <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Video Playlist)">Skin.SetFile(MainMenu$PARAM[name].$PARAM[number].Path,.xsp,special://videoplaylists)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Video Node)">    Skin.SetPath(MainMenu$PARAM[name].$PARAM[number].Path,library://video/)</onclick>
                 <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Music Playlist)">Skin.SetFile(MainMenu$PARAM[name].$PARAM[number].Path,.xsp|.m3u,special://musicplaylists)</onclick>
-                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Favourite)">RunScript(script.favourites,property=MainMenu$PARAM[name].$PARAM[number])</onclick>
-                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Addon)">Skin.SetAddon(MainMenu$PARAM[name].$PARAM[number].Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Favourite)">     RunScript(script.favourites,property=MainMenu$PARAM[name].$PARAM[number])</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Addon)">         Skin.SetAddon(MainMenu$PARAM[name].$PARAM[number].Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
                 <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].Label)</onclick>
-                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Video Playlist) | Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Music Playlist)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Label)</onclick>
-                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Addon)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Label,$INFO[system.addontitle(Skin.String(MainMenu$PARAM[name].$PARAM[number].Path))])</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Video Playlist) |
+                                    Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Video Node) | 
+                                    Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Music Playlist)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Label)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Addon)">         Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Label,$INFO[system.addontitle(Skin.String(MainMenu$PARAM[name].$PARAM[number].Path))])</onclick>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[name].$PARAM[number]Button)</visible>
             </control>
             <control type="button" id="$PARAM[id4]">

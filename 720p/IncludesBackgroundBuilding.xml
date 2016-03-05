@@ -230,11 +230,12 @@
 		<control type="multiimage">
 			<width>ScreenWidth</width>
 			<height>ScreenHeight</height>
-			<imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+            <imagepath background="true">resource://resource.images.weatherfanart.multi/$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+<!--			<imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>-->
 			<timeperimage>SlideshowTimePerImage</timeperimage>
 			<randomize>true</randomize>
 			<fadetime>SlideshowFadeTime</fadetime>
-			<visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))</visible>
+            <visible>System.HasAddon(resource.images.weatherfanart.multi)</visible>
 			<animation effect="fade" time="200">WindowClose</animation>
 		</control>
 	</include>

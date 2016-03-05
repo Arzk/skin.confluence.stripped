@@ -6,9 +6,7 @@
 			<posy>340</posy>
 			<animation effect="slide" start="0,0" end="150,40" condition="Skin.HasSetting(TouchMode)">Conditional</animation>
 			<visible>Player.HasAudio + !Skin.HasSetting(homepageMusicinfo)</visible>
-<!--		        <visible>![Player.Seeking]</visible>-->
-<!--			<visible>![Control.Hasfocus(8000) | Control.Hasfocus(8001) | Control.Hasfocus(8002) |Control.Hasfocus(8003) | Control.Hasfocus(8004) | Control.Hasfocus(8005) | Control.Hasfocus(8006) | Control.Hasfocus(8007)]</visible> -->
- 			<visible>![Control.IsVisible(8000) | Control.IsVisible(8001) | Control.IsVisible(8002) |Control.IsVisible(8003) | Control.IsVisible(8004) | Control.IsVisible(8005) | Control.IsVisible(8006) | Control.IsVisible(8007)]</visible>
+ 			<visible>![Control.HasFocus(8000) | Control.HasFocus(8001) | Control.HasFocus(8002) |Control.HasFocus(8003) | Control.HasFocus(8004) | Control.HasFocus(8005) | Control.HasFocus(8006) | Control.HasFocus(8007)]</visible>
 			<visible>!IsEmpty(MusicPlayer.Title) + [!IsEmpty(MusicPlayer.Cover) | !IsEmpty(MusicPlayer.offset(1).Title) | !IsEmpty(MusicPlayer.offset(-1).Title)]</visible>
 			<include>VisibleFadeEffect</include>
 <!--			<include>dialogeffect</include>-->
@@ -348,7 +346,7 @@
 			<animation effect="slide" start="0,0" end="140,0" condition="Skin.HasSetting(TouchMode) + Skin.HasSetting(HomeSubMenuVisible)">Conditional</animation>
 			<visible>Player.HasVideo + !Skin.HasSetting(homepageVideoinfo)</visible>
 <!--		        <visible>![Player.Seeking]</visible>-->
-            <visible>![Control.IsVisible(8000) | Control.IsVisible(8001) | Control.IsVisible(8002) |Control.IsVisible(8003) | Control.IsVisible(8004) | Control.IsVisible(8005) | Control.IsVisible(8006) | Control.IsVisible(8007)]</visible>
+ 			<visible>![Control.HasFocus(8000) | Control.HasFocus(8001) | Control.HasFocus(8002) |Control.HasFocus(8003) | Control.HasFocus(8004) | Control.HasFocus(8005) | Control.HasFocus(8006) | Control.HasFocus(8007)]</visible>
 			<include>VisibleFadeEffect</include>
 			<include>dialogeffect</include>
 			<control type="image">
@@ -474,7 +472,7 @@
                         <posy>60</posy>
 <!--                    <visible>Container(9900).HasFocus(12) + [PVR.IsRecording | PVR.HasNonRecordingTimer]</visible>-->
                         <visible>PVR.IsRecording | PVR.HasNonRecordingTimer</visible>
-                        <visible>Skin.HasSetting(TouchMode) | ![Control.IsVisible(8000) | Control.IsVisible(8001) | Control.IsVisible(8002) |Control.IsVisible(8003) | Control.IsVisible(8004) | Control.IsVisible(8005) | Control.IsVisible(8006) | Control.IsVisible(8007)]</visible>
+                        <visible>Skin.HasSetting(TouchMode) | ![Control.HasFocus(8000) | Control.HasFocus(8001) | Control.HasFocus(8002) |Control.HasFocus(8003) | Control.HasFocus(8004) | Control.HasFocus(8005) | Control.HasFocus(8006) | Control.HasFocus(8007)]</visible>
                         <include>VisibleFadeEffect</include>
                         <include>dialogeffect</include>
                         <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(Favourites)">conditional</animation>

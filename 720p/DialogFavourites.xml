@@ -188,7 +188,7 @@
                         <item>
                             <label>$INFO[Skin.String(SubmenuSystemCustom.1.Label)]</label>
                             <onclick>Dialog.Close(Favourites)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.1.Path)]</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.1.Path)])</onclick>
@@ -197,7 +197,7 @@
                         <item>
                         <label>$INFO[Skin.String(SubmenuSystemCustom.2.Label)]</label>
                             <onclick>Dialog.Close(Favourites)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.2.Path)]</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.2.Path)])</onclick>
@@ -206,7 +206,7 @@
                         <item>
                             <label>$INFO[Skin.String(SubmenuSystemCustom.3.Label)]</label>
                             <onclick>Dialog.Close(Favourites)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.3.Path)]</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.3.Path)])</onclick>

@@ -315,21 +315,21 @@
         <include name="CustomButton">
             <param name="id"                      value="90180"/>
             <param name="number"                  value="1"/>
-            <param name="mainmenuitem"            value="SubmenuTVShow"/>
+            <param name="mainmenuitem"            value="SubmenuTVShows"/>
             <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
             <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
         </include>
         <include name="CustomButton">
             <param name="id"                      value="90181"/>
             <param name="number"                  value="2"/>
-            <param name="mainmenuitem"            value="SubmenuTVShow"/>
+            <param name="mainmenuitem"            value="SubmenuTVShows"/>
             <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
             <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
         </include>
         <include name="CustomButton">
             <param name="id"                      value="90182"/>
             <param name="number"                  value="3"/>
-            <param name="mainmenuitem"            value="SubmenuTVShow"/>
+            <param name="mainmenuitem"            value="SubmenuTVShows"/>
             <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
             <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
         </include>
@@ -437,7 +437,41 @@
 			<include>SubMenuEnd</include>
 			<visible>!Skin.HasSetting(TouchMode)</visible>
 		</control>
-	</include>
+	</include>    
+    <include name="HomeSubMenuMusicVideos">
+		<control type="image" id="90121">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+        
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90122"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90123"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90124"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        
+		<control type="image" id="90129">
+			<include>SubMenuEnd</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>    
 	<include name="HomeSubMenuSystem">
 		<control type="image" id="10044">
             <include>SubMenuStart</include>
@@ -860,7 +894,6 @@
             <visible>!Skin.HasSetting(TouchMode)</visible>
         </control>
     </include>
-
      
 	<include name="HomeAddonMenuVideos">
 		<control type="image" id="662001">
@@ -1330,6 +1363,66 @@
             <include>SubMenuEnd</include>
         </control>
 	</include>
+    
+    <include name="HomeCustomMenuMusicVideos">
+        <control type="image" id="673001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        <include name="CustomButton">
+            <param name="id"                      value="673002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="673008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuMusicVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="673010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>    
+    
 	<include name="HomeCustomMenuPrograms">
         <control type="image" id="671001">
             <include>SubMenuStart</include>
@@ -1935,6 +2028,12 @@
                 <param name="menuitemnumber" value="3"/>
                 <param name="menuname"       value="Music"/>
             </include>            
+            <include name="SubMenu"> <!-- MusicVideos SubMenu -->
+                <param name="id"             value="9017"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="17"/>
+                <param name="menuname"       value="MusicVideos"/>
+            </include>            
             <include name="SubMenu"> <!-- System SubMenu -->
                 <param name="id"             value="9012"/>
                 <param name="menutype"       value="SubMenu"/>
@@ -2025,6 +2124,12 @@
                 <param name="menutype"       value="CustomMenu"/>
                 <param name="menuitemnumber" value="3"/>
                 <param name="menuname"       value="Music"/>
+            </include>            
+            <include name="SubMenu"> <!-- MusicVideos Custom Menu -->
+                <param name="id"             value="6730"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="17"/>
+                <param name="menuname"       value="MusicVideos"/>
             </include>            
             <include name="SubMenu"> <!-- System Custom Menu -->
                 <param name="id"             value="6790"/>

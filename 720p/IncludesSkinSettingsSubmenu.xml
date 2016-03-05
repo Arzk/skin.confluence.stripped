@@ -60,10 +60,10 @@
             </control>
             <control type="radiobutton" id="3000">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>1043</label>
+                <label>    $LOCALIZE[1043]</label>
                 <selected>!Skin.HasSetting(SubmenuGamesAddons.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuGamesAddons.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoGamesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoGamesSubmenu) + !Skin.HasSetting(HomeMenuNoGamesButton)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="3001"/>
@@ -102,10 +102,10 @@
             </control>
             <control type="radiobutton" id="3014">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>1043</label>
+                <label>    $LOCALIZE[1043]</label>
                 <selected>!Skin.HasSetting(SubmenuProgramsAddons.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuProgramsAddons.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoProgramsSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoProgramsSubmenu) + !Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="3015"/>
@@ -144,10 +144,10 @@
             </control>
             <control type="radiobutton" id="3034">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>1039</label>
+                <label>    $LOCALIZE[1039]</label>
                 <selected>!Skin.HasSetting(SubmenuPictureAddons.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuPictureAddons.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoPicturesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoPicturesSubmenu) + !Skin.HasSetting(HomeMenuNoPicturesButton)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="3035"/>
@@ -186,37 +186,37 @@
             </control>
             <control type="radiobutton" id="3048">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>19019</label>
+                <label>    $LOCALIZE[19019]</label>
                 <selected>!Skin.HasSetting(SubmenuPVRChannels.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuPVRChannels.Hidden)</onclick>
                 <visible>System.GetBool(pvrmanager.enabled)</visible>
-                <visible>!Skin.HasSetting(NoPVRSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoPVRSubmenu) + System.GetBool(pvrmanager.enabled)</visible>
             </control>
             <control type="radiobutton" id="3049">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>19069</label>
+                <label>    $LOCALIZE[19069]</label>
                 <selected>!Skin.HasSetting(SubmenuPVREPG.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuPVREPG.Hidden)</onclick>
                 <visible>System.GetBool(pvrmanager.enabled)</visible>
-                <visible>!Skin.HasSetting(NoPVRSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoPVRSubmenu) + System.GetBool(pvrmanager.enabled)</visible>
             </control>
 
             <control type="radiobutton" id="3050">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>19017</label>
+                <label>    $LOCALIZE[19017]</label>
                 <selected>!Skin.HasSetting(SubmenuPVRRecordings.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuPVRRecordings.Hidden)</onclick>
                 <visible>System.GetBool(pvrmanager.enabled)</visible>
-                <visible>!Skin.HasSetting(NoPVRSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoPVRSubmenu) + System.GetBool(pvrmanager.enabled)</visible>
             </control>
 
             <control type="radiobutton" id="3051">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>19040</label>
+                <label>    $LOCALIZE[19040]</label>
                 <selected>!Skin.HasSetting(SubmenuPVRTimer.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuPVRTimer.Hidden)</onclick>
                 <visible>System.GetBool(pvrmanager.enabled)</visible>
-                <visible>!Skin.HasSetting(NoPVRSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoPVRSubmenu) + System.GetBool(pvrmanager.enabled)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="3052"/>
@@ -256,64 +256,51 @@
             </control>
             <control type="radiobutton" id="3065">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>342</label>
+                <label>    $LOCALIZE[342]</label>
                 <selected>!Skin.HasSetting(SubmenuVideoMovies.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuVideoMovies.Hidden)</onclick>
                 <visible>Library.HasContent(Movies)</visible>
                 <enable>Skin.HasSetting(HomeMenuNoMoviesButton)</enable>
-                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoVideosSubmenu) + !Skin.HasSetting(HomeMenuNoVideosButton)</visible>
             </control>
             <control type="radiobutton" id="3066">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>20343</label>
+                <label>    $LOCALIZE[20343]</label>
                 <selected>!Skin.HasSetting(SubmenuVideoTVShows.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuVideoTVShows.Hidden)</onclick>
                 <visible>Library.HasContent(TVShows)</visible>
                 <enable>Skin.HasSetting(HomeMenuNoTVShowsButton)</enable>
-                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoVideosSubmenu) + !Skin.HasSetting(HomeMenuNoVideosButton)</visible>
             </control>
             <control type="radiobutton" id="3067">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>20389</label>
+                <label>    $LOCALIZE[20389]</label>
                 <selected>!Skin.HasSetting(SubmenuVideoMusicVideos.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuVideoMusicVideos.Hidden)</onclick>
                 <visible>Library.HasContent(Musicvideos)</visible>
-                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoVideosSubmenu) + !Skin.HasSetting(HomeMenuNoVideosButton)</visible>
             </control>
             <control type="radiobutton" id="3068">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>744</label>
+                <label>    $LOCALIZE[744</label>
                 <selected>!Skin.HasSetting(SubmenuVideoFiles.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuVideoFiles.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoVideosSubmenu) + !Skin.HasSetting(HomeMenuNoVideosButton)</visible>
             </control>
             <control type="radiobutton" id="3069">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>14022</label>
+                <label>    $LOCALIZE[14022]</label>
                 <selected>!Skin.HasSetting(SubmenuVideoLibrary.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuVideoLibrary.Hidden)</onclick>
                 <visible>Library.HasContent(Video)</visible>
-                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoVideosSubmenu) + !Skin.HasSetting(HomeMenuNoVideosButton)</visible>
             </control>
-<!--					<control type="radiobutton" id="3175">
-                <width>750</width>
-                <height>40</height>
-                <font>font13</font>
-                <label>24069</label>
-                <textcolor>grey2</textcolor>
-                <focusedcolor>white</focusedcolor>
-                <texturefocus>MenuItemFO.png</texturefocus>
-                <texturenofocus>MenuItemNF.png</texturenofocus>
-                <selected>!Skin.HasSetting(SubmenuVideoUpdate.Hidden)</selected>
-                <onclick>Skin.ToggleSetting(SubmenuVideoUpdate.Hidden)</onclick>
-                <visible>Library.HasContent(Video)</visible>
-            </control>-->
             <control type="radiobutton" id="3070">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>1037</label>
+                <label>    $LOCALIZE[1037]</label>
                 <selected>!Skin.HasSetting(SubmenuVideoAddons.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuVideoAddons.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoVideosSubmenu) + !Skin.HasSetting(HomeMenuNoVideosButton)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="3071"/>
@@ -352,59 +339,59 @@
             </control>
             <control type="radiobutton" id="3084">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>20386</label>
+                <label>    $LOCALIZE[20386]</label>
                 <selected>!Skin.HasSetting(SubmenuMovieRecent.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMovieRecent.Hidden)</onclick>
                 <visible>Library.HasContent(Movies)</visible>
-                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu) + !Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
             </control>
             <control type="radiobutton" id="3085">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>20434</label>
+                <label>    $LOCALIZE[20434]</label>
                 <selected>!Skin.HasSetting(SubmenuMovieSets.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMovieSets.Hidden)</onclick>
                 <visible>Library.HasContent(Movies)</visible>
-                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu) + !Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
             </control>
             <control type="radiobutton" id="3086">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>20459</label>
+                <label>    $LOCALIZE[20459]</label>
                 <selected>!Skin.HasSetting(SubmenuMovieTags.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMovieTags.Hidden)</onclick>
                 <visible>Library.HasContent(Movies)</visible>
-                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu) + !Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
             </control>
             <control type="radiobutton" id="3087">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>369</label>
+                <label>    $LOCALIZE[369]</label>
                 <selected>!Skin.HasSetting(SubmenuMovieTitles.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMovieTitles.Hidden)</onclick>
                 <visible>Library.HasContent(Movies)</visible>
-                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu) + !Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
             </control>
             <control type="radiobutton" id="3088">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>135</label>
+                <label>    $LOCALIZE[135]</label>
                 <selected>!Skin.HasSetting(SubmenuMovieGenres.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMovieGenres.Hidden)</onclick>
                 <visible>Library.HasContent(Movies)</visible>
-                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu) + !Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
             </control>
             <control type="radiobutton" id="3089">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>652</label>
+                <label>    $LOCALIZE[652]</label>
                 <selected>!Skin.HasSetting(SubmenuMovieYears.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMovieYears.Hidden)</onclick>
                 <visible>Library.HasContent(Movies)</visible>
-                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu) + !Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
             </control>
             <control type="radiobutton" id="3090">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>344</label>
+                <label>    $LOCALIZE[344]</label>
                 <selected>!Skin.HasSetting(SubmenuMovieActors.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMovieActors.Hidden)</onclick>
                 <visible>Library.HasContent(Movies)</visible>
-                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu) + !Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="3091"/>
@@ -445,38 +432,38 @@
             </control>
             <control type="radiobutton" id="3104">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>20387</label>
+                <label>    $LOCALIZE[20387]</label>
                 <selected>!Skin.HasSetting(SubmenuTVShowRecent.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuTVShowRecent.Hidden)</onclick>
-                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoTVShowsButton) + Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
             </control>
             <control type="radiobutton" id="3105">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>369</label>
+                <label>    $LOCALIZE[369]</label>
                 <selected>!Skin.HasSetting(SubmenuTVShowTitles.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuTVShowTitles.Hidden)</onclick>
-                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoTVShowsButton) + Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
             </control>
             <control type="radiobutton" id="3106">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>135</label>
+                <label>    $LOCALIZE[135]</label>
                 <selected>!Skin.HasSetting(SubmenuTVShowGenres.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuTVShowGenres.Hidden)</onclick>
-                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoTVShowsButton) + Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
             </control>
             <control type="radiobutton" id="3107">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>652</label>
+                <label>    $LOCALIZE[652]</label>
                 <selected>!Skin.HasSetting(SubmenuTVShowYears.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuTVShowYears.Hidden)</onclick>
-                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoTVShowsButton) + Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
             </control>
             <control type="radiobutton" id="3108">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>344</label>
+                <label>    $LOCALIZE[344]</label>
                 <selected>!Skin.HasSetting(SubmenuTVShowActors.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuTVShowActors.Hidden)</onclick>
-                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoTVShowsButton) + Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="3109"/>
@@ -517,76 +504,63 @@
             </control>
             <control type="radiobutton" id="3122">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>133</label>
+                <label>    $LOCALIZE[133]</label>
                 <selected>!Skin.HasSetting(SubmenuMusicArtists.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMusicArtists.Hidden)</onclick>
                 <visible>Library.HasContent(Music)</visible>
-                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu) + !Skin.HasSetting(HomeMenuNoMusicButton)</visible>
             </control>
             <control type="radiobutton" id="3123">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>132</label>
+                <label>    $LOCALIZE[132]</label>
                 <selected>!Skin.HasSetting(SubmenuMusicAlbums.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMusicAlbums.Hidden)</onclick>
                 <visible>Library.HasContent(Music)</visible>
-                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu) + !Skin.HasSetting(HomeMenuNoMusicButton)</visible>
             </control>
             <control type="radiobutton" id="3124">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>134</label>
+                <label>    $LOCALIZE[134]</label>
                 <selected>!Skin.HasSetting(SubmenuMusicSongs.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMusicSongs.Hidden)</onclick>
                 <visible>Library.HasContent(Music)</visible>
-                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu) + !Skin.HasSetting(HomeMenuNoMusicButton)</visible>
             </control>
             <control type="radiobutton" id="3125">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>3</label>
+                <label>    $LOCALIZE[3]</label>
                 <selected>!Skin.HasSetting(SubmenuMusicVideos.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMusicVideos.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu) + !Skin.HasSetting(HomeMenuNoMusicButton)</visible>
             </control>
             <control type="radiobutton" id="3126">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>135</label>
+                <label>    $LOCALIZE[135]</label>
                 <selected>!Skin.HasSetting(SubmenuMusicGenres.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMusicGenres.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu) + !Skin.HasSetting(HomeMenuNoMusicButton)</visible>
             </control>
             <control type="radiobutton" id="3127">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>744</label>
+                <label>    $LOCALIZE[744]</label>
                 <selected>!Skin.HasSetting(SubmenuMusicFiles.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMusicFiles.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu) + !Skin.HasSetting(HomeMenuNoMusicButton)</visible>
             </control>
             <control type="radiobutton" id="3128">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>14022</label>
+                <label>    $LOCALIZE[14022]</label>
                 <selected>!Skin.HasSetting(SubmenuMusicLibrary.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMusicLibrary.Hidden)</onclick>
                 <visible>Library.HasContent(Music)</visible>
-                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu) + !Skin.HasSetting(HomeMenuNoMusicButton)</visible>
             </control>
-<!--					<control type="radiobutton" id="3176">
-                <width>750</width>
-                <height>40</height>
-                <font>font13</font>
-                <label>24069</label>
-                <textcolor>grey2</textcolor>
-                <focusedcolor>white</focusedcolor>
-                <texturefocus>MenuItemFO.png</texturefocus>
-                <texturenofocus>MenuItemNF.png</texturenofocus>
-                <selected>!Skin.HasSetting(SubmenuMusicUpdate.Hidden)</selected>
-                <onclick>Skin.ToggleSetting(SubmenuMusicUpdate.Hidden)</onclick>
-                <visible>Library.HasContent(Music)</visible>
-            </control>-->
             <control type="radiobutton" id="3129">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>24000</label>
+                <label>    $LOCALIZE[24000]</label>
                 <selected>!Skin.HasSetting(SubmenuMusicAddons.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuMusicAddons.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu) + !Skin.HasSetting(HomeMenuNoMusicButton)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="3130"/>
@@ -616,83 +590,42 @@
                 <param name="number" value="3"/>
             </include>
 
-<!--		<control type="label" id="3138">
-                <description>Music Videos submenu</description>
-                <width>750</width>
-                <height>45</height>
-                <font>font13_title</font>
-                <label>$LOCALIZE[20389] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
-                <textcolor>white</textcolor>
-                <shadowcolor>black</shadowcolor>
-                <align>left</align>
-                <aligny>center</aligny>
-                <visible>Library.HasContent(Musicvideos)</visible>
-            </control>
-            <control type="radiobutton" id="3139">
-                <width>750</width>
-                <height>40</height>
-                <font>font13</font>
-                <label>31328</label>
-                <textcolor>grey2</textcolor>
-                <focusedcolor>white</focusedcolor>
-                <texturefocus>MenuItemFO.png</texturefocus>
-                <texturenofocus>MenuItemNF.png</texturenofocus>
-                <selected>!Skin.HasSetting(SubmenuMusicVideoRecent.Hidden)</selected>
-                <onclick>Skin.ToggleSetting(SubmenuMusicVideoRecent.Hidden)</onclick>
-                <visible>Library.HasContent(Musicvideos)</visible>
-            </control>
-            <control type="radiobutton" id="3141">
-                <width>750</width>
-                <height>40</height>
-                <font>font13</font>
-                <label>369</label>
-                <textcolor>grey2</textcolor>
-                <focusedcolor>white</focusedcolor>
-                <texturefocus>MenuItemFO.png</texturefocus>
-                <texturenofocus>MenuItemNF.png</texturenofocus>
-                <selected>!Skin.HasSetting(SubmenuMusicVideoTitles.Hidden)</selected>
-                <onclick>Skin.ToggleSetting(SubmenuMusicVideoTitles.Hidden)</onclick>
-                <visible>Library.HasContent(Musicvideos)</visible>
-            </control>
-            <control type="radiobutton" id="3142">
-                <width>750</width>
-                <height>40</height>
-                <font>font13</font>
-                <label>652</label>
-                <textcolor>grey2</textcolor>
-                <focusedcolor>white</focusedcolor>
-                <texturefocus>MenuItemFO.png</texturefocus>
-                <texturenofocus>MenuItemNF.png</texturenofocus>
-                <selected>!Skin.HasSetting(SubmenuMusicVideoYears.Hidden)</selected>
-                <onclick>Skin.ToggleSetting(SubmenuMusicVideoYears.Hidden)</onclick>
-                <visible>Library.HasContent(Musicvideos)</visible>
-            </control>
             <control type="radiobutton" id="3143">
-                <width>750</width>
-                <height>40</height>
-                <font>font13</font>
-                <label>20339</label>
-                <textcolor>grey2</textcolor>
-                <focusedcolor>white</focusedcolor>
-                <texturefocus>MenuItemFO.png</texturefocus>
-                <texturenofocus>MenuItemNF.png</texturenofocus>
-                <selected>!Skin.HasSetting(SubmenuMusicVideoDirectors.Hidden)</selected>
-                <onclick>Skin.ToggleSetting(SubmenuMusicVideoDirectors.Hidden)</onclick>
-                <visible>Library.HasContent(Musicvideos)</visible>
+                <description>Music Videos submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[20389] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoMusicVideosSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoMusicVideosSubmenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoMusicVideosButton) + Library.HasContent(Musicvideos)</visible>
             </control>
-            <control type="radiobutton" id="3144">
-                <width>750</width>
-                <height>40</height>
-                <font>font13</font>
-                <label>572</label>
-                <textcolor>grey2</textcolor>
-                <focusedcolor>white</focusedcolor>
-                <texturefocus>MenuItemFO.png</texturefocus>
-                <texturenofocus>MenuItemNF.png</texturenofocus>
-                <selected>!Skin.HasSetting(SubmenuMusicVideoStudios.Hidden)</selected>
-                <onclick>Skin.ToggleSetting(SubmenuMusicVideoStudios.Hidden)</onclick>
-                <visible>Library.HasContent(Musicvideos)</visible>
-            </control>-->            
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3144"/>
+                <param name="id2" value="3145"/>
+                <param name="id3" value="3146"/>
+                <param name="id4" value="3147"/>
+                <param name="mainmenuitem" value="Musicvideos"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3148"/>
+                <param name="id2" value="3149"/>
+                <param name="id3" value="3150"/>
+                <param name="id4" value="3151"/>
+                <param name="mainmenuitem" value="Musicvideos"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3152"/>
+                <param name="id2" value="3153"/>
+                <param name="id3" value="3154"/>
+                <param name="id4" value="3165"/>
+                <param name="mainmenuitem" value="Musicvideos"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            
             <control type="radiobutton" id="3157">
                 <description>Disc submenu</description>
                 <include>SettingsRadioButtonCommonValues</include>
@@ -703,14 +636,14 @@
             
             <control type="radiobutton" id="3158">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>13391</label>
+                <label>    $LOCALIZE[13391]</label>
                 <selected>!Skin.HasSetting(SubmenuDiscEject.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuDiscEject.Hidden)</onclick>
                 <visible>!Skin.HasSetting(NoDiscSubmenu)</visible>
             </control>
             <control type="radiobutton" id="3159">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>600</label>
+                <label>    $LOCALIZE[600]</label>
                 <selected>!Skin.HasSetting(SubmenuDiscRip.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuDiscRip.Hidden)</onclick>
                 <visible>!Skin.HasSetting(NoDiscSubmenu)</visible>
@@ -748,57 +681,57 @@
                 <label>$LOCALIZE[13000] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
                 <selected>!Skin.HasSetting(NoSystemSubmenu)</selected>
                 <onclick>Skin.ToggleSetting(NoSystemSubmenu)</onclick>
-                
+                <visible>!Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>
             <control type="radiobutton" id="3195">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>5</label>
+                <label>    $LOCALIZE[5]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemSettings.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemSettings.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>
             <control type="radiobutton" id="3196">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>90042</label>
+                <label>    $LOCALIZE[90042]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemOpenELEC.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemOpenELEC.Hidden)</onclick>
                 <visible>System.HasAddon(os.openelec.settings) | System.HasAddon(service.openelec.settings)</visible>
-                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>
             <control type="radiobutton" id="3197">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>7</label>
+                <label>    $LOCALIZE[7]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemFileManager.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemFileManager.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>
             <control type="radiobutton" id="3198">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>13200</label>
+                <label>    $LOCALIZE[13200]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemProfiles.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemProfiles.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>
             <control type="radiobutton" id="3199">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>130</label>
+                <label>    $LOCALIZE[130]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemInfo.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemInfo.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>
             <control type="radiobutton" id="3200">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>31963</label>
+                <label>    $LOCALIZE[31963]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemShutdown.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>
             <control type="radiobutton" id="3201">
                 <include>SettingsRadioButtonCommonValues</include>
-                <label>20077</label>
+                <label>    $LOCALIZE[20077]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemSkin.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemSkin.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>					
             <include name="CustomButtonSelector">
                 <param name="id1" value="3202"/>

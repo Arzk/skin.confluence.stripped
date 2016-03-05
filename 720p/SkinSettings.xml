@@ -112,10 +112,6 @@
 					</item>
 				</content>
 			</control>
-            <include name="SettingsLevelButton">
-                <param name="onleftright" value="9010"/>
-                <param name="onupdown" value="9000"/>
-            </include>
 			<control type="group" id="9010">
 				<include>SkinSettingsGeneral</include>
 				<include>SkinSettingsHome</include>

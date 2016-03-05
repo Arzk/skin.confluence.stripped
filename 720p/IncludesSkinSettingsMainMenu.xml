@@ -69,6 +69,13 @@
                 <onclick>Skin.ToggleSetting(HomeMenuNoMusicButton)</onclick>
                 <selected>Skin.HasSetting(HomeMenuNoMusicButton)</selected>
             </control>
+            <control type="radiobutton" id="8009">
+                <description>Hide Music Videos Button</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[20389]</label>
+                <onclick>Skin.ToggleSetting(HomeMenuNoMusicVideosButton)</onclick>
+                <selected>Skin.HasSetting(HomeMenuNoMusicVideosButton)</selected>
+            </control>
             <control type="radiobutton" id="8011">
                 <description>Hide Programs Button</description>
                 <include>SettingsRadioButtonCommonValues</include>
