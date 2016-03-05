@@ -56,20 +56,10 @@
 					<posy>78</posy>
 					<posx>70</posx>
                     <control type="group">
-                            <posy>10</posy>
-                            <posx>490</posx>
-                            <include>RecordLabelFlaggingConditions</include>
+                        <posy>10</posy>
+                        <posx>490</posx>
+                        <include>RecordLabelFlaggingConditions</include>
                     </control>
-<!--					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>380</width>
-						<height>360</height>
-						<aspectratio>keep</aspectratio>
-						<bordertexture border="5">button-nofocus.png</bordertexture>
-						<bordersize>4</bordersize>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>-->
 					<control type="list" id="49">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -181,30 +171,12 @@
 							</item>
 						</content>
 					</control>
-<!--					<control type="image">
-						<posx>390</posx>
-						<posy>370</posy>
-						<width>640</width>
-						<height>4</height>
-						<aspectratio>stretch</aspectratio>
-						<texture>separator.png</texture>
-					</control>-->
 				</control>
 				<control type="group">
 					<visible>container.content(Artists) + !Control.HasFocus(12)</visible>
 					<visible>!Control.IsVisible(50)</visible>
 					<posy>78</posy>
 					<posx>70</posx>
-<!--					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>380</width>
-						<height>360</height>
-						<aspectratio>keep</aspectratio>
-						<bordertexture border="5">button-nofocus.png</bordertexture>
-						<bordersize>4</bordersize>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>-->
 					<control type="list" id="49">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -366,16 +338,6 @@
 					<visible>!Control.IsVisible(50)</visible>
 					<visible>!Control.HasFocus(12)</visible>
 				</control>
-<!--				<control type="image">
-					<description>Actor image</description>
-					<posx>210</posx>
-					<posy>480</posy>
-					<width>160</width>
-					<height>160</height>
-					<texture fallback="DefaultAlbumCover.png">$INFO[Container(50).Listitem.Icon]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>Control.IsVisible(50)</visible>
-				</control>-->
 				<control type="list" id="50">
 					<posx>70</posx>
 					<posy>78</posy>
@@ -544,7 +506,7 @@
 				<control type="grouplist" id="9000">
 					<posx>0</posx>
 					<posy>68r</posy>
-					<width>1280</width>
+					<width>ScreenWidth</width>
 					<height>40</height>
 					<itemgap>2</itemgap>
 					<align>center</align>
@@ -574,23 +536,23 @@
 						<label>20413</label>
 					</control>
 				</control>
-	                        <control type="group">
-	                                <posx>730</posx>
-	                                <posy>78</posy>
-	                                <control type="image">
-	                                        <posx>10</posx>
-	                                        <posy>10</posy>
-	                                        <width>460</width>
-	                                        <height>460</height>
-	                                        <aspectratio aligny="bottom">keep</aspectratio>
-	                                        <texture background="true">$INFO[ListItem.Icon]</texture>
-	                                        <bordertexture border="8">ThumbShadow.png</bordertexture>
-	                                        <bordersize>8</bordersize>
+                <control type="group">
+                    <posx>730</posx>
+                    <posy>78</posy>
+                    <control type="image">
+                        <posx>10</posx>
+                        <posy>10</posy>
+                        <width>460</width>
+                        <height>460</height>
+                        <aspectratio aligny="bottom">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <bordertexture border="8">ThumbShadow.png</bordertexture>
+                        <bordersize>8</bordersize>
 						<visible>!Control.HasFocus(12)</visible>
-	                                </control>
+                    </control>
 				</control>
 			</control>
 		</control>
-		 <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
+        <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
 	</controls>
 </window>

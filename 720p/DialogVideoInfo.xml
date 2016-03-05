@@ -1297,7 +1297,7 @@
 				<control type="grouplist" id="9000">
 					<posx>0</posx>
 					<posy>68r</posy>
-					<width>1280</width>
+					<width>ScreenWidth</width>
 					<height>40</height>
 					<itemgap>0</itemgap>
 					<align>center</align>

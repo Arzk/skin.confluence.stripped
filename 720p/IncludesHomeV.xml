@@ -2,134 +2,95 @@
 	<include name="VerticalHome">
 		<include>HomeTVRecordingInfo</include>
 	        <include>TopBar</include>
-<!--		<include>TouchMediaControls</include>-->
 		<include condition="Skin.HasSetting(EnableWidgets)">HomeRecentlyAddedWidgetTouch</include>
 		<control type="image">
-	                <posx>0</posx>
-	                <posy>0</posy>
-	                <width>190</width>
-	                <height>650</height>
-	                <texture border="0,0,10,0" flipy="true">MediaBladeSub.png</texture>
-	                <colordiffuse>DDFFFFFF</colordiffuse>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>190</width>
+            <height>650</height>
+            <texture border="0,0,10,0" flipy="true">MediaBladeSub.png</texture>
+            <colordiffuse>DDFFFFFF</colordiffuse>
 		</control>
-		<include>VerticalMenu</include>
-	        <include>TouchTools</include>
-                <include>BottomBlade</include>
-		<include>CommonNowPlaying</include>
 		<control type="group">
-			<posx>185</posx>
-			<posy>55</posy>
-			<visible>Skin.HasSetting(HomeSubMenuVisible)</visible>
-			<visible>Container(9900).HasFocus(2) + !Skin.HasSetting(NoVideosSubMenu) | 
-			Container(9900).HasFocus(10) + !Skin.HasSetting(NoMovieSubMenu) | 
-			Container(9900).HasFocus(11) + !Skin.HasSetting(NoTVShowsSubMenu) | 				
-			Container(9900).HasFocus(3) + !Skin.HasSetting(NoMusicSubMenu) | 
-			Container(9900).HasFocus(5) + !Skin.HasSetting(NoSystemSubMenu) | 
-			Container(9900).HasFocus(6) + !Skin.HasSetting(NoDiscSubMenu) | 
-			Container(9900).HasFocus(12) + !Skin.HasSetting(NoPVRSubMenu) |
-			Container(9900).HasFocus(4) + !Skin.HasSetting(NoPicturesSubMenu) |
-			Container(9900).HasFocus(1) + !Skin.HasSetting(NoProgramsSubMenu)</visible>
-			<control type="image">
-				<width>120</width>
-				<height>595</height>
-				<texture border="0,0,10,0">black-back.png</texture>
-			</control>
+			<left>0</left>
+			<top>0</top>
+			<animation effect="slide" start="0,0" end="-135,0" time="250" condition="!Window.IsActive(Home)">conditional</animation>
+            
+            <!-- Hidden button to prevent fullscreen video -->
 			<control type="button">
 				<posx>0</posx>
 				<posy>0</posy>
-				<width>120</width>
-				<height>595</height>
+				<width>200</width>
+				<height>ScreenHeight</height>
 			<texturefocus>-</texturefocus>
 			</control>
-		</control>
-		<control type="group">
-			<control type="group" id="9001">
-				<left>185</left>
-				<top>210</top>
-				<animation effect="slide" start="0,0" end="0,-15" condition="!System.GetBool(pvrmanager.enabled)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoWeatherButton)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoPicturesButton)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoVideosButton)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoMoviesButton) | !Library.HasContent(Movies)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoTVShowsButton) | !Library.HasContent(TVShows)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoMusicButton)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoWProgramsButton)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoWGamesButton)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoSystemButton)">conditional></animation>
-				<animation effect="slide" start="0,0" end="0,-15" condition="!System.HasMedia(DVD)">conditional></animation>
-				<onup>9004</onup>
-				<ondown>9900</ondown>
-				<onback>9900</onback>
-<!--				<visible>Control.HasFocus(9900)</visible>-->
-				
-				<control type="grouplist" id="9010">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9010</onup>
-					<onup>9010</onup>
-					<visible>Container(9900).HasFocus(2) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoVideosSubmenu)">HomeSubMenuVideos</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9016">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9016</onup>
-					<onup>9016</onup>
-					<visible>Container(9900).HasFocus(10) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoMovieSubmenu)">HomeSubMenuMovies</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9017">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9017</onup>
-					<onup>9017</onup>
-					<visible>Container(9900).HasFocus(11) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoTVShowsSubmenu)">HomeSubMenuTVShows</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9011">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9011</onup>
-					<onup>9011</onup>
-					<visible>Container(9900).HasFocus(3) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoMusicSubMenu)">HomeSubMenuMusic</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9012">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9012</onup>
-					<onup>9012</onup>
-					<visible>Container(9900).HasFocus(5) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoSystemSubmenu)">HomeSubMenuSystem</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9013">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9013</onup>
-					<onup>9013</onup>
-					<visible>Container(9900).HasFocus(6) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoDiscSubmenu)">HomeSubMenuPlayDisc</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9014">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9014</onup>
-					<onup>9014</onup>
-					<visible>Container(9900).HasFocus(12) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoPVRSubmenu)">HomeSubMenuLiveTV</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9018">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9013</onup>
-					<onup>9013</onup>
-					<visible>Container(9900).HasFocus(4) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoPicturesSubmenu)">HomeSubMenuPictures</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9015">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9013</onup>
-					<onup>9013</onup>
-					<visible>[Container(9900).HasFocus(1) | Container(9900).HasFocus(13)] + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoProgramsSubmenu)">HomeSubMenuPrograms</include> <!-- Buttons for the grouplist -->
-				</control>
+			<control type="list" id="9900">
+				<left>0</left>
+				<top>90</top>
+				<width>200</width>
+				<height>480</height>
+				<onleft>9900</onleft>
+				<onright>9900</onright>
+				<pagecontrol>-</pagecontrol>
+				<scrolltime tween="sine" easing="inout">150</scrolltime>
+				<itemlayout height="60" width="180">
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>130</width>
+						<height>60</height>
+						<font>font24_title</font>
+						<textcolor>grey2</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<top>15</top>
+						<width>30</width>
+						<height>30</height>
+						<align>right</align>
+						<aligny>center</aligny>
+			                        <texture>$INFO[ListItem.Property(MenuIcon)]</texture>
+			                        <colordiffuse>DDFFFFFF</colordiffuse>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60" width="180">
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>130</width>
+						<height>60</height>
+						<font>font24_title</font>
+						<textcolor>grey2</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<top>15</top>
+						<width>30</width>
+						<height>30</height>
+						<align>right</align>
+						<aligny>center</aligny>
+			            <texture>$INFO[ListItem.Property(MenuIcon)]</texture>
+			            <colordiffuse>DDFFFFFF</colordiffuse>
+					</control>
+				</focusedlayout>
+                <content>
+                    <include>HomeMenuItems</include>
+                </content>
 			</control>
 		</control>
+        <include>TouchTools</include>
+        <include>BottomBlade</include>
+		<include>CommonNowPlaying</include>
+        <include>HomeSubMenusV</include>
+
 		<control type="panel" id="9002">
 			<visible>Window.IsActive(Home) + Skin.HasSetting(TouchMode)</visible>
-<!--			<include>Window_OpenClose_Animation</include>-->
 			<include>SubMenuCommonLayout</include>
 			<content>
 				<item>

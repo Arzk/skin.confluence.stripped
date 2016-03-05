@@ -3,22 +3,22 @@
 	<allowoverlay>no</allowoverlay>
 	<views>50,51,550,551,500,514,510</views>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonPictureBackground</include>
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonPictureBackground</include>
 		<include>CommonMediaPlayingBackground</include>
-                <control type="image">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>1280</width>
-                        <height>720</height>
-                        <texture align="center">special://skin/media/black.png</texture>
-                        <visible>Control.IsVisible(510)</visible>
-                </control>
+        <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>ScreenWidth</width>
+            <height>ScreenHeight</height>
+            <texture align="center">special://skin/media/black.png</texture>
+            <visible>Control.IsVisible(510)</visible>
+        </control>
 		<control type="image">
 			<posx>0</posx>
 			<posy>0</posy>
-			<width>1280</width>
-			<height>720</height>
+			<width>ScreenWidth</width>
+			<height>ScreenHeight</height>
 			<texture background="true">$INFO[ListItem.FilenameAndPath]</texture>
 			<fadetime>1000</fadetime>
 			<aspectratio>keep</aspectratio>
@@ -37,7 +37,7 @@
 			<include>AddonInfoListView1</include> <!-- view id = 550 -->
 			<include>AddonInfoThumbView1</include> <!-- view id = 551 -->
 		</control>
-                <include condition="!Stringcompare(Skin.String(PageCountPosition),None) + !Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCount</include>
+        <include condition="!Stringcompare(Skin.String(PageCountPosition),None) + !Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCount</include>
 		<include>CommonNowPlaying</include>
 		<include>BehindDialogFadeOut</include>
 		<include>ScrollOffsetLabel</include>
@@ -123,7 +123,7 @@
 				</control>
 				<include>CommonNowPlaying_Controls</include>
 			</control>
-                        <include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
+            <include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
 		</control>
 		<include>Clock</include>
         <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>

@@ -4,11 +4,10 @@
 	<allowoverlay>no</allowoverlay>
 	<views>50</views>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonTVBackground</include>
-                <include>CommonMediaPlayingBackground</include>
-                <include>ContentPanelBackgrounds</include>
-			
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonTVBackground</include>
+        <include>CommonMediaPlayingBackground</include>
+        <include>ContentPanelBackgrounds</include>	
 		<control type="group">
 			<include>Window_OpenClose_Animation</include>
 			<description>TV Search group</description>
@@ -377,8 +376,8 @@
 		<control type="image">
 			<left>0</left>
 			<top>0</top>
-			<width>1280</width>
-			<height>720</height>
+			<width>ScreenWidth</width>
+			<height>ScreenHeight</height>
 			<texture>black-back.png</texture>
 			<animation effect="fade" time="400">Visible</animation>
 			<animation effect="fade" time="200">Hidden</animation>

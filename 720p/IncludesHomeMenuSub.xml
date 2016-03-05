@@ -1,0 +1,2270 @@
+<includes>
+    <include name="CustomButton">
+    <param name="id" default="0"/>
+    <param name="mainmenuitem"/>
+    <param name="commonvalueinclude"/>
+    <param name="commonvaluetouchinclude"/>
+    <param name="number" default="0"/>
+        <definition>
+            <control type="button" id="$PARAM[id]">
+                <include condition="!Skin.HasSetting(TouchMode)">$PARAM[commonvalueinclude]</include>
+                <include condition="Skin.HasSetting(TouchMode)">$PARAM[commonvaluetouchinclude]</include>
+                <label>$INFO[Skin.String($PARAM[mainmenuitem].$PARAM[number].Label)]</label>
+                <onclick condition="Stringcompare(Skin.String($PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist) | Stringcompare(Skin.String($PARAM[mainmenuitem].$PARAM[number].Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String($PARAM[mainmenuitem].$PARAM[number].Path)],return)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String($PARAM[mainmenuitem].$PARAM[number].Path)],return)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">$INFO[Skin.String($PARAM[mainmenuitem].$PARAM[number].Path)]</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[mainmenuitem].$PARAM[number].Type),Addon)">RunAddon($INFO[Skin.String($PARAM[mainmenuitem].$PARAM[number].Path)])</onclick>
+                <visible>Skin.HasSetting($PARAM[mainmenuitem].$PARAM[number].Enabled) + !IsEmpty(Skin.String($PARAM[mainmenuitem].$PARAM[number].Type)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].$PARAM[number].Path)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].$PARAM[number].Label))</visible>
+            </control>
+        </definition>
+    </include>
+    <include name="AddonButton">
+        <param name="id" default="0"/>
+        <param name="name"/>
+        <param name="number" default="0"/>
+        <definition>
+    		<control type="button" id="$PARAM[id]">
+                <include>ButtonHomeAddonMenuCommonValues</include>
+                <label>$INFO[system.addontitle(Skin.String(Home$PARAM[name]Button$PARAM[number]))]</label>
+                <onclick>RunAddon($INFO[Skin.String(Home$PARAM[name]Button$PARAM[number])])</onclick>
+                <visible>!IsEmpty(Skin.String(Home$PARAM[name]Button$PARAM[number]))</visible>
+            </control>
+        </definition>
+    </include>
+    <include name="SubMenu">
+        <param name="id" default="0"/>
+        <param name="menutype"/>
+        <param name="menuitemnumber"/>
+        <param name="menuname"/>
+        <definition>
+            <control type="grouplist" id="$PARAM[id]">    
+                <include>Home$PARAM[menutype]CommonValues</include>
+                <onleft>$PARAM[id]</onleft>
+                <onright>$PARAM[id]</onright>
+                <visible>Container(9900).HasFocus($PARAM[menuitemnumber])</visible>
+                <include condition="!Skin.HasSetting(No$PARAM[menuname]$PARAM[menutype])">Home$PARAM[menutype]$PARAM[menuname]</include> <!-- Buttons for the grouplist -->
+            </control>
+        </definition>               
+    </include>
+    <include name="SubMenuStart">
+        <width>35</width>
+        <height>35</height>
+        <texture border="0,5,0,0" flipy="true" flipx="true">HomeSubEnd.png</texture>
+        <colordiffuse>CCFFFFFF</colordiffuse>
+    </include>
+    <include name="SubMenuEnd">
+        <width>35</width>
+        <height>35</height>
+        <texture border="0,5,0,0" flipy="true">HomeSubEnd.png</texture>
+        <colordiffuse>CCFFFFFF</colordiffuse>
+    </include>
+
+	<include name="HomeSubMenuVideos">
+		<control type="image" id="90101">
+			<include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="90102">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>342</label>
+			<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+			<visible>Library.HasContent(Movies) + Skin.HasSetting(HomeMenuNoMoviesButton) + !Skin.HasSetting(SubmenuVideoMovies.Hidden)</visible>
+		</control>
+		<control type="button" id="90103">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>20343</label>
+			<onclick>ActivateWindow(Videos,TvShowTitles,return)</onclick>
+			<visible>Library.HasContent(TVShows) + Skin.HasSetting(HomeMenuNoTVShowsButton) + !Skin.HasSetting(SubmenuVideoTVShows.Hidden)</visible>
+		</control>
+		<control type="button" id="90104">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>20389</label>
+			<onclick>ActivateWindow(Videos,MusicVideoTitles,return)</onclick>
+			<visible>Library.HasContent(MusicVideos) + !Skin.HasSetting(SubmenuVideoMusicVideos.Hidden)</visible>
+		</control>
+		<control type="button" id="90105">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>744</label>
+			<onclick>ActivateWindow(Videos,Files,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuVideoFiles.Hidden)</visible>
+        </control>
+        <control type="button" id="90106">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+            <include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>14022</label>
+            <onclick>ActivateWindow(Videos,Root)</onclick>
+            <visible>Library.HasContent(Video) + !Skin.HasSetting(SubmenuVideoLibrary.Hidden)</visible>
+        </control>
+<!--    <control type="button" id="90107">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+            <include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>24069</label>
+            <onclick>UpdateLibrary(video)</onclick>
+            <visible>Library.HasContent(Video) + !Skin.HasSetting(SubmenuVideoUpdate.Hidden)</visible>
+        </control>-->
+        <control type="button" id="90108">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+            <include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>24001</label>
+            <onclick>ActivateWindow(Videos,Addons,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuVideoAddons.Hidden)</visible>
+        </control>
+            
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90109"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90110"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90111"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+            
+            
+        
+		<control type="image" id="90112">
+			<include>SubMenuEnd</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuMovies">
+		<control type="image" id="10011">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+            <control type="button" id="10012">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>31328</label>
+            <onclick>ActivateWindow(Videos,RecentlyAddedMovies,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuMovieRecent.Hidden)</visible>
+        </control>
+		<control type="button" id="10013">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>20434</label>
+			<onclick>ActivateWindow(Videos,MovieSets,return)</onclick>
+            <visible>Library.HasContent(MovieSets) + !Skin.HasSetting(SubmenuMovieSets.Hidden)</visible>
+		</control>
+            <control type="button" id="10014">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>369</label>
+            <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuMovieTitles.Hidden)</visible>
+        </control>
+		<control type="button" id="10015">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>20459</label>
+			<onclick>ActivateWindow(Videos,MovieTags,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuMovieTags.Hidden)</visible>
+		</control>
+		<control type="button" id="10016">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>135</label>
+			<onclick>ActivateWindow(Videos,MovieGenres,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuMovieGenres.Hidden)</visible>
+		</control>
+        <control type="button" id="10017">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>652</label>
+            <onclick>ActivateWindow(Videos,MovieYears,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuMovieYears.Hidden)</visible>
+        </control>
+        <control type="button" id="10018">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>344</label>
+            <onclick>ActivateWindow(Videos,MovieActors,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuMovieActors.Hidden)</visible>
+        </control>
+<!--    <control type="button" id="10019">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>14022</label>
+			<onclick>ActivateWindow(Videos,Root)</onclick>
+			<visible>Library.HasContent(Video)</visible>
+            <visible>!Skin.HasSetting(SubmenuVideoLibrary.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>
+		<control type="button" id="10020">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>744</label>
+			<onclick>ActivateWindow(Videos,Files,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuVideoFiles.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>
+		<control type="button" id="10021">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+			<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuVideoAddons.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>-->
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="10022"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuMovie"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="10023"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuMovie"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="10023"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuMovie"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+
+        <control type="image" id="10025">
+            <include>SubMenuEnd</include>
+            <visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuTVShows">
+		<control type="image" id="90171">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="90172">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>31328</label>
+			<onclick>ActivateWindow(Videos,RecentlyAddedEpisodes,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuTVShowRecent.Hidden)</visible>
+		</control>
+		<control type="button" id="90173">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>369</label>
+			<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuTVShowTitles.Hidden)</visible>
+		</control>
+		<control type="button" id="90174">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>135</label>
+			<onclick>ActivateWindow(Videos,TVShowGenres,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuTVShowGenres.Hidden)</visible>
+		</control>
+        <control type="button" id="90175">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>652</label>
+            <onclick>ActivateWindow(Videos,TVShowYears,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuTVShowYears.Hidden)</visible>
+        </control>
+        <control type="button" id="90176">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>344</label>
+            <onclick>ActivateWindow(Videos,TVShowActors,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuTVShowActors.Hidden)</visible>
+        </control>
+<!--		<control type="button" id="90177">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>14022</label>
+			<onclick>ActivateWindow(Videos,Root)</onclick>
+			<visible>Library.HasContent(Video)</visible>
+                        <visible>!Skin.HasSetting(SubmenuVideoLibrary.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>
+		<control type="button" id="90178">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>744</label>
+			<onclick>ActivateWindow(Videos,Files,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoFiles.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>
+		<control type="button" id="90179">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+			<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+                        <visible>!Skin.HasSetting(SubmenuVideoAddons.Hidden) + Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+		</control>-->
+
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90180"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuTVShow"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90181"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuTVShow"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90182"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuTVShow"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        
+        <control type="image" id="90183">
+            <include>SubMenuEnd</include>
+            <visible>!Skin.HasSetting(TouchMode)</visible>
+        </control>
+	</include>
+	<include name="HomeSubMenuMusic">
+		<control type="image" id="90121">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+        <control type="button" id="90122">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>133</label>
+            <onclick>ActivateWindow(MusicLibrary,Artists,return)</onclick>
+            <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicArtists.Hidden)</visible>
+        </control>
+		<control type="button" id="90123">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>132</label>
+			<onclick>ActivateWindow(MusicLibrary,Albums,return)</onclick>
+            <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAlbums.Hidden)</visible>
+		</control>
+		<control type="button" id="90124">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>134</label>
+			<onclick>ActivateWindow(MusicLibrary,Songs,return)</onclick>
+            <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicSongs.Hidden)</visible>
+		</control>
+		<control type="button" id="90125">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>135</label>
+			<onclick>ActivateWindow(MusicLibrary,Genres,return)</onclick>
+            <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicGenres.Hidden)</visible>
+		</control>
+		<control type="button" id="90126">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>3</label>
+			<onclick>ActivateWindow(Videos,MusicVideoTitles,return)</onclick>
+            <visible>Library.HasContent(MusicVideos) + !Skin.HasSetting(SubmenuMusicVideos.Hidden)</visible>
+		</control>
+		<control type="button" id="90127">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>14022</label>
+			<onclick>ActivateWindow(MusicLibrary)</onclick>
+			<visible>Library.HasContent(Music)</visible>
+            <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicLibrary.Hidden)</visible>
+		</control>
+		<control type="button" id="90128">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>744</label>
+			<onclick>ActivateWindow(MusicLibrary,Files)</onclick>
+            <visible>!Skin.HasSetting(SubmenuMusicFiles.Hidden)</visible>
+		</control>
+		<control type="button" id="90129">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+			<onclick>ActivateWindow(MusicLibrary,Addons,return)</onclick>
+			<visible>Library.HasContent(Music)</visible>
+            <visible>Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAddons.Hidden)</visible>
+		</control>
+        <control type="button" id="90130">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>24001</label>
+            <onclick>ActivateWindow(MusicFiles,Addons,return)</onclick>
+            <visible>!Library.HasContent(Music) + !Skin.HasSetting(SubmenuMusicAddons.Hidden)</visible>
+        </control>
+        
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90131"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90132"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90133"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        
+		<control type="image" id="90134">
+			<include>SubMenuEnd</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuSystem">
+		<control type="image" id="10044">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+        <control type="button" id="10045">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>5</label>
+            <onclick>ActivateWindow(Settings)</onclick>
+            <visible>!Skin.HasSetting(SubmenuSystemSettings.Hidden)</visible>
+        </control>
+        <control type="button" id="10046">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>90042</label>
+            <onclick condition="System.HasAddon(os.openelec.settings)">RunAddon(os.openelec.settings)</onclick>
+            <onclick condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</onclick>
+            <visible>[System.HasAddon(os.openelec.settings) | System.HasAddon(service.openelec.settings)] + !Skin.HasSetting(SubmenuSystemOpenELEC.Hidden)</visible>
+        </control>
+		<control type="button" id="10047">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>7</label>
+			<onclick>ActivateWindow(FileManager)</onclick>
+            <visible>!Skin.HasSetting(SubmenuSystemFileManager.Hidden)</visible>
+		</control>
+		<control type="button" id="10048">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>130</label>
+			<onclick>ActivateWindow(SystemInfo)</onclick>
+            <visible>!Skin.HasSetting(SubmenuSystemInfo.Hidden)</visible>
+		</control>
+        <control type="button" id="10049">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>13200</label>
+            <onclick>ActivateWindow(Profiles)</onclick>
+            <visible>!Skin.HasSetting(SubmenuSystemProfiles.Hidden)</visible>
+        </control>
+        <control type="button" id="100150">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>20077</label>
+            <onclick>ActivateWindow(SkinSettings)</onclick>
+            <visible>!Skin.HasSetting(SubmenuSystemSkin.Hidden)</visible>
+        </control>
+        <control type="button" id="10051">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>31963</label>
+            <onclick>ActivateWindow(Shutdownmenu)</onclick>
+            <visible>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
+        </control>
+		<control type="image" id="10052">
+			<include>SubMenuEnd</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+    <include name="HomeSubMenuDisc">
+        <control type="image" id="90161">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+        </control>
+        
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90162"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90163"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90164"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <control type="button" id="90165">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>600</label>
+            <onclick>SetFocus(9000)</onclick>
+            <onclick>RipCD</onclick>
+            <visible>!Skin.HasSetting(SubmenuDiscRip.Hidden)</visible>
+        </control>
+        <control type="button" id="90166">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>13391</label>
+            <onclick>SetFocus(9000)</onclick>
+            <onclick>EjectTray()</onclick>
+            <visible>!Skin.HasSetting(SubmenuDiscEject.Hidden)</visible>
+        </control>
+        <control type="image" id="90167">
+            <include>SubMenuEnd</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+        </control>
+    </include>
+	<include name="HomeSubMenuPictures">
+		<control type="image" id="10055">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="10056">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+			<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuPictureAddons.Hidden)</visible>
+		</control>
+        
+                
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="10057"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="10058"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="10059"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>       
+    </include>              
+	<include name="HomeSubMenuWeather">
+		<control type="image" id="10071">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>        
+                
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="10072"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="10073"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="10074"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>       
+
+		<control type="image" id="10079">
+			<include>SubMenuEnd</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuLiveTV">
+		<control type="image" id="90141">
+			<include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+        <control type="button" id="90142">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>19019</label>
+            <onclick>ActivateWindow(TVChannels)</onclick>
+            <visible>!Skin.HasSetting(SubmenuPVRChannels.Hidden)</visible>
+            </control>
+            <control type="button" id="90143">
+            <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+            <label>19069</label>
+            <onclick>ActivateWindow(TVGuide)</onclick>
+            <visible>!Skin.HasSetting(SubmenuPVREPG.Hidden)</visible>
+        </control>
+		<control type="button" id="90144">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>19163</label>
+			<onclick>ActivateWindow(TVRecordings)</onclick>
+            <visible>!Skin.HasSetting(SubmenuPVRRecordings.Hidden)</visible>
+		</control>
+		<control type="button" id="90145">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>19040</label>
+			<onclick>ActivateWindow(TVTimers)</onclick>
+            <visible>!Skin.HasSetting(SubmenuPVRTimer.Hidden)</visible>
+		</control>
+        
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90146"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90147"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90148"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>       
+		<control type="image" id="90149">
+			<include>SubMenuEnd</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+	</include>
+	<include name="HomeSubMenuPrograms">
+		<control type="image" id="90151">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="90152">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+            <onclick>ActivateWindow(Programs,Addons,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuProgramsAddons.Hidden)</visible>
+		</control>
+        
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90153"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90154"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90155"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>       
+        
+        <control type="image" id="90159">
+            <include>SubMenuEnd</include>
+            <visible>!Skin.HasSetting(TouchMode)</visible>
+        </control>
+    </include>
+	<include name="HomeSubMenuGames">
+		<control type="image" id="90151">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>
+		<control type="button" id="90152">
+			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
+			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
+			<label>24001</label>
+            <onclick>ActivateWindow(Programs,Addons,return)</onclick>
+            <visible>!Skin.HasSetting(SubmenuProgramsAddons.Hidden)</visible>
+		</control>
+        
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90153"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90154"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90155"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>       
+        
+        <control type="image" id="90159">
+            <include>SubMenuEnd</include>
+            <visible>!Skin.HasSetting(TouchMode)</visible>
+        </control>
+    </include>
+	<include name="HomeSubMenuMainMenuCustom.1">
+		<control type="image" id="90151">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>       
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90153"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90154"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90155"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        
+        <control type="image" id="90159">
+            <include>SubMenuEnd</include>
+            <visible>!Skin.HasSetting(TouchMode)</visible>
+        </control>
+    </include>
+    <include name="HomeSubMenuMainMenuCustom.2">
+		<control type="image" id="90151">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>       
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90153"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90154"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90155"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        
+        <control type="image" id="90159">
+            <include>SubMenuEnd</include>
+            <visible>!Skin.HasSetting(TouchMode)</visible>
+        </control>
+    </include>
+    <include name="HomeSubMenuMainMenuCustom.3">
+		<control type="image" id="90151">
+            <include>SubMenuStart</include>
+			<visible>!Skin.HasSetting(TouchMode)</visible>
+		</control>       
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="90153"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90154"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="90155"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        
+        <control type="image" id="90159">
+            <include>SubMenuEnd</include>
+            <visible>!Skin.HasSetting(TouchMode)</visible>
+        </control>
+    </include>
+
+     
+	<include name="HomeAddonMenuVideos">
+		<control type="image" id="662001">
+            <include>SubMenuStart</include>
+		</control>        
+        <include name="AddonButton">
+            <param name="id"     value="662002"/>
+            <param name="number" value="1"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662003"/>
+            <param name="number" value="2"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662004"/>
+            <param name="number" value="3"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662005"/>
+            <param name="number" value="4"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662006"/>
+            <param name="number" value="5"/>
+            <param name="name"   value="Videos"/>
+        </include>        
+        <control type="image" id="662010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>		
+	<include name="HomeAddonMenuMovies">
+		<control type="image" id="662001">
+            <include>SubMenuStart</include>
+		</control>
+        <include name="AddonButton">
+            <param name="id"     value="662002"/>
+            <param name="number" value="1"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662003"/>
+            <param name="number" value="2"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662004"/>
+            <param name="number" value="3"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662005"/>
+            <param name="number" value="4"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662006"/>
+            <param name="number" value="5"/>
+            <param name="name"   value="Videos"/>
+        </include>
+		
+        <control type="image" id="662010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>		
+	<include name="HomeAddonMenuTVShows">
+		<control type="image" id="662001">
+            <include>SubMenuStart</include>
+		</control>        
+        <include name="AddonButton">
+            <param name="id"     value="662002"/>
+            <param name="number" value="1"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662003"/>
+            <param name="number" value="2"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662004"/>
+            <param name="number" value="3"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662005"/>
+            <param name="number" value="4"/>
+            <param name="name"   value="Videos"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="662006"/>
+            <param name="number" value="5"/>
+            <param name="name"   value="Videos"/>
+        </include>        
+        <control type="image" id="662009">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>		
+	<include name="HomeAddonMenuMusic">
+		<control type="image" id="663001">
+            <include>SubMenuStart</include>
+		</control>
+        <include name="AddonButton">
+            <param name="id"     value="663002"/>
+            <param name="number" value="1"/>
+            <param name="name"   value="Music"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="663003"/>
+            <param name="number" value="2"/>
+            <param name="name"   value="Music"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="663004"/>
+            <param name="number" value="3"/>
+            <param name="name"   value="Music"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="663005"/>
+            <param name="number" value="4"/>
+            <param name="name"   value="Music"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="663006"/>
+            <param name="number" value="5"/>
+            <param name="name"   value="Music"/>
+        </include>
+        <control type="image" id="663010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>	
+    <include name="HomeAddonMenuPictures">
+		<control type="image" id="664001">
+            <include>SubMenuStart</include>
+		</control>        
+        <include name="AddonButton">
+            <param name="id"     value="664002"/>
+            <param name="number" value="1"/>
+            <param name="name"   value="Pictures"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="664003"/>
+            <param name="number" value="2"/>
+            <param name="name"   value="Pictures"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="664004"/>
+            <param name="number" value="3"/>
+            <param name="name"   value="Pictures"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="664005"/>
+            <param name="number" value="4"/>
+            <param name="name"   value="Pictures"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="664006"/>
+            <param name="number" value="5"/>
+            <param name="name"   value="Pictures"/>
+        </include>        	
+        <control type="image" id="664007">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>	
+    <include name="HomeAddonMenuPrograms">
+		<control type="image" id="661001">
+            <include>SubMenuStart</include>
+		</control>
+        
+        <include name="AddonButton">
+            <param name="id"     value="661002"/>
+            <param name="number" value="1"/>
+            <param name="name"   value="Programs"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="661003"/>
+            <param name="number" value="2"/>
+            <param name="name"   value="Programs"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="661004"/>
+            <param name="number" value="3"/>
+            <param name="name"   value="Programs"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="661005"/>
+            <param name="number" value="4"/>
+            <param name="name"   value="Programs"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="661006"/>
+            <param name="number" value="5"/>
+            <param name="name"   value="Programs"/>
+        </include>
+        
+        <control type="image" id="661010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+    <include name="HomeAddonMenuLiveTV">
+		<control type="image" id="668001">
+            <include>SubMenuStart</include>
+		</control>
+        <include name="AddonButton">
+            <param name="id"     value="668002"/>
+            <param name="number" value="1"/>
+            <param name="name"   value="LiveTV"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="668003"/>
+            <param name="number" value="2"/>
+            <param name="name"   value="LiveTV"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="668004"/>
+            <param name="number" value="3"/>
+            <param name="name"   value="LiveTV"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="668005"/>
+            <param name="number" value="4"/>
+            <param name="name"   value="LiveTV"/>
+        </include>
+        <include name="AddonButton">
+            <param name="id"     value="668006"/>
+            <param name="number" value="5"/>
+            <param name="name"   value="LiveTV"/>
+        </include>
+        <control type="image" id="668010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+
+    <include name="HomeCustomMenuVideos">
+        <control type="image" id="672001">
+            <include>SubMenuStart</include>
+        </control>
+        <include name="CustomButton">
+            <param name="id"                      value="672002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="672008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuVideos"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+		
+        <control type="image" id="672010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+	<include name="HomeCustomMenuMovies">
+        <control type="image" id="672001">
+            <include>SubMenuStart</include>
+        </control>
+
+        <include name="CustomButton">
+            <param name="id"                      value="672002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuMovies"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuMovies"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuMovies"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuMovies"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuMovies"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuMovies"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="672008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuMovies"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuMovies"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+
+        <control type="image" id="672010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+	<include name="HomeCustomMenuTVShows">
+        <control type="image" id="672001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        
+        <include name="CustomButton">
+            <param name="id"                      value="672002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuTVShows"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuTVShows"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuTVShows"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuTVShows"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuTVShows"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuTVShows"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="672008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuTVShows"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="672009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuTVShows"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        
+        <control type="image" id="672010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+	<include name="HomeCustomMenuMusic">
+        <control type="image" id="673001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        <include name="CustomButton">
+            <param name="id"                      value="673002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="673008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="673009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuMusic"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="673010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+	<include name="HomeCustomMenuPrograms">
+        <control type="image" id="671001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        <include name="CustomButton">
+            <param name="id"                      value="671002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="671003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="671004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="671005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="671006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="671007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="671008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="671009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuPrograms"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <control type="image" id="671010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+	<include name="HomeCustomMenuGames">
+        <control type="image" id="676001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        <include name="CustomButton">
+            <param name="id"                      value="676002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="676008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuGames"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <control type="image" id="676010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>    
+	<include name="HomeCustomMenuLiveTV">
+        <control type="image" id="678001">
+            <include>SubMenuStart</include>
+        </control>
+        <include name="CustomButton">
+            <param name="id"                      value="678002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="678003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="678004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="678005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="678006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="678007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="678008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="678009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuPVR"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="678010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+	<include name="HomeCustomMenuPictures">
+        <control type="image" id="674001">
+            <include>SubMenuStart</include>
+        </control>
+        <include name="CustomButton">
+            <param name="id"                      value="674002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="674003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="674004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="674005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="674006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="674007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="674008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="674009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuPictures"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="674010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+    <include name="HomeCustomMenuWeather">
+        <control type="image" id="677001">
+            <include>SubMenuStart</include>
+        </control>
+        <include name="CustomButton">
+            <param name="id"                      value="677002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="677003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="677004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="677005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="677006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="677007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="677008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="677009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuWeather"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="677010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+	<include name="HomeCustomMenuSystem">
+        <control type="image" id="679001">
+            <include>SubMenuStart</include>
+        </control>
+        <include name="CustomButton">
+            <param name="id"                      value="679002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="679003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="679004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="679005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="679006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="679007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="679008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="679009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        
+        <control type="image" id="679010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+	<include name="HomeCustomMenuDisc">
+        <control type="image" id="676001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        <include name="CustomButton">
+            <param name="id"                      value="676002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="676008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuDisc"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="676010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+    <include name="HomeCustomMenuMainMenuCustom.1">
+        <control type="image" id="676001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        <include name="CustomButton">
+            <param name="id"                      value="676002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="676008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.1"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="676010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+    <include name="HomeCustomMenuMainMenuCustom.2">
+        <control type="image" id="676001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        <include name="CustomButton">
+            <param name="id"                      value="676002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="676008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.2"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="676010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>
+    <include name="HomeCustomMenuMainMenuCustom.3">
+        <control type="image" id="676001">
+            <include>SubMenuStart</include>
+        </control>
+        
+        <include name="CustomButton">
+            <param name="id"                      value="676002"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676003"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676004"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676005"/>
+            <param name="number"                  value="4"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676006"/>
+            <param name="number"                  value="5"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676007"/>
+            <param name="number"                  value="6"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>       
+        <include name="CustomButton">
+            <param name="id"                      value="676008"/>
+            <param name="number"                  value="7"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="676009"/>
+            <param name="number"                  value="8"/>
+            <param name="mainmenuitem"            value="CustomMenuMainMenuCustom.3"/>
+            <param name="commonvalueinclude"      value="ButtonHomeCustomCommonValues"/>
+        </include>
+        
+        <control type="image" id="676010">
+            <include>SubMenuEnd</include>
+        </control>
+	</include>    
+    <include name="HomeSubMenusH">
+        <control type="group" id="9001">
+            <onup condition="!Skin.HasSetting(CustomMenuFirst)">9004</onup>
+            <onup condition="Skin.HasSetting(CustomMenuFirst)">9002</onup>
+            <ondown>9900</ondown>
+            <onback>9900</onback>
+            <include name="SubMenu"> <!-- Videos SubMenu -->
+                <param name="id"             value="9010"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="2"/>
+                <param name="menuname"       value="Videos"/>
+            </include>
+            <include name="SubMenu"> <!-- Movies SubMenu -->
+                <param name="id"             value="9016"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="10"/>
+                <param name="menuname"       value="Movies"/>
+            </include>
+            <include name="SubMenu"> <!-- TV Shows SubMenu -->
+                <param name="id"             value="9016"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="11"/>
+                <param name="menuname"       value="TVShows"/>
+            </include>
+            <include name="SubMenu"> <!-- Music SubMenu -->
+                <param name="id"             value="9017"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="3"/>
+                <param name="menuname"       value="Music"/>
+            </include>            
+            <include name="SubMenu"> <!-- System SubMenu -->
+                <param name="id"             value="9012"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="5"/>
+                <param name="menuname"       value="System"/>
+            </include>
+            <include name="SubMenu"> <!-- Disc SubMenu -->
+                <param name="id"             value="9013"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="6"/>
+                <param name="menuname"       value="Disc"/>
+            </include>
+            <include name="SubMenu"> <!-- LiveTV SubMenu -->
+                <param name="id"             value="9014"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="12"/>
+                <param name="menuname"       value="LiveTV"/>
+            </include>         
+            <include name="SubMenu"> <!-- Pictures SubMenu -->
+                <param name="id"             value="9015"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="4"/>
+                <param name="menuname"       value="Pictures"/>
+            </include>            
+            <include name="SubMenu"> <!-- Weather SubMenu -->
+                <param name="id"             value="9019"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="7"/>
+                <param name="menuname"       value="Weather"/>
+            </include>            
+            <include name="SubMenu"> <!-- Programs SubMenu -->
+                <param name="id"             value="9018"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="1"/>
+                <param name="menuname"       value="Programs"/>
+            </include>
+            <include name="SubMenu"> <!-- Games SubMenu -->
+                <param name="id"             value="9018"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="13"/>
+                <param name="menuname"       value="Games"/>
+            </include>
+            <include name="SubMenu"> <!-- Custom1 SubMenu -->
+                <param name="id"             value="9021"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="14"/>
+                <param name="menuname"       value="MainMenuCustom.1"/>
+            </include>            
+            <include name="SubMenu"> <!-- Custom2 SubMenu -->
+                <param name="id"             value="9022"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="15"/>
+                <param name="menuname"       value="MainMenuCustom.2"/>
+            </include>            
+            <include name="SubMenu"> <!-- Custom2 SubMenu -->
+                <param name="id"             value="9023"/>
+                <param name="menutype"       value="SubMenu"/>
+                <param name="menuitemnumber" value="16"/>
+                <param name="menuname"       value="MainMenuCustom.3"/>
+            </include>            
+        </control>
+        <control type="group" id="9004">
+            <onup condition="!Skin.HasSetting(CustomMenuFirst)">9002</onup>
+            <onup condition="Skin.HasSetting(CustomMenuFirst)">9001</onup>
+            <ondown>9900</ondown>
+            <onback>9900</onback>
+            
+            <include name="SubMenu"> <!-- Videos Custom Menu -->
+                <param name="id"             value="6720"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="2"/>
+                <param name="menuname"       value="Videos"/>
+            </include>
+            <include name="SubMenu"> <!-- Movies Custom Menu -->
+                <param name="id"             value="6720"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="10"/>
+                <param name="menuname"       value="Movies"/>
+            </include>
+            <include name="SubMenu"> <!-- TV Shows Custom Menu -->
+                <param name="id"             value="6720"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="11"/>
+                <param name="menuname"       value="TVShows"/>
+            </include>
+            <include name="SubMenu"> <!-- Music Custom Menu -->
+                <param name="id"             value="6730"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="3"/>
+                <param name="menuname"       value="Music"/>
+            </include>            
+            <include name="SubMenu"> <!-- System Custom Menu -->
+                <param name="id"             value="6790"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="5"/>
+                <param name="menuname"       value="System"/>
+            </include>
+            <include name="SubMenu"> <!-- Disc Custom Menu -->
+                <param name="id"             value="6760"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="6"/>
+                <param name="menuname"       value="Disc"/>
+            </include>
+            <include name="SubMenu"> <!-- LiveTV Custom Menu -->
+                <param name="id"             value="6780"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="12"/>
+                <param name="menuname"       value="LiveTV"/>
+            </include>         
+            <include name="SubMenu"> <!-- Pictures Custom Menu -->
+                <param name="id"             value="6740"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="4"/>
+                <param name="menuname"       value="Pictures"/>
+            </include>            
+            <include name="SubMenu"> <!-- Programs Custom Menu -->
+                <param name="id"             value="6710"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="1"/>
+                <param name="menuname"       value="Programs"/>
+            </include>            
+            <include name="SubMenu"> <!-- Games Custom Menu -->
+                <param name="id"             value="6760"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="13"/>
+                <param name="menuname"       value="Games"/>
+            </include>            
+            <include name="SubMenu"> <!-- Weather Custom Menu -->
+                <param name="id"             value="6770"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="7"/>
+                <param name="menuname"       value="Weather"/>
+            </include>            
+            <include name="SubMenu"> <!-- Custom1 Custom Menu -->
+                <param name="id"             value="6810"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="14"/>
+                <param name="menuname"       value="MainMenuCustom.1"/>
+            </include>            
+            <include name="SubMenu"> <!-- Custom2 Custom Menu -->
+                <param name="id"             value="6820"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="15"/>
+                <param name="menuname"       value="MainMenuCustom.2"/>
+            </include>            
+            <include name="SubMenu"> <!-- Custom2 Custom Menu -->
+                <param name="id"             value="6830"/>
+                <param name="menutype"       value="CustomMenu"/>
+                <param name="menuitemnumber" value="16"/>
+                <param name="menuname"       value="MainMenuCustom.3"/>
+            </include>            
+        </control>
+        <control type="group" id="9002">
+            <onup condition="!Skin.HasSetting(CustomMenuFirst)">9001</onup>
+            <onup condition="Skin.HasSetting(CustomMenuFirst)">9004</onup>
+            <ondown>9900</ondown>
+            <onback>9900</onback>
+
+           
+            <include name="SubMenu"> <!-- Videos Addon Menu -->
+                <param name="id"             value="6620"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="2"/>
+                <param name="menuname"       value="Videos"/>
+            </include>
+            <include name="SubMenu"> <!-- Movies Addon Menu -->
+                <param name="id"             value="6620"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="10"/>
+                <param name="menuname"       value="Movies"/>
+            </include>
+            <include name="SubMenu"> <!-- TV Shows Addon Menu -->
+                <param name="id"             value="6620"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="11"/>
+                <param name="menuname"       value="TVShows"/>
+            </include>
+            <include name="SubMenu"> <!-- Music Addon Menu -->
+                <param name="id"             value="6630"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="3"/>
+                <param name="menuname"       value="Music"/>
+            </include>            
+            <include name="SubMenu"> <!-- System Addon Menu -->
+                <param name="id"             value="6690"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="5"/>
+                <param name="menuname"       value="System"/>
+            </include>
+            <include name="SubMenu"> <!-- Disc Addon Menu -->
+                <param name="id"             value="6660"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="6"/>
+                <param name="menuname"       value="Disc"/>
+            </include>
+            <include name="SubMenu"> <!-- LiveTV Addon Menu -->
+                <param name="id"             value="6680"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="12"/>
+                <param name="menuname"       value="LiveTV"/>
+            </include>         
+            <include name="SubMenu"> <!-- Pictures Addon Menu -->
+                <param name="id"             value="6640"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="4"/>
+                <param name="menuname"       value="Pictures"/>
+            </include>            
+            <include name="SubMenu"> <!-- Programs Addon Menu -->
+                <param name="id"             value="6610"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="1"/>
+                <param name="menuname"       value="Programs"/>
+            </include>
+            <include name="SubMenu"> <!-- Games Addon Menu -->
+                <param name="id"             value="6610"/>
+                <param name="menutype"       value="AddonMenu"/>
+                <param name="menuitemnumber" value="13"/>
+                <param name="menuname"       value="Programs"/>
+            </include>
+        </control>
+    </include>
+    <include name="HomeSubMenusV">
+        <control type="group">
+            <posx>185</posx>
+            <posy>55</posy>
+            <visible>Skin.HasSetting(HomeSubMenuVisible)</visible>
+            <visible>Container(9900).HasFocus(2) + !Skin.HasSetting(NoVideosSubmenu) | 
+            Container(9900).HasFocus(10) + !Skin.HasSetting(NoMoviesSubmenu) | 
+            Container(9900).HasFocus(11) + !Skin.HasSetting(NoTVShowsSubmenu) | 
+            Container(9900).HasFocus(3) + !Skin.HasSetting(NoMusicSubmenu) | 
+            Container(9900).HasFocus(5) + !Skin.HasSetting(NoSystemSubmenu) | 
+            Container(9900).HasFocus(6) + !Skin.HasSetting(NoDiscSubmenu) | 
+            Container(9900).HasFocus(12) + !Skin.HasSetting(NoPVRSubmenu) | 
+            Container(9900).HasFocus(4) + !Skin.HasSetting(NoPicturesSubmenu) | 
+            Container(9900).HasFocus(1) + !Skin.HasSetting(NoProgramsSubmenu)</visible>
+            <control type="image">
+                <width>120</width>
+                <height>595</height>
+                <texture border="0,0,10,0">black-back.png</texture>
+            </control>
+            <control type="button">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>120</width>
+                <height>595</height>
+                <texturefocus>-</texturefocus>
+            </control>
+        </control>
+		<control type="group">
+			<control type="group" id="9001">
+				<left>185</left>
+				<top>210</top>
+				<animation effect="slide" start="0,0" end="0,-15" condition="!System.GetBool(pvrmanager.enabled)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoWeatherButton)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoPicturesButton)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoVideosButton)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoMoviesButton) | !Library.HasContent(Movies)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoTVShowsButton) | !Library.HasContent(TVShows)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoMusicButton)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoWProgramsButton)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoWGamesButton)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="Skin.HasSetting(HomeMenuNoSystemButton)">conditional></animation>
+				<animation effect="slide" start="0,0" end="0,-15" condition="!System.HasMedia(DVD)">conditional></animation>
+				<onup>9004</onup>
+				<ondown>9900</ondown>
+				<onback>9900</onback>
+				<control type="grouplist" id="9010">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9010</onup>
+					<onup>9010</onup>
+					<visible>Container(9900).HasFocus(2) + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoVideosSubmenu)">HomeSubMenuVideos</include> <!-- Buttons for the grouplist -->
+				</control>
+				<control type="grouplist" id="9016">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9016</onup>
+					<onup>9016</onup>
+					<visible>Container(9900).HasFocus(10) + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoMoviesSubmenu)">HomeSubMenuMovies</include> <!-- Buttons for the grouplist -->
+				</control>
+				<control type="grouplist" id="9017">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9017</onup>
+					<onup>9017</onup>
+					<visible>Container(9900).HasFocus(11) + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoTVShowsSubmenu)">HomeSubMenuTVShows</include> <!-- Buttons for the grouplist -->
+				</control>
+				<control type="grouplist" id="9011">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9011</onup>
+					<onup>9011</onup>
+					<visible>Container(9900).HasFocus(3) + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoMusicSubMenu)">HomeSubMenuMusic</include> <!-- Buttons for the grouplist -->
+				</control>
+				<control type="grouplist" id="9012">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9012</onup>
+					<onup>9012</onup>
+					<visible>Container(9900).HasFocus(5) + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoSystemSubmenu)">HomeSubMenuSystem</include> <!-- Buttons for the grouplist -->
+				</control>
+				<control type="grouplist" id="9013">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9013</onup>
+					<onup>9013</onup>
+					<visible>Container(9900).HasFocus(6) + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoDiscSubmenu)">HomeSubMenuDisc</include> <!-- Buttons for the grouplist -->
+				</control>
+				<control type="grouplist" id="9014">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9014</onup>
+					<onup>9014</onup>
+					<visible>Container(9900).HasFocus(12) + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoPVRSubmenu)">HomeSubMenuLiveTV</include> <!-- Buttons for the grouplist -->
+				</control>
+				<control type="grouplist" id="9018">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9013</onup>
+					<onup>9013</onup>
+					<visible>Container(9900).HasFocus(4) + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoPicturesSubmenu)">HomeSubMenuPictures</include> <!-- Buttons for the grouplist -->
+				</control>
+				<control type="grouplist" id="9015">
+					<include>HomeSubMenuTouchCommonValues</include>
+					<onup>9013</onup>
+					<onup>9013</onup>
+					<visible>[Container(9900).HasFocus(1) | Container(9900).HasFocus(13)] + Skin.HasSetting(HomeSubMenuVisible)</visible>
+					<include condition="!Skin.HasSetting(NoProgramsSubmenu)">HomeSubMenuPrograms</include> <!-- Buttons for the grouplist -->
+				</control>
+			</control>
+		</control>
+    </include>
+</includes>

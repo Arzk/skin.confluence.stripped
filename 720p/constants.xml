@@ -1,0 +1,46 @@
+<includes>
+	<constant name="ScreenWidth">1280</constant>
+	<constant name="ScreenHeight">720</constant>
+    
+	<constant name="BottomBladeTop">75r</constant>
+	<constant name="BottomBladeHeight">90</constant>
+	<constant name="OverlayOffset">3</constant>
+	<constant name="TouchBladeHeight">650</constant>
+	<constant name="TouchBladeWidth">55</constant>
+	
+    <constant name="ContentPanelBackgroundLeft">50</constant>
+    <constant name="ContentPanelBackgroundTop">60</constant>
+    <constant name="ContentPanelBackgroundWidth">1180</constant>
+    <constant name="ContentPanelBackgroundHeight">590</constant>
+
+    <constant name="ContentPanelBackgroundSettingsLeft">95</constant>
+    <constant name="ContentPanelBackgroundSettingsTop">55</constant>
+    <constant name="ContentPanelBackgroundSettingsWidth">1090</constant>
+    <constant name="ContentPanelBackgroundSettingsHeight">595</constant>
+
+    <constant name="SlideshowTimePerImage">10000</constant>
+    <constant name="SlideshowFadeTime">1000</constant>
+	<constant name="FanartCrossfadeTime">600</constant>
+	<constant name="IconCrossfadeTime">600</constant>
+
+    
+    
+    
+   	<constant name="MainMenuWidth">70</constant>
+
+    
+    <constant name="ContentLeft">70</constant>
+    <constant name="ContentTop">78</constant>
+    <constant name="ContentWidth">1140</constant>
+    <constant name="ContentHeight"></constant>
+    <constant name="ListWidth">70</constant>
+    <constant name="ListInfoWidth">70</constant>
+    
+    
+    
+    <constant name="ButtonCommonHeight">40</constant>
+	
+		
+	
+	
+</includes>

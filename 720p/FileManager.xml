@@ -2,10 +2,10 @@
 	<defaultcontrol>20</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonSettingsBackground</include>
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonSettingsBackground</include>
 		<include>CommonMediaPlayingBackground</include>
-                <include>BottomBlade</include>
+        <include>BottomBlade</include>
 		<control type="group">
 			<posx>30</posx>
 			<posy>40</posy>
@@ -23,7 +23,7 @@
 				<width>610</width>
 				<height>610</height>
 				<texture border="20">ContentPanel.png</texture>
-                                <colordiffuse>EEFFFFFF</colordiffuse>
+                <colordiffuse>EEFFFFFF</colordiffuse>
 			</control>
 			<control type="image">
 				<posx>510</posx>
@@ -183,7 +183,7 @@
 				<width>610</width>
 				<height>610</height>
 				<texture border="20">ContentPanel.png</texture>
-                                <colordiffuse>EEFFFFFF</colordiffuse>
+                <colordiffuse>EEFFFFFF</colordiffuse>
 			</control>
 			<control type="image">
 				<posx>20</posx>

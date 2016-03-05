@@ -170,7 +170,7 @@
 		</control>
 		<control type="spincontrol" id="60">
 			<description>Next page button</description>
-			<left>720</left>
+			<left>ScreenHeight</left>
 			<top>375</top>
 			<subtype>page</subtype>
 			<font>-</font>

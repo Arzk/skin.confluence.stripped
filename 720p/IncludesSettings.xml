@@ -1,0 +1,261 @@
+<includes>
+
+    <include name="SettingsButtonAreaCommonValues">
+        <posx>10</posx>
+        <posy>5</posy>
+        <width>260</width>
+        <height>481</height>
+        <itemgap>0</itemgap>
+        <onleft>9000</onleft>
+        <onright>$PARAM[onright]</onright>
+        <onup>$PARAM[onupdown]</onup>
+        <ondown>$PARAM[onupdown]</ondown>
+    </include>
+    
+    <include name="SettingsControlAreaCommonValues">
+        <posx>290</posx>
+        <posy>15</posy>
+        <width>750</width>
+        <itemgap>-1</itemgap>
+        <pagecontrol>60</pagecontrol>
+        <onleft>$PARAM[onleft]</onleft>
+        <onright>$PARAM[id]</onright>
+        <onup>$PARAM[onupdown]</onup>
+        <ondown>$PARAM[onupdown]</ondown>
+    </include>
+
+    <include name="SettingsLevelButton">
+        <param name="onleftright" default="0"/>
+        <param name="onupdown" default="0"/>
+        <definition>
+            <control type="button" id="20">
+                <description>Setting level button</description>
+                <left>10</left>
+                <top>512</top>
+                <height>60</height>
+                <width>260</width>
+                <label>10037</label>
+                <textoffsetx>20</textoffsetx>
+                <textoffsety>28</textoffsety>
+                <align>right</align>
+                <aligny>top</aligny>
+                <font>font13</font>
+                <textcolor>selected</textcolor>
+                <focusedcolor>selected</focusedcolor>
+                <texturefocus border="5">MenuItemFO.png</texturefocus>
+                <texturenofocus border="5">MenuItemNF.png</texturenofocus>
+                <pulseonselect>false</pulseonselect>
+                <onleft>$PARAM[onleftright]</onleft>
+                <onright>$PARAM[onleftright]</onright>
+                <onup>$PARAM[onupdown]</onup>
+                <ondown>$PARAM[onupdown]</ondown>
+                <onclick>SettingsLevelChange</onclick>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <top>516</top>
+                <height>25</height>
+                <width>230</width>
+                <label>31142</label>
+                <font>font13_title</font>
+                <textcolor>white</textcolor>
+                <align>right</align>
+                <aligny>center</aligny>
+            </control>
+        </definition>
+    </include>
+    
+    <include name="SettingsSeparator">
+        <control type="image">
+            <description>separator image</description>
+            <left>290</left>
+            <top>525</top>
+            <width>750</width>
+            <height>2</height>
+            <texture>separator2.png</texture>
+            <colordiffuse>40FFFFFF</colordiffuse>
+        </control>
+    </include>
+    
+    
+
+
+    <include name="SettingsOpenCloseAnimation">
+        <animation type="WindowOpen" reversible="false" condition="Window.Previous(Home)">
+            <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+            <effect type="fade" start="0" end="100" time="300" />
+        </animation>
+        <animation type="WindowClose" reversible="false"condition="Window.Next(Home)">
+            <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+            <effect type="fade" start="100" end="0" time="300" />
+        </animation>
+    </include>
+    
+	<include name="SettingsCategoryButtonCommonValues">
+        <height>60</height>
+        <width>260</width>
+        <textoffsetx>20</textoffsetx>
+        <align>right</align>
+        <aligny>center</aligny>
+        <font>font13_title</font>
+        <textcolor>grey2</textcolor>
+        <focusedcolor>white</focusedcolor>
+        <texturefocus border="5">MenuItemFO.png</texturefocus>
+        <texturenofocus border="5">MenuItemNF.png</texturenofocus>
+        <pulseonselect>false</pulseonselect>
+    </include>
+	<include name="SettingsButtonCommonValues">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>750</width>
+			<height>40</height>
+			<font>font13</font>
+			<textcolor>grey2</textcolor>
+			<focusedcolor>white</focusedcolor>
+            <invalidcolor>invalid</invalidcolor>
+			<texturefocus border="0,2,0,2">MenuItemFO.png</texturefocus>
+			<texturenofocus border="0,2,0,2">MenuItemNF.png</texturenofocus>
+    </include>
+    <include name="SettingsRadioButtonCommonValues">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>750</width>
+			<height>40</height>
+			<font>font13</font>
+			<textcolor>grey2</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<texturefocus border="0,2,0,2">MenuItemFO.png</texturefocus>
+			<texturenofocus border="0,2,0,2">MenuItemNF.png</texturenofocus>
+    </include>
+    <include name="SettingsSpinControlCommonValues">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>750</width>
+			<height>40</height>
+			<font>font13</font>
+			<textcolor>grey2</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<texturefocus border="0,2,0,2">MenuItemFO.png</texturefocus>
+			<texturenofocus border="0,2,0,2">MenuItemNF.png</texturenofocus>
+			<aligny>center</aligny>
+			<reverse>yes</reverse>
+    </include>
+    <include name="SettingsSliderCommonValues">
+            <posx>0</posx>
+            <posy>0</posy>
+			<width>750</width>
+            <height>40</height>
+            <font>font13</font>
+            <textcolor>grey2</textcolor>
+            <focusedcolor>white</focusedcolor>
+            <texturefocus border="0,2,0,2">MenuItemFO.png</texturefocus>
+            <texturenofocus border="0,2,0,2">MenuItemNF.png</texturenofocus>
+            <aligny>center</aligny>
+    </include>
+    <include name="SettingsLabelCommonValues">
+            <left>0</left>
+            <top>0</top>
+			<width>750</width>
+            <height>30</height>
+            <label>-</label>
+            <align>center</align>
+            <aligny>bottom</aligny>
+            <font>font13_title</font>
+            <textcolor>grey</textcolor>
+            <shadowcolor>black</shadowcolor>
+    </include>    
+	<include name="SettingsSidebarButtonCommonValues">
+		<height>60</height>
+		<width>240</width>
+		<textoffsetx>10</textoffsetx>
+		<textwidth>200</textwidth>
+		<aligny>center</aligny>
+		<align>right</align>
+		<font>font24_title</font>
+        <textcolor>grey</textcolor>
+		<texturefocus border="5">MenuItemFO.png</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<pulseonselect>false</pulseonselect>
+	</include>
+    <include name="SettingsScrollbarCommonValues">
+            <posx>1060</posx>
+            <posy>10</posy>
+            <width>25</width>
+            <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+            <texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+            <texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+            <textureslidernib>ScrollBarNib.png</textureslidernib>
+            <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+            <showonepage>false</showonepage>
+            <orientation>vertical</orientation>
+    </include>
+
+    <include name="CustomButtonSelector">
+        <param name="id1" default="0"/>
+        <param name="id2" default="0"/>
+        <param name="id3" default="0"/>
+        <param name="id4" default="0"/>
+        <param name="mainmenuitem"/>
+        <param name="menutype"/>
+        <param name="number"/>
+        <definition>
+            <control type="radiobutton" id="$PARAM[id1]">
+                <description>Enable item $PARAM[number]</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>    $LOCALIZE[90020] $PARAM[number]</label>
+                <selected>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</selected>
+                <onclick>Skin.ToggleSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</onclick>
+                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type)</onclick>
+                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path)</onclick>
+                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
+                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Icon)</onclick>
+                <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
+            </control>
+            <control type="button" id="$PARAM[id2]">
+                <description>Item type</description>
+                <include>SettingsButtonCommonValues</include>
+                <label>     • $LOCALIZE[90007]</label>
+                <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type)][/COLOR]</label2>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | IsEmpty(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type))">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Favourite)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Music Playlist)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Playlist)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
+                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path)</onclick>
+                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
+                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Icon)</onclick>
+                <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
+                <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
+            </control>
+            <control type="button" id="$PARAM[id3]">
+                <description>Item selection</description>
+                <include>SettingsButtonCommonValues</include>
+                <label>     • $LOCALIZE[90008]</label>
+                <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)][/COLOR]</label2>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetFile($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,.xsp,special://videoplaylists)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetFile($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,.xsp|.m3u,special://musicplaylists)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">RunScript(script.favourites,property=$PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number])</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetAddon($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
+                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist) | Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
+                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label,$INFO[system.addontitle(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path))])</onclick>
+                <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
+                <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
+            </control>
+            <control type="button" id="$PARAM[id4]">
+                <description>Label</description>
+                <include>SettingsButtonCommonValues</include>
+                <label>     • $LOCALIZE[90011]</label>
+                <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)][/COLOR]</label2>
+                <onclick>Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
+                <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled) + [Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)]</visible>
+                <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
+            </control>
+        </definition>
+    </include>
+    
+</includes>

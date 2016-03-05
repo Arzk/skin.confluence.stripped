@@ -3,16 +3,16 @@
 	<allowoverlay>no</allowoverlay>
 	<views>50,51</views>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonVideoBackground</include>
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonVideoBackground</include>
 		<include>CommonMediaPlayingBackground</include>
 		<include>ContentPanelBackgrounds</include>
 		<control type="group">
-			<include>Window_OpenClose_Animation</include>		
+            <include>Window_OpenClose_Animation</include>		
 			<include>CommonRootView</include> <!-- view id = 50 -->
 			<include>FullWidthList</include> <!-- view id = 51 -->
 		</control>
-                <include condition="!Stringcompare(Skin.String(PageCountPosition),None) + !Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCount</include>
+        <include condition="!Stringcompare(Skin.String(PageCountPosition),None) + !Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCount</include>
 		<include>CommonNowPlaying</include>
 		<include>BehindDialogFadeOut</include>
 		<include>ScrollOffsetLabel</include>
@@ -84,9 +84,9 @@
 				</control>
 				<include>CommonNowPlaying_Controls</include>
 			</control>
-                        <include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
+            <include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
 		</control>
 		<include>Clock</include>
-                <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
+        <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
 	</controls>
 </window>

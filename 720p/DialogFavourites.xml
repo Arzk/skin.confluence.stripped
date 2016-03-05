@@ -14,7 +14,7 @@
 				<posx>300r</posx>
 				<posy>0</posy>
 				<width>300</width>
-				<height>720</height>
+				<height>ScreenHeight</height>
 				<texture border="15,0,0,0" flipx="true">HomeBladeSub.png</texture>
 			</control>
 			<control type="button">
@@ -35,274 +35,260 @@
 				<visible>system.getbool(input.enablemouse)</visible>
 			</control>
 			<control type="group">
-                                <visible>[Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)] | Skin.HasSetting(SidebarShowHiddenItems)</visible>
-			<control type="image">
-				<posx>30r</posx>
-				<posy>330</posy>
-				<width>20</width>
-				<height>30</height>
-				<aspectratio align="center">keep</aspectratio>
-				<fadetime>IconCrossfadeTime</fadetime>
-				<texture>nav-right.png</texture>
-                                <visible>[[Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)] | Skin.HasSetting(SidebarShowHiddenItems)] + !Skin.HasSetting(HideFavourites)</visible>
-			</control>
-			<control type="list" id="451">
-				<posx>290r</posx>
-				<posy>20</posy>
-				<width>300</width>
-				<height>680</height>
-				<onup>451</onup>
-				<onleft>Dialog.Close(Favourites)</onleft>
-				<onright>450</onright>
-				<ondown>451</ondown>
-				<pagecontrol>-</pagecontrol>
-				<scrolltime>200</scrolltime>
-				<visible allowhiddenfocus="true">Control.HasFocus(451) | Skin.HasSetting(HideFavourites)</visible>
-				<itemlayout height="40">
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>270</width>
-						<height>40</height>
-						<texture border="5">button-nofocus.png</texture>
-					</control>
-					<control type="label">
-						<posx>10</posx>
-						<posy>0</posy>
-						<width>250</width>
-						<height>40</height>
-						<font>font12_title</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<info>ListItem.Label</info>
-					</control>
-				</itemlayout>
-				<focusedlayout height="40">
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>270</width>
-						<height>40</height>
-						<visible>!Control.HasFocus(451)</visible>
-						<texture border="3">button-nofocus.png</texture>
-					</control>
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>270</width>
-						<height>40</height>
-						<visible>Control.HasFocus(451)</visible>
-						<texture border="3">button-focus.png</texture>
-					</control>
-					<control type="label">
-						<posx>10</posx>
-						<posy>0</posy>
-						<width>250</width>
-						<height>40</height>
-						<font>font12_title</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<info>ListItem.Label</info>
-					</control>
-				</focusedlayout>
-				<content>
-                                        <item>
-                                                <label>8</label>
-                                                <onclick>Dialog.Close(Favourites)</onclick>
-                                                <onclick>ActivateWindow(Weather)</onclick>
-                                                <visible>Skin.HasSetting(SideBarWeatherButton) + !IsEmpty(Weather.Plugin) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
-                                        </item>
-                                        <item>
-                                                <label>1</label>
-                                                <onclick>Dialog.Close(Favourites)</onclick>
-                                                <onclick>ActivateWindow(Pictures)</onclick>
-                                                <visible>Skin.HasSetting(SideBarPicturesButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
-                                        </item>
-                                        <item>
-                                                <label>3</label>
-                                                <onclick>Dialog.Close(Favourites)</onclick>
-                                                <onclick condition="StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos)</onclick>
-                                                <onclick condition="!StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos,root)</onclick>
-                                                <visible>Skin.HasSetting(SideBarVideosButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
-                                        </item>
-                                        <item>
-                                                <label>2</label>
-                                                <onclick>Dialog.Close(Favourites)</onclick>
-                                                <onclick>ActivateWindow(MusicLibrary,Artists,return)</onclick>
-                                                <visible>Skin.HasSetting(SideBarMusicButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
-                                        </item>
-                                        <item>
-                                                <label>0</label>
-                                                <onclick>Dialog.Close(Favourites)</onclick>
-                                                <onclick condition="!System.Platform.Android">ActivateWindow(Programs,Addons,return)</onclick>
-                                                <onclick condition="System.Platform.Android">ActivateWindow(Programs)</onclick>
-                                                <visible>Skin.HasSetting(SideBarProgramsButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
-                                        </item>
-		                        <item>
-		                                <label>5</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-		                                <onclick>ActivateWindow(Settings)</onclick>
-                                                <visible>[Skin.HasSetting(SideBarSystemButton) | [Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)]] + !Skin.HasSetting(SettingsToCategories) </visible>
-		                        </item>
-		                        <item>
-		                                <label>5</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-                                                <onclick>ActivateWindow(appearancesettings)</onclick>
-                                                <visible>[Skin.HasSetting(SideBarSystemButton) | [Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)]] + Skin.HasSetting(SettingsToCategories) </visible>
-		                        </item>
-                			<item>
-			                        <label>90042</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-                        			<onclick condition="System.HasAddon(os.openelec.settings)">RunAddon(os.openelec.settings)</onclick>
-                        			<onclick condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</onclick>
-                        			<visible>Skin.HasSetting(SidebarShowSystemButton) | [Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)] + [System.HasAddon(os.openelec.settings) | System.HasAddon(service.openelec.settings)] + !Skin.HasSetting(SubmenuSystemOpenELEC.Hidden)]</visible>
-			                </item>
-
-		                        <item>
-	                                        <label>24001</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-	                                        <onclick>ActivateWindow(AddonBrowser)</onclick>
-                                                <visible>Skin.HasSetting(SideBarSystemButton) | Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings) </visible>
-		                        </item>
-		                        <item>
-			                        <label>7</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-			                        <onclick>ActivateWindow(FileManager)</onclick>
-                                                <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemFileManager.Hidden) </visible>
-		                        </item>
-		                        <item>
-			                        <label>130</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-			                        <onclick>ActivateWindow(SystemInfo)</onclick>
-                                                <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemInfo.Hidden) </visible>
-		                        </item>
-		                        <item>
-			                        <label>13200</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-			                        <onclick>ActivateWindow(Profiles)</onclick>
-                                                <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemProfiles.Hidden) </visible>
-		                        </item>
-		                        <item>
-			                        <label>$INFO[Skin.String(SubmenuSystemCustom.1.Label)]</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.1.Path)]</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.1.Path)])</onclick>
-			                        <visible>[!Skin.HasSetting(SubmenuSystemCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
-		                        </item>
-		                        <item>
-			                        <label>$INFO[Skin.String(SubmenuSystemCustom.2.Label)]</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.2.Path)]</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.2.Path)])</onclick>
-			                        <visible>[!Skin.HasSetting(SubmenuSystemCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
-		                        </item>
-		                        <item>
-			                        <label>$INFO[Skin.String(SubmenuSystemCustom.3.Label)]</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.3.Path)]</onclick>
-			                        <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.3.Path)])</onclick>
-			                        <visible>[!Skin.HasSetting(SubmenuSystemCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
-		                        </item>
-					<item>
-			                        <label>31963</label>
-						<onclick>Dialog.Close(Favourites)</onclick>
-			                        <onclick>ActivateWindow(Shutdownmenu)</onclick>
-			                        <visible>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
-                                                <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
-		                        </item>
-				</content>
-			</control>
-			</control>
+                <visible>[Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)] | Skin.HasSetting(SidebarShowHiddenItems)</visible>
+                <control type="image">
+                    <posx>30r</posx>
+                    <posy>330</posy>
+                    <width>20</width>
+                    <height>30</height>
+                    <aspectratio align="center">keep</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <texture>nav-right.png</texture>
+                    <visible>[[Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)] | Skin.HasSetting(SidebarShowHiddenItems)] + !Skin.HasSetting(HideFavourites)</visible>
+                </control>
+                <control type="list" id="451">
+                    <posx>290r</posx>
+                    <posy>20</posy>
+                    <width>300</width>
+                    <height>680</height>
+                    <onup>451</onup>
+                    <onleft>Dialog.Close(Favourites)</onleft>
+                    <onright>450</onright>
+                    <ondown>451</ondown>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime>200</scrolltime>
+                    <visible allowhiddenfocus="true">Control.HasFocus(451) | Skin.HasSetting(HideFavourites)</visible>
+                    <itemlayout height="40">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>270</width>
+                            <height>40</height>
+                            <texture border="5">button-nofocus.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>10</posx>
+                            <posy>0</posy>
+                            <width>250</width>
+                            <height>40</height>
+                            <font>font12_title</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>grey</textcolor>
+                            <selectedcolor>selected</selectedcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="40">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>270</width>
+                            <height>40</height>
+                            <visible>!Control.HasFocus(451)</visible>
+                            <texture border="3">button-nofocus.png</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>270</width>
+                            <height>40</height>
+                            <visible>Control.HasFocus(451)</visible>
+                            <texture border="3">button-focus.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>10</posx>
+                            <posy>0</posy>
+                            <width>250</width>
+                            <height>40</height>
+                            <font>font12_title</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <selectedcolor>selected</selectedcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                    </focusedlayout>
+                    <content>
+                        <item>
+                            <label>8</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(Weather)</onclick>
+                            <visible>Skin.HasSetting(SideBarWeatherButton) + !IsEmpty(Weather.Plugin) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+                        </item>
+                        <item>
+                            <label>1</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(Pictures)</onclick>
+                            <visible>Skin.HasSetting(SideBarPicturesButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+                        </item>
+                        <item>
+                            <label>3</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick condition="StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos)</onclick>
+                            <onclick condition="!StringCompare(Window.Property(VideosDirectLink),True)">ActivateWindow(Videos,root)</onclick>
+                            <visible>Skin.HasSetting(SideBarVideosButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+                        </item>
+                        <item>
+                            <label>2</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(MusicLibrary,Artists,return)</onclick>
+                            <visible>Skin.HasSetting(SideBarMusicButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+                        </item>
+                        <item>
+                            <label>0</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick condition="!System.Platform.Android">ActivateWindow(Programs,Addons,return)</onclick>
+                            <onclick condition="System.Platform.Android">ActivateWindow(Programs)</onclick>
+                            <visible>Skin.HasSetting(SideBarProgramsButton) + Skin.HasSetting(SidebarShowHiddenItems)</visible>
+                        </item>
+                        <item>
+                            <label>5</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(Settings)</onclick>
+                            <visible>[Skin.HasSetting(SideBarSystemButton) | [Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)]] + !Skin.HasSetting(SettingsToCategories) </visible>
+                        </item>
+                        <item>
+                            <label>5</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(appearancesettings)</onclick>
+                            <visible>[Skin.HasSetting(SideBarSystemButton) | [Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)]] + Skin.HasSetting(SettingsToCategories) </visible>
+                        </item>
+                        <item>
+                            <label>90042</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick condition="System.HasAddon(os.openelec.settings)">RunAddon(os.openelec.settings)</onclick>
+                            <onclick condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</onclick>
+                            <visible>Skin.HasSetting(SidebarShowSystemButton) | [Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)] + [System.HasAddon(os.openelec.settings) | System.HasAddon(service.openelec.settings)] + !Skin.HasSetting(SubmenuSystemOpenELEC.Hidden)]</visible>
+                        </item>
+                        <item>
+                            <label>24001</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(AddonBrowser)</onclick>
+                            <visible>Skin.HasSetting(SideBarSystemButton) | Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings) </visible>
+                        </item>
+                        <item>
+                            <label>7</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(FileManager)</onclick>
+                            <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemFileManager.Hidden) </visible>
+                        </item>
+                        <item>
+                            <label>130</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(SystemInfo)</onclick>
+                            <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemInfo.Hidden) </visible>
+                        </item>
+                        <item>
+                            <label>13200</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(Profiles)</onclick>
+                            <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemProfiles.Hidden) </visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SubmenuSystemCustom.1.Label)]</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.1.Path)]</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.1.Path)])</onclick>
+                            <visible>[!Skin.HasSetting(SubmenuSystemCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
+                        </item>
+                        <item>
+                        <label>$INFO[Skin.String(SubmenuSystemCustom.2.Label)]</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.2.Path)]</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.2.Path)])</onclick>
+                            <visible>[!Skin.HasSetting(SubmenuSystemCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SubmenuSystemCustom.3.Label)]</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),System Playlist)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.3.Path)]</onclick>
+                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.3.Path)])</onclick>
+                            <visible>[!Skin.HasSetting(SubmenuSystemCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
+                        </item>
+                        <item>
+                            <label>31963</label>
+                            <onclick>Dialog.Close(Favourites)</onclick>
+                            <onclick>ActivateWindow(Shutdownmenu)</onclick>
+                            <visible>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
+                            <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
+                        </item>
+                    </content>
+                </control>
+            </control>
 			<control type="group">
-			<visible>!Skin.HasSetting(HideFavourites)</visible>
-			<control type="list" id="450">
-				<posx>290r</posx>
-				<posy>20</posy>
-				<width>300</width>
-				<height>680</height>
-				<onup>450</onup>
-				<onleft>Dialog.Close(Favourites)</onleft>
-				<onright>451</onright>
-				<ondown>450</ondown>
-				<pagecontrol>-</pagecontrol>
-				<scrolltime>200</scrolltime>
-				<visible allowhiddenfocus="true">Control.HasFocus(450) + !Skin.HasSetting(HideFavourites)</visible>
-				<itemlayout height="40">
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>270</width>
-						<height>40</height>
-						<texture border="5">button-nofocus.png</texture>
-					</control>
-					<control type="label">
-						<posx>10</posx>
-						<posy>0</posy>
-						<width>250</width>
-						<height>40</height>
-						<font>font12_title</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>grey</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<info>ListItem.Label</info>
-					</control>
-				</itemlayout>
-				<focusedlayout height="40">
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>270</width>
-						<height>40</height>
-						<visible>!Control.HasFocus(450)</visible>
-						<texture border="3">button-nofocus.png</texture>
-					</control>
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>270</width>
-						<height>40</height>
-						<visible>Control.HasFocus(450)</visible>
-						<texture border="3">button-focus.png</texture>
-					</control>
-					<control type="label">
-						<posx>10</posx>
-						<posy>0</posy>
-						<width>250</width>
-						<height>40</height>
-						<font>font12_title</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
-						<info>ListItem.Label</info>
-					</control>
-				</focusedlayout>
+                <visible>!Skin.HasSetting(HideFavourites)</visible>
+                <control type="list" id="450">
+                    <posx>290r</posx>
+                    <posy>20</posy>
+                    <width>300</width>
+                    <height>680</height>
+                    <onup>450</onup>
+                    <onleft>Dialog.Close(Favourites)</onleft>
+                    <onright>451</onright>
+                    <ondown>450</ondown>
+                    <pagecontrol>-</pagecontrol>
+                    <scrolltime>200</scrolltime>
+                    <visible allowhiddenfocus="true">Control.HasFocus(450) + !Skin.HasSetting(HideFavourites)</visible>
+                    <itemlayout height="40">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>270</width>
+                            <height>40</height>
+                            <texture border="5">button-nofocus.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>10</posx>
+                            <posy>0</posy>
+                            <width>250</width>
+                            <height>40</height>
+                            <font>font12_title</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>grey</textcolor>
+                            <selectedcolor>selected</selectedcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="40">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>270</width>
+                            <height>40</height>
+                            <visible>!Control.HasFocus(450)</visible>
+                            <texture border="3">button-nofocus.png</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>270</width>
+                            <height>40</height>
+                            <visible>Control.HasFocus(450)</visible>
+                            <texture border="3">button-focus.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>10</posx>
+                            <posy>0</posy>
+                            <width>250</width>
+                            <height>40</height>
+                            <font>font12_title</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <selectedcolor>selected</selectedcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                    </focusedlayout>
+                </control>
 			</control>
-			</control>
-<!--			<control type="label">
-				<description>Page label</description>
-				<posx>30r</posx>
-				<posy>670</posy>
-				<width>250</width>
-				<height>30</height>
-				<align>right</align>
-				<aligny>center</aligny>
-				<font>font12</font>
-				<textcolor>grey</textcolor>
-				<label>([COLOR=white]$INFO[Container(450).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=white]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages][/COLOR])</label>
-				<visible>Control.HasFocus(450)</visible>
-			</control>-->
 		</control>
 	</controls>
 </window>

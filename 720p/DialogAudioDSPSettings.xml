@@ -21,7 +21,7 @@
 				<description>Dialog Header image</description>
 				<left>40</left>
 				<top>16</top>
-				<width>720</width>
+				<width>ScreenHeight</width>
 				<height>40</height>
 				<texture>dialogheader.png</texture>
 			</control>
@@ -29,7 +29,7 @@
 				<description>header label</description>
 				<left>40</left>
 				<top>20</top>
-				<width>720</width>
+				<width>ScreenHeight</width>
 				<height>30</height>
 				<font>font13_title</font>
 				<label>-</label>
@@ -85,7 +85,7 @@
 				<description>info label</description>
 				<left>40</left>
 				<top>540</top>
-				<width>720</width>
+				<width>ScreenHeight</width>
 				<height>30</height>
 				<font>font13_title</font>
 				<label>$INFO[ADSP.MasterInfo]</label>
@@ -147,7 +147,7 @@
 				<description>type label</description>
 				<left>590</left>
 				<top>65</top>
-				<width>720</width>
+				<width>ScreenHeight</width>
 				<height>30</height>
 				<font>font13_title</font>
 				<label>15042</label>

@@ -2,8 +2,8 @@
 	<defaultcontrol allways="true">6</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonMusicBackground</include>
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonMusicBackground</include>
 		<include>CommonMediaPlayingBackground</include>
 		<control type="group">
 			<posy>10</posy>
@@ -126,7 +126,7 @@
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>480</width>
-				<height>720</height>
+				<height>ScreenHeight</height>
 				<texture border="0,0,15,0">MediaBladeSub.png</texture>
 			</control>
 			<control type="label">
@@ -265,7 +265,7 @@
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>480</width>
-				<height>720</height>
+				<height>ScreenHeight</height>
 				<texture border="15,0,0,0" flipx="true">MediaBladeSub.png</texture>
 			</control>
 			<control type="label">

@@ -14,40 +14,16 @@
 		<control type="group">
 			<posx>90</posx>
 			<posy>55</posy>
-                        <animation type="WindowOpen" reversible="false" condition="Window.Previous(Home)">
-                                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
-                                <effect type="fade" start="0" end="100" time="300" />
-                        </animation>
-                        <animation type="WindowClose" reversible="false"condition="Window.Next(Home)">
-                                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
-                                <effect type="fade" start="100" end="0" time="300" />
-                        </animation>
-<!--			<control type="button">
-				<description>Close Window button</description>
-				<posx>980</posx>
-				<posy>11</posy>
-				<width>64</width>
-				<height>32</height>
-				<label>-</label>
-				<font>-</font>
-				<onclick>PreviousMenu</onclick>
-				<texturefocus>DialogCloseButton-focus.png</texturefocus>
-				<texturenofocus>DialogCloseButton.png</texturenofocus>
-				<onleft>1</onleft>
-				<onright>1</onright>
-				<onup>1</onup>
-				<ondown>1</ondown>
-				<visible>system.getbool(input.enablemouse)</visible>
-			</control>-->
+            <include>SettingsOpenCloseAnimation</include>
 			<control type="list" id="9000">
 				<posx>10</posx>
 				<posy>5</posy>
 				<width>260</width>
-				<height>560</height>
-				<onleft>9010</onleft>
+				<height>481</height>
+				<onleft>9000</onleft>
 				<onright>9010</onright>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
+				<onup>20</onup>
+				<ondown>20</ondown>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>300</scrolltime>
 				<itemlayout height="60" width="260">
@@ -97,13 +73,18 @@
 						<label2>5</label2>
 						<onclick>-</onclick>
 					</item>
-					<item id="2"> <!-- Home Window -->
-						<label>90015</label>
+					<item id="2">  <!-- Home Window -->
+                        <label>90015</label>
 						<label2>31112</label2>
 						<onclick>-</onclick>
 					</item>
 					<item id="3"> <!-- Main Menu -->
 						<label>90025</label>
+						<label2>90016</label2>
+						<onclick>-</onclick>
+					</item>
+					<item id="8">  <!-- Submenu -->
+						<label>32012</label>
 						<label2>90016</label2>
 						<onclick>-</onclick>
 					</item>
@@ -131,60 +112,31 @@
 					</item>
 				</content>
 			</control>
+            <include name="SettingsLevelButton">
+                <param name="onleftright" value="9010"/>
+                <param name="onupdown" value="9000"/>
+            </include>
 			<control type="group" id="9010">
 				<include>SkinSettingsGeneral</include>
 				<include>SkinSettingsHome</include>
 				<include>SkinSettingsMainMenu</include>
+				<include>SkinSettingsSubmenu</include>
 				<include>SkinSettingsBackground</include>
-				<include condition="!Skin.HasSetting(TouchMode)">SkinSettingsCustom</include>
+				<include condition="!Skin.HasSetting(TouchMode)">SkinSettingsCustomMenu</include>
 				<include condition="!Skin.HasSetting(TouchMode)">SkinSettingsAddons</include>
 				<include>SkinSettingsShutdown</include>
-
 				<control type="scrollbar" id="60">
-					<posx>1060</posx>
-					<posy>23</posy>
-					<width>25</width>
-					<height>551</height>
-					<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
-					<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
-					<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-					<textureslidernib>ScrollBarNib.png</textureslidernib>
-					<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
-					<onleft>9998</onleft>
+                    <include>SettingsScrollbarCommonValues</include>
+					<onleft>9010</onleft>
 					<onright>9000</onright>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
+                    <height>565</height>                    
 					<visible>!Container(9000).Hasfocus(5)</visible>
 				</control>
 			</control>
-<!-- DESCRIPTION BOX -->
-<!-- If you enable this, resize grouplists from 545 to 515-->
-<!--                        <control type="image">
-                                <description>separator image</description>
-                                <left>290</left>
-                                <top>525</top>
-                                <width>750</width>
-                                <height>2</height>
-                                <texture>separator2.png</texture>
-                                <colordiffuse>40FFFFFF</colordiffuse>
-                                <visible>!Container(9000).Hasfocus(5)</visible>
-                        </control>
-                        <control type="textbox" id="6">
-                                <description>description area</description>
-                                <posx>297</posx>
-                                <posy>530</posy>
-                                <width>736</width>
-                                <height>45</height>
-                                <font>font12</font>
-                                <align>justify</align>
-                                <textcolor>white</textcolor>
-                                <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-                                <visible>!Container(9000).Hasfocus(5)</visible>
-                        </control>-->
 		</control>
 		<include>CommonNowPlaying</include>
 		<include>BehindDialogFadeOut</include>
 		<include>Clock</include>
-                <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
+        <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
 	</controls>
 </window>

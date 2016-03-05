@@ -60,21 +60,11 @@
 					<visible>!Control.IsVisible(150)</visible>
 					<posy>78</posy>
 					<posx>70</posx>
-<!--					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>270</width>
-						<height>380</height>
-						<aspectratio>stretch</aspectratio>
-						<bordertexture border="5">button-nofocus.png</bordertexture>
-						<bordersize>4</bordersize>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>-->
-                                        <control type="group">
-                                                <posy>0</posy>
-                                                <posx>540</posx>
-                                                <include>StudioFlaggingConditions</include>
-                                        </control>
+                    <control type="group">
+                        <posy>0</posy>
+                        <posx>540</posx>
+                        <include>StudioFlaggingConditions</include>
+                    </control>
 					<control type="list" id="49">
 						<posx>0</posx>
 						<posy>0</posy>
@@ -271,48 +261,20 @@
 						</content>
 					</control>
 				</control>
-<!--				<control type="label">
-					<posx>130r</posx>
-					<posy>480</posy>
-					<width>400</width>
-					<height>30</height>
-					<font>font13_title</font>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<scroll>true</scroll>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>[COLOR=white]$LOCALIZE[207][/COLOR]$INFO[Container(400).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(400).NumPages,/, )]</label>
-					<visible>Control.IsVisible(400)</visible>
-				</control>
-				<control type="label">
-					<posx>130r</posx>
-					<posy>480</posy>
-					<width>400</width>
-					<height>30</height>
-					<font>font13_title</font>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<scroll>true</scroll>
-					<align>right</align>
-					<aligny>center</aligny>
-					<label>[COLOR=white]$LOCALIZE[206][/COLOR]$INFO[Container(150).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(150).NumPages,/, )]</label>
-					<visible>Control.IsVisible(150)</visible>
-				</control>-->
-                                <control type="scrollbar" id="60">
-                                        <posx>55</posx>
-                                        <posy>78</posy>
-                                        <width>25</width>
-                                        <height>561</height>
-                                        <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
-                                        <texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
-                                        <texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-                                        <textureslidernib>ScrollBarNib.png</textureslidernib>
-                                        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
-                                        <showonepage>false</showonepage>
-                                        <orientation>vertical</orientation>
-                                        <visible>Control.IsVisible(150)</visible>
-                                </control>
+                <control type="scrollbar" id="60">
+                    <posx>55</posx>
+                    <posy>78</posy>
+                    <width>25</width>
+                    <height>561</height>
+                    <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+                    <texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+                    <textureslidernib>ScrollBarNib.png</textureslidernib>
+                    <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                    <visible>Control.IsVisible(150)</visible>
+                </control>
 				<control type="spincontrol" id="61">
 					<description>Next page button</description>
 					<posx>758</posx>
@@ -325,17 +287,17 @@
 					<onup>49</onup>
 					<textcolor>-</textcolor>
 					<showonepage>false</showonepage>
-                                        <visible>Control.IsVisible(400)</visible>
+                    <visible>Control.IsVisible(400)</visible>
 				</control>
-                                <control type="image">
-                                        <posx>78</posx>
-                                        <posy>339</posy>
-                                        <width>740</width>
-                                        <height>4</height>
-                                        <aspectratio>stretch</aspectratio>
-                                        <texture>separator.png</texture>
+                <control type="image">
+                    <posx>78</posx>
+                    <posy>339</posy>
+                    <width>740</width>
+                    <height>4</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>separator.png</texture>
 					<visible>!Control.IsVisible(150)</visible>
-                                </control>
+                </control>
 				<control type="textbox" id="400">
 					<description>Description Value for Movies</description>
 					<posx>78</posx>
@@ -350,77 +312,6 @@
 					<autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(61) + Skin.HasSetting(AutoScroll)</autoscroll>
 					<visible>!Control.IsVisible(150)</visible>
 				</control>
-<!--				<control type="image">
-					<description>Actor image</description>
-					<posx>210</posx>
-					<posy>480</posy>
-					<width>160</width>
-					<height>160</height>
-					<texture>$INFO[Container(150).Listitem.Icon]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>Control.IsVisible(150)</visible>
-				</control>-->
-<!--				<control type="label">
-					<posx>380</posx>
-					<posy>480</posy>
-					<width>400</width>
-					<height>45</height>
-					<font>font12</font>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<scroll>true</scroll>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[Container(150).ListItem.Title][CR]$INFO[Container(150).ListItem.Property(birthday),[COLOR=white]$ADDON[script.metadata.actors 32012]:[/COLOR] ]$INFO[Container(150).ListItem.Property(agelong), (,)]</label>
-					<visible>Control.IsVisible(150) + IsEmpty(Container(150).ListItem.Property(deathday))</visible>
-				</control>
-				<control type="label">
-					<posx>380</posx>
-					<posy>480</posy>
-					<width>400</width>
-					<height>45</height>
-					<font>font12</font>
-					<textcolor>grey2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<scroll>true</scroll>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[Container(150).ListItem.Title][CR]$INFO[Container(150).ListItem.Property(deathday),[COLOR=white]$ADDON[script.metadata.actors 32013]:[/COLOR] ]$INFO[Container(150).ListItem.Property(deathagelong), (,)]</label>
-					<visible>Control.IsVisible(150)+ !IsEmpty(Container(150).ListItem.Property(deathday))</visible>
-				</control>-->
-<!--				<control type="spincontrol" id="62">
-					<description>Actor Bio Next page button</description>
-					<posx>380</posx>
-					<posy>520</posy>
-					<width>210</width>
-					<height>120</height>
-					<subtype>page</subtype>
-					<font>-</font>
-					<onleft>5000</onleft>
-					<onright>50</onright>
-					<ondown>5000</ondown>
-					<onup>50</onup>
-					<textcolor>-</textcolor>
-					<textureup>-</textureup>
-					<texturedown>-</texturedown>
-					<textureupfocus>-</textureupfocus>
-					<texturedownfocus>-</texturedownfocus>
-					<visible>Control.IsVisible(150)</visible>
-				</control>
-				<control type="textbox">
-					<description>Description Value for actors</description>
-					<posx>380</posx>
-					<posy>520</posy>
-					<width>420</width>
-					<height>120</height>
-					<font>font12</font>
-					<align>justify</align>
-					<textcolor>white</textcolor>
-					<pagecontrol>62</pagecontrol>
-					<label>[COLOR=white]$LOCALIZE[21887][/COLOR][CR]$INFO[Container(150).ListItem.Plot]</label>
-					<autoscroll time="3000" delay="4000" repeat="5000">!Control.HasFocus(61) + Skin.HasSetting(AutoScroll)</autoscroll>
-					<visible>Control.IsVisible(150)</visible>
-				</control>-->
 				<control type="list" id="150">
 					<visible>StringCompare(Window.Property(showactors),1)</visible>
 					<description>actors list</description>
@@ -488,7 +379,7 @@
 				<control type="grouplist" id="9000">
 					<posx>0</posx>
 					<posy>68r</posy>
-					<width>1280</width>
+					<width>ScreenWidth</width>
 					<height>40</height>
 					<itemgap>2</itemgap>
 					<align>center</align>
@@ -527,11 +418,6 @@
 						<include>ButtonInfoDialogsCommonValues</include>
 						<label>13405</label>
 					</control>
-<!--					<control type="button" id="20">
-						<description>Get Fanart</description>
-						<include>ButtonInfoDialogsCommonValues</include>
-						<label>20413</label>
-					</control>-->
 					<control type="button" id="15">
 						<description>Play Trailer Windowed</description>
 						<include>ButtonInfoDialogsCommonValues</include>
@@ -540,58 +426,58 @@
 						<visible>!IsEmpty(ListItem.Trailer)</visible>
 					</control>
 				</control>
-                                <control type="group">
-                                        <posx>840</posx>
-                                        <posy>78</posy>
-                                        <control type="image">
-                                                <posx>0</posx>
-                                                <posy>10</posy>
-                                                <width>360</width>
-                                                <height>515</height>
-                                                <aspectratio aligny="bottom">keep</aspectratio>
-                                                <texture background="true">$VAR[PosterThumb]</texture>
-                                                <bordertexture border="8">ThumbShadow.png</bordertexture>
-                                                <bordersize>8</bordersize>
-                                                <visible>!Control.IsVisible(150)</visible>
-                                        </control>
-                                        <control type="grouplist">
-                                                <description>Video Codec Flagging Images</description>
-                                                <posx>10</posx>
-                                                <posy>485</posy>
-                                                <width>330</width>
-                                                <align>left</align>
-                                                <itemgap>65</itemgap>
-                                                <orientation>horizontal</orientation>
-                                                <include>VideoMPAAFlaggingConditions</include>
-                                                <include>VideoTypeHackFlaggingConditions</include>
-                                                <include>VideoStereoscopicsFlaggingConditions</include>
-                                                <visible>!Control.IsVisible(150)</visible>
-                                        </control>
-                                        <control type="grouplist">
-                                                <description>Media Codec Flagging Images</description>
-                                                <posx>10</posx>
-                                                <posy>525</posy>
-                                                <width>330</width>
-                                                <align>center</align>
-                                                <itemgap>2</itemgap>
-                                                <orientation>horizontal</orientation>
-                                                <include>VideoCodecFlaggingConditions</include>
-                                                <include>AudioCodecFlaggingConditions</include>
-                                                <include>AudioChannelsFlaggingConditions</include>
-                                                <include>AspectCodecFlaggingConditions</include>
-                                                <visible>!Control.IsVisible(150)</visible>
-                                        </control>
-                                </control>
-                                <control type="image">
-                                        <description>Actor image</description>
-                                        <posx>840</posx>
-                                        <posy>88</posy>
-                                        <width>360</width>
-                                        <height>540</height>
-                                        <texture>$INFO[Container(150).Listitem.Icon]</texture>
-                                        <aspectratio aligny="top" alignx="center">keep</aspectratio>
-                                        <visible>Control.IsVisible(150)</visible>
-                                </control>
+                <control type="group">
+                    <posx>840</posx>
+                    <posy>78</posy>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>10</posy>
+                        <width>360</width>
+                        <height>515</height>
+                        <aspectratio aligny="bottom">keep</aspectratio>
+                        <texture background="true">$VAR[PosterThumb]</texture>
+                        <bordertexture border="8">ThumbShadow.png</bordertexture>
+                        <bordersize>8</bordersize>
+                        <visible>!Control.IsVisible(150)</visible>
+                    </control>
+                    <control type="grouplist">
+                        <description>Video Codec Flagging Images</description>
+                        <posx>10</posx>
+                        <posy>485</posy>
+                        <width>330</width>
+                        <align>left</align>
+                        <itemgap>65</itemgap>
+                        <orientation>horizontal</orientation>
+                        <include>VideoMPAAFlaggingConditions</include>
+                        <include>VideoTypeHackFlaggingConditions</include>
+                        <include>VideoStereoscopicsFlaggingConditions</include>
+                        <visible>!Control.IsVisible(150)</visible>
+                    </control>
+                    <control type="grouplist">
+                        <description>Media Codec Flagging Images</description>
+                        <posx>10</posx>
+                        <posy>525</posy>
+                        <width>330</width>
+                        <align>center</align>
+                        <itemgap>2</itemgap>
+                        <orientation>horizontal</orientation>
+                        <include>VideoCodecFlaggingConditions</include>
+                        <include>AudioCodecFlaggingConditions</include>
+                        <include>AudioChannelsFlaggingConditions</include>
+                        <include>AspectCodecFlaggingConditions</include>
+                        <visible>!Control.IsVisible(150)</visible>
+                    </control>
+                </control>
+                <control type="image">
+                    <description>Actor image</description>
+                    <posx>840</posx>
+                    <posy>88</posy>
+                    <width>360</width>
+                    <height>540</height>
+                    <texture>$INFO[Container(150).Listitem.Icon]</texture>
+                    <aspectratio aligny="top" alignx="center">keep</aspectratio>
+                    <visible>Control.IsVisible(150)</visible>
+                </control>
 			</control>
 		</control>
 	</controls>

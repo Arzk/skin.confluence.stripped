@@ -1,0 +1,943 @@
+<includes>
+    <include name="SkinSettingsSubmenu">
+        <control type="grouplist" id="9008">
+            <visible>Container(9000).Hasfocus(8)</visible>
+            <include>SettingsControlAreaCommonValues</include>
+            <height>565</height>                    
+            <onleft>9000</onleft>
+            <onright>9008</onright>
+            <onup>9008</onup>
+            <ondown>9008</ondown>
+            <control type="label" id="2985">
+                <description>Title</description>
+                <include>SettingsLabelCommonValues</include>
+                <label>90018</label>
+            </control>
+            
+            <control type="radiobutton" id="2986">
+                <description>Weather submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[8] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoWeatherSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoWeatherSubmenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="2987"/>
+                <param name="id2" value="2988"/>
+                <param name="id3" value="2989"/>
+                <param name="id4" value="2990"/>
+                <param name="mainmenuitem" value="Weather"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="2991"/>
+                <param name="id2" value="2992"/>
+                <param name="id3" value="2993"/>
+                <param name="id4" value="2994"/>
+                <param name="mainmenuitem" value="Weather"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="2995"/>
+                <param name="id2" value="2996"/>
+                <param name="id3" value="2997"/>
+                <param name="id4" value="2998"/>
+                <param name="mainmenuitem" value="Weather"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>        
+
+            <control type="radiobutton" id="2999">
+                <description>Games submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[31990] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoGamesSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoGamesSubmenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoGamesButton)</visible>
+            </control>
+            <control type="radiobutton" id="3000">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>1043</label>
+                <selected>!Skin.HasSetting(SubmenuGamesAddons.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuGamesAddons.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoGamesSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3001"/>
+                <param name="id2" value="3002"/>
+                <param name="id3" value="3003"/>
+                <param name="id4" value="3004"/>
+                <param name="mainmenuitem" value="Games"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3005"/>
+                <param name="id2" value="3006"/>
+                <param name="id3" value="3007"/>
+                <param name="id4" value="3008"/>
+                <param name="mainmenuitem" value="Games"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3009"/>
+                <param name="id2" value="3010"/>
+                <param name="id3" value="3011"/>
+                <param name="id4" value="3012"/>
+                <param name="mainmenuitem" value="Games"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>            
+            <control type="radiobutton" id="3013">
+                <description>Programs submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[0] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoProgramsSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoProgramsSubmenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
+            </control>
+            <control type="radiobutton" id="3014">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>1043</label>
+                <selected>!Skin.HasSetting(SubmenuProgramsAddons.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuProgramsAddons.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoProgramsSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3015"/>
+                <param name="id2" value="3016"/>
+                <param name="id3" value="3017"/>
+                <param name="id4" value="3018"/>
+                <param name="mainmenuitem" value="Programs"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3019"/>
+                <param name="id2" value="3020"/>
+                <param name="id3" value="3021"/>
+                <param name="id4" value="3022"/>
+                <param name="mainmenuitem" value="Programs"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3023"/>
+                <param name="id2" value="3024"/>
+                <param name="id3" value="3025"/>
+                <param name="id4" value="3026"/>
+                <param name="mainmenuitem" value="Programs"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            <control type="radiobutton" id="3033">
+                <description>Pictures submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[1] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoPicturesSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoPicturesSubmenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoPicturesButton)</visible>
+            </control>
+            <control type="radiobutton" id="3034">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>1039</label>
+                <selected>!Skin.HasSetting(SubmenuPictureAddons.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuPictureAddons.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoPicturesSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3035"/>
+                <param name="id2" value="3036"/>
+                <param name="id3" value="3037"/>
+                <param name="id4" value="3038"/>
+                <param name="mainmenuitem" value="Pictures"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3039"/>
+                <param name="id2" value="3040"/>
+                <param name="id3" value="3041"/>
+                <param name="id4" value="3042"/>
+                <param name="mainmenuitem" value="Pictures"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3043"/>
+                <param name="id2" value="3044"/>
+                <param name="id3" value="3045"/>
+                <param name="id4" value="3046"/>
+                <param name="mainmenuitem" value="Pictures"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            <control type="radiobutton" id="3047">
+                <description>PVR submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[90019] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoPVRSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoPVRSubmenu)</onclick>
+                <visible>System.GetBool(pvrmanager.enabled)</visible>
+            </control>
+            <control type="radiobutton" id="3048">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>19019</label>
+                <selected>!Skin.HasSetting(SubmenuPVRChannels.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuPVRChannels.Hidden)</onclick>
+                <visible>System.GetBool(pvrmanager.enabled)</visible>
+                <visible>!Skin.HasSetting(NoPVRSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3049">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>19069</label>
+                <selected>!Skin.HasSetting(SubmenuPVREPG.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuPVREPG.Hidden)</onclick>
+                <visible>System.GetBool(pvrmanager.enabled)</visible>
+                <visible>!Skin.HasSetting(NoPVRSubmenu)</visible>
+            </control>
+
+            <control type="radiobutton" id="3050">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>19017</label>
+                <selected>!Skin.HasSetting(SubmenuPVRRecordings.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuPVRRecordings.Hidden)</onclick>
+                <visible>System.GetBool(pvrmanager.enabled)</visible>
+                <visible>!Skin.HasSetting(NoPVRSubmenu)</visible>
+            </control>
+
+            <control type="radiobutton" id="3051">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>19040</label>
+                <selected>!Skin.HasSetting(SubmenuPVRTimer.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuPVRTimer.Hidden)</onclick>
+                <visible>System.GetBool(pvrmanager.enabled)</visible>
+                <visible>!Skin.HasSetting(NoPVRSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3052"/>
+                <param name="id2" value="3053"/>
+                <param name="id3" value="3054"/>
+                <param name="id4" value="3055"/>
+                <param name="mainmenuitem" value="PVR"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3056"/>
+                <param name="id2" value="3057"/>
+                <param name="id3" value="3058"/>
+                <param name="id4" value="3059"/>
+                <param name="mainmenuitem" value="PVR"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3060"/>
+                <param name="id2" value="3061"/>
+                <param name="id3" value="3062"/>
+                <param name="id4" value="3063"/>
+                <param name="mainmenuitem" value="PVR"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            
+            <control type="radiobutton" id="3064">
+                <description>Videos submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[3] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoVideosSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoVideosSubmenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+            </control>
+            <control type="radiobutton" id="3065">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>342</label>
+                <selected>!Skin.HasSetting(SubmenuVideoMovies.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuVideoMovies.Hidden)</onclick>
+                <visible>Library.HasContent(Movies)</visible>
+                <enable>Skin.HasSetting(HomeMenuNoMoviesButton)</enable>
+                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3066">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>20343</label>
+                <selected>!Skin.HasSetting(SubmenuVideoTVShows.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuVideoTVShows.Hidden)</onclick>
+                <visible>Library.HasContent(TVShows)</visible>
+                <enable>Skin.HasSetting(HomeMenuNoTVShowsButton)</enable>
+                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3067">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>20389</label>
+                <selected>!Skin.HasSetting(SubmenuVideoMusicVideos.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuVideoMusicVideos.Hidden)</onclick>
+                <visible>Library.HasContent(Musicvideos)</visible>
+                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3068">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>744</label>
+                <selected>!Skin.HasSetting(SubmenuVideoFiles.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuVideoFiles.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3069">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>14022</label>
+                <selected>!Skin.HasSetting(SubmenuVideoLibrary.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuVideoLibrary.Hidden)</onclick>
+                <visible>Library.HasContent(Video)</visible>
+                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+            </control>
+<!--					<control type="radiobutton" id="3175">
+                <width>750</width>
+                <height>40</height>
+                <font>font13</font>
+                <label>24069</label>
+                <textcolor>grey2</textcolor>
+                <focusedcolor>white</focusedcolor>
+                <texturefocus>MenuItemFO.png</texturefocus>
+                <texturenofocus>MenuItemNF.png</texturenofocus>
+                <selected>!Skin.HasSetting(SubmenuVideoUpdate.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuVideoUpdate.Hidden)</onclick>
+                <visible>Library.HasContent(Video)</visible>
+            </control>-->
+            <control type="radiobutton" id="3070">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>1037</label>
+                <selected>!Skin.HasSetting(SubmenuVideoAddons.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuVideoAddons.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoVideosSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3071"/>
+                <param name="id2" value="3072"/>
+                <param name="id3" value="3073"/>
+                <param name="id4" value="3074"/>
+                <param name="mainmenuitem" value="Videos"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3075"/>
+                <param name="id2" value="3076"/>
+                <param name="id3" value="3077"/>
+                <param name="id4" value="3078"/>
+                <param name="mainmenuitem" value="Videos"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3079"/>
+                <param name="id2" value="3080"/>
+                <param name="id3" value="3081"/>
+                <param name="id4" value="3082"/>
+                <param name="mainmenuitem" value="Videos"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            <control type="radiobutton" id="3083">
+                <description>Movie submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[20342] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoMoviesSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoMoviesSubmenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoMoviesButton) + Library.HasContent(Movies)</visible>
+            </control>
+            <control type="radiobutton" id="3084">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>20386</label>
+                <selected>!Skin.HasSetting(SubmenuMovieRecent.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMovieRecent.Hidden)</onclick>
+                <visible>Library.HasContent(Movies)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3085">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>20434</label>
+                <selected>!Skin.HasSetting(SubmenuMovieSets.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMovieSets.Hidden)</onclick>
+                <visible>Library.HasContent(Movies)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3086">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>20459</label>
+                <selected>!Skin.HasSetting(SubmenuMovieTags.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMovieTags.Hidden)</onclick>
+                <visible>Library.HasContent(Movies)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3087">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>369</label>
+                <selected>!Skin.HasSetting(SubmenuMovieTitles.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMovieTitles.Hidden)</onclick>
+                <visible>Library.HasContent(Movies)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3088">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>135</label>
+                <selected>!Skin.HasSetting(SubmenuMovieGenres.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMovieGenres.Hidden)</onclick>
+                <visible>Library.HasContent(Movies)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3089">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>652</label>
+                <selected>!Skin.HasSetting(SubmenuMovieYears.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMovieYears.Hidden)</onclick>
+                <visible>Library.HasContent(Movies)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3090">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>344</label>
+                <selected>!Skin.HasSetting(SubmenuMovieActors.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMovieActors.Hidden)</onclick>
+                <visible>Library.HasContent(Movies)</visible>
+                <visible>!Skin.HasSetting(NoMoviesSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3091"/>
+                <param name="id2" value="3092"/>
+                <param name="id3" value="3093"/>
+                <param name="id4" value="3094"/>
+                <param name="mainmenuitem" value="Movies"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3095"/>
+                <param name="id2" value="3096"/>
+                <param name="id3" value="3097"/>
+                <param name="id4" value="3098"/>
+                <param name="mainmenuitem" value="Movies"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3099"/>
+                <param name="id2" value="3100"/>
+                <param name="id3" value="3101"/>
+                <param name="id4" value="3102"/>
+                <param name="mainmenuitem" value="Movies"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+
+            <control type="radiobutton" id="3103">
+                <description>TV Shows submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[20343] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoTVShowsSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoTVShowsSubmenu)</onclick>
+                <visible>Library.HasContent(TVShows)</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoTVShowsButton) + Library.HasContent(TVShows)</visible>
+            </control>
+            <control type="radiobutton" id="3104">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>20387</label>
+                <selected>!Skin.HasSetting(SubmenuTVShowRecent.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuTVShowRecent.Hidden)</onclick>
+                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3105">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>369</label>
+                <selected>!Skin.HasSetting(SubmenuTVShowTitles.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuTVShowTitles.Hidden)</onclick>
+                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3106">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>135</label>
+                <selected>!Skin.HasSetting(SubmenuTVShowGenres.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuTVShowGenres.Hidden)</onclick>
+                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3107">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>652</label>
+                <selected>!Skin.HasSetting(SubmenuTVShowYears.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuTVShowYears.Hidden)</onclick>
+                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3108">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>344</label>
+                <selected>!Skin.HasSetting(SubmenuTVShowActors.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuTVShowActors.Hidden)</onclick>
+                <visible>Library.HasContent(TVShows) + !Skin.HasSetting(NoTVShowsSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3109"/>
+                <param name="id2" value="3110"/>
+                <param name="id3" value="3111"/>
+                <param name="id4" value="3112"/>
+                <param name="mainmenuitem" value="TVShows"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3113"/>
+                <param name="id2" value="3114"/>
+                <param name="id3" value="3115"/>
+                <param name="id4" value="3116"/>
+                <param name="mainmenuitem" value="TVShows"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3117"/>
+                <param name="id2" value="3118"/>
+                <param name="id3" value="3119"/>
+                <param name="id4" value="3120"/>
+                <param name="mainmenuitem" value="TVShows"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+
+            <control type="radiobutton" id="3121">
+                <description>Music submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[2] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoMusicSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoMusicSubmenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoMusicButton)</visible>
+                
+            </control>
+            <control type="radiobutton" id="3122">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>133</label>
+                <selected>!Skin.HasSetting(SubmenuMusicArtists.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicArtists.Hidden)</onclick>
+                <visible>Library.HasContent(Music)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3123">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>132</label>
+                <selected>!Skin.HasSetting(SubmenuMusicAlbums.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicAlbums.Hidden)</onclick>
+                <visible>Library.HasContent(Music)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3124">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>134</label>
+                <selected>!Skin.HasSetting(SubmenuMusicSongs.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicSongs.Hidden)</onclick>
+                <visible>Library.HasContent(Music)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3125">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>3</label>
+                <selected>!Skin.HasSetting(SubmenuMusicVideos.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicVideos.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3126">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>135</label>
+                <selected>!Skin.HasSetting(SubmenuMusicGenres.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicGenres.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3127">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>744</label>
+                <selected>!Skin.HasSetting(SubmenuMusicFiles.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicFiles.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3128">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>14022</label>
+                <selected>!Skin.HasSetting(SubmenuMusicLibrary.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicLibrary.Hidden)</onclick>
+                <visible>Library.HasContent(Music)</visible>
+                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+            </control>
+<!--					<control type="radiobutton" id="3176">
+                <width>750</width>
+                <height>40</height>
+                <font>font13</font>
+                <label>24069</label>
+                <textcolor>grey2</textcolor>
+                <focusedcolor>white</focusedcolor>
+                <texturefocus>MenuItemFO.png</texturefocus>
+                <texturenofocus>MenuItemNF.png</texturenofocus>
+                <selected>!Skin.HasSetting(SubmenuMusicUpdate.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicUpdate.Hidden)</onclick>
+                <visible>Library.HasContent(Music)</visible>
+            </control>-->
+            <control type="radiobutton" id="3129">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>24000</label>
+                <selected>!Skin.HasSetting(SubmenuMusicAddons.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicAddons.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoMusicSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3130"/>
+                <param name="id2" value="3131"/>
+                <param name="id3" value="3132"/>
+                <param name="id4" value="3133"/>
+                <param name="mainmenuitem" value="Music"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3134"/>
+                <param name="id2" value="3135"/>
+                <param name="id3" value="3136"/>
+                <param name="id4" value="3137"/>
+                <param name="mainmenuitem" value="Music"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3138"/>
+                <param name="id2" value="3139"/>
+                <param name="id3" value="3140"/>
+                <param name="id4" value="3141"/>
+                <param name="mainmenuitem" value="Music"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+
+<!--		<control type="label" id="3138">
+                <description>Music Videos submenu</description>
+                <width>750</width>
+                <height>45</height>
+                <font>font13_title</font>
+                <label>$LOCALIZE[20389] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <textcolor>white</textcolor>
+                <shadowcolor>black</shadowcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+                <visible>Library.HasContent(Musicvideos)</visible>
+            </control>
+            <control type="radiobutton" id="3139">
+                <width>750</width>
+                <height>40</height>
+                <font>font13</font>
+                <label>31328</label>
+                <textcolor>grey2</textcolor>
+                <focusedcolor>white</focusedcolor>
+                <texturefocus>MenuItemFO.png</texturefocus>
+                <texturenofocus>MenuItemNF.png</texturenofocus>
+                <selected>!Skin.HasSetting(SubmenuMusicVideoRecent.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicVideoRecent.Hidden)</onclick>
+                <visible>Library.HasContent(Musicvideos)</visible>
+            </control>
+            <control type="radiobutton" id="3141">
+                <width>750</width>
+                <height>40</height>
+                <font>font13</font>
+                <label>369</label>
+                <textcolor>grey2</textcolor>
+                <focusedcolor>white</focusedcolor>
+                <texturefocus>MenuItemFO.png</texturefocus>
+                <texturenofocus>MenuItemNF.png</texturenofocus>
+                <selected>!Skin.HasSetting(SubmenuMusicVideoTitles.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicVideoTitles.Hidden)</onclick>
+                <visible>Library.HasContent(Musicvideos)</visible>
+            </control>
+            <control type="radiobutton" id="3142">
+                <width>750</width>
+                <height>40</height>
+                <font>font13</font>
+                <label>652</label>
+                <textcolor>grey2</textcolor>
+                <focusedcolor>white</focusedcolor>
+                <texturefocus>MenuItemFO.png</texturefocus>
+                <texturenofocus>MenuItemNF.png</texturenofocus>
+                <selected>!Skin.HasSetting(SubmenuMusicVideoYears.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicVideoYears.Hidden)</onclick>
+                <visible>Library.HasContent(Musicvideos)</visible>
+            </control>
+            <control type="radiobutton" id="3143">
+                <width>750</width>
+                <height>40</height>
+                <font>font13</font>
+                <label>20339</label>
+                <textcolor>grey2</textcolor>
+                <focusedcolor>white</focusedcolor>
+                <texturefocus>MenuItemFO.png</texturefocus>
+                <texturenofocus>MenuItemNF.png</texturenofocus>
+                <selected>!Skin.HasSetting(SubmenuMusicVideoDirectors.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicVideoDirectors.Hidden)</onclick>
+                <visible>Library.HasContent(Musicvideos)</visible>
+            </control>
+            <control type="radiobutton" id="3144">
+                <width>750</width>
+                <height>40</height>
+                <font>font13</font>
+                <label>572</label>
+                <textcolor>grey2</textcolor>
+                <focusedcolor>white</focusedcolor>
+                <texturefocus>MenuItemFO.png</texturefocus>
+                <texturenofocus>MenuItemNF.png</texturenofocus>
+                <selected>!Skin.HasSetting(SubmenuMusicVideoStudios.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuMusicVideoStudios.Hidden)</onclick>
+                <visible>Library.HasContent(Musicvideos)</visible>
+            </control>-->            
+            <control type="radiobutton" id="3157">
+                <description>Disc submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[427] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoDiscSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoDiscSubmenu)</onclick>
+            </control>
+            
+            <control type="radiobutton" id="3158">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>13391</label>
+                <selected>!Skin.HasSetting(SubmenuDiscEject.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuDiscEject.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoDiscSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3159">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>600</label>
+                <selected>!Skin.HasSetting(SubmenuDiscRip.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuDiscRip.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoDiscSubmenu)</visible>
+            </control>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3160"/>
+                <param name="id2" value="3161"/>
+                <param name="id3" value="3162"/>
+                <param name="id4" value="3163"/>
+                <param name="mainmenuitem" value="Disc"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3164"/>
+                <param name="id2" value="3165"/>
+                <param name="id3" value="3166"/>
+                <param name="id4" value="3167"/>
+                <param name="mainmenuitem" value="Disc"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3168"/>
+                <param name="id2" value="3169"/>
+                <param name="id3" value="3170"/>
+                <param name="id4" value="3171"/>
+                <param name="mainmenuitem" value="Disc"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            <control type="radiobutton" id="3194">
+                <description>System submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$LOCALIZE[13000] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoSystemSubmenu)</selected>
+                <onclick>Skin.ToggleSetting(NoSystemSubmenu)</onclick>
+                
+            </control>
+            <control type="radiobutton" id="3195">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>5</label>
+                <selected>!Skin.HasSetting(SubmenuSystemSettings.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuSystemSettings.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3196">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>90042</label>
+                <selected>!Skin.HasSetting(SubmenuSystemOpenELEC.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuSystemOpenELEC.Hidden)</onclick>
+                <visible>System.HasAddon(os.openelec.settings) | System.HasAddon(service.openelec.settings)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3197">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>7</label>
+                <selected>!Skin.HasSetting(SubmenuSystemFileManager.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuSystemFileManager.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3198">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>13200</label>
+                <selected>!Skin.HasSetting(SubmenuSystemProfiles.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuSystemProfiles.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3199">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>130</label>
+                <selected>!Skin.HasSetting(SubmenuSystemInfo.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuSystemInfo.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3200">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>31963</label>
+                <selected>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuSystemShutdown.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+            </control>
+            <control type="radiobutton" id="3201">
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>20077</label>
+                <selected>!Skin.HasSetting(SubmenuSystemSkin.Hidden)</selected>
+                <onclick>Skin.ToggleSetting(SubmenuSystemSkin.Hidden)</onclick>
+                <visible>!Skin.HasSetting(NoSystemSubmenu)</visible>
+            </control>					
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3202"/>
+                <param name="id2" value="3203"/>
+                <param name="id3" value="3204"/>
+                <param name="id4" value="3205"/>
+                <param name="mainmenuitem" value="System"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3206"/>
+                <param name="id2" value="3207"/>
+                <param name="id3" value="3208"/>
+                <param name="id4" value="3209"/>
+                <param name="mainmenuitem" value="System"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3210"/>
+                <param name="id2" value="3211"/>
+                <param name="id3" value="3212"/>
+                <param name="id4" value="3213"/>
+                <param name="mainmenuitem" value="System"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>            
+            
+            <control type="radiobutton" id="3301">
+                <description>Custom1 submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$INFO[Skin.String(MainMenuCustom.1.Label)] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoMainMenuCustom.1Submenu)</selected>
+                <onclick>Skin.ToggleSetting(NoMainMenuCustom.1Submenu)</onclick>
+                <visible>!Skin.HasSetting(MainMenuCustom.1.Hidden) + !IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))</visible>
+            </control>					
+               
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3302"/>
+                <param name="id2" value="3303"/>
+                <param name="id3" value="3304"/>
+                <param name="id4" value="3305"/>
+                <param name="mainmenuitem" value="MainMenuCustom.1"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3306"/>
+                <param name="id2" value="3307"/>
+                <param name="id3" value="3308"/>
+                <param name="id4" value="3309"/>
+                <param name="mainmenuitem" value="MainMenuCustom.1"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3310"/>
+                <param name="id2" value="3311"/>
+                <param name="id3" value="3312"/>
+                <param name="id4" value="3313"/>
+                <param name="mainmenuitem" value="MainMenuCustom.1"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            <control type="radiobutton" id="3401">
+                <description>Custom2 submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$INFO[Skin.String(MainMenuCustom.2.Label)] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoMainMenuCustom.2Submenu)</selected>
+                <onclick>Skin.ToggleSetting(NoMainMenuCustom.2Submenu)</onclick>
+                <visible>!Skin.HasSetting(MainMenuCustom.2.Hidden) + !IsEmpty(Skin.String(MainMenuCustom.2.Type)) + !IsEmpty(Skin.String(MainMenuCustom.2.Path)) + !IsEmpty(Skin.String(MainMenuCustom.2.Label))</visible>
+            </control>					
+                
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3402"/>
+                <param name="id2" value="3403"/>
+                <param name="id3" value="3404"/>
+                <param name="id4" value="3405"/>
+                <param name="mainmenuitem" value="MainMenuCustom.2"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3406"/>
+                <param name="id2" value="3407"/>
+                <param name="id3" value="3408"/>
+                <param name="id4" value="3409"/>
+                <param name="mainmenuitem" value="MainMenuCustom.2"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3410"/>
+                <param name="id2" value="3411"/>
+                <param name="id3" value="3412"/>
+                <param name="id4" value="3413"/>
+                <param name="mainmenuitem" value="MainMenuCustom.2"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            
+            <control type="radiobutton" id="3501">
+                <description>Custom3 submenu</description>
+                <include>SettingsRadioButtonCommonValues</include>
+                <label>$INFO[Skin.String(MainMenuCustom.3.Label)] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
+                <selected>!Skin.HasSetting(NoMainMenuCustom.3Submenu)</selected>
+                <onclick>Skin.ToggleSetting(NoMainMenuCustom.3Submenu)</onclick>
+                <visible>!Skin.HasSetting(MainMenuCustom.3.Hidden) + !IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))</visible>
+            </control>					
+                
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3502"/>
+                <param name="id2" value="3503"/>
+                <param name="id3" value="3504"/>
+                <param name="id4" value="3505"/>
+                <param name="mainmenuitem" value="MainMenuCustom.3"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="1"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3506"/>
+                <param name="id2" value="3507"/>
+                <param name="id3" value="3508"/>
+                <param name="id4" value="3509"/>
+                <param name="mainmenuitem" value="MainMenuCustom.3"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="2"/>
+            </include>
+            <include name="CustomButtonSelector">
+                <param name="id1" value="3510"/>
+                <param name="id2" value="3511"/>
+                <param name="id3" value="3512"/>
+                <param name="id4" value="3513"/>
+                <param name="mainmenuitem" value="MainMenuCustom.3"/>
+                <param name="menutype" value="Submenu"/>
+                <param name="number" value="3"/>
+            </include>
+            
+        </control>
+    </include>
+</includes>

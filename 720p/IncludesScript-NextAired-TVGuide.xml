@@ -1,0 +1,201 @@
+<includes>
+	<include name="TVNextAiredDayBackground">
+<!--        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>300</width>
+            <height>600</height>
+            <texture border="15">ContentPanel.png</texture>
+        </control>-->
+    </include>
+	<include name="TVNextAiredListCommonLayout">
+		<itemlayout height="150" width="162">
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>162</width>
+				<height>165</height>
+				<texture border="10">button-nofocus.png</texture>
+			</control>
+			<control type="label">
+				<description>Next air date/time</description>
+				<left>10</left>
+				<top>0</top>
+				<width>160</width>
+				<height>15</height>
+				<label>[LIGHT]$INFO[ListItem.Property(NextDate),, - ]$INFO[ListItem.Property(ShortTime)][/LIGHT]</label>
+				<textcolor>grey2</textcolor>
+				<font>font10</font>
+				<align>center</align>
+			</control>
+			<control type="image">
+				<description>Thumb</description>
+				<left>5</left>
+				<top>25</top>
+				<width>150</width>
+				<height>45</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+			</control>
+			<control type="image">
+				<description>Banner</description>
+				<left>5</left>
+				<top>25</top>
+				<width>150</width>
+				<height>45</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+			</control>
+			<control type="image">
+				<description>Logo</description>
+				<left>5</left>
+				<top>25</top>
+				<width>150</width>
+				<height>45</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Path),,logo.png]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+			</control>
+			<control type="label">
+				<description>Episode Number</description>
+				<left>10</left>
+				<top>80</top>
+				<width>150</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(NextEpisodeNumber),S,E]$INFO[ListItem.Property(NextSeasonNumber)]</label>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Episode Name</description>
+				<left>10</left>
+				<top>100</top>
+				<width>150</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(NextTitle)]</label>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+<!--			<control type="label">
+				<description>Duration</description>
+				<left>10</left>
+				<top>120</top>
+				<width>160</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+				<textcolor>grey2</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Network</description>
+				<left>10</left>
+				<top>140</top>
+				<width>160</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(Network), [COLOR=blue]-[/COLOR] (,)]</label>
+				<textcolor>grey2</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>-->
+		</itemlayout>
+		<focusedlayout height="150" width="162">
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>182</width>
+				<height>145</height>
+				<texture border="10">button-focus2.png</texture>
+			</control>
+			<control type="label">
+				<description>Next air date/time</description>
+				<left>10</left>
+				<top>0</top>
+				<width>160</width>
+				<height>15</height>
+				<label>[LIGHT]$INFO[ListItem.Property(NextDate),, - ]$INFO[ListItem.Property(ShortTime)][/LIGHT]</label>
+				<textcolor>white</textcolor>
+				<font>font10</font>
+				<align>center</align>
+			</control>
+			<control type="image">
+				<description>Thumb</description>
+				<left>5</left>
+				<top>25</top>
+				<width>150</width>
+				<height>45</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+			</control>
+			<control type="image">
+				<description>Banner</description>
+				<left>5</left>
+				<top>25</top>
+				<width>150</width>
+				<height>45</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+			</control>
+			<control type="image">
+				<description>Logo</description>
+				<left>5</left>
+				<top>25</top>
+				<width>150</width>
+				<height>45</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(Path),,logo.png]</texture>
+				<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+			</control>
+			<control type="label">
+				<description>Episode Number</description>
+				<left>10</left>
+				<top>80</top>
+				<width>150</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(NextEpisodeNumber),S,E]$INFO[ListItem.Property(NextSeasonNumber)]</label>
+				<textcolor>selected</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Episode Name</description>
+				<left>10</left>
+				<top>100</top>
+				<width>150</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(NextTitle)]</label>
+				<textcolor>selected</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+<!--			<control type="label">
+				<description>Duration</description>
+				<left>10</left>
+				<top>120</top>
+				<width>160</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>
+			<control type="label">
+				<description>Network</description>
+				<left>10</left>
+				<top>140</top>
+				<width>160</width>
+				<height>15</height>
+				<label>$INFO[ListItem.Property(Network), [COLOR=blue]-[/COLOR] (,)]</label>
+				<textcolor>white</textcolor>
+				<font>font12</font>
+				<align>center</align>
+			</control>-->
+		</focusedlayout>
+	</include>
+</includes>

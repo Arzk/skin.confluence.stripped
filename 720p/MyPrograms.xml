@@ -3,8 +3,8 @@
 	<allowoverlay>no</allowoverlay>
 	<views>50,51,500,550,551</views>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonProgramsBackground</include>
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonProgramsBackground</include>
 		<include>CommonMediaPlayingBackground</include>
 		<include>ContentPanelBackgrounds</include>
 		<control type="group">
@@ -15,7 +15,7 @@
 			<include>AddonInfoListView1</include> <!-- view id = 550 -->
 			<include>AddonInfoThumbView1</include> <!-- view id = 551 -->
 		</control>
-                <include condition="!Stringcompare(Skin.String(PageCountPosition),None) + !Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCount</include>
+        <include condition="!Stringcompare(Skin.String(PageCountPosition),None) + !Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCount</include>
 		<include>CommonNowPlaying</include>
 		<include>BehindDialogFadeOut</include>
 		<include>ScrollOffsetLabel</include>
@@ -75,7 +75,7 @@
 				</control>
 				<include>CommonNowPlaying_Controls</include>
 			</control>
-                        <include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
+            <include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
 		</control>
 		<include>Clock</include>
         <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>

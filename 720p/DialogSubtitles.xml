@@ -24,7 +24,7 @@
 				<description>media info background image</description>
 				<posx>0</posx>
 				<posy>0</posy>
-				<width>1280</width>
+				<width>ScreenWidth</width>
 				<height>630</height>
 				<colordiffuse>DDFFFFFF</colordiffuse>
 	                        <texture border="15" flipy="true">ContentPanel.png</texture>
@@ -190,7 +190,7 @@
 				</control>
 <!--				<control type="spincontrol" id="121">
 					<description>Next page button</description>
-					<posx>1280</posx>
+					<posx>ScreenWidth</posx>
 					<posy>596</posy>
 					<width>20</width>
 					<height>20</height>
@@ -218,16 +218,16 @@
 				</animation>
 <!--				<control type="image">
                                         <description>separator</description>
-                                        <posx>1280</posx>
+                                        <posx>ScreenWidth</posx>
                                         <posy>0</posy>
-                                        <width>720</width>
+                                        <width>ScreenHeight</width>
                                         <height>4</height>
                                         <texture>default-separatorOSD.png</texture>
 					<animation effect="rotate" start="0" end="90" center="auto" time="0" condition="true">Conditional</animation>
 				</control>-->
 				<control type="image">
                     <description>background</description>
-                    <posx>1280</posx>
+                    <posx>ScreenWidth</posx>
                     <posy>50</posy>
                     <width>270</width>
                     <height>604</height>
@@ -332,7 +332,7 @@
 					<description>media info background image</description>
 					<posx>0</posx>
 					<posy>0</posy>
-					<width>1280</width>
+					<width>ScreenWidth</width>
 					<height>50</height>
 					<texture border="0,0,0,6">MediaBladeSubTop.png</texture>
 				</control>

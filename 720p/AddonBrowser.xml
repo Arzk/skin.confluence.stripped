@@ -3,8 +3,8 @@
 	<allowoverlay>no</allowoverlay>
 	<views>50,51,550,551</views>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonSettingsBackground</include>
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonSettingsBackground</include>
 		<include>CommonMediaPlayingBackground</include>
 		<include>ContentPanelBackgrounds</include>
 		<control type="group">
@@ -102,6 +102,6 @@
 			<include condition="Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCountSidebar</include>
 		</control>
 		<include>Clock</include>
-	        <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
+        <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
 	</controls>
 </window>

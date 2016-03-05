@@ -16,37 +16,7 @@
 		</control>
                 <include condition="!Stringcompare(Skin.String(PageCountPosition),None) + !Stringcompare(Skin.String(PageCountPosition),Sidebar)">CommonPageCount</include>
 		<include>CommonNowPlaying</include>
-<!--		<include>MainWindowMouseButtons</include>-->
 		<include>BehindDialogFadeOut</include>
-<!--		<include>ScrollOffsetLabel</include>-->
-<!--		<control type="image">
-			<description>Section header image</description>
-			<posx>20</posx>
-			<posy>3</posy>
-			<width>35</width>
-			<height>35</height>
-			<aspectratio>keep</aspectratio>
-			<texture>icon_video.png</texture>
-		</control>
-		<control type="grouplist">
-			<description>Section header Test Label: "Extras - Title"</description>
-			<posx>65</posx>
-			<posy>5</posy>
-			<width>1000</width>
-			<height>30</height>
-			<orientation>horizontal</orientation>
-			<align>left</align>
-			<itemgap>5</itemgap>
-			<control type="label">
-				<include>WindowTitleCommons</include>
-				<label>$ADDON[script.videoextras 32001]</label>
-			</control>
-			<control type="label" id="321">
-				<include>WindowTitleCommons</include>
-				<visible>!IsEmpty(ListItem.Title)</visible>
-				<label>[COLOR=blue] - [/COLOR] $INFO[ListItem.Title]</label>
-			</control>
-		</control>-->
 		<control type="group">
 			<include>VisibleFadeEffect</include>
 			<control type="list" id="51">
@@ -208,6 +178,6 @@
 		</control>
 
 		<include>Clock</include>
-                <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
+        <include condition="Skin.HasSetting(TouchMode)">TouchTools</include>
 	</controls>
 </window>

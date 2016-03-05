@@ -1,5 +1,6 @@
 <includes>
 	<include file="defaults.xml" />
+    <include file="constants.xml" />
 	<include file="ViewsVideoLibrary.xml" />
 	<include file="ViewsMusicLibrary.xml" />
 	<include file="ViewsFileMode.xml" />
@@ -13,8 +14,7 @@
 	<include file="IncludesHomeRecentlyAddedTouch.xml" />
     <include file="IncludesHomeRecentlyAddedContent.xml" />
 	<include file="IncludesHomeMenuItems.xml" />
-	<include file="IncludesHomeAddons.xml" />
-	<include file="IncludesHomeCustom.xml" />
+	<include file="IncludesHomeMenuSub.xml" />
 	<include file="IncludesBackgroundBuilding.xml" />
     <include file="ViewsWeather.xml"/>
 	<include file="variables.xml" />
@@ -27,6 +27,7 @@
 	<include file="IncludesVideoOSD.xml" />
 	<include file="IncludesMusicOSD.xml" />
 	<include file="IncludesVideoFullscreen.xml" />
+	<include file="IncludesSettings.xml" />
 	<include file="IncludesSkinSettingsGeneral.xml" />
     <include file="IncludesSkinSettingsAddons.xml" />
     <include file="IncludesSkinSettingsCustom.xml" />
@@ -35,10 +36,10 @@
     <include file="IncludesSkinSettingsBackground.xml" />
     <include file="IncludesSkinSettingsGeneral.xml" />
     <include file="IncludesSkinSettingsMainMenu.xml" />
+    <include file="IncludesSkinSettingsSubmenu.xml" />
     <include file="IncludesKaiToast.xml" />
+    <include file="IncludesScript-NextAired-TVGuide.xml" />
 
-	<constant name="FanartCrossfadeTime">600</constant>
-	<constant name="IconCrossfadeTime">600</constant>
 
         <variable name="BannerThumb">
                 <value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
@@ -51,18 +52,15 @@
 
 	<include name="BehindDialogFadeOut">
 		<control type="image">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1280</width>
-			<height>720</height>
+			<width>ScreenWidth</width>
+			<height>ScreenHeight</height>
 			<texture>black-back.png</texture>
 			<animation effect="fade" time="400">Visible</animation>
 			<animation effect="fade" time="200">Hidden</animation>
-			<visible>Window.IsActive(FileBrowser) | Window.IsActive(TextViewer) | Window.IsActive(AddonSettings) | Window.IsActive(ContentSettings) | Window.IsActive(SelectDialog) | Window.IsActive(FileStackingDialog) | Window.IsActive(MediaSource) | Window.IsActive(PictureInfo) | Window.IsActive(PlayerControls) | Window.IsActive(VirtualKeyboard) | Window.IsActive(NumericInput) | Window.IsActive(ProfileSettings) | Window.IsActive(LockSettings) | Window.IsActive(SmartPlaylistEditor) | Window.IsActive(SmartPlaylistRule) | Window.IsActive(script-Apple_Movie_Trailers-settings.xml) | Window.IsActive(script-Apple_Movie_Trailers-chooser.xml) | Window.IsActive(script-Apple_Movie_Trailers-search.xml) | Window.IsActive(script-Apple_Movie_Trailers-showtimes.xml) | Window.IsActive(script-XBMC_Lyrics-settings.xml) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(AddonInformation) | Window.IsActive(Peripherals) | Window.IsActive(PeripheralSettings) | Window.IsActive(PVRChannelManager)</visible>
+			<visible>Window.IsActive(FileBrowser) | Window.IsActive(TextViewer) | Window.IsActive(AddonSettings) | Window.IsActive(ContentSettings) | Window.IsActive(SelectDialog) | Window.IsActive(MediaSource) | Window.IsActive(PictureInfo) | Window.IsActive(PlayerControls) | Window.IsActive(VirtualKeyboard) | Window.IsActive(NumericInput) | Window.IsActive(ProfileSettings) | Window.IsActive(LockSettings) | Window.IsActive(SmartPlaylistEditor) | Window.IsActive(SmartPlaylistRule) | Window.IsActive(script-Apple_Movie_Trailers-settings.xml) | Window.IsActive(script-Apple_Movie_Trailers-chooser.xml) | Window.IsActive(script-Apple_Movie_Trailers-search.xml) | Window.IsActive(script-Apple_Movie_Trailers-showtimes.xml) | Window.IsActive(script-XBMC_Lyrics-settings.xml) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(AddonInformation) | Window.IsActive(PVRChannelManager)</visible>
 		</control>
 	</include>
 	<include name="WindowTitleCommons">
-		<posy>0</posy>
 		<width>1060</width>
 		<height>28</height>
 		<font>font12</font>
@@ -93,19 +91,6 @@
 		<font>font12</font>
 		<texturefocus>button-focus.png</texturefocus>
 		<texturenofocus>button-nofocus.png</texturenofocus>
-		<pulseonselect>false</pulseonselect>
-	</include>
-	<include name="ButtonSettingsCommonValues">
-		<height>60</height>
-		<width>240</width>
-		<textoffsetx>10</textoffsetx>
-		<textwidth>200</textwidth>
-		<aligny>center</aligny>
-		<align>right</align>
-		<font>font24_title</font>
-                <textcolor>grey</textcolor>
-		<texturefocus border="5">MenuItemFO.png</texturefocus>
-		<texturenofocus>-</texturenofocus>
 		<pulseonselect>false</pulseonselect>
 	</include>
 	<include name="ButtonMediaSubCommonValues">
@@ -158,20 +143,17 @@
 		<font>font12</font>
 		<textcolor>grey2</textcolor>
 		<focusedcolor>white</focusedcolor>
-<!--		<texturefocus border="5" flipy="true">HomeSubFO.png</texturefocus>
-		<texturenofocus border="5" flipy="true">HomeSubNF.png</texturenofocus>-->
                 <colordiffuse>CCFFFFFF</colordiffuse>
 		<pulseonselect>false</pulseonselect>
-<!--		<onclick>Skin.Reset(HomeSubMenuVisible)</onclick>-->
 	</include>
 	<include name="HomeSubMenuCommonValues">
-		<posx>-35</posx>
-		<posy>0</posy>
+		<left>-35</left>
+		<top>0</top>
 		<width>1350</width>
 		<height>35</height>
 		<align>center</align>
-                <onup condition="!Skin.HasSetting(CustomMenuFirst)">9004</onup>
-                <onup condition="Skin.HasSetting(CustomMenuFirst)">9002</onup>
+        <onup condition="!Skin.HasSetting(CustomMenuFirst)">9004</onup>
+        <onup condition="Skin.HasSetting(CustomMenuFirst)">9002</onup>
 		<ondown>9900</ondown>
 		<onback>9900</onback>
 		<itemgap>0</itemgap>
@@ -205,8 +187,8 @@
 		<pulseonselect>false</pulseonselect>
 	</include>
 	<include name="HomeCustomMenuCommonValues">
-		<posx>-35</posx>
-		<posy>0</posy>
+		<left>-35</left>
+		<top>0</top>
 		<width>1350</width>
 		<height>35</height>
 		<align>center</align>
@@ -218,7 +200,7 @@
 		<orientation>Horizontal</orientation>
 		<include>submenueffect</include>
 	</include>
-	<include name="ButtonHomeAddonCommonValues">
+	<include name="ButtonHomeAddonMenuCommonValues">
 		<height>35</height>
 		<width>180</width>
 		<textwidth>195</textwidth>
@@ -232,9 +214,9 @@
                 <colordiffuse>CCFFFFFF</colordiffuse>
 		<pulseonselect>false</pulseonselect>
 	</include>
-	<include name="HomeAddonCommonValues">
-		<posx>-35</posx>
-		<posy>0</posy>
+	<include name="HomeAddonMenuCommonValues">
+		<left>-35</left>
+		<top>0</top>
 		<width>1350</width>
 		<height>35</height>
 		<align>center</align>
@@ -268,7 +250,7 @@
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>250</width>
-			<height>720</height>
+			<height>ScreenHeight</height>
 			<texture border="0,0,10,0">MediaBladeSub.png</texture>
 	                <colordiffuse>EEFFFFFF</colordiffuse>
 		</control>
@@ -297,12 +279,11 @@
 	</include>
 	<include name="CommonNowPlaying">
 		<control type="group">
-                        <visible>!Window.IsVisible(107)</visible>
+            <visible>!Window.IsVisible(107)</visible>
 			<visible>Player.HasMedia + !SubString(Window(videolibrary).Property(TvTunesIsAlive),TRUE)</visible>
-                        <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
-	                <visible>![Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(pvrguideinfo)]</visible>
+            <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
+            <visible>![Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(pvrguideinfo)]</visible>
 			<include>VisibleFadeEffect</include>
-<!--			<include>dialogeffect</include>-->
 			<control type="label">
 				<posx>78</posx>
 				<posy>58r</posy>
@@ -514,9 +495,9 @@
 			<label>$INFO[Window.Property(filter),$LOCALIZE[587] (,) - ]$INFO[Container.NumItems,(,) $LOCALIZE[31025]]</label>
 <!--			<label>$INFO[Window.Property(filter),$LOCALIZE[587] (,) - ]$INFO[Container.NumItems,(,) $LOCALIZE[31025]]$INFO[Container.CurrentPage, - $LOCALIZE[31024] (]$INFO[Container.NumPages,/,)]</label>-->
 			<include>dialogeffect</include>
-                        <visible>!Window.IsVisible(107)</visible>
-                        <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
-	                <visible>![Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation)]</visible>
+            <visible>!Window.IsVisible(107)</visible>
+            <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
+            <visible>![Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation)]</visible>
 			<visible>!Skin.HasSetting(TouchMode)</visible>
 		</control>
 		<control type="label">
@@ -532,9 +513,9 @@
 			<aligny>center</aligny>
 			<label>$INFO[Container.TotalTime,$LOCALIZE[180] (,)]</label>
 			<include>dialogeffect</include>
-                        <visible>!Window.IsVisible(107)</visible>
-                        <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
-	                <visible>![Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation)]</visible>
+            <visible>!Window.IsVisible(107)</visible>
+            <visible>![Player.Seeking | Player.Forwarding | Player.Rewinding]</visible>
+            <visible>![Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation)]</visible>
 			<visible>!Skin.HasSetting(TouchMode)</visible>
 		</control>
 	</include>
@@ -759,13 +740,13 @@
 	</include>
 
 	<include name="HomeNowPlaying_Controls">
-                <control type="group">
-                        <description>Controls for currently playing media</description>
-                        <left>545r</left>
-<!--                        <top>755</top>-->
-                        <top>614</top>
+        <control type="group">
+            <description>Controls for currently playing media</description>
+            <left>545r</left>
+<!--                            <top>755</top>-->
+            <top>614</top>
 			<visible>Skin.HasSetting(KeyboardMode) + !Skin.HasSetting(TouchMode)</visible>
-	                <animation effect="slide" start="0,0" end="0,-30" time="0" condition="!Skin.HasSetting(Touchmode) + Window.IsVisible(107)">conditional</animation>
+            <animation effect="slide" start="0,0" end="0,-30" time="0" condition="!Skin.HasSetting(Touchmode) + Window.IsVisible(107)">conditional</animation>
 			<animation type="Conditional" condition="ControlGroup(9001).HasFocus | ControlGroup(9002).HasFocus | ControlGroup(9004).HasFocus">
 				<effect type="fade" start="100" end="0" time="50" tween="quadratic" easing="out" />
 				<effect type="slide" start="0,0" end="0,140" time="100" tween="quadratic" easing="out" />
@@ -1363,7 +1344,7 @@
 			<animation effect="slide" start="0,0" end="0,-60" time="100">Visible</animation>
 			<animation effect="slide" start="0,-60" end="0,0" delay="400" time="100">Hidden</animation>
 			<posx>300r</posx>
-			<posy>720</posy>
+			<posy>ScreenHeight</posy>
 			<control type="image">
 				<posx>0</posx>
 				<posy>0</posy>
@@ -1460,7 +1441,7 @@
 		<animation effect="fade" time="300">Hidden</animation>
 	</include>
 	<include name="submenueffect">
-                <animation effect="slide" start="0,0" end="0,-30" time="0" condition="Window.IsVisible(107)">conditional</animation>
+<!--        <animation effect="slide" start="0,0" end="0,-30" time="0" condition="Window.IsVisible(107)">conditional</animation>-->
 		<animation type="Focus">
 			<effect type="fade" start="0" end="100" time="150" tween="quadratic" easing="in" />
 			<effect type="slide" start="0,0" end="0,-140" time="100" tween="quadratic" easing="out" />
@@ -1471,14 +1452,14 @@
 		</animation>
 	</include>
         <include name="KeyboardButton">
-                <width>50</width>
-                <height>50</height>
-                <texturenofocus border="3">KeyboardKeyNF.png</texturenofocus>
-                <texturefocus border="5">KeyboardKey.png</texturefocus>
-                <align>center</align>
-                <aligny>center</aligny>
-                <font>font13</font>
-                <focusedcolor>black</focusedcolor>
+            <width>50</width>
+            <height>50</height>
+            <texturenofocus border="3">KeyboardKeyNF.png</texturenofocus>
+            <texturefocus border="5">KeyboardKey.png</texturefocus>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>font13</font>
+            <focusedcolor>black</focusedcolor>
         </include>
 	<include name="DialogCloseButtonCommons">
 		<control type="button">
@@ -1642,8 +1623,8 @@
 			<description>Close</description>
 			<posx>0</posx>
 			<posy>0</posy>
-			<width>1280</width>
-			<height>720</height>
+			<width>ScreenWidth</width>
+			<height>ScreenHeight</height>
 			<label>-</label>
 			<font>-</font>
 			<onclick>Close</onclick>

@@ -11,7 +11,7 @@
 				<control type="image" id="1">
 					<posx>0</posx>
 					<posy>72r</posy>
-					<width>1280</width>
+					<width>ScreenWidth</width>
 					<height>6</height>
 					<texture>HomeOverlay1.png</texture>
 				</control>

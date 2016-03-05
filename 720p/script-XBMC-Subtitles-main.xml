@@ -13,10 +13,10 @@
 				<description>media info background image</description>
 				<posx>0</posx>
 				<posy>0</posy>
-				<width>1280</width>
+				<width>ScreenWidth</width>
 				<height>630</height>
-				<colordiffuse>BBFFFFFF</colordiffuse>
-	                        <texture border="15">ContentPanel.png</texture>
+				<colordiffuse>AAFFFFFF</colordiffuse>
+                <texture border="15">ContentPanel.png</texture>
 				<animation effect="slide" start="0,0" end="0,-36" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,15)">conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-72" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,14)">conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-108" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,13)">conditional</animation>
@@ -49,8 +49,8 @@
 					<viewtype label="535">list</viewtype>
 					<pagecontrol>121</pagecontrol>
 					<scrolltime>200</scrolltime>
-		                        <animation effect="slide" start="0,-630" end="0,0" time="200" tween="quadratic" easing="out">Focus</animation>
-		                        <animation effect="slide" start="0,0" end="0,-630" time="200" tween="quadratic" easing="out">Unfocus</animation>
+                    <animation effect="slide" start="0,-630" end="0,0" time="200" tween="quadratic" easing="out">Focus</animation>
+                    <animation effect="slide" start="0,0" end="0,-630" time="200" tween="quadratic" easing="out">Unfocus</animation>
 					<itemlayout width="1180" height="36">
 						<control type="image">
 							<posx>0</posx>
@@ -66,18 +66,6 @@
 							<height>17</height>
 							<info>Listitem.Thumb</info>
 						</control>
-<!--						<control type="label">
-							<posx>40</posx>
-							<posy>0</posy>
-							<width>90</width>
-							<height>38</height>
-							<font>font18</font>
-							<aligny>center</aligny>
-							<textcolor>FFFFFFFF</textcolor>
-							<selectedcolor>FFFFFFFF</selectedcolor>
-							<align>left</align>
-							<info>ListItem.Label</info>
-						</control>-->
 						<control type="image">
 							<posx>45</posx>
 							<posy>13</posy>
@@ -112,7 +100,7 @@
 							<width>90</width>
 							<height>17</height>
 							<texture>info_window_icon_rating_star_$INFO[ListItem.ActualIcon].png</texture>
-                                                        <visible>!Control.HasFocus(150)</visible>
+                            <visible>!Control.HasFocus(150)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout width="1180" height="36">
@@ -138,18 +126,6 @@
 							<height>17</height>
 							<info>Listitem.Thumb</info>
 						</control>
-<!--						<control type="label">
-							<posx>40</posx>
-							<posy>0</posy>
-							<width>90</width>
-							<height>38</height>
-							<font>font18</font>
-							<aligny>center</aligny>
-							<textcolor>FFFFFFFF</textcolor>
-							<selectedcolor>FFFFFFFF</selectedcolor>
-							<align>left</align>
-							<info>ListItem.Label</info>
-						</control>-->
 						<control type="image">
 							<posx>45</posx>
 							<posy>13</posy>
@@ -184,13 +160,13 @@
 							<width>90</width>
 							<height>17</height>
 							<texture>info_window_icon_rating_star_$INFO[ListItem.ActualIcon].png</texture>
-                                                        <visible>!Control.HasFocus(150)</visible>
+                            <visible>!Control.HasFocus(150)</visible>
 						</control>
 					</focusedlayout>
 				</control>
 				<control type="spincontrol" id="121">
 					<description>Next page button</description>
-					<posx>1280</posx>
+					<posx>ScreenWidth</posx>
 					<posy>596</posy>
 					<width>20</width>
 					<height>20</height>
@@ -204,10 +180,6 @@
 					<ondown>120</ondown>
 					<onup>120</onup>
 					<textoffsetx>0</textoffsetx>
-<!--					<textureup>default-scroll-up.png</textureup>
-					<texturedown>default-scroll-down.png</texturedown>
-					<textureupfocus>default-scroll-up-focus.png</textureupfocus>
-					<texturedownfocus>default-scroll-down-focus.png</texturedownfocus>-->
 					<showonepage>false</showonepage>
 					<visible>Control.Hasfocus(120)</visible>
 				</control>
@@ -216,22 +188,13 @@
 				<animation type="Conditional" condition="Control.HasFocus(150)" reversible="true">
 					<effect type="slide" end="-260,0" time="200" />
 				</animation>
-<!--				<control type="image">
-                                        <description>separator</description>
-                                        <posx>1280</posx>
-                                        <posy>0</posy>
-                                        <width>720</width>
-                                        <height>4</height>
-                                        <texture>default-separatorOSD.png</texture>
-					<animation effect="rotate" start="0" end="90" center="auto" time="0" condition="true">Conditional</animation>
-				</control>-->
 				<control type="image">
-                                        <description>background</description>
-                                        <posx>1280</posx>
-                                        <posy>50</posy>
-                                        <width>270</width>
-                                        <height>564</height>
-                                        <texture border="15">ContentPanel.png</texture>
+                    <description>background</description>
+                    <posx>ScreenWidth</posx>
+                    <posy>50</posy>
+                    <width>270</width>
+                    <height>564</height>
+                    <texture border="15">ContentPanel.png</texture>
 					<animation effect="slide" start="0,0" end="0,-36" time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,14)">conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-72" time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,13)">conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-108" time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,12)">conditional</animation>
@@ -264,7 +227,6 @@
 							<posy>0</posy>
 							<width>230</width>
 							<height>38</height>
-<!--							<texture>default-list-nofocus.png</texture>-->
 							<texture>button-nofocus.png</texture>
 						</control>
 						<control type="label">

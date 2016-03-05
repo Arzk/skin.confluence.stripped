@@ -5,15 +5,14 @@
 	<onload condition="Skin.HasSetting(EnableWidgets) + System.HasAddon(script.games.rom.collection.browser)">RunScript(script.games.rom.collection.browser,limit=10)</onload>
 	<onload>Skin.Reset(SideBarVisible)</onload>
 	<defaultcontrol always="true">9900</defaultcontrol>
-<!--        <onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>-->
 	<allowoverlay>no</allowoverlay>	
 	<controls>
 		<!-- Backgrounds -->
 		<control type="multiimage">
 			<left>0</left>
 			<top>0</top>
-			<width>1280</width>
-			<height>720</height>
+			<width>ScreenWidth</width>
+			<height>ScreenHeight</height>
 			<imagepath background="true">$INFO[Container(9900).ListItem.Icon]</imagepath>
 			<timeperimage>8000</timeperimage>
 			<randomize>true</randomize>
@@ -22,16 +21,17 @@
 		</control>
 		<include condition="Skin.HasSetting(homepageSingleBackground) | Skin.HasSetting(SingleBackground)">SingleBackground</include>
 		<include>CommonMediaPlayingBackground</include>
-		<control type="image"> <!-- Weather background -->
+		<control type="image"> <!-- Weather icon background -->
 			<left>0</left>
 			<top>-40</top>
-			<width>1280</width>
+			<width>ScreenWidth</width>
 			<height>120</height>
 			<texture flipy="true" border="1">HomeNowPlayingBack.png</texture>
 			<include>VisibleFadeEffect</include>
 			<visible>Skin.HasSetting(homepageWeatherinfo) + !Skin.HasSetting(TouchMode)</visible>
 		</control>
-	        <include>Clock</include>
+        
+        <include>Clock</include>
 		<include condition="!Skin.HasSetting(TouchMode)">HorizontalHome</include>
 		<include condition="Skin.HasSetting(TouchMode)">VerticalHome</include>
 		<include>HomeWeatherWidget</include>

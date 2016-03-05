@@ -14,14 +14,14 @@
 				<description>background top image</description>
 				<posx>0</posx>
 				<posy>-65</posy>
-				<width>720</width>
+				<width>ScreenHeight</width>
 				<height>65</height>
 				<texture border="45,45,45,0">DialogContextTop.png</texture>
 			</control>
 			<control type="label">
 				<posx>-30</posx>
 				<posy>-30</posy>
-				<width>720</width>
+				<width>ScreenHeight</width>
 				<height>30</height>
 				<font>font24_title</font>
 				<textcolor>white</textcolor>
@@ -49,23 +49,15 @@
 				<description>background image</description>
 				<posx>0</posx>
 				<posy>0</posy>
-				<width>720</width>
+				<width>ScreenHeight</width>
 				<height>280</height>
 				<texture border="45,0,45,0">DialogContextMiddle.png</texture>				
 			</control>
-<!--			<control type="image">
-				<description>background image</description>
-				<posx>35</posx>
-				<posy>0</posy>
-				<width>640</width>
-				<height>280</height>				
-				<texture border="0,0,0,0">floor.png</texture>
-			</control>-->
 			<control type="image">
 				<description>background bottom image</description>
 				<posx>0</posx>
 				<posy>280</posy>
-				<width>720</width>
+				<width>ScreenHeight</width>
 				<texture border="45,0,45,49">DialogContextBottom.png</texture>
 			</control>
 			

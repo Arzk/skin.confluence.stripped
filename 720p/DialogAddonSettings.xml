@@ -29,7 +29,7 @@
 			<description>Dialog Header image</description>
 			<posx>40</posx>
 			<posy>16</posy>
-			<width>720</width>
+			<width>ScreenHeight</width>
 			<height>40</height>
 			<texture>dialogheader.png</texture>
 		</control>
@@ -37,7 +37,7 @@
 			<description>header label</description>
 			<posx>40</posx>
 			<posy>20</posy>
-			<width>720</width>
+			<width>ScreenHeight</width>
 			<height>30</height>
 			<font>font13_title</font>
 			<label>-</label>
@@ -99,7 +99,7 @@
 			<description>control area</description>
 			<posx>40</posx>
 			<posy>120</posy>
-			<width>720</width>
+			<width>ScreenHeight</width>
 			<height>380</height>
 			<itemgap>5</itemgap>
 			<pagecontrol>30</pagecontrol>
@@ -172,7 +172,6 @@
 				<ondown>9</ondown>
 			</control>
 		</control>
-
 		<control type="button" id="13">
 			<description>Default Category Button</description>
 			<height>40</height>

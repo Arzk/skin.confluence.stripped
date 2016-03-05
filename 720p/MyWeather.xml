@@ -2,10 +2,10 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-                <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
-                <include condition="!Skin.HasSetting(SingleBackground)">CommonWeatherBackground</include>
-                <include>CommonMediaPlayingBackground</include>
-                <include>ContentPanelBackgrounds</include>
+        <include condition="Skin.HasSetting(SingleBackground)">SingleBackground</include>
+        <include condition="!Skin.HasSetting(SingleBackground)">CommonWeatherBackground</include>
+        <include>CommonMediaPlayingBackground</include>
+        <include>ContentPanelBackgrounds</include>
 		<control type="group">
 			<animation type="WindowOpen" reversible="false">
 				<effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
@@ -32,14 +32,14 @@
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
-                                <control type="image">
-                                        <left>0</left>
-                                        <top>557</top>
-                                        <width>440</width>
-                                        <height>46</height>
-                                        <aspectratio align="left" aligny="bottom">keep</aspectratio>
-                                        <texture>$INFO[Window.Property(WeatherProviderLogo)]</texture>
-                                </control>
+                <control type="image">
+                    <left>0</left>
+                    <top>557</top>
+                    <width>440</width>
+                    <height>46</height>
+                    <aspectratio align="left" aligny="bottom">keep</aspectratio>
+                    <texture>$INFO[Window.Property(WeatherProviderLogo)]</texture>
+                </control>
 				<control type="label">
 					<description>Provider Text</description>
 					<left>20</left>
@@ -53,7 +53,7 @@
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(WeatherProvider)]</label>
 					<include>Window_OpenClose_Animation</include>
-                                        <visible>IsEmpty(Window.Property(WeatherProviderLogo))</visible>
+                    <visible>IsEmpty(Window.Property(WeatherProviderLogo))</visible>
 				</control>
 				<control type="label">
 					<description>weather location label</description>
@@ -165,12 +165,12 @@
 					<height>4</height>
 					<texture>separator.png</texture>
 				</control>
-                                <control type="grouplist">
-                                        <left>0</left>
-                                        <top>400</top>
-                                        <width>170</width>
-                                        <height>180</height>
-                                        <itemgap>0</itemgap>
+                <control type="grouplist">
+                    <left>0</left>
+                    <top>400</top>
+                    <width>170</width>
+                    <height>180</height>
+                    <itemgap>0</itemgap>
 					<control type="label">
 						<description>current feels like label</description>
 						<left>0</left>
@@ -183,7 +183,7 @@
 						<label>$LOCALIZE[402] :</label>
 						<textcolor>grey2</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.FeelsLike))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.FeelsLike))</visible>
 					</control>
 					<control type="label">
 						<description>current dew label</description>
@@ -197,7 +197,7 @@
 						<label>$LOCALIZE[405] :</label>
 						<textcolor>grey2</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.DewPoint))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.DewPoint))</visible>
 					</control>
 					<control type="label">
 						<description>current humidity label</description>
@@ -211,7 +211,7 @@
 						<label>$LOCALIZE[406] :</label>
 						<textcolor>grey2</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.Humidity))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.Humidity))</visible>
 					</control>
 					<control type="label">
 						<description>current UV Index label</description>
@@ -225,22 +225,22 @@
 						<label>$LOCALIZE[403] :</label>
 						<textcolor>grey2</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.UVIndex))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.UVIndex))</visible>
 					</control>
-	                                <control type="label">
-	                                        <description>current Precipitation label</description>
-	                                        <left>0</left>
-	                                        <top>0</top>
-	                                        <width>170</width>
-	                                        <height>28</height>
-	                                        <font>font13</font>
-	                                        <align>right</align>
-	                                        <aligny>center</aligny>
-	                                        <label>$LOCALIZE[33021] :</label>
-	       	                                <textcolor>grey2</textcolor>
-	       	                                <shadowcolor>black</shadowcolor>
-	       	                                <visible>!IsEmpty(Window.Property(Current.Precipitation))</visible>
-	    	                        </control>
+                    <control type="label">
+                        <description>current Precipitation label</description>
+                        <left>0</left>
+                        <top>0</top>
+                        <width>170</width>
+                        <height>28</height>
+                        <font>font13</font>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <label>$LOCALIZE[33021] :</label>
+                        <textcolor>grey2</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <visible>!IsEmpty(Window.Property(Current.Precipitation))</visible>
+                    </control>
 					<control type="label">
 						<description>current Wind label</description>
 						<left>0</left>
@@ -253,15 +253,15 @@
 						<label>$LOCALIZE[404] :</label>
 						<textcolor>grey2</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.Wind))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.Wind))</visible>
 					</control>
 				</control>
-                                <control type="grouplist">
-                                        <left>185</left>
-                                        <top>400</top>
-                                        <width>300</width>
-                                        <height>180</height>
-                                        <itemgap>0</itemgap>
+                <control type="grouplist">
+                    <left>185</left>
+                    <top>400</top>
+                    <width>300</width>
+                    <height>180</height>
+                    <itemgap>0</itemgap>
 					<control type="label">
 						<description>current feels like Value</description>
 						<left>0</left>
@@ -274,7 +274,7 @@
 						<label>$INFO[Window.Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.FeelsLike))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.FeelsLike))</visible>
 					</control>
 					<control type="label">
 						<description>current dew Value</description>
@@ -288,7 +288,7 @@
 						<label>$INFO[Window.Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.DewPoint))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.DewPoint))</visible>
 					</control>
 					<control type="label">
 						<description>current humidity Value</description>
@@ -302,7 +302,7 @@
 						<info>Window.Property(Current.Humidity)</info>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.Humidity))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.Humidity))</visible>
 					</control>
 					<control type="label">
 						<description>current UV Index Value</description>
@@ -316,22 +316,22 @@
 						<info>Window.Property(Current.UVIndex)</info>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.UVIndex))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.UVIndex))</visible>
 					</control>
-                                        <control type="label">
-                                                <description>current Precipitation Value</description>
-                                                <left>0</left>
-                                                <top>0</top>
-                                                <width>300</width>
-                                                <height>28</height>
-                                                <font>font13</font>
-                                                <align>left</align>
-                                                <aligny>center</aligny>
-                                                <info>Window.Property(Current.Precipitation)</info>
-                                                <textcolor>white</textcolor>
-                                                <shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.Precipitation))</visible>
-                                        </control>
+                    <control type="label">
+                        <description>current Precipitation Value</description>
+                        <left>0</left>
+                        <top>0</top>
+                        <width>300</width>
+                        <height>28</height>
+                        <font>font13</font>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <info>Window.Property(Current.Precipitation)</info>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>black</shadowcolor>
+                        <visible>!IsEmpty(Window.Property(Current.Precipitation))</visible>
+                    </control>
 					<control type="label">
 						<description>current Wind Value</description>
 						<left>0</left>
@@ -344,21 +344,21 @@
 						<info>Window.Property(Current.Wind)</info>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
-                                                <visible>!IsEmpty(Window.Property(Current.Wind))</visible>
+                        <visible>!IsEmpty(Window.Property(Current.Wind))</visible>
 					</control>
 				</control>
 			</control>
 			<control type="group">
 				<left>580</left>
 				<top>40</top>
-                                <control type="group" id="50">
-                                        <include>WeatherDaily</include>
-                                        <include>Weather36Hour</include>
-                                        <include>WeatherWeekend</include>
-                                        <include>WeatherHourly</include>
-                                        <include>WeatherMaps</include>
-                                        <include>WeatherAlerts</include>
-                                </control>
+                <control type="group" id="50">
+                    <include>WeatherDaily</include>
+                    <include>Weather36Hour</include>
+                    <include>WeatherWeekend</include>
+                    <include>WeatherHourly</include>
+                    <include>WeatherMaps</include>
+                    <include>WeatherAlerts</include>
+                </control>
 			</control>
 		</control>
 		<include>CommonNowPlaying</include>
@@ -416,57 +416,54 @@
 						<aligny>center</aligny>
 					</control>
 				</control>
-                                <control type="button" id="302">
-                                        <description>Daily forcast button</description>
-                                        <textwidth>235</textwidth>
-                                        <include>ButtonCommonValues</include>
-                                        <label>31904</label>
-                                        <onfocus>ClearProperty(Weather.CurrentView)</onfocus>
-                                        <visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
-                                </control>
-                                <control type="button" id="303">
-                                        <description>36 hour forcast button</description>
-                                        <textwidth>235</textwidth>
-                                        <include>ButtonCommonValues</include>
-                                        <label>31901</label>
-                                        <onfocus>SetProperty(Weather.CurrentView,36hour)</onfocus>
-                                        <visible>!IsEmpty(Window.Property(36Hour.IsFetched))</visible>
-                                </control>
-                                <control type="button" id="304">
-                                        <description>Weekend forcast button</description>
-                                        <textwidth>235</textwidth>
-                                        <include>ButtonCommonValues</include>
-                                        <label>31903</label>
-                                        <onfocus>SetProperty(Weather.CurrentView,weekend)</onfocus>
-                                        <visible>!IsEmpty(Window.Property(Weekend.IsFetched))</visible>
-                                </control>
-                                <control type="button" id="305">
-                                        <description>Hourly forcast button</description>
-                                        <textwidth>235</textwidth>
-                                        <include>ButtonCommonValues</include>
-                                        <label>31902</label>
-                                        <onfocus>SetProperty(Weather.CurrentView,hourly)</onfocus>
-                                        <visible>!IsEmpty(Window.Property(Hourly.IsFetched))</visible>
-                                </control>
-                                <control type="button" id="306">
-                                        <description>Maps button</description>
-                                        <textwidth>235</textwidth>
-                                        <include>ButtonCommonValues</include>
-                                        <label>31910</label>
-                                        <onfocus>SetProperty(Weather.CurrentView,map)</onfocus>
-                                        <visible>!IsEmpty(Window.Property(Map.IsFetched))</visible>
-                                </control>
-                                <control type="button" id="307">
-                                        <description>Alerts button</description>
-                                        <textwidth>235</textwidth>
-                                        <include>ButtonCommonValues</include>
-                                        <label>33050</label>
-                                        <onfocus>SetProperty(Weather.CurrentView,alerts)</onfocus>
-                                        <visible>!IsEmpty(Window.Property(Alerts.IsFetched))</visible>
-                                </control>
-
-
-
+                <control type="button" id="302">
+                        <description>Daily forcast button</description>
+                        <textwidth>235</textwidth>
+                        <include>ButtonCommonValues</include>
+                        <label>31904</label>
+                        <onfocus>ClearProperty(Weather.CurrentView)</onfocus>
+                        <visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+                </control>
+                <control type="button" id="303">
+                        <description>36 hour forcast button</description>
+                        <textwidth>235</textwidth>
+                        <include>ButtonCommonValues</include>
+                        <label>31901</label>
+                        <onfocus>SetProperty(Weather.CurrentView,36hour)</onfocus>
+                        <visible>!IsEmpty(Window.Property(36Hour.IsFetched))</visible>
+                </control>
+                <control type="button" id="304">
+                        <description>Weekend forcast button</description>
+                        <textwidth>235</textwidth>
+                        <include>ButtonCommonValues</include>
+                        <label>31903</label>
+                        <onfocus>SetProperty(Weather.CurrentView,weekend)</onfocus>
+                        <visible>!IsEmpty(Window.Property(Weekend.IsFetched))</visible>
+                </control>
+                <control type="button" id="305">
+                        <description>Hourly forcast button</description>
+                        <textwidth>235</textwidth>
+                        <include>ButtonCommonValues</include>
+                        <label>31902</label>
+                        <onfocus>SetProperty(Weather.CurrentView,hourly)</onfocus>
+                        <visible>!IsEmpty(Window.Property(Hourly.IsFetched))</visible>
+                </control>
+                <control type="button" id="306">
+                        <description>Maps button</description>
+                        <textwidth>235</textwidth>
+                        <include>ButtonCommonValues</include>
+                        <label>31910</label>
+                        <onfocus>SetProperty(Weather.CurrentView,map)</onfocus>
+                        <visible>!IsEmpty(Window.Property(Map.IsFetched))</visible>
+                </control>
+                <control type="button" id="307">
+                        <description>Alerts button</description>
+                        <textwidth>235</textwidth>
+                        <include>ButtonCommonValues</include>
+                        <label>33050</label>
+                        <onfocus>SetProperty(Weather.CurrentView,alerts)</onfocus>
+                        <visible>!IsEmpty(Window.Property(Alerts.IsFetched))</visible>
+                </control>
 				<control type="label" id="201">
 					<width>250</width>
 					<height>35</height>
@@ -513,7 +510,7 @@
 					<onclick>Skin.SetPath(WeatherFanartDir)</onclick>
 					<enable>Skin.HasSetting(ShowWeatherFanart)</enable>
 				</control>
-                                <include>CommonNowPlaying_Controls</include>
+                <include>CommonNowPlaying_Controls</include>
 			</control>
 		</control>
 		<include>Clock</include>
