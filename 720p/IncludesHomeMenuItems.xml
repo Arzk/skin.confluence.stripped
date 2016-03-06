@@ -70,7 +70,7 @@
                 <onclick>ActivateWindow(Videos,MusicVideoTitles,return)</onclick>
                 <icon>special://skin/backgrounds/music.jpg</icon>
                 <thumb>$INFO[Skin.String(HomeMusicVideosBG)]</thumb>
-                <property name="MenuIcon">icons/musicvideos.png</property>
+                <property name="MenuIcon">icons/videos.png</property>
                 <visible>Library.HasContent(MusicVideos) + !Skin.HasSetting(HomeMenuNoMusicVideosButton)</visible>
             </item>
             <item id="1">
@@ -106,8 +106,9 @@
                 <onclick condition="Stringcompare(Skin.String(MainMenuCustom.1.Type),Favourite)">$INFO[Skin.String(MainMenuCustom.1.Path)]</onclick>
                 <onclick condition="Stringcompare(Skin.String(MainMenuCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(MainMenuCustom.1.Path)])</onclick>
                 <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.1Button) + !IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))</visible>
-                <icon>special://skin/backgrounds/videos.jpg</icon>
+                <icon>$INFO[Skin.String(MainMenuCustom.1.Fanart)]</icon>
                 <thumb>$INFO[Skin.String(MainMenuCustom.1BG)]</thumb>
+<!--                <property name="MenuIcon">$INFO[Skin.String(MainMenuCustom.1.IconType),icons/,.png]</property>-->
                 <property name="MenuIcon">$INFO[Skin.String(MainMenuCustom.1.Icon)]</property>
             </item>
             <item id="15">
@@ -117,7 +118,7 @@
                 <onclick condition="Stringcompare(Skin.String(MainMenuCustom.2.Type),Favourite)">$INFO[Skin.String(MainMenuCustom.2.Path)]</onclick>
                 <onclick condition="Stringcompare(Skin.String(MainMenuCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(MainMenuCustom.2.Path)])</onclick>
                 <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.2Button) + !IsEmpty(Skin.String(MainMenuCustom.2.Type)) + !IsEmpty(Skin.String(MainMenuCustom.2.Path)) + !IsEmpty(Skin.String(MainMenuCustom.2.Label))</visible>
-                <icon>special://skin/backgrounds/videos.jpg</icon>
+                <icon>$INFO[Skin.String(MainMenuCustom.2.Fanart)]</icon>
                 <thumb>$INFO[Skin.String(MainMenuCustom.2BG)]</thumb>
                 <property name="MenuIcon">$INFO[Skin.String(MainMenuCustom.2.Icon)]</property>
             </item>
@@ -128,7 +129,7 @@
                 <onclick condition="Stringcompare(Skin.String(MainMenuCustom.3.Type),Favourite)">$INFO[Skin.String(MainMenuCustom.3.Path)]</onclick>
                 <onclick condition="Stringcompare(Skin.String(MainMenuCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(MainMenuCustom.3.Path)])</onclick>
                 <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.3Button) + !IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))</visible>
-                <icon>special://skin/backgrounds/videos.jpg</icon>
+                <icon>$INFO[Skin.String(MainMenuCustom.3.Fanart)]</icon>
                 <thumb>$INFO[Skin.String(MainMenuCustom.3BG)]</thumb>
                 <property name="MenuIcon">$INFO[Skin.String(MainMenuCustom.3.Icon)]</property>
             </item>

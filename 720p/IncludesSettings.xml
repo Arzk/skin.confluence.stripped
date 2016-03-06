@@ -197,6 +197,7 @@
         <param name="id4" default="0"/>
         <param name="mainmenuitem"/>
         <param name="number"/>
+        <param name="visible" default="true"/>
         <definition>
             <control type="radiobutton" id="$PARAM[id1]">
                 <description>Enable item $PARAM[number]</description>
@@ -210,6 +211,7 @@
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Icon)</onclick>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
+                <visible>$PARAM[visible]</visible>
             </control>
             <control type="button" id="$PARAM[id2]">
                 <description>Item type</description>
@@ -229,6 +231,7 @@
                 <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
+                <visible>$PARAM[visible]</visible>
             </control>
             <control type="button" id="$PARAM[id3]">
                 <description>Item selection</description>
@@ -248,6 +251,7 @@
                 <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
+                <visible>$PARAM[visible]</visible>
             </control>
             <control type="button" id="$PARAM[id4]">
                 <description>Label</description>
@@ -258,90 +262,17 @@
                 <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled) + [Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)]</visible>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button)</visible>
+                <visible>$PARAM[visible]</visible>
             </control>
         </definition>
     </include>
-    <include name="CustomButtonSelectorHomeCustomItems">
-        <param name="id1" default="0"/>
-        <param name="id2" default="0"/>
-        <param name="id3" default="0"/>
-        <param name="id4" default="0"/>
-        <param name="mainmenuitem"/>
-        <param name="number"/>
-        <definition>
-            <control type="radiobutton" id="$PARAM[id1]">
-                <description>Enable item $PARAM[number]</description>
-                <include>SettingsRadioButtonCommonValues</include>
-                <label>    $LOCALIZE[90020] $PARAM[number]</label>
-                <selected>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</selected>
-                <onclick>Skin.ToggleSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</onclick>
-                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type)</onclick>
-                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path)</onclick>
-                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Icon)</onclick>
-                <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
-                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Type)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Path)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Label))</visible>
 
-            </control>
-            <control type="button" id="$PARAM[id2]">
-                <description>Item type</description>
-                <include>SettingsButtonCommonValues</include>
-                <label>     • $LOCALIZE[90007]</label>
-                <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type)][/COLOR]</label2>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | 
-                                          IsEmpty(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type))">               Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Favourite)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node)">    Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Music Playlist)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Node)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Video Playlist)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">     Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type,Addon)</onclick>
-                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path)</onclick>
-                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Icon)</onclick>
-                <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
-                <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
-                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Type)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Path)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Label))</visible>
-            </control>
-            <control type="button" id="$PARAM[id3]">
-                <description>Item selection</description>
-                <include>SettingsButtonCommonValues</include>
-                <label>     • $LOCALIZE[90008]</label>
-                <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)][/COLOR]</label2>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist)">Skin.SetFile($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,.xsp,special://videoplaylists)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node)">    Skin.SetPath($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,library://video/)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetFile($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,.xsp|.m3u,special://musicplaylists)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">     RunScript(script.favourites,property=$PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number])</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetAddon($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path,xbmc.addon.video,xbmc.addon.audio,xbmc.addon.image,xbmc.addon.executable)</onclick>
-                <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-
-
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist) | 
-                                    Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Video Node) | 
-                                    Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-                <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label,$INFO[system.addontitle(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path))])</onclick>
-
-
-                <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
-                <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
-                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Type)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Path)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Label))</visible>
-            </control>
-            <control type="button" id="$PARAM[id4]">
-                <description>Label</description>
-                <include>SettingsButtonCommonValues</include>
-                <label>     • $LOCALIZE[90011]</label>
-                <label2>[COLOR=selected]$INFO[Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)][/COLOR]</label2>
-                <onclick>Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
-                <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled) + [Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)]</visible>
-                <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
-                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Type)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Path)) + !IsEmpty(Skin.String($PARAM[mainmenuitem].Label))</visible>
-            </control>
-        </definition>
-    </include>
     <include name="CustomHomeButtonSelector">
         <param name="id1" default="0"/>
         <param name="id2" default="0"/>
         <param name="id3" default="0"/>
         <param name="id4" default="0"/>
+        <param name="id5" default="0"/>
         <param name="name"/>
         <param name="menutype"/>
         <param name="number"/>
@@ -373,6 +304,7 @@
                 <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].Path)</onclick>
                 <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].Label)</onclick>
                 <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].Icon)</onclick>
+                <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].IconType)</onclick>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[name].$PARAM[number]Button)</visible>
             </control>
             <control type="button" id="$PARAM[id3]">
@@ -399,6 +331,53 @@
                 <label2>[COLOR=selected]$INFO[Skin.String(MainMenu$PARAM[name].$PARAM[number].Label)][/COLOR]</label2>
                 <onclick>Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Label)</onclick>
                 <visible>!Skin.HasSetting(HomeMenuNo$PARAM[name].$PARAM[number]Button) + [Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Favourite) | Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].Type),Addon)]</visible>
+            </control>
+            <control type="button" id="$PARAM[id5]">
+                <description>Icon Type selector</description>
+                <include>SettingsButtonCommonValues</include>
+                <label> • - $LOCALIZE[19284] $LOCALIZE[564]</label>
+                <label2>[COLOR=selected]$INFO[Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType)][/COLOR]</label2>
+                <onclick>Skin.Reset(MainMenu$PARAM[name].$PARAM[number].Icon)</onclick>
+                <!-- Type toggle -->
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),games) |
+                                          IsEmpty(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType))">         Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,movies)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),movies)">  Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,music)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),music)">   Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,pictures)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),pictures)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,programs)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),programs)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,settings)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),settings)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,tv)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),tv)">      Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,tvshows)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),tvshows)"> Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,videos)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),videos)">  Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,weather)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),weather)"> Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,custom)</onclick>
+                <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),custom)">  Skin.SetString(MainMenu$PARAM[name].$PARAM[number].IconType,games)</onclick>
+
+                <!-- Set Icon if not custom -->
+                <onclick condition="!Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),weather)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Icon,$INFO[Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),icons/,.png])</onclick>
+
+                <!-- Set fanart -->
+<!--Videos  --> <onclick condition="IsEmpty(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType)) |
+                              Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),games) |
+                              Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),tv) |
+                              Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),tvshows)
+                              Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),weather)">       Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Fanart,special://skin/backgrounds/videos.jpg)</onclick>
+<!--Music   --> <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),movies)">  Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Fanart,special://skin/backgrounds/music.jpg)</onclick>
+<!--Pictures--> <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),music)">   Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Fanart,special://skin/backgrounds/pictures.jpg)</onclick>
+<!--Programs--> <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),pictures) |
+                                    Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),custom)">  Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Fanart,special://skin/backgrounds/programs.jpg)</onclick>
+<!--Weather --> <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),videos)">  Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Fanart,special://skin/backgrounds/weather.jpg)</onclick>
+<!--TV      --> <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),settings)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Fanart,special://skin/backgrounds/tv.jpg)</onclick>
+<!--Settings--> <onclick condition="Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),programs)">Skin.SetString(MainMenu$PARAM[name].$PARAM[number].Fanart,special://skin/backgrounds/settings.jpg)</onclick>
+
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[name].$PARAM[number]Button)</visible>
+            </control>
+            <control type="button" id="$PARAM[id6]">
+                <description>Custom Icon selector</description>
+                <include>SettingsButtonCommonValues</include>
+                <label> • - $LOCALIZE[19284]</label>
+                <label2>[COLOR=selected]$INFO[Skin.String(MainMenu$PARAM[name].$PARAM[number].Icon)][/COLOR]</label2>
+                <onclick>Skin.SetImage(MainMenu$PARAM[name].$PARAM[number].Icon)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[name].$PARAM[number]Button) + Stringcompare(Skin.String(MainMenu$PARAM[name].$PARAM[number].IconType),custom)</visible>
             </control>
         </definition>
     </include>

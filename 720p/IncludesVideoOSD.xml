@@ -196,25 +196,25 @@
 					<control type="button">
 						<include>ButtonCommonValues2</include>
 						<label>13395</label>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
+<!--						<onclick>Dialog.Close(VideoOSD,true)</onclick>-->
 						<onclick>Skin.Reset(PlayerControlsSubMenuVisible)</onclick>
-						<onclick>ActivateWindow(123)</onclick>
+						<onclick>ActivateWindow(OSDVideoSettings)</onclick>
 						<visible>Window.IsVisible(FullScreenVideo)</visible>
 					</control>
 					<control type="button">
 						<include>ButtonCommonValues2</include>
 						<label>13396</label>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
+<!--						<onclick>Dialog.Close(VideoOSD,true)</onclick>-->
 						<onclick>Skin.Reset(PlayerControlsSubMenuVisible)</onclick>
-						<onclick>ActivateWindow(124)</onclick>
+						<onclick>ActivateWindow(OSDAudioSettings)</onclick>
 						<visible>Window.IsVisible(FullScreenVideo)</visible>
 					</control>
 					<control type="button">
 						<include>ButtonCommonValues2</include>
 						<label>298</label>
-						<onclick>Dialog.Close(VideoOSD,true)</onclick>
+<!--						<onclick>Dialog.Close(VideoOSD,true)</onclick>-->
 						<onclick>Skin.Reset(PlayerControlsSubMenuVisible)</onclick>
-						<onclick>ActivateWindow(125)</onclick>
+						<onclick>ActivateWindow(VideoBookmarks)</onclick>
 						<visible>Window.IsVisible(FullScreenVideo)</visible>
 					</control>
 					<control type="button">
@@ -228,7 +228,7 @@
 					<control type="button">
 						<include>ButtonCommonValues2</include>
 						<label>250</label>
-						<onclick>Dialog.Close(MusicOSD,true)</onclick>
+<!--						<onclick>Dialog.Close(MusicOSD,true)</onclick>-->
 						<onclick>Skin.Reset(PlayerControlsSubMenuVisible)</onclick>
 						<onclick>Addon.Default.Set(xbmc.player.musicviz)</onclick>
 						<visible>Window.IsVisible(Visualisation)</visible>
@@ -236,7 +236,7 @@
 					<control type="button">
 						<include>ButtonCommonValues2</include>
 						<label>31010</label>
-						<onclick>Dialog.Close(MusicOSD,true)</onclick>
+<!--						<onclick>Dialog.Close(MusicOSD,true)</onclick>-->
 						<onclick>Skin.Reset(PlayerControlsSubMenuVisible)</onclick>
 						<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
 						<visible>Window.IsVisible(Visualisation)</visible>
@@ -244,9 +244,9 @@
 					<control type="button">
 						<include>ButtonCommonValues2</include>
 						<label>31011</label>
-						<onclick>Dialog.Close(MusicOSD,true)</onclick>
+<!--						<onclick>Dialog.Close(MusicOSD,true)</onclick>-->
 						<onclick>Skin.Reset(PlayerControlsSubMenuVisible)</onclick>
-						<onclick>ActivateWindow(122)</onclick>
+						<onclick>ActivateWindow(VisualisationPresetList)</onclick>
 						<visible>Window.IsVisible(Visualisation)</visible>
 					</control>
 				</control>
@@ -321,7 +321,7 @@
 			<defaultcontrol always="true" condition="Skin.HasSetting(KeyboardMode)">202</defaultcontrol>
 			<defaultcontrol always="true" condition="!Skin.HasSetting(KeyboardMode)">250</defaultcontrol>
 			<animation effect="fade" time="200">VisibleChange</animation>
-			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125)]</visible>
+			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks)]</visible>
 			<visible>!VideoPlayer.Content(LiveTV)</visible>
 			<control type="group">
 				<visible>!Skin.HasSetting(TouchMode) + Skin.HasSetting(KeyboardMode) + !Window.IsVisible(107)</visible>
@@ -343,83 +343,83 @@
 				<control type="button" id="201">
 					<posx>37</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31354</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDRewindFO.png</texturefocus>
-	                                <texturenofocus>OSDRewindNF.png</texturenofocus>
-	                                <onleft>200</onleft>
-	                                <onright>202</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Rewind)</onclick>
-	                        </control>
-	                        <control type="togglebutton" id="202">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31354</label>
+                    <font>-</font>
+                    <texturefocus>OSDRewindFO.png</texturefocus>
+                    <texturenofocus>OSDRewindNF.png</texturenofocus>
+                    <onleft>200</onleft>
+                    <onright>202</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Rewind)</onclick>
+                </control>
+                <control type="togglebutton" id="202">
 					<posx>74</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31351</label>
-	                                <altlabel>208</altlabel>
-	                                <font>-</font>
-	                                <texturefocus>OSDPauseFO.png</texturefocus>
-	                                <texturenofocus>OSDPauseNF.png</texturenofocus>
-	                                <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-	                                <alttexturefocus>OSDPlayFO.png</alttexturefocus>
-	                                <alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
-	                                <onleft>201</onleft>
-	                                <onright>203</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Play)</onclick>
-	                        </control>
-	                        <control type="button" id="203">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31351</label>
+                    <altlabel>208</altlabel>
+                    <font>-</font>
+                    <texturefocus>OSDPauseFO.png</texturefocus>
+                    <texturenofocus>OSDPauseNF.png</texturenofocus>
+                    <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+                    <alttexturefocus>OSDPlayFO.png</alttexturefocus>
+                    <alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
+                    <onleft>201</onleft>
+                    <onright>203</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Play)</onclick>
+                </control>
+                <control type="button" id="203">
 					<posx>111</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31352</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDStopFO.png</texturefocus>
-	                                <texturenofocus>OSDStopNF.png</texturenofocus>
-	                                <onleft>202</onleft>
-	                                <onright>204</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Stop)</onclick>
-	                        </control>
-	                        <control type="button" id="204">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31352</label>
+                    <font>-</font>
+                    <texturefocus>OSDStopFO.png</texturefocus>
+                    <texturenofocus>OSDStopNF.png</texturenofocus>
+                    <onleft>202</onleft>
+                    <onright>204</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Stop)</onclick>
+                </control>
+                <control type="button" id="204">
 					<posx>148</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31353</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDForwardFO.png</texturefocus>
-	                                <texturenofocus>OSDForwardNF.png</texturenofocus>
-	                                <onleft>203</onleft>
-	                                <onright>205</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Forward)</onclick>
-	                        </control>
-	                        <control type="button" id="205">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31353</label>
+                    <font>-</font>
+                    <texturefocus>OSDForwardFO.png</texturefocus>
+                    <texturenofocus>OSDForwardNF.png</texturenofocus>
+                    <onleft>203</onleft>
+                    <onright>205</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Forward)</onclick>
+                </control>
+                <control type="button" id="205">
 					<posx>185</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>209</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDNextTrackFO.png</texturefocus>
-	                                <texturenofocus>OSDNextTrackNF.png</texturenofocus>
-	                                <onleft>204</onleft>
-	                                <onright>705</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Next)</onclick>
-	                        </control>
-                        </control>
+                    <width>35</width>
+                    <height>35</height>
+                    <label>209</label>
+                    <font>-</font>
+                    <texturefocus>OSDNextTrackFO.png</texturefocus>
+                    <texturenofocus>OSDNextTrackNF.png</texturenofocus>
+                    <onleft>204</onleft>
+                    <onright>705</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Next)</onclick>
+                </control>
+            </control>
 			<control type="button" id="705">
 				<posx>205r</posx>
 				<posy>0</posy>
@@ -435,40 +435,40 @@
 				<ondown>1000</ondown>
 				<onclick>PlayerControl(ShowVideoMenu)</onclick>
 				<enable>VideoPlayer.HasMenu</enable>
-	                        <animation effect="slide" start="0,0" end="37,0" time="0" condition="!VideoPlayer.IsStereoscopic">conditional</animation>
-                                <animation effect="fade" start="100" end="50" time="100" condition="!VideoPlayer.HasMenu">Conditional</animation>
+                <animation effect="slide" start="0,0" end="37,0" time="0" condition="!VideoPlayer.IsStereoscopic">conditional</animation>
+                <animation effect="fade" start="100" end="50" time="100" condition="!VideoPlayer.HasMenu">Conditional</animation>
 			</control>
-                        <control type="button" id="255">
+                <control type="button" id="255">
 				<posx>168r</posx>
 				<posy>0</posy>
-                                <visible>VideoPlayer.IsStereoscopic</visible>
-                                <width>35</width>
-                                <height>35</height>
-                                <label>36501</label>
-                                <font>-</font>
-                                <texturefocus>OSDStereoscopicFO.png</texturefocus>
-                                <texturenofocus>OSDStereoscopicNF.png</texturenofocus>
-                                <onleft>705</onleft>
-                                <onright>250</onright>
-                                <onup>501</onup>
-                                <ondown>1000</ondown>
-                        </control>
-                        <control type="button" id="250">
+                <visible>VideoPlayer.IsStereoscopic</visible>
+                <width>35</width>
+                <height>35</height>
+                <label>36501</label>
+                <font>-</font>
+                <texturefocus>OSDStereoscopicFO.png</texturefocus>
+                <texturenofocus>OSDStereoscopicNF.png</texturenofocus>
+                <onleft>705</onleft>
+                <onright>250</onright>
+                <onup>501</onup>
+                <ondown>1000</ondown>
+            </control>
+            <control type="button" id="250">
 				<posx>131r</posx>
 				<posy>0</posy>
-                                <width>35</width>
-                                <height>35</height>
-                                <label>31356</label>
-                                <font>-</font>
-                                <texturefocus>OSDSubtitlesFO.png</texturefocus>
-                                <texturenofocus>OSDSubtitlesNF.png</texturenofocus>
-                                <onleft>255</onleft>
-                                <onright>702</onright>
-                                <onup>1000</onup>
-                                <ondown>1000</ondown>
-                                <onclick>ActivateWindow(SubtitleSearch)</onclick>
-                                <onclick>Dialog.Close(VideoOSD)</onclick>
-                        </control>
+                <width>35</width>
+                <height>35</height>
+                <label>31356</label>
+                <font>-</font>
+                <texturefocus>OSDSubtitlesFO.png</texturefocus>
+                <texturenofocus>OSDSubtitlesNF.png</texturenofocus>
+                <onleft>255</onleft>
+                <onright>702</onright>
+                <onup>1000</onup>
+                <ondown>1000</ondown>
+                <onclick>ActivateWindow(SubtitleSearch)</onclick>
+                <onclick>Dialog.Close(VideoOSD)</onclick>
+            </control>
 			<control type="button" id="702">
 				<posx>94r</posx>
 				<posy>0</posy>
@@ -505,182 +505,182 @@
 		<control type="group" id="100">
 			<posx>501r</posx>
 			<posy>65r</posy>
-                        <defaultcontrol always="true" condition="Skin.HasSetting(KeyboardMode)">303</defaultcontrol>
-                        <defaultcontrol always="true" condition="!Skin.HasSetting(KeyboardMode)">604</defaultcontrol>
-                        <animation effect="fade" time="200">VisibleChange</animation>
-			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>
+            <defaultcontrol always="true" condition="Skin.HasSetting(KeyboardMode)">303</defaultcontrol>
+            <defaultcontrol always="true" condition="!Skin.HasSetting(KeyboardMode)">604</defaultcontrol>
+            <animation effect="fade" time="200">VisibleChange</animation>
+			<visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>
 			<visible>VideoPlayer.Content(LiveTV)</visible>
 			<control type="group">
 				<visible>!Skin.HasSetting(TouchMode) + Skin.HasSetting(KeyboardMode) + !Window.IsVisible(107)</visible>
-	                        <control type="button" id="300">
+                <control type="button" id="300">
 					<posx>0</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>210</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDChannelUPFO.png</texturefocus>
-	                                <texturenofocus>OSDChannelUPNF.png</texturenofocus>
-	                                <onleft>353</onleft>
-	                                <onright>301</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Previous)</onclick>
-	                        </control>
-	                        <control type="button" id="301">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>210</label>
+                    <font>-</font>
+                    <texturefocus>OSDChannelUPFO.png</texturefocus>
+                    <texturenofocus>OSDChannelUPNF.png</texturenofocus>
+                    <onleft>353</onleft>
+                    <onright>301</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Previous)</onclick>
+                </control>
+                <control type="button" id="301">
 					<posx>37</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31354</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDChannelDownFO.png</texturefocus>
-	                                <texturenofocus>OSDChannelDownNF.png</texturenofocus>
-	                                <onleft>300</onleft>
-	                                <onright>302</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Next)</onclick>
-	                        </control>
-	                        <control type="button" id="302">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31354</label>
+                    <font>-</font>
+                    <texturefocus>OSDChannelDownFO.png</texturefocus>
+                    <texturenofocus>OSDChannelDownNF.png</texturenofocus>
+                    <onleft>300</onleft>
+                    <onright>302</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Next)</onclick>
+                </control>
+                <control type="button" id="302">
 					<posx>74</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31354</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDRewindFO.png</texturefocus>
-	                                <texturenofocus>OSDRewindNF.png</texturenofocus>
-	                                <onleft>301</onleft>
-	                                <onright>303</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Rewind)</onclick>
-	                                <enable>Player.SeekEnabled</enable>
-	                                <animation effect="fade" start="100" end="50" time="100" condition="!Player.SeekEnabled">Conditional</animation>
-	                        </control>
-	                        <control type="togglebutton" id="303">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31354</label>
+                    <font>-</font>
+                    <texturefocus>OSDRewindFO.png</texturefocus>
+                    <texturenofocus>OSDRewindNF.png</texturenofocus>
+                    <onleft>301</onleft>
+                    <onright>303</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Rewind)</onclick>
+                    <enable>Player.SeekEnabled</enable>
+                    <animation effect="fade" start="100" end="50" time="100" condition="!Player.SeekEnabled">Conditional</animation>
+                </control>
+                <control type="togglebutton" id="303">
 					<posx>111</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31351</label>
-	                                <altlabel>208</altlabel>
-	                                <font>-</font>
-	                                <texturefocus>OSDPauseFO.png</texturefocus>
-	                                <texturenofocus>OSDPauseNF.png</texturenofocus>
-	                                <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-	                                <alttexturefocus>OSDPlayFO.png</alttexturefocus>
-	                                <alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
-	                                <onleft>302</onleft>
-	                                <onright>304</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Play)</onclick>
-	                                <enable>Player.PauseEnabled</enable>
-	                                <animation effect="fade" start="100" end="50" time="100" condition="!Player.PauseEnabled">Conditional</animation>
-	                        </control>
-	                        <control type="button" id="304">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31351</label>
+                    <altlabel>208</altlabel>
+                    <font>-</font>
+                    <texturefocus>OSDPauseFO.png</texturefocus>
+                    <texturenofocus>OSDPauseNF.png</texturenofocus>
+                    <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+                    <alttexturefocus>OSDPlayFO.png</alttexturefocus>
+                    <alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
+                    <onleft>302</onleft>
+                    <onright>304</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Play)</onclick>
+                    <enable>Player.PauseEnabled</enable>
+                    <animation effect="fade" start="100" end="50" time="100" condition="!Player.PauseEnabled">Conditional</animation>
+                </control>
+                <control type="button" id="304">
 					<posx>148</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31351</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDStopFO.png</texturefocus>
-	                                <texturenofocus>OSDStopNF.png</texturenofocus>
-	                                <onleft>303</onleft>
-	                                <onright>305</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Stop)</onclick>
-	                        </control>
-	                        <control type="button" id="305">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31351</label>
+                    <font>-</font>
+                    <texturefocus>OSDStopFO.png</texturefocus>
+                    <texturenofocus>OSDStopNF.png</texturenofocus>
+                    <onleft>303</onleft>
+                    <onright>305</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Stop)</onclick>
+                </control>
+                <control type="button" id="305">
 					<posx>185</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31353</label>
-	                                <font>-</font>
-	                                <texturefocus>OSDForwardFO.png</texturefocus>
-	                                <texturenofocus>OSDForwardNF.png</texturenofocus>
-	                                <onleft>304</onleft>
-	                                <onright>353</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Forward)</onclick>
-	                                <enable>Player.SeekEnabled</enable>
-	                                <animation effect="fade" start="100" end="50" time="100" condition="!Player.SeekEnabled">Conditional</animation>
-	                        </control>
-	                        <control type="togglebutton" id="353">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31353</label>
+                    <font>-</font>
+                    <texturefocus>OSDForwardFO.png</texturefocus>
+                    <texturenofocus>OSDForwardNF.png</texturenofocus>
+                    <onleft>304</onleft>
+                    <onright>353</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Forward)</onclick>
+                    <enable>Player.SeekEnabled</enable>
+                    <animation effect="fade" start="100" end="50" time="100" condition="!Player.SeekEnabled">Conditional</animation>
+                </control>
+                <control type="togglebutton" id="353">
 					<posx>222</posx>
 					<posy>0</posy>
-	                                <width>35</width>
-	                                <height>35</height>
-	                                <label>31351</label>
-	                                <altlabel>208</altlabel>
-	                                <font>-</font>
-	                                <texturefocus>OSDRecordOffFO.png</texturefocus>
-	                                <texturenofocus>OSDRecordOffNF.png</texturenofocus>
-	                                <usealttexture>Player.Recording</usealttexture>
-	                                <alttexturefocus>OSDRecordOnFO.png</alttexturefocus>
-	                                <alttexturenofocus>OSDRecordOnNF.png</alttexturenofocus>
-	                                <onleft>305</onleft>
-	                                <onright>354</onright>
-	                                <onup>1000</onup>
-	                                <ondown>1000</ondown>
-	                                <onclick>PlayerControl(Record)</onclick>
-	                                <enable>Player.CanRecord</enable>
-	                                <animation effect="fade" start="100" end="50" time="100" condition="!Player.CanRecord">Conditional</animation>
-	                        </control>
-                        </control>
-                        <control type="button" id="354">
+                    <width>35</width>
+                    <height>35</height>
+                    <label>31351</label>
+                    <altlabel>208</altlabel>
+                    <font>-</font>
+                    <texturefocus>OSDRecordOffFO.png</texturefocus>
+                    <texturenofocus>OSDRecordOffNF.png</texturenofocus>
+                    <usealttexture>Player.Recording</usealttexture>
+                    <alttexturefocus>OSDRecordOnFO.png</alttexturefocus>
+                    <alttexturenofocus>OSDRecordOnNF.png</alttexturenofocus>
+                    <onleft>305</onleft>
+                    <onright>354</onright>
+                    <onup>1000</onup>
+                    <ondown>1000</ondown>
+                    <onclick>PlayerControl(Record)</onclick>
+                    <enable>Player.CanRecord</enable>
+                    <animation effect="fade" start="100" end="50" time="100" condition="!Player.CanRecord">Conditional</animation>
+                </control>
+            </control>
+            <control type="button" id="354">
 				<posx>205r</posx>
 				<posy>0</posy>
-                                <visible>VideoPlayer.IsStereoscopic</visible>
-                                <width>35</width>
-                                <height>35</height>
-                                <label>36501</label>
-                                <font>-</font>
-                                <texturefocus>OSDStereoscopicFO.png</texturefocus>
-                                <texturenofocus>OSDStereoscopicNF.png</texturenofocus>
-                                <onleft>353</onleft>
-                                <onright>604</onright>
-                                <onup>551</onup>
-                                <ondown>1000</ondown>
-                        </control>
-                        <control type="button" id="604">
-				<posx>168r</posx>
-				<posy>0</posy>
-                                <width>35</width>
-                                <height>35</height>
-                                <label>19019</label>
-                                <font>-</font>
-                                <texturefocus>OSDChannelListFO.png</texturefocus>
-                                <texturenofocus>OSDChannelListNF.png</texturenofocus>
-                                <onleft>354</onleft>
-                                <onright>605</onright>
-                                <onup>1000</onup>
-                                <ondown>1000</ondown>
-                                <onclick>ActivateWindow(PVROSDChannels)</onclick>
-                                <onclick>Dialog.Close(VideoOSD)</onclick>
-                        </control>
-                        <control type="button" id="605">
-				<posx>131r</posx>
-				<posy>0</posy>
-                                <width>35</width>
-                                <height>35</height>
-                                <label>$LOCALIZE[19029]$INFO[VideoPlayer.ChannelName, - ]</label>
-                                <font>-</font>
-                                <texturefocus>OSDepgFO.png</texturefocus>
-                                <texturenofocus>OSDepgNF.png</texturenofocus>
-                                <onleft>604</onleft>
-                                <onright>702</onright>
-                                <onup>1000</onup>
-                                <ondown>1000</ondown>
-                                <onclick>ActivateWindow(PVROSDGuide)</onclick>
-                                <onclick>Dialog.Close(VideoOSD)</onclick>
-                        </control>
+                <visible>VideoPlayer.IsStereoscopic</visible>
+                <width>35</width>
+                <height>35</height>
+                <label>36501</label>
+                <font>-</font>
+                <texturefocus>OSDStereoscopicFO.png</texturefocus>
+                <texturenofocus>OSDStereoscopicNF.png</texturenofocus>
+                <onleft>353</onleft>
+                <onright>604</onright>
+                <onup>551</onup>
+                <ondown>1000</ondown>
+            </control>
+            <control type="button" id="604">
+                <posx>168r</posx>
+                <posy>0</posy>
+                <width>35</width>
+                <height>35</height>
+                <label>19019</label>
+                <font>-</font>
+                <texturefocus>OSDChannelListFO.png</texturefocus>
+                <texturenofocus>OSDChannelListNF.png</texturenofocus>
+                <onleft>354</onleft>
+                <onright>605</onright>
+                <onup>1000</onup>
+                <ondown>1000</ondown>
+                <onclick>ActivateWindow(PVROSDChannels)</onclick>
+                <onclick>Dialog.Close(VideoOSD)</onclick>
+            </control>
+            <control type="button" id="605">
+                <posx>131r</posx>
+                <posy>0</posy>
+                <width>35</width>
+                <height>35</height>
+                <label>$LOCALIZE[19029]$INFO[VideoPlayer.ChannelName, - ]</label>
+                <font>-</font>
+                <texturefocus>OSDepgFO.png</texturefocus>
+                <texturenofocus>OSDepgNF.png</texturenofocus>
+                <onleft>604</onleft>
+                <onright>702</onright>
+                <onup>1000</onup>
+                <ondown>1000</ondown>
+                <onclick>ActivateWindow(PVROSDGuide)</onclick>
+                <onclick>Dialog.Close(VideoOSD)</onclick>
+            </control>
 			<control type="button" id="702">
 				<posx>94r</posx>
 				<posy>0</posy>
@@ -713,193 +713,193 @@
 			</control>
 		</control>
 
-                <!-- STEREOSCOPIC 3D !LiveTV -->
-                <control type="button" id="520">
-                        <description>Fake button for mouse control</description>
-                        <right>20</right>
-                        <bottom>15</bottom>
-                        <width>256</width>
-                        <height>210</height>
-                        <label>-</label>
-                        <font>-</font>
-                        <texturenofocus>-</texturenofocus>
-                        <texturefocus>-</texturefocus>
-                        <visible>Control.HasFocus(520) | Control.HasFocus(255) | ControlGroup(500).HasFocus</visible>
+        <!-- STEREOSCOPIC 3D !LiveTV -->
+        <control type="button" id="520">
+            <description>Fake button for mouse control</description>
+            <right>20</right>
+            <bottom>15</bottom>
+            <width>256</width>
+            <height>210</height>
+            <label>-</label>
+            <font>-</font>
+            <texturenofocus>-</texturenofocus>
+            <texturefocus>-</texturefocus>
+            <visible>Control.HasFocus(520) | Control.HasFocus(255) | ControlGroup(500).HasFocus</visible>
+        </control>
+        <control type="grouplist" id="500">
+            <visible>VideoPlayer.IsStereoscopic + ![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
+            <animation effect="fade" time="200">VisibleChange</animation>
+            <right>20</right>
+            <bottom>15</bottom>
+            <width>256</width>
+            <height>220</height>
+            <itemgap>0</itemgap>
+            <onleft>500</onleft>
+            <onright>500</onright>
+            <onup>255</onup>
+            <ondown>255</ondown>
+            <orientation>vertical</orientation>
+            <visible>Control.HasFocus(255) | ControlGroup(500).HasFocus | Control.HasFocus(520)</visible>
+            <include>VisibleFadeEffect</include>
+            <control type="group">
+                <description>Header</description>
+                <width>256</width>
+                <height>20</height>
+                <control type="image">
+                    <description>Header</description>
+                    <left>0</left>
+                    <top>0</top>
+                    <width>256</width>
+                    <height>20</height>
+                    <texture border="20,18,20,0">DialogContextTop.png</texture>
                 </control>
-                <control type="grouplist" id="500">
-                        <visible>VideoPlayer.IsStereoscopic + ![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
-                        <animation effect="fade" time="200">VisibleChange</animation>
-                        <right>20</right>
-                        <bottom>15</bottom>
-                        <width>256</width>
-                        <height>220</height>
-                        <itemgap>0</itemgap>
-                        <onleft>500</onleft>
-                        <onright>500</onright>
-                        <onup>255</onup>
-                        <ondown>255</ondown>
-                        <orientation>vertical</orientation>
-                        <visible>Control.HasFocus(255) | ControlGroup(500).HasFocus | Control.HasFocus(520)</visible>
-                        <include>VisibleFadeEffect</include>
-                        <control type="group">
-                                <description>Header</description>
-                                <width>256</width>
-                                <height>20</height>
-                                <control type="image">
-                                        <description>Header</description>
-                                        <left>0</left>
-                                        <top>0</top>
-                                        <width>256</width>
-                                        <height>20</height>
-                                        <texture border="20,18,20,0">DialogContextTop.png</texture>
-                                </control>
-                        </control>
-                        <control type="radiobutton" id="503">
-                                <height>30</height>
-                                <width>256</width>
-                                <textoffsetx>30</textoffsetx>
-                                <aligny>center</aligny>
-                                <font>font12</font>
-                                <label>31362</label>
-                                <radioposx>200</radioposx>
-                                <textcolor>grey2</textcolor>
-                                <selectedcolor>white</selectedcolor>
-                                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
-                                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
-                                <onclick>ToggleStereoMode</onclick>
-                                <selected>IntegerGreaterThan(System.StereoscopicMode,0)</selected>
-                                <pulseonselect>false</pulseonselect>
-                        </control>
-                        <control type="button" id="502">
-                                <height>30</height>
-                                <width>256</width>
-                                <aligny>center</aligny>
-                                <font>font12</font>
-                                <textoffsetx>30</textoffsetx>
-                                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
-                                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
-                                <pulseonselect>false</pulseonselect>
-                                <label>31361</label>
-                                <textcolor>grey2</textcolor>
-                                <selectedcolor>white</selectedcolor>
-                                <onclick>StereoMode</onclick>
-                        </control>
-                        <control type="radiobutton" id="501">
-                                <height>30</height>
-                                <width>256</width>
-                                <textoffsetx>30</textoffsetx>
-                                <aligny>center</aligny>
-                                <font>font12</font>
-                                <label>31360</label>
-                                <textcolor>grey2</textcolor>
-                                <selectedcolor>white</selectedcolor>
-                                <radioposx>200</radioposx>
-                                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
-                                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
-                                <onclick>StereoModeToMono</onclick>
-                                <selected>StringCompare(System.StereoscopicMode,7)</selected>
-                                <pulseonselect>false</pulseonselect>
-                        </control>
-                        <control type="image" id="549">
-                                <description>Footer</description>
-                                <width>256</width>
-                                <height>52</height>
-                                <texture border="20,0,20,20">DialogContextBottom.png</texture>
-                        </control>
+            </control>
+            <control type="radiobutton" id="503">
+                <height>30</height>
+                <width>256</width>
+                <textoffsetx>30</textoffsetx>
+                <aligny>center</aligny>
+                <font>font12</font>
+                <label>31362</label>
+                <radioposx>200</radioposx>
+                <textcolor>grey2</textcolor>
+                <selectedcolor>white</selectedcolor>
+                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
+                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
+                <onclick>ToggleStereoMode</onclick>
+                <selected>IntegerGreaterThan(System.StereoscopicMode,0)</selected>
+                <pulseonselect>false</pulseonselect>
+            </control>
+            <control type="button" id="502">
+                <height>30</height>
+                <width>256</width>
+                <aligny>center</aligny>
+                <font>font12</font>
+                <textoffsetx>30</textoffsetx>
+                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
+                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
+                <pulseonselect>false</pulseonselect>
+                <label>31361</label>
+                <textcolor>grey2</textcolor>
+                <selectedcolor>white</selectedcolor>
+                <onclick>StereoMode</onclick>
+            </control>
+            <control type="radiobutton" id="501">
+                <height>30</height>
+                <width>256</width>
+                <textoffsetx>30</textoffsetx>
+                <aligny>center</aligny>
+                <font>font12</font>
+                <label>31360</label>
+                <textcolor>grey2</textcolor>
+                <selectedcolor>white</selectedcolor>
+                <radioposx>200</radioposx>
+                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
+                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
+                <onclick>StereoModeToMono</onclick>
+                <selected>StringCompare(System.StereoscopicMode,7)</selected>
+                <pulseonselect>false</pulseonselect>
+            </control>
+            <control type="image" id="549">
+                <description>Footer</description>
+                <width>256</width>
+                <height>52</height>
+                <texture border="20,0,20,20">DialogContextBottom.png</texture>
+            </control>
+        </control>
+        <!-- STEREOSCOPIC 3D LiveTV -->
+        <control type="button" id="570">
+            <description>Fake button for mouse control</description>
+            <right>20</right>
+            <bottom>15</bottom>
+            <width>256</width>
+            <height>210</height>
+            <label>-</label>
+            <font>-</font>
+            <texturenofocus>-</texturenofocus>
+            <texturefocus>-</texturefocus>
+            <visible>Control.HasFocus(570) | Control.HasFocus(354) | ControlGroup(550).HasFocus</visible>
+        </control>
+        <control type="grouplist" id="550">
+            <visible>videoplayer.isstereoscopic + ![Window.IsVisible(SliderDialog)]</visible>
+            <animation effect="fade" time="200">VisibleChange</animation>
+            <right>20</right>
+            <bottom>15</bottom>
+            <width>256</width>
+            <height>220</height>
+            <itemgap>0</itemgap>
+            <onleft>550</onleft>
+            <onright>550</onright>
+            <onup>354</onup>
+            <ondown>354</ondown>
+            <orientation>vertical</orientation>
+            <visible>Control.HasFocus(354) | ControlGroup(550).HasFocus | Control.HasFocus(570)</visible>
+            <include>VisibleFadeEffect</include>
+            <control type="group">
+                <description>Header</description>
+                <width>256</width>
+                <height>20</height>
+                <control type="image">
+                    <description>Header</description>
+                    <left>0</left>
+                    <top>0</top>
+                    <width>256</width>
+                    <height>20</height>
+                    <texture border="20,18,20,0">DialogContextTop.png</texture>
                 </control>
-                <!-- STEREOSCOPIC 3D LiveTV -->
-                <control type="button" id="570">
-                        <description>Fake button for mouse control</description>
-                        <right>20</right>
-                        <bottom>15</bottom>
-                        <width>256</width>
-                        <height>210</height>
-                        <label>-</label>
-                        <font>-</font>
-                        <texturenofocus>-</texturenofocus>
-                        <texturefocus>-</texturefocus>
-                        <visible>Control.HasFocus(570) | Control.HasFocus(354) | ControlGroup(550).HasFocus</visible>
-                </control>
-                <control type="grouplist" id="550">
-                        <visible>videoplayer.isstereoscopic + ![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>
-                        <animation effect="fade" time="200">VisibleChange</animation>
-                        <right>20</right>
-                        <bottom>15</bottom>
-                        <width>256</width>
-                        <height>220</height>
-                        <itemgap>0</itemgap>
-                        <onleft>550</onleft>
-                        <onright>550</onright>
-                        <onup>354</onup>
-                        <ondown>354</ondown>
-                        <orientation>vertical</orientation>
-                        <visible>Control.HasFocus(354) | ControlGroup(550).HasFocus | Control.HasFocus(570)</visible>
-                        <include>VisibleFadeEffect</include>
-                        <control type="group">
-                                <description>Header</description>
-                                <width>256</width>
-                                <height>20</height>
-                                <control type="image">
-                                        <description>Header</description>
-                                        <left>0</left>
-                                        <top>0</top>
-                                        <width>256</width>
-                                        <height>20</height>
-                                        <texture border="20,18,20,0">DialogContextTop.png</texture>
-                                </control>
-                        </control>
-                        <control type="radiobutton" id="553">
-                                <height>30</height>
-                                <width>256</width>
-                                <textoffsetx>30</textoffsetx>
-                                <aligny>center</aligny>
-                                <font>font12</font>
-                                <label>31362</label>
-                                <radioposx>200</radioposx>
-                                <textcolor>grey2</textcolor>
-                                <selectedcolor>white</selectedcolor>
-                                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
-                                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
-                                <onclick>ToggleStereoMode</onclick>
-                                <selected>IntegerGreaterThan(System.StereoscopicMode,0)</selected>
-                                <pulseonselect>false</pulseonselect>
-                        </control>
-                        <control type="button" id="552">
-                                <height>30</height>
-                                <width>256</width>
-                                <aligny>center</aligny>
-                                <font>font12</font>
-                                <textoffsetx>30</textoffsetx>
-                                <textcolor>grey2</textcolor>
-                                <selectedcolor>white</selectedcolor>
-                                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
-                                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
-                                <pulseonselect>false</pulseonselect>
-                                <label>31361</label>
-                                <onclick>StereoMode</onclick>
-                        </control>
-                        <control type="radiobutton" id="551">
-                                <height>30</height>
-                                <width>256</width>
-                                <textoffsetx>30</textoffsetx>
-                                <aligny>center</aligny>
-                                <font>font12</font>
-                                <label>31360</label>
-                                <textcolor>grey2</textcolor>
-                                <selectedcolor>white</selectedcolor>
-                                <radioposx>200</radioposx>
-                                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
-                                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
-                                <onclick>StereoModeToMono</onclick>
-                                <selected>StringCompare(System.StereoscopicMode,7)</selected>
-                                <pulseonselect>false</pulseonselect>
-                        </control>
-                        <control type="image" id="599">
-                                <description>Footer</description>
-                                <width>256</width>
-                                <height>52</height>
-                                <texture border="20,0,20,50">DialogContextBottom.png</texture>
-                        </control>
-                </control>
+            </control>
+            <control type="radiobutton" id="553">
+                <height>30</height>
+                <width>256</width>
+                <textoffsetx>30</textoffsetx>
+                <aligny>center</aligny>
+                <font>font12</font>
+                <label>31362</label>
+                <radioposx>200</radioposx>
+                <textcolor>grey2</textcolor>
+                <selectedcolor>white</selectedcolor>
+                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
+                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
+                <onclick>ToggleStereoMode</onclick>
+                <selected>IntegerGreaterThan(System.StereoscopicMode,0)</selected>
+                <pulseonselect>false</pulseonselect>
+            </control>
+            <control type="button" id="552">
+                <height>30</height>
+                <width>256</width>
+                <aligny>center</aligny>
+                <font>font12</font>
+                <textoffsetx>30</textoffsetx>
+                <textcolor>grey2</textcolor>
+                <selectedcolor>white</selectedcolor>
+                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
+                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
+                <pulseonselect>false</pulseonselect>
+                <label>31361</label>
+                <onclick>StereoMode</onclick>
+            </control>
+            <control type="radiobutton" id="551">
+                <height>30</height>
+                <width>256</width>
+                <textoffsetx>30</textoffsetx>
+                <aligny>center</aligny>
+                <font>font12</font>
+                <label>31360</label>
+                <textcolor>grey2</textcolor>
+                <selectedcolor>white</selectedcolor>
+                <radioposx>200</radioposx>
+                <texturefocus border="25,5,25,5">ShutdownButtonFocus.png</texturefocus>
+                <texturenofocus border="25,5,25,5">ShutdownButtonNoFocus.png</texturenofocus>
+                <onclick>StereoModeToMono</onclick>
+                <selected>StringCompare(System.StereoscopicMode,7)</selected>
+                <pulseonselect>false</pulseonselect>
+            </control>
+            <control type="image" id="599">
+                <description>Footer</description>
+                <width>256</width>
+                <height>52</height>
+                <texture border="20,0,20,50">DialogContextBottom.png</texture>
+            </control>
+        </control>
 	</include>
 </includes>

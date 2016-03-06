@@ -36,11 +36,14 @@
         <param name="menutype"/>
         <param name="menuitemnumber"/>
         <param name="menuname"/>
+        <param name="touch" default=""/>
+        <param name="visible" default="true"/>
         <definition>
             <control type="grouplist" id="$PARAM[id]">    
-                <include>Home$PARAM[menutype]CommonValues</include>
+                <include>Home$PARAM[menutype]$PARAM[touch]CommonValues</include>
                 <onleft>$PARAM[id]</onleft>
                 <onright>$PARAM[id]</onright>
+                <visible>$PARAM[visible]</visible>
                 <visible>Container(9900).HasFocus($PARAM[menuitemnumber])</visible>
                 <include condition="!Skin.HasSetting(No$PARAM[menuname]$PARAM[menutype])">Home$PARAM[menutype]$PARAM[menuname]</include> <!-- Buttons for the grouplist -->
             </control>
@@ -2009,90 +2012,105 @@
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="2"/>
                 <param name="menuname"       value="Videos"/>
+                <param name="visible"        value="True"/>
             </include>
             <include name="SubMenu"> <!-- Movies SubMenu -->
                 <param name="id"             value="9016"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="10"/>
                 <param name="menuname"       value="Movies"/>
+                <param name="visible"        value="True"/>
             </include>
             <include name="SubMenu"> <!-- TV Shows SubMenu -->
                 <param name="id"             value="9016"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="11"/>
                 <param name="menuname"       value="TVShows"/>
+                <param name="visible"        value="True"/>
             </include>
             <include name="SubMenu"> <!-- Music SubMenu -->
                 <param name="id"             value="9017"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="3"/>
                 <param name="menuname"       value="Music"/>
+                <param name="visible"        value="True"/>
             </include>            
             <include name="SubMenu"> <!-- MusicVideos SubMenu -->
                 <param name="id"             value="9017"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="17"/>
                 <param name="menuname"       value="MusicVideos"/>
+                <param name="visible"        value="True"/>
             </include>            
             <include name="SubMenu"> <!-- System SubMenu -->
                 <param name="id"             value="9012"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="5"/>
                 <param name="menuname"       value="System"/>
+                <param name="visible"        value="True"/>
             </include>
             <include name="SubMenu"> <!-- Disc SubMenu -->
                 <param name="id"             value="9013"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="6"/>
                 <param name="menuname"       value="Disc"/>
+                <param name="visible"        value="True"/>
             </include>
             <include name="SubMenu"> <!-- LiveTV SubMenu -->
                 <param name="id"             value="9014"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="12"/>
-                <param name="menuname"       value="LiveTV"/>
+                <param name="menuname"       value="PVR"/>
+                <param name="visible"        value="True"/>
             </include>         
             <include name="SubMenu"> <!-- Pictures SubMenu -->
                 <param name="id"             value="9015"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="4"/>
                 <param name="menuname"       value="Pictures"/>
+                <param name="visible"        value="True"/>
             </include>            
             <include name="SubMenu"> <!-- Weather SubMenu -->
                 <param name="id"             value="9019"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="7"/>
                 <param name="menuname"       value="Weather"/>
+                <param name="visible"        value="True"/>
             </include>            
             <include name="SubMenu"> <!-- Programs SubMenu -->
                 <param name="id"             value="9018"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="1"/>
                 <param name="menuname"       value="Programs"/>
+                <param name="visible"        value="True"/>
             </include>
             <include name="SubMenu"> <!-- Games SubMenu -->
                 <param name="id"             value="9018"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="13"/>
                 <param name="menuname"       value="Games"/>
+                <param name="visible"        value="True"/>
             </include>
             <include name="SubMenu"> <!-- Custom1 SubMenu -->
                 <param name="id"             value="9021"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="14"/>
                 <param name="menuname"       value="MainMenuCustom.1"/>
+                <param name="visible"        value="True"/>
             </include>            
             <include name="SubMenu"> <!-- Custom2 SubMenu -->
                 <param name="id"             value="9022"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="15"/>
                 <param name="menuname"       value="MainMenuCustom.2"/>
+                <param name="visible"        value="True"/>
             </include>            
-            <include name="SubMenu"> <!-- Custom2 SubMenu -->
+            <include name="SubMenu"> <!-- Custom3 SubMenu -->
                 <param name="id"             value="9023"/>
                 <param name="menutype"       value="SubMenu"/>
                 <param name="menuitemnumber" value="16"/>
                 <param name="menuname"       value="MainMenuCustom.3"/>
+                <param name="visible"        value="True"/>
             </include>            
         </control>
         <control type="group" id="9004">
@@ -2190,7 +2208,7 @@
                 <param name="menutype"       value="CustomMenu"/>
                 <param name="menuitemnumber" value="16"/>
                 <param name="menuname"       value="MainMenuCustom.3"/>
-            </include>            
+            </include>
         </control>
         <control type="group" id="9002">
             <onup condition="!Skin.HasSetting(CustomMenuFirst)">9001</onup>
@@ -2222,18 +2240,6 @@
                 <param name="menutype"       value="AddonMenu"/>
                 <param name="menuitemnumber" value="3"/>
                 <param name="menuname"       value="Music"/>
-            </include>            
-            <include name="SubMenu"> <!-- System Addon Menu -->
-                <param name="id"             value="6690"/>
-                <param name="menutype"       value="AddonMenu"/>
-                <param name="menuitemnumber" value="5"/>
-                <param name="menuname"       value="System"/>
-            </include>
-            <include name="SubMenu"> <!-- Disc Addon Menu -->
-                <param name="id"             value="6660"/>
-                <param name="menutype"       value="AddonMenu"/>
-                <param name="menuitemnumber" value="6"/>
-                <param name="menuname"       value="Disc"/>
             </include>
             <include name="SubMenu"> <!-- LiveTV Addon Menu -->
                 <param name="id"             value="6680"/>
@@ -2266,15 +2272,21 @@
             <posx>185</posx>
             <posy>55</posy>
             <visible>Skin.HasSetting(HomeSubMenuVisible)</visible>
-            <visible>Container(9900).HasFocus(2) + !Skin.HasSetting(NoVideosSubmenu) | 
+            <visible>Container(9900).HasFocus(1) + !Skin.HasSetting(NoProgramsSubmenu) |
+             Container(9900).HasFocus(2) + !Skin.HasSetting(NoVideosSubmenu) | 
+             Container(9900).HasFocus(3) + !Skin.HasSetting(NoMusicSubmenu) |
+             Container(9900).HasFocus(4) + !Skin.HasSetting(NoPicturesSubmenu) |  
+             Container(9900).HasFocus(5) + !Skin.HasSetting(NoSystemSubmenu) | 
+             Container(9900).HasFocus(6) + !Skin.HasSetting(NoDiscSubmenu) | 
+             Container(9900).HasFocus(7) + !Skin.HasSetting(NoWeatherSubmenu) | 
             Container(9900).HasFocus(10) + !Skin.HasSetting(NoMoviesSubmenu) | 
             Container(9900).HasFocus(11) + !Skin.HasSetting(NoTVShowsSubmenu) | 
-            Container(9900).HasFocus(3) + !Skin.HasSetting(NoMusicSubmenu) | 
-            Container(9900).HasFocus(5) + !Skin.HasSetting(NoSystemSubmenu) | 
-            Container(9900).HasFocus(6) + !Skin.HasSetting(NoDiscSubmenu) | 
             Container(9900).HasFocus(12) + !Skin.HasSetting(NoPVRSubmenu) | 
-            Container(9900).HasFocus(4) + !Skin.HasSetting(NoPicturesSubmenu) | 
-            Container(9900).HasFocus(1) + !Skin.HasSetting(NoProgramsSubmenu)</visible>
+            Container(9900).HasFocus(13) + !Skin.HasSetting(NoGamesSubmenu) | 
+            Container(9900).HasFocus(14) + !Skin.HasSetting(NoMainMenuCustom.1Submenu) | 
+            Container(9900).HasFocus(15) + !Skin.HasSetting(NoMainMenuCustom.2Submenu) | 
+            Container(9900).HasFocus(16) + !Skin.HasSetting(NoMainMenuCustom.3Submenu) | 
+            Container(9900).HasFocus(17) + !Skin.HasSetting(NoMusicVideoSubmenu) </visible>
             <control type="image">
                 <width>120</width>
                 <height>595</height>
@@ -2306,69 +2318,127 @@
 				<onup>9004</onup>
 				<ondown>9900</ondown>
 				<onback>9900</onback>
-				<control type="grouplist" id="9010">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9010</onup>
-					<onup>9010</onup>
-					<visible>Container(9900).HasFocus(2) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoVideosSubmenu)">HomeSubMenuVideos</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9016">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9016</onup>
-					<onup>9016</onup>
-					<visible>Container(9900).HasFocus(10) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoMoviesSubmenu)">HomeSubMenuMovies</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9017">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9017</onup>
-					<onup>9017</onup>
-					<visible>Container(9900).HasFocus(11) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoTVShowsSubmenu)">HomeSubMenuTVShows</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9011">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9011</onup>
-					<onup>9011</onup>
-					<visible>Container(9900).HasFocus(3) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoMusicSubMenu)">HomeSubMenuMusic</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9012">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9012</onup>
-					<onup>9012</onup>
-					<visible>Container(9900).HasFocus(5) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoSystemSubmenu)">HomeSubMenuSystem</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9013">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9013</onup>
-					<onup>9013</onup>
-					<visible>Container(9900).HasFocus(6) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoDiscSubmenu)">HomeSubMenuDisc</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9014">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9014</onup>
-					<onup>9014</onup>
-					<visible>Container(9900).HasFocus(12) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoPVRSubmenu)">HomeSubMenuLiveTV</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9018">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9013</onup>
-					<onup>9013</onup>
-					<visible>Container(9900).HasFocus(4) + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoPicturesSubmenu)">HomeSubMenuPictures</include> <!-- Buttons for the grouplist -->
-				</control>
-				<control type="grouplist" id="9015">
-					<include>HomeSubMenuTouchCommonValues</include>
-					<onup>9013</onup>
-					<onup>9013</onup>
-					<visible>[Container(9900).HasFocus(1) | Container(9900).HasFocus(13)] + Skin.HasSetting(HomeSubMenuVisible)</visible>
-					<include condition="!Skin.HasSetting(NoProgramsSubmenu)">HomeSubMenuPrograms</include> <!-- Buttons for the grouplist -->
-				</control>
+                <include name="SubMenu"> <!-- Videos SubMenu -->
+                    <param name="id"             value="9010"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="2"/>
+                    <param name="menuname"       value="Videos"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>
+                <include name="SubMenu"> <!-- Movies SubMenu -->
+                    <param name="id"             value="9016"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="10"/>
+                    <param name="menuname"       value="Movies"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>
+                <include name="SubMenu"> <!-- TV Shows SubMenu -->
+                    <param name="id"             value="9016"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="11"/>
+                    <param name="menuname"       value="TVShows"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>
+                <include name="SubMenu"> <!-- Music SubMenu -->
+                    <param name="id"             value="9017"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="3"/>
+                    <param name="menuname"       value="Music"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>            
+                <include name="SubMenu"> <!-- MusicVideos SubMenu -->
+                    <param name="id"             value="9017"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="17"/>
+                    <param name="menuname"       value="MusicVideos"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>            
+                <include name="SubMenu"> <!-- System SubMenu -->
+                    <param name="id"             value="9012"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="5"/>
+                    <param name="menuname"       value="System"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>
+                <include name="SubMenu"> <!-- Disc SubMenu -->
+                    <param name="id"             value="9013"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="6"/>
+                    <param name="menuname"       value="Disc"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>
+                <include name="SubMenu"> <!-- LiveTV SubMenu -->
+                    <param name="id"             value="9014"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="12"/>
+                    <param name="menuname"       value="PVR"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>         
+                <include name="SubMenu"> <!-- Pictures SubMenu -->
+                    <param name="id"             value="9015"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="4"/>
+                    <param name="menuname"       value="Pictures"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>            
+                <include name="SubMenu"> <!-- Weather SubMenu -->
+                    <param name="id"             value="9019"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="7"/>
+                    <param name="menuname"       value="Weather"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>            
+                <include name="SubMenu"> <!-- Programs SubMenu -->
+                    <param name="id"             value="9018"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="1"/>
+                    <param name="menuname"       value="Programs"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>
+                <include name="SubMenu"> <!-- Games SubMenu -->
+                    <param name="id"             value="9018"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="13"/>
+                    <param name="menuname"       value="Games"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>
+                <include name="SubMenu"> <!-- Custom1 SubMenu -->
+                    <param name="id"             value="9021"/>
+                    <param name="menutype"       value="SubMenu"/>
+                    <param name="menuitemnumber" value="14"/>
+                    <param name="menuname"       value="MainMenuCustom.1"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>            
+                <include name="SubMenu"> <!-- Custom2 SubMenu -->
+                    <param name="id"             value="9022"/>
+                    <param name="menutype"       value="SubMenuTouch"/>
+                    <param name="menuitemnumber" value="15"/>
+                    <param name="menuname"       value="MainMenuCustom.2"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>            
+                <include name="SubMenu"> <!-- Custom3 SubMenu -->
+                    <param name="id"             value="9023"/>
+                    <param name="menutype"       value="SubMenuTouch"/>
+                    <param name="menuitemnumber" value="16"/>
+                    <param name="menuname"       value="MainMenuCustom.3"/>
+                    <param name="touch"          value="Touch"/>
+                    <param name="visible"        value="Skin.HasSetting(HomeSubMenuVisible)"/>
+                </include>  
+
 			</control>
 		</control>
     </include>

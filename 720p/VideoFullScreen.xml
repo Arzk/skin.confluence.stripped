@@ -16,47 +16,47 @@
 		</control>
 
 		<control type="group" id="1"> <!-- Media Information-->
-<!--			<visible>[Player.ShowInfo | Window.IsActive(VideoOSD) | Window.IsVisible(107) | [Player.Paused + ![Player.Paused + Player.Caching]]] + ![Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>-->
+<!--			<visible>[Player.ShowInfo | Window.IsActive(VideoOSD) | Window.IsVisible(107) | [Player.Paused + ![Player.Paused + Player.Caching]]] + ![Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]</visible>-->
 			<visible>Player.ShowInfo | Window.IsActive(VideoOSD) | Window.IsVisible(107) | [Player.Paused + Skin.HasSetting(ShowInfoPaused) + !Player.Caching] | [Skin.HasSetting(TouchMode) + Window.IsActive(VideoOSD) + Skin.HasSetting(OSDInfo)]</visible>
                 <animation effect="fade" time="200">VisibleChange</animation>
-	            <control type="group" id="1">
-	                        <visible>Skin.HasSetting(ShowClock) + !Skin.HasSetting(TouchMode)</visible>
-	                        <posx>120r</posx>
-	                        <posy>0</posy>
-	                        <control type="image" id="1">
-	                                <description>time background</description>
-	                                <posx>0</posx>
-	    	                        <posy>0</posy>
-	                                <width>220</width>
-	                                <height>35</height>
-	                                <texture flipx="true" border="32,0,0,0">header.png</texture>
-	                        </control>
-	                        <control type="label" id="1">
-	                                <description>time label</description>
-	                                <posx>30</posx>
-	                                <posy>0</posy>
-	                                <width>70</width>
-	                                <height>28</height>
-	                                <align>left</align>
-	                                <aligny>center</aligny>
-	                                <font>font12</font>
-	                                <textcolor>white</textcolor>
-	                                <label>$INFO[System.Time]</label>
-	                        </control>
+	            <control type="group" id="1"> <!-- Clock -->
+                    <visible>Skin.HasSetting(ShowClock) + !Skin.HasSetting(TouchMode)</visible>
+                    <posx>120r</posx>
+                    <posy>0</posy>
+                    <control type="image" id="1">
+                        <description>time background</description>
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>220</width>
+                        <height>35</height>
+                        <texture flipx="true" border="32,0,0,0">header.png</texture>
+                    </control>
+                    <control type="label" id="1">
+                        <description>time label</description>
+                        <posx>30</posx>
+                        <posy>0</posy>
+                        <width>70</width>
+                        <height>28</height>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <font>font12</font>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[System.Time]</label>
+                    </control>
 	            </control>
-	            <control type="group" id="2">
+	            <control type="group" id="2"> <!-- Plot -->
 	                <posx>0</posx>
 	                <posy>225r</posy>
-				<visible>[Player.ShowInfo | [Skin.HasSetting(TouchMode) + Window.IsActive(VideoOSD) + Skin.HasSetting(VideoOSDInfo)]] + ![Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+                    <visible>[Player.ShowInfo | [Skin.HasSetting(TouchMode) + Window.IsActive(VideoOSD) + Skin.HasSetting(VideoOSDInfo)]] + ![Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
 				<!-- Plot background -->
-		                <control type="image" id="1">
-		                        <posx>-20</posx>
-		                        <posy>0</posy>
-		                        <width>1320</width>
-		                        <height>157</height>
-	                                <texture border="0,5,0,0">ContentPanel.png</texture>
-					<colordiffuse>CCFFFFFF</colordiffuse>			
-		                        <visible>VideoPlayer.Content(LiveTV) | !IsEmpty(VideoPlayer.Plot)</visible>
+                    <control type="image" id="1">
+                        <posx>-20</posx>
+                        <posy>0</posy>
+                        <width>1320</width>
+                        <height>157</height>
+                        <texture border="0,5,0,0">ContentPanel.png</texture>
+                        <colordiffuse>CCFFFFFF</colordiffuse>			
+                        <visible>VideoPlayer.Content(LiveTV) | !IsEmpty(VideoPlayer.Plot)</visible>
 				</control>
 				<!-- Channel icon -->
 				<control type="image" id="1">
@@ -70,50 +70,50 @@
 					<visible>VideoPlayer.Content(LiveTV) + !IsEmpty(Player.Art(thumb))</visible>
 				</control>
 				<!-- Plot with no clearart-->
-	                        <control type="textbox" id="1">
-	                                <description>Plot Label</description>
-	                                <posx>25</posx>
-	                                <posy>10</posy>
-	                                <width>1145</width>
-	                                <height>140</height>
-                                        <align>justify</align>
-	                                <aligny>top</aligny>
+                <control type="textbox" id="1">
+                    <description>Plot Label</description>
+                    <posx>25</posx>
+                    <posy>10</posy>
+                    <width>1145</width>
+                    <height>140</height>
+                    <align>justify</align>
+                    <aligny>top</aligny>
 					<autoscroll delay="3000" time="3000" repeat="5000">!IsEmpty(VideoPlayer.Plot)</autoscroll>
-	                                <font>font12</font>
-	                                <textcolor>white</textcolor>
-		                        <label>$INFO[VideoPlayer.Plot]</label>
+                    <font>font12</font>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[VideoPlayer.Plot]</label>
 					<visible>!Skin.HasSetting(ShowClearArt) | [!VideoPlayer.Content(LiveTV) + IsEmpty(Player.Art(clearart)) + IsEmpty(Player.Art(clearlogo)) + IsEmpty(Player.Art(tvshow.clearart)) + IsEmpty(Player.Art(tvshow.clearlogo))]</visible>
 				</control>
 				<!-- Plot with clearart-->
-	                        <control type="textbox" id="1">
-	                                <description>Plot Label</description>
-	                                <posx>245</posx>
-	                                <posy>10</posy>
-	                                <width>925</width>
-	                                <height>140</height>
-									<align>justify</align>
-	                                <aligny>top</aligny>
+                <control type="textbox" id="1">
+                    <description>Plot Label</description>
+                    <posx>245</posx>
+                    <posy>10</posy>
+                    <width>925</width>
+                    <height>140</height>
+                    <align>justify</align>
+                    <aligny>top</aligny>
 					<autoscroll delay="3000" time="3000" repeat="5000">!IsEmpty(VideoPlayer.Plot)</autoscroll>
-	                                <font>font12</font>
-	                                <textcolor>white</textcolor>
-		                        <label>$INFO[VideoPlayer.Plot]</label>
+                    <font>font12</font>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[VideoPlayer.Plot]</label>
 					<visible>Skin.HasSetting(ShowClearArt) + !VideoPlayer.Content(LiveTV) + ![IsEmpty(Player.Art(clearart)) + IsEmpty(Player.Art(clearlogo)) + IsEmpty(Player.Art(tvshow.clearart)) + IsEmpty(Player.Art(tvshow.clearlogo))]</visible>
 				</control>
 				<!-- Livetv plot-->
                 <control type="textbox" id="1">
 					<description>Plot Label</description>
-	                                <posx>205</posx>
-	                                <posy>10</posy>
-	                                <width>925</width>
-	                                <height>100</height>
-                                        <align>justify</align>
-	                                <aligny>top</aligny>
+                    <posx>205</posx>
+                    <posy>10</posy>
+                    <width>925</width>
+                    <height>100</height>
+                    <align>justify</align>
+                    <aligny>top</aligny>
 					<autoscroll delay="3000" time="3000" repeat="5000">!IsEmpty(VideoPlayer.Plot)</autoscroll>
-	                                <font>font12</font>
-	                                <textcolor>white</textcolor>
-		                        <label>$INFO[VideoPlayer.Plot]</label>
+                    <font>font12</font>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[VideoPlayer.Plot]</label>
 					<visible>VideoPlayer.Content(LiveTV)</visible>
-	                        </control>
+                </control>
 				<control type="label" id="1">
 					<description>LiveTV Info label</description>
 					<posx>205</posx>
@@ -126,11 +126,11 @@
 					<textcolor>grey</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<label>$INFO[VideoPlayer.ChannelNumber,(,)] $INFO[VideoPlayer.ChannelName]</label>
-                	                <visible>VideoPlayer.Content(LiveTV)</visible>
+                    <visible>VideoPlayer.Content(LiveTV)</visible>
 				</control>
             </control>
-				<!--Clearart-->
-			<control type="group" id="2">
+				
+			<control type="group" id="2"> <!--Clearart-->
                 <posx>0</posx>
                 <posy>223r</posy>
 
@@ -143,9 +143,9 @@
 		     	        <animation type="Conditional" condition="Player.ShowInfo">
 		                        <effect type="slide" start="0,0" end="0,-220" time="0" reversible="false" />
 		                </animation>-->
-<!--				<visible>[Player.Paused | Player.ShowInfo] + ![Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>-->
+<!--				<visible>[Player.Paused | Player.ShowInfo] + ![Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>-->
 
-				<visible>[Player.ShowInfo | Skin.HasSetting(TouchMode) + Window.IsActive(VideoOSD) + Skin.HasSetting(OSDInfo)] + ![Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+				<visible>[Player.ShowInfo | Skin.HasSetting(TouchMode) + Window.IsActive(VideoOSD) + Skin.HasSetting(OSDInfo)] + ![Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
 				<control type="image" id="1">
 					<posx>10</posx>
 					<posy>10</posy>
@@ -197,8 +197,7 @@
 					<colordiffuse>99FFFFFF</colordiffuse>			
 					<visible>Skin.HasSetting(ShowStudioLogo) + !VideoPlayer.Content(LiveTV) + !IsEmpty(VideoPlayer.Studio)</visible>
 				</control>-->
-			</control>
-	
+			</control>	
 			<include>FullScreenMediaInfo</include>
 		</control>
 

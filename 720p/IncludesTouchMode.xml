@@ -17,11 +17,27 @@
 			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>			
 			<!-- Home -->
+            
 			<control type="button">
 				<include>ButtonHomeTopBarCommonValues</include>
 				<label>$LOCALIZE[1034]</label>
 				<onclick>Skin.ToggleSetting(HomeSubMenuVisible)</onclick>
 				<selected>Skin.HasSetting(HomeSubMenuVisible)</selected>
+                <visible>Container(9900).HasFocus(1)  + !Skin.HasSetting(NoProgramsSubmenu) |
+                         Container(9900).HasFocus(2)  + !Skin.HasSetting(NoVideosSubmenu) | 
+                         Container(9900).HasFocus(3)  + !Skin.HasSetting(NoMusicSubmenu) |
+                         Container(9900).HasFocus(4)  + !Skin.HasSetting(NoPicturesSubmenu) |  
+                         Container(9900).HasFocus(5)  + !Skin.HasSetting(NoSystemSubmenu) | 
+                         Container(9900).HasFocus(6)  + !Skin.HasSetting(NoDiscSubmenu) | 
+                         Container(9900).HasFocus(7)  + !Skin.HasSetting(NoWeatherSubmenu) | 
+                         Container(9900).HasFocus(10) + !Skin.HasSetting(NoMoviesSubmenu) | 
+                         Container(9900).HasFocus(11) + !Skin.HasSetting(NoTVShowsSubmenu) | 
+                         Container(9900).HasFocus(12) + !Skin.HasSetting(NoPVRSubmenu) | 
+                         Container(9900).HasFocus(13) + !Skin.HasSetting(NoGamesSubmenu) | 
+                         Container(9900).HasFocus(14) + !Skin.HasSetting(NoMainMenuCustom.1Submenu) | 
+                         Container(9900).HasFocus(15) + !Skin.HasSetting(NoMainMenuCustom.2Submenu) | 
+                         Container(9900).HasFocus(16) + !Skin.HasSetting(NoMainMenuCustom.3Submenu) | 
+                         Container(9900).HasFocus(17) + !Skin.HasSetting(NoMusicVideoSubmenu) </visible>
 				<visible>Window.IsActive(Home)</visible>
 			</control>
 
@@ -32,7 +48,7 @@
 				<onclick condition="!StringCompare(Skin.String(HomeVideoWidget),recentmovies)">Skin.SetString(HomeVideoWidget,recentmovies)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeVideoWidget),recentmovies)">Skin.Reset(HomeVideoWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeVideoWidget),recentmovies)</selected>
-				<visible>Library.HasContent(Movies) + Window.IsActive(Home) + Container(9900).HasFocus(2)</visible>
+				<visible>Library.HasContent(Movies) + Window.IsActive(Home) + Container(9900).HasFocus(2) + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 			<control type="button">
 				<include>ButtonHomeTopBarCommonValues</include>
@@ -40,7 +56,7 @@
 				<onclick condition="!StringCompare(Skin.String(HomeVideoWidget),recentepisodes)">Skin.SetString(HomeVideoWidget,recentepisodes)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeVideoWidget),recentepisodes)">Skin.Reset(HomeVideoWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeVideoWidget),recentepisodes)</selected>
-				<visible>Library.HasContent(TVShows) + Window.IsActive(Home) + Container(9900).HasFocus(2)</visible>
+				<visible>Library.HasContent(TVShows) + Window.IsActive(Home) + Container(9900).HasFocus(2) + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 			<control type="button">
 				<include>ButtonHomeTopBarCommonValues</include>
@@ -48,7 +64,7 @@
 				<onclick condition="!StringCompare(Skin.String(HomeVideoWidget),nextaired)">Skin.SetString(HomeVideoWidget,nextaired)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeVideoWidget),nextaired)">Skin.Reset(HomeVideoWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeVideoWidget),nextaired)</selected>
-				<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired) + Window.IsActive(Home) + Container(9900).HasFocus(2)</visible>
+				<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired) + Window.IsActive(Home) + Container(9900).HasFocus(2) + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 
 
@@ -59,7 +75,7 @@
 				<onclick condition="!StringCompare(Skin.String(HomeMovieWidget),recent)">Skin.SetString(HomeMovieWidget,recent)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeMovieWidget),recent)">Skin.Reset(HomeMovieWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeMovieWidget),recent)</selected>
-				<visible>Library.HasContent(Movies) + Window.IsActive(Home) + Container(9900).HasFocus(10)</visible>
+				<visible>Library.HasContent(Movies) + Window.IsActive(Home) + Container(9900).HasFocus(10) + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 			<!-- TV Shows --> 
 			<control type="button">
@@ -68,7 +84,7 @@
 				<onclick condition="!StringCompare(Skin.String(HomeTVShowWidget),recent)">Skin.SetString(HomeTVShowWidget,recent)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeTVShowWidget),recent)">Skin.Reset(HomeTVShowWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeTVShowWidget),recent)</selected>
-				<visible>Library.HasContent(TVShows) + Window.IsActive(Home) + Container(9900).HasFocus(11)</visible>
+				<visible>Library.HasContent(TVShows) + Window.IsActive(Home) + Container(9900).HasFocus(11) + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 			<control type="button">
 				<include>ButtonHomeTopBarCommonValues</include>
@@ -76,7 +92,16 @@
 				<onclick condition="!StringCompare(Skin.String(HomeTVShowWidget),nextaired)">Skin.SetString(HomeTVShowWidget,nextaired)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeTVShowWidget),nextaired)">Skin.Reset(HomeTVShowWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeTVShowWidget),nextaired)</selected>
-				<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired) + Window.IsActive(Home) + Container(9900).HasFocus(11)</visible>
+				<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired) + Window.IsActive(Home) + Container(9900).HasFocus(11) + Skin.HasSetting(EnableWidgets)</visible>
+			</control>
+			<!-- TV --> 
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Next Aired</label>
+				<onclick condition="!StringCompare(Skin.String(HomeLiveTVWidget),nextaired)">Skin.SetString(HomeLiveTVWidget,nextaired)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeLiveTVWidget),nextaired)">Skin.Reset(HomeLiveTVWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeLiveTVWidget),nextaired)</selected>
+				<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired) + Window.IsActive(Home) + Container(9900).HasFocus(12) + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 			<!-- Music --> 
 			<control type="button">
@@ -85,7 +110,7 @@
 				<onclick condition="!StringCompare(Skin.String(HomeMusicWidget),recentalbums)">Skin.SetString(HomeMusicWidget,recentalbums)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeMusicWidget),recentalbums)">Skin.Reset(HomeMusicWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeMusicWidget),recentalbums)</selected>
-				<visible>Library.HasContent(Music) + Window.IsActive(Home) + Container(9900).HasFocus(3)</visible>
+				<visible>Library.HasContent(Music) + Window.IsActive(Home) + Container(9900).HasFocus(3) + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 			<control type="button">
 				<include>ButtonHomeTopBarCommonValues</include>
@@ -93,7 +118,16 @@
 				<onclick condition="!StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos)">Skin.SetString(HomeMusicWidget,recentmusicvideos)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos)">Skin.Reset(HomeMusicWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos)</selected>
-				<visible>Library.HasContent(MusicVideos) + Window.IsActive(Home) + Container(9900).HasFocus(3)</visible>
+				<visible>Library.HasContent(MusicVideos) + Window.IsActive(Home) + Container(9900).HasFocus(3) + Skin.HasSetting(EnableWidgets)</visible>
+			</control>
+			<!-- Music Videos --> 
+			<control type="button">
+				<include>ButtonHomeTopBarCommonValues</include>
+				<label>Recent</label>
+				<onclick condition="!StringCompare(Skin.String(HomeMusicVideoWidget),recentmusicvideos)">Skin.SetString(HomeMusicVideoWidget,recentmusicvideos)</onclick>
+				<onclick condition="StringCompare(Skin.String(HomeMusicVideoWidget),recentmusicvideos)">Skin.Reset(HomeMusicVideoWidget)</onclick>
+				<selected>StringCompare(Skin.String(HomeMusicVideoWidget),recentmusicvideos)</selected>
+				<visible>Library.HasContent(MusicVideos) + Window.IsActive(Home) + Container(9900).HasFocus(17) + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 			<!-- Games --> 
 			<control type="button">
@@ -102,7 +136,7 @@
 				<onclick condition="!StringCompare(Skin.String(HomeProgramsWidget),mostplayed)">Skin.SetString(HomeProgramsWidget,mostplayed)</onclick>
 				<onclick condition="StringCompare(Skin.String(HomeProgramsWidget),mostplayed)">Skin.Reset(HomeProgramsWidget)</onclick>
 				<selected>StringCompare(Skin.String(HomeProgramsWidget),mostplayed)</selected>
-				<visible>System.HasAddon(script.games.rom.collection.browser) + Window.IsActive(Home) + [Container(9900).HasFocus(1) | Container(9900).HasFocus(13)]</visible>
+				<visible>System.HasAddon(script.games.rom.collection.browser) + Window.IsActive(Home) + [Container(9900).HasFocus(1) | Container(9900).HasFocus(13)] + Skin.HasSetting(EnableWidgets)</visible>
 			</control>
 			
 			

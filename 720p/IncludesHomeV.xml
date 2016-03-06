@@ -1,16 +1,5 @@
 <includes>
-	<include name="VerticalHome">
-		<include>HomeTVRecordingInfo</include>
-	        <include>TopBar</include>
-		<include condition="Skin.HasSetting(EnableWidgets)">HomeRecentlyAddedWidgetTouch</include>
-		<control type="image">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>190</width>
-            <height>650</height>
-            <texture border="0,0,10,0" flipy="true">MediaBladeSub.png</texture>
-            <colordiffuse>DDFFFFFF</colordiffuse>
-		</control>
+    <include name="VerticalMenu">
 		<control type="group">
 			<left>0</left>
 			<top>0</top>
@@ -52,8 +41,8 @@
 						<height>30</height>
 						<align>right</align>
 						<aligny>center</aligny>
-			                        <texture>$INFO[ListItem.Property(MenuIcon)]</texture>
-			                        <colordiffuse>DDFFFFFF</colordiffuse>
+                        <texture>$INFO[ListItem.Property(MenuIcon)]</texture>
+                        <colordiffuse>DDFFFFFF</colordiffuse>
 					</control>
 				</itemlayout>
 				<focusedlayout height="60" width="180">
@@ -84,6 +73,21 @@
                 </content>
 			</control>
 		</control>
+    </include>        
+
+	<include name="VerticalHome">
+		<include>HomeTVRecordingInfo</include>
+	    <include>TopBar</include>
+		<include condition="Skin.HasSetting(EnableWidgets)">HomeRecentlyAddedWidgetTouch</include>
+		<control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>190</width>
+            <height>650</height>
+            <texture border="0,0,10,0" flipy="true">MediaBladeSub.png</texture>
+            <colordiffuse>DDFFFFFF</colordiffuse>
+		</control>
+<!--        <include>VerticalMenu</include>-->
         <include>TouchTools</include>
         <include>BottomBlade</include>
 		<include>CommonNowPlaying</include>

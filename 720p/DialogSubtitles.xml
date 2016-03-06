@@ -7,27 +7,17 @@
 		<posy>0</posy>
 	</coordinates>
 	<controls>
-			<control type="button">
-				<description>Hidden button to close the sort when its focused</description>
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>ScreenWidth</width>
-				<height>ScreenHeight</height>
-				<texturenofocus>-</texturenofocus>
-				<texturefocus>-</texturefocus>
-				<onclick>setfocus(120)</onclick>
-			</control>
 		<control type="group" id="250">
 			<animation effect="slide" start="0,-200" end="0,0" time="200" tween="quadratic" easing="out">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="0,-200" time="200" tween="quadratic" easing="out">WindowClose</animation>
 			<control type="image">
-				<description>media info background image</description>
+				<description>Subtitle list background image</description>
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>ScreenWidth</width>
 				<height>630</height>
 				<colordiffuse>DDFFFFFF</colordiffuse>
-	                        <texture border="15" flipy="true">ContentPanel.png</texture>
+                <texture border="15" flipy="true">ContentPanel.png</texture>
 				<animation effect="slide" start="0,0" end="0,-36" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,15)">conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-72" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,14)">conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-108" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,13)">conditional</animation>
@@ -44,13 +34,15 @@
 				<animation effect="slide" start="0,0" end="0,-504" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,2)">conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-540" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,1)">conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-576" time="200" tween="quadratic" easing="out"  condition="StringCompare(Container(120).NumItems,0)">conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-630" time="100" tween="quadratic" easing="out"  condition="!Control.Hasfocus(120)">conditional</animation>
+				<!-- <animation effect="slide" start="0,0" end="0,-630" time="100" tween="quadratic" easing="out"  condition="!Control.Hasfocus(120)">conditional</animation> -->
 			</control>
 			<!-- ** Required ** Do not change <id>or<type>-->
 			<control type="group">
+                <include>CloseOnFocusLost</include>
 				<control type="list" id="120">
 					<posx>50</posx>
-					<posy>-584</posy><!--46-->
+					<!-- <posy>-584</posy><!--46--> -->
+					<posy>46</posy><!--46-->
 					<width>1180</width>
 					<height>580</height>
 					<onleft>120</onleft>
@@ -58,10 +50,11 @@
 					<onup>120</onup>
 					<ondown>120</ondown>
 					<viewtype label="535">list</viewtype>
-<!--					<pagecontrol>121</pagecontrol>-->
+					<pagecontrol>60</pagecontrol>
 					<scrolltime>200</scrolltime>
-		                        <animation effect="slide" start="0,0" end="0,630" time="200" tween="quadratic" easing="out">Focus</animation>
-		                        <animation effect="slide" start="0,630" end="0,0" time="200" tween="quadratic" easing="out">Unfocus</animation>
+<!--                     <animation effect="slide" start="0,0" end="0,630" time="200" tween="quadratic" easing="out">Focus</animation>
+                    <animation effect="slide" start="0,630" end="0,0" time="200" tween="quadratic" easing="out">Unfocus</animation>
+ -->
 					<itemlayout width="1180" height="36">
 						<control type="image">
 							<posx>0</posx>
@@ -75,7 +68,7 @@
 							<posy>11</posy>
 							<width>26</width>
 							<height>17</height>
-                                                        <texture>Subtitles/flags/$INFO[ListItem.Thumb].png</texture>
+                            <texture>Subtitles/flags/$INFO[ListItem.Thumb].png</texture>
 						</control>
 						<control type="image">
 							<posx>45</posx>
@@ -111,7 +104,7 @@
 							<width>90</width>
 							<height>17</height>
 							<texture>info_window_icon_rating_star_$INFO[ListItem.ActualIcon].png</texture>
-                                                        <visible>!Control.HasFocus(150) | !Control.HasFocus(160)</visible>
+                            <!-- <visible>!Control.HasFocus(150) | !Control.HasFocus(160)</visible> -->
 						</control>
 					</itemlayout>
 					<focusedlayout width="1180" height="36">
@@ -127,7 +120,6 @@
 							<posy>0</posy>
 							<width>1180</width>
 							<height>38</height>
-<!--							<texture>default-list-focus.png</texture>-->
 							<texture>MenuItemFO.png</texture>
 							<visible>Control.HasFocus(120)</visible>
 						</control>
@@ -136,7 +128,7 @@
 							<posy>11</posy>
 							<width>26</width>
 							<height>17</height>
-                                                        <texture>Subtitles/flags/$INFO[ListItem.Thumb].png</texture>
+                            <texture>Subtitles/flags/$INFO[ListItem.Thumb].png</texture>
 						</control>
 <!--						<control type="label">
 							<posx>40</posx>
@@ -184,10 +176,23 @@
 							<width>90</width>
 							<height>17</height>
 							<texture>info_window_icon_rating_star_$INFO[ListItem.ActualIcon].png</texture>
-                                                        <visible>!Control.HasFocus(150) | !Control.HasFocus(160)</visible>
+                            <!-- <visible>!Control.HasFocus(150) | !Control.HasFocus(160)</visible> -->
 						</control>
 					</focusedlayout>
 				</control>
+                <control type="scrollbar" id="60">
+                    <posx>1250</posx>
+                    <posy>46</posy>
+                    <width>25</width>
+                    <height>580</height>
+                    <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+                    <texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+                    <textureslidernib>ScrollBarNib.png</textureslidernib>
+                    <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                </control>
 <!--				<control type="spincontrol" id="121">
 					<description>Next page button</description>
 					<posx>ScreenWidth</posx>
@@ -216,15 +221,6 @@
 				<animation type="Conditional" condition="Control.HasFocus(150) | Control.HasFocus(160)" reversible="true">
 					<effect type="slide" end="-260,0" time="200" />
 				</animation>
-<!--				<control type="image">
-                                        <description>separator</description>
-                                        <posx>ScreenWidth</posx>
-                                        <posy>0</posy>
-                                        <width>ScreenHeight</width>
-                                        <height>4</height>
-                                        <texture>default-separatorOSD.png</texture>
-					<animation effect="rotate" start="0" end="90" center="auto" time="0" condition="true">Conditional</animation>
-				</control>-->
 				<control type="image">
                     <description>background</description>
                     <posx>ScreenWidth</posx>
@@ -232,8 +228,8 @@
                     <width>270</width>
                     <height>604</height>
                     <texture border="0,15,0,15" flipy="true">ContentPanel.png</texture>
-					<animation effect="slide" start="0,0" end="0,-36" time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,14)">conditional</animation>
-					<animation effect="slide" start="0,0" end="0,-72" time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,13)">conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-36"  time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,14)">conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-72"  time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,13)">conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-108" time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,12)">conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-144" time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,11)">conditional</animation>
 					<animation effect="slide" start="0,0" end="0,-180" time="0" tween="quadratic" easing="out"  condition="StringCompare(Container(150).NumItems,10)">conditional</animation>
@@ -250,19 +246,19 @@
                 <control type="button" id="160">
 					<posx>1310</posx>
 					<posy>50</posy>
-                                        <description>Manual search button</description>
-      	                                <width>230</width>
-       	                                <height>40</height>
-       	                                <onleft>120</onleft>
-       	                                <onright>120</onright>
-                                        <onup>150</onup>
-                                        <ondown>150</ondown>
-                                        <label>$LOCALIZE[24120]</label>
-                                        <font>font12_title</font>
-                                        <textcolor>grey</textcolor>
-                                        <focusedcolor>white</focusedcolor>
-                                        <align>left</align>
-                                </control>
+                    <description>Manual search button</description>
+                    <width>230</width>
+                    <height>40</height>
+                    <onleft>120</onleft>
+                    <onright>120</onright>
+                    <onup>150</onup>
+                    <ondown>150</ondown>
+                    <label>$LOCALIZE[24120]</label>
+                    <font>font12_title</font>
+                    <textcolor>grey</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <align>left</align>
+                </control>
 				<control type="list" id="150">
 					<posx>1290</posx>
 					<posy>90</posy>
@@ -280,7 +276,7 @@
 							<posy>0</posy>
 							<width>230</width>
 							<height>38</height>
-<!--							<texture>default-list-nofocus.png</texture>-->
+<!--					    <texture>default-list-nofocus.png</texture>-->
 							<texture>button-nofocus.png</texture>
 						</control>
 						<control type="label">
@@ -325,7 +321,7 @@
 							<info>ListItem.Label</info>
 						</control>
 					</focusedlayout>
-				</control>
+				</control>                
 			</control>
 			<control type="group">
 				<control type="image">
@@ -335,22 +331,6 @@
 					<width>ScreenWidth</width>
 					<height>50</height>
 					<texture border="0,0,0,6">MediaBladeSubTop.png</texture>
-				</control>
-				<control type="image" id="110">
-					<description>Service Logo</description>
-					<posx>10</posx>
-					<posy>10</posy>
-					<width>250</width>
-					<height>40</height>
-					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="button">
-					<description>Open Service List</description>
-					<posx>10</posx>
-					<posy>10</posy>
-					<width>250</width>
-					<height>40</height>
-					<onclick>setfocus(150)</onclick>
 				</control>
 				<control type="label" id="140">
 					<description>textarea</description>
@@ -378,32 +358,32 @@
 						<wrapmultiline>true</wrapmultiline>
 					</control>
 				</control>
-				<control type="group">
-					<posx>35r</posx>
+				<control type="image" id="110">
+					<description>Service Logo</description>
 					<top>5</top>
-					<include>DialogCloseButtonCommons</include>
+					<right>10</right>
+					<width>250</width>
+					<height>40</height>
+					<aspectratio>keep</aspectratio>
+				</control>				
+				<control type="button">
+					<description>Open Service List</description>
+					<top>0</top>
+					<left>0</left>
+                    <texturenofocus>-</texturenofocus>
+                    <texturefocus>-</texturefocus>
+					<width>ScreenWidth</width>
+					<height>46</height>
+					<onclick>setfocus(120)</onclick>
 				</control>
-<!--				<control type="group" id="130">
-					<control type="grouplist">
-						<posx>955</posx>
-						<posy>10</posy>
-						<width>305</width>
-						<height>40</height>
-						<align>right</align>
-						<orientation>horizontal</orientation>
-						<itemgap>5</itemgap>
-						<control type="label">
-							<description>notification</description>
-							<width min="10" max="260">auto</width>
-							<height>40</height>
-							<font>font13</font>
-							<textcolor>FFFFFFFF</textcolor>
-							<label>31413</label>
-							<aligny>center</aligny>
-							<wrapmultiline>true</wrapmultiline>
-						</control>
-					</control>
-				</control>-->
+				<control type="button">
+					<description>Open Service List</description>
+					<top>0</top>
+					<right>0</right>
+					<width>280</width>
+					<height>46</height>
+					<onclick>setfocus(150)</onclick>
+				</control>
 			</control>
 		</control>
 	</controls>

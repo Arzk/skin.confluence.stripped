@@ -158,9 +158,9 @@
 				</control>
 				<control type="panel" id="8003">
                 <visible>Library.HasContent(MusicVideos)</visible>
-				<visible>Container(9900).HasFocus(3) + StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos) |
-						 Container(9900).HasFocus(2) + StringCompare(Skin.String(HomeVideoWidget),recentmusicvideos)
-				</visible>
+				<visible>Container(9900).HasFocus(3) +  StringCompare(Skin.String(HomeMusicWidget),recentmusicvideos) |
+						 Container(9900).HasFocus(2) +  StringCompare(Skin.String(HomeVideoWidget),recentmusicvideos) |
+                         Container(9900).HasFocus(17) + StringCompare(Skin.String(HomeMusicVideoWidget),recentmusicvideos)</visible>
 					<posx>0</posx>
 					<posy>0</posy>
 					<width>870</width>
@@ -412,7 +412,8 @@
 				<control type="panel" id="8005">
 					<visible>Library.HasContent(TVShows) + System.HasAddon(script.tv.show.next.aired)</visible>
 					<visible>Container(9900).Hasfocus(11) + StringCompare(Skin.String(HomeTVShowWidget),nextaired) | 
-					Container(9900).Hasfocus(2) + StringCompare(Skin.String(HomeVideoWidget),nextaired)</visible>
+					Container(9900).Hasfocus(2) + StringCompare(Skin.String(HomeVideoWidget),nextaired) | 
+					Container(9900).Hasfocus(12) + StringCompare(Skin.String(HomeLiveTVWidget),nextaired)</visible>
 					<posx>0</posx>
 					<posy>0</posy>
 					<width>870</width>

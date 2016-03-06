@@ -101,7 +101,7 @@
                 <label>$LOCALIZE[31990]</label>
                 <selected>!Skin.HasSetting(NoGamesCustomMenu)</selected>
                 <onclick>Skin.ToggleSetting(NoGamesCustomMenu)</onclick>
-                <visible>!Skin.HasSetting(HomeMenuNoGamesButton)</visible>
+                <visible>!Skin.HasSetting(HomeMenuNoGamesButton) + System.HasAddon(script.games.rom.collection.browser)</visible>
             </control>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4102"/>
@@ -111,6 +111,7 @@
                 <param name="mainmenuitem" value="Games"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="1"/>
+                <param name="visible" value="System.HasAddon(script.games.rom.collection.browser)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4106"/>
@@ -120,6 +121,7 @@
                 <param name="mainmenuitem" value="Games"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="2"/>
+                <param name="visible" value="System.HasAddon(script.games.rom.collection.browser)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4110"/>
@@ -129,6 +131,7 @@
                 <param name="mainmenuitem" value="Games"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="3"/>
+                <param name="visible" value="System.HasAddon(script.games.rom.collection.browser)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4114"/>
@@ -138,6 +141,7 @@
                 <param name="mainmenuitem" value="Games"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="4"/>
+                <param name="visible" value="System.HasAddon(script.games.rom.collection.browser)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4118"/>
@@ -147,6 +151,7 @@
                 <param name="mainmenuitem" value="Games"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="5"/>
+                <param name="visible" value="System.HasAddon(script.games.rom.collection.browser)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4122"/>
@@ -156,6 +161,7 @@
                 <param name="mainmenuitem" value="Games"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="6"/>
+                <param name="visible" value="System.HasAddon(script.games.rom.collection.browser)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4126"/>
@@ -165,6 +171,7 @@
                 <param name="mainmenuitem" value="Games"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="7"/>
+                <param name="visible" value="System.HasAddon(script.games.rom.collection.browser)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4130"/>
@@ -174,6 +181,7 @@
                 <param name="mainmenuitem" value="Games"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="8"/>
+                <param name="visible" value="System.HasAddon(script.games.rom.collection.browser)"/>
             </include>        
             
             <control type="radiobutton" id="4201">
@@ -355,6 +363,7 @@
                 <param name="mainmenuitem" value="PVR"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="1"/>
+                <param name="visible" value="System.GetBool(pvrmanager.enabled)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4406"/>
@@ -364,6 +373,7 @@
                 <param name="mainmenuitem" value="PVR"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="2"/>
+                <param name="visible" value="System.GetBool(pvrmanager.enabled)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4410"/>
@@ -373,6 +383,7 @@
                 <param name="mainmenuitem" value="PVR"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="3"/>
+                <param name="visible" value="System.GetBool(pvrmanager.enabled)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4414"/>
@@ -382,6 +393,7 @@
                 <param name="mainmenuitem" value="PVR"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="4"/>
+                <param name="visible" value="System.GetBool(pvrmanager.enabled)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4418"/>
@@ -391,6 +403,7 @@
                 <param name="mainmenuitem" value="PVR"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="5"/>
+                <param name="visible" value="System.GetBool(pvrmanager.enabled)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4422"/>
@@ -400,6 +413,7 @@
                 <param name="mainmenuitem" value="PVR"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="6"/>
+                <param name="visible" value="System.GetBool(pvrmanager.enabled)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4426"/>
@@ -409,6 +423,7 @@
                 <param name="mainmenuitem" value="PVR"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="7"/>
+                <param name="visible" value="System.GetBool(pvrmanager.enabled)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4430"/>
@@ -418,6 +433,7 @@
                 <param name="mainmenuitem" value="PVR"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="8"/>
+                <param name="visible" value="System.GetBool(pvrmanager.enabled)"/>
             </include>
             
             <control type="radiobutton" id="4501">
@@ -516,6 +532,7 @@
                 <param name="mainmenuitem" value="Movies"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="1"/>
+                <param name="visible" value="Library.HasContent(Movies)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4606"/>
@@ -525,6 +542,7 @@
                 <param name="mainmenuitem" value="Movies"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="2"/>
+                <param name="visible" value="Library.HasContent(Movies)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4610"/>
@@ -534,6 +552,7 @@
                 <param name="mainmenuitem" value="Movies"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="3"/>
+                <param name="visible" value="Library.HasContent(Movies)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4614"/>
@@ -543,6 +562,7 @@
                 <param name="mainmenuitem" value="Movies"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="4"/>
+                <param name="visible" value="Library.HasContent(Movies)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4618"/>
@@ -552,6 +572,7 @@
                 <param name="mainmenuitem" value="Movies"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="5"/>
+                <param name="visible" value="Library.HasContent(Movies)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4622"/>
@@ -561,6 +582,7 @@
                 <param name="mainmenuitem" value="Movies"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="6"/>
+                <param name="visible" value="Library.HasContent(Movies)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4626"/>
@@ -570,6 +592,7 @@
                 <param name="mainmenuitem" value="Movies"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="7"/>
+                <param name="visible" value="Library.HasContent(Movies)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4630"/>
@@ -579,6 +602,7 @@
                 <param name="mainmenuitem" value="Movies"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="8"/>
+                <param name="visible" value="Library.HasContent(Movies)"/>
             </include>
 
             <control type="radiobutton" id="4701">
@@ -598,6 +622,7 @@
                 <param name="mainmenuitem" value="TVShows"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="1"/>
+                <param name="visible" value="Library.HasContent(TVShows)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4706"/>
@@ -607,6 +632,7 @@
                 <param name="mainmenuitem" value="TVShows"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="2"/>
+                <param name="visible" value="Library.HasContent(TVShows)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4710"/>
@@ -616,6 +642,7 @@
                 <param name="mainmenuitem" value="TVShows"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="3"/>
+                <param name="visible" value="Library.HasContent(TVShows)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4714"/>
@@ -625,6 +652,7 @@
                 <param name="mainmenuitem" value="TVShows"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="4"/>
+                <param name="visible" value="Library.HasContent(TVShows)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4718"/>
@@ -634,6 +662,7 @@
                 <param name="mainmenuitem" value="TVShows"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="5"/>
+                <param name="visible" value="Library.HasContent(TVShows)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4722"/>
@@ -643,6 +672,7 @@
                 <param name="mainmenuitem" value="TVShows"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="6"/>
+                <param name="visible" value="Library.HasContent(TVShows)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4726"/>
@@ -652,6 +682,7 @@
                 <param name="mainmenuitem" value="TVShows"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="7"/>
+                <param name="visible" value="Library.HasContent(TVShows)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4730"/>
@@ -661,6 +692,7 @@
                 <param name="mainmenuitem" value="TVShows"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="8"/>
+                <param name="visible" value="Library.HasContent(TVShows)"/>
             </include>
 
             <control type="radiobutton" id="4801">
@@ -762,6 +794,7 @@
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="1"/>
+                <param name="visible" value="Library.HasContent(Musicvideos)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4906"/>
@@ -771,6 +804,7 @@
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="2"/>
+                <param name="visible" value="Library.HasContent(Musicvideos)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4910"/>
@@ -780,6 +814,7 @@
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="3"/>
+                <param name="visible" value="Library.HasContent(Musicvideos)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4914"/>
@@ -789,6 +824,7 @@
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="4"/>
+                <param name="visible" value="Library.HasContent(Musicvideos)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4918"/>
@@ -798,6 +834,7 @@
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="5"/>
+                <param name="visible" value="Library.HasContent(Musicvideos)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4922"/>
@@ -807,6 +844,7 @@
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="6"/>
+                <param name="visible" value="Library.HasContent(Musicvideos)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4926"/>
@@ -816,6 +854,7 @@
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="7"/>
+                <param name="visible" value="Library.HasContent(Musicvideos)"/>
             </include>
             <include name="CustomButtonSelector">
                 <param name="id1" value="4930"/>
@@ -825,6 +864,7 @@
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="8"/>
+                <param name="visible" value="Library.HasContent(Musicvideos)"/>
             </include>
 
 
@@ -920,6 +960,7 @@
                 <label>$LOCALIZE[13000]</label>
                 <selected>!Skin.HasSetting(NoSystemCustomMenu)</selected>
                 <onclick>Skin.ToggleSetting(NoSystemCustomMenu)</onclick>
+                <visible>!Skin.HasSetting(HomeMenuNoSystemButton)</visible>
             </control>                
             <include name="CustomButtonSelector">
                 <param name="id1" value="5102"/>
@@ -1002,7 +1043,7 @@
                 <onclick>Skin.ToggleSetting(NoMainMenuCustom.1CustomMenu)</onclick>
                 <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.1Button) + !IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))</visible>              
             </control>                
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5202"/>
                 <param name="id2" value="5203"/>
                 <param name="id3" value="5204"/>
@@ -1010,8 +1051,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.1"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="1"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>            
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5206"/>
                 <param name="id2" value="5207"/>
                 <param name="id3" value="5208"/>
@@ -1019,8 +1061,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.1"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="2"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5210"/>
                 <param name="id2" value="5211"/>
                 <param name="id3" value="5212"/>
@@ -1028,8 +1071,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.1"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="3"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5214"/>
                 <param name="id2" value="5215"/>
                 <param name="id3" value="5216"/>
@@ -1037,8 +1081,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.1"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="4"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5218"/>
                 <param name="id2" value="5219"/>
                 <param name="id3" value="5220"/>
@@ -1046,8 +1091,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.1"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="5"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5222"/>
                 <param name="id2" value="5223"/>
                 <param name="id3" value="5224"/>
@@ -1055,8 +1101,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.1"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="6"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5226"/>
                 <param name="id2" value="5227"/>
                 <param name="id3" value="5228"/>
@@ -1064,8 +1111,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.1"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="7"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5230"/>
                 <param name="id2" value="5231"/>
                 <param name="id3" value="5232"/>
@@ -1073,6 +1121,7 @@
                 <param name="mainmenuitem" value="MainMenuCustom.1"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="8"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
                 
             <control type="radiobutton" id="5301">
@@ -1084,7 +1133,7 @@
                 <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.2Button) + !IsEmpty(Skin.String(MainMenuCustom.2.Type)) + !IsEmpty(Skin.String(MainMenuCustom.2.Path)) + !IsEmpty(Skin.String(MainMenuCustom.2.Label))</visible>
                 
             </control>                
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5302"/>
                 <param name="id2" value="5303"/>
                 <param name="id3" value="5304"/>
@@ -1092,8 +1141,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.2"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="1"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5306"/>
                 <param name="id2" value="5307"/>
                 <param name="id3" value="5308"/>
@@ -1101,8 +1151,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.2"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="2"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5310"/>
                 <param name="id2" value="5311"/>
                 <param name="id3" value="5312"/>
@@ -1110,8 +1161,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.2"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="3"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5314"/>
                 <param name="id2" value="5315"/>
                 <param name="id3" value="5316"/>
@@ -1119,8 +1171,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.2"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="4"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5318"/>
                 <param name="id2" value="5319"/>
                 <param name="id3" value="5320"/>
@@ -1128,8 +1181,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.2"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="5"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5322"/>
                 <param name="id2" value="5323"/>
                 <param name="id3" value="5324"/>
@@ -1137,8 +1191,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.2"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="6"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5326"/>
                 <param name="id2" value="5327"/>
                 <param name="id3" value="5328"/>
@@ -1146,8 +1201,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.2"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="7"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5330"/>
                 <param name="id2" value="5331"/>
                 <param name="id3" value="5332"/>
@@ -1155,6 +1211,7 @@
                 <param name="mainmenuitem" value="MainMenuCustom.2"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="8"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.1.Type)) + !IsEmpty(Skin.String(MainMenuCustom.1.Path)) + !IsEmpty(Skin.String(MainMenuCustom.1.Label))"/>
             </include>
                 
             <control type="radiobutton" id="5401">
@@ -1166,7 +1223,7 @@
                 <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.3Button) + !IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))</visible>
                 
             </control>                
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5402"/>
                 <param name="id2" value="5403"/>
                 <param name="id3" value="5404"/>
@@ -1174,8 +1231,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.3"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="1"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5406"/>
                 <param name="id2" value="5407"/>
                 <param name="id3" value="5408"/>
@@ -1183,8 +1241,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.3"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="2"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5410"/>
                 <param name="id2" value="5411"/>
                 <param name="id3" value="5412"/>
@@ -1192,8 +1251,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.3"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="3"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5414"/>
                 <param name="id2" value="5415"/>
                 <param name="id3" value="5416"/>
@@ -1201,8 +1261,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.3"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="4"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5418"/>
                 <param name="id2" value="5419"/>
                 <param name="id3" value="5420"/>
@@ -1210,8 +1271,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.3"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="5"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5422"/>
                 <param name="id2" value="5423"/>
                 <param name="id3" value="5424"/>
@@ -1219,8 +1281,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.3"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="6"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5426"/>
                 <param name="id2" value="5427"/>
                 <param name="id3" value="5428"/>
@@ -1228,8 +1291,9 @@
                 <param name="mainmenuitem" value="MainMenuCustom.3"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="7"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))"/>
             </include>
-            <include name="CustomButtonSelectorHomeCustomItems">
+            <include name="CustomButtonSelector">
                 <param name="id1" value="5430"/>
                 <param name="id2" value="5431"/>
                 <param name="id3" value="5432"/>
@@ -1237,6 +1301,7 @@
                 <param name="mainmenuitem" value="MainMenuCustom.3"/>
                 <param name="menutype" value="CustomMenu"/>
                 <param name="number" value="8"/>
+                <param name="visible" value="!IsEmpty(Skin.String(MainMenuCustom.3.Type)) + !IsEmpty(Skin.String(MainMenuCustom.3.Path)) + !IsEmpty(Skin.String(MainMenuCustom.3.Label))"/>
             </include>
                 
         </control>

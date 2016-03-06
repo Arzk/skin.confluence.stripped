@@ -162,14 +162,14 @@
 						<aspectratio align="right">stretch</aspectratio>
 						<texture>PVR-IsRecordingOSD.png</texture>
 						<visible>VideoPlayer.Content(LiveTV) + Player.Recording</visible>
-	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
 					</control>
 					<control type="image" id="1">
 						<description>Empty block</description>
 						<width>160</width>
 						<height>35</height>
 						<aspectratio align="right">stretch</aspectratio>
-	                    <visible>Player.HasVideo + !Skin.HasSetting(TouchMode) + [Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]] </visible>
+	                    <visible>Player.HasVideo + !Skin.HasSetting(TouchMode) + [Window.IsVisible(VideoOSD) | [Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]] </visible>
 					</control>
 					<control type="image" id="1">
 						<description>Empty block</description>
@@ -183,12 +183,12 @@
 						<width>37</width>
 						<height>35</height>
 						<aspectratio align="right">stretch</aspectratio>
-	                    <visible>Player.HasVideo + !Skin.HasSetting(TouchMode) + [Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]] </visible>
+	                    <visible>Player.HasVideo + !Skin.HasSetting(TouchMode) + [Window.IsVisible(VideoOSD) | [Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)]] </visible>
 					</control>
 					<control type="group" id="1">
 						<width>60</width>
 						<height>35</height>
-	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
 						<visible>!IsEmpty(VideoPlayer.AudioLanguage)</visible>
 						<visible>!stringcompare(VideoPlayer.AudioLanguage,und)</visible>
 						<control type="image" id="1">
@@ -216,7 +216,7 @@
 						<width>60</width>
 						<height>35</height>
 						<visible>!IsEmpty(VideoPlayer.SubtitlesLanguage)</visible>
-	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(123) | Window.IsVisible(124) | Window.IsVisible(125) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
+	                    <visible>Skin.HasSetting(TouchMode) | !Window.IsVisible(VideoOSD) | [Window.IsVisible(OSDAudioSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(SubtitleSearch) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)] </visible>
 						<control type="image" id="1">
 							<left>0</left>
 							<top>0</top>

@@ -1,4 +1,7 @@
 [B]1.3.0[/B]
+- Touch mode updates
+
+[B]1.3.0[/B]
 - Isengard and Jarvis changes
 - Repaired musicvideo list view
 - Todo: DSP manager has not been tested
