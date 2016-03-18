@@ -4,7 +4,7 @@
     <param name="mainmenuitem"/>
     <param name="commonvalueinclude"/>
     <param name="commonvaluetouchinclude"/>
-    <param name="number" default="0"/>
+    <param name="number"/>
         <definition>
             <control type="button" id="$PARAM[id]">
                 <include condition="!Skin.HasSetting(TouchMode)">$PARAM[commonvalueinclude]</include>
@@ -239,7 +239,7 @@
             <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
         </include>
         <include name="CustomButton">
-            <param name="id"                      value="10023"/>
+            <param name="id"                      value="10024"/>
             <param name="number"                  value="3"/>
             <param name="mainmenuitem"            value="SubmenuMovies"/>
             <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
@@ -476,18 +476,18 @@
 		</control>
 	</include>    
 	<include name="HomeSubMenuSystem">
-		<control type="image" id="10044">
+		<control type="image" id="10040">
             <include>SubMenuStart</include>
 			<visible>!Skin.HasSetting(TouchMode)</visible>
 		</control>
-        <control type="button" id="10045">
+        <control type="button" id="10041">
             <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
             <label>5</label>
             <onclick>ActivateWindow(Settings)</onclick>
             <visible>!Skin.HasSetting(SubmenuSystemSettings.Hidden)</visible>
         </control>
-        <control type="button" id="10046">
+        <control type="button" id="10042">
             <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
             <label>90042</label>
@@ -495,48 +495,70 @@
             <onclick condition="System.HasAddon(service.openelec.settings)">RunAddon(service.openelec.settings)</onclick>
             <visible>[System.HasAddon(os.openelec.settings) | System.HasAddon(service.openelec.settings)] + !Skin.HasSetting(SubmenuSystemOpenELEC.Hidden)</visible>
         </control>
-		<control type="button" id="10047">
+		<control type="button" id="10043">
 			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
 			<label>7</label>
 			<onclick>ActivateWindow(FileManager)</onclick>
             <visible>!Skin.HasSetting(SubmenuSystemFileManager.Hidden)</visible>
 		</control>
-		<control type="button" id="10048">
+		<control type="button" id="10044">
 			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
 			<label>130</label>
 			<onclick>ActivateWindow(SystemInfo)</onclick>
             <visible>!Skin.HasSetting(SubmenuSystemInfo.Hidden)</visible>
 		</control>
-        <control type="button" id="10049">
+        <control type="button" id="10045">
 			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
             <label>13200</label>
             <onclick>ActivateWindow(Profiles)</onclick>
             <visible>!Skin.HasSetting(SubmenuSystemProfiles.Hidden)</visible>
         </control>
-        <control type="button" id="100150">
+        <control type="button" id="100146">
             <include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
             <label>20077</label>
             <onclick>ActivateWindow(SkinSettings)</onclick>
             <visible>!Skin.HasSetting(SubmenuSystemSkin.Hidden)</visible>
         </control>
-        <control type="button" id="10051">
+        <!-- Custom buttons -->
+        <include name="CustomButton">
+            <param name="id"                      value="10047"/>
+            <param name="number"                  value="1"/>
+            <param name="mainmenuitem"            value="SubmenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="10048"/>
+            <param name="number"                  value="2"/>
+            <param name="mainmenuitem"            value="SubmenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <include name="CustomButton">
+            <param name="id"                      value="10049"/>
+            <param name="number"                  value="3"/>
+            <param name="mainmenuitem"            value="SubmenuSystem"/>
+            <param name="commonvalueinclude"      value="ButtonHomeSubCommonValues"/>
+            <param name="commonvaluetouchinclude" value="ButtonHomeSubTouchCommonValues"/>
+        </include>
+        <control type="button" id="10050">
 			<include condition="!Skin.HasSetting(TouchMode)">ButtonHomeSubCommonValues</include>
 			<include condition="Skin.HasSetting(TouchMode)">ButtonHomeSubTouchCommonValues</include>
             <label>31963</label>
             <onclick>ActivateWindow(Shutdownmenu)</onclick>
             <visible>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
         </control>
-		<control type="image" id="10052">
+		<control type="image" id="10051">
 			<include>SubMenuEnd</include>
 			<visible>!Skin.HasSetting(TouchMode)</visible>
 		</control>
 	</include>
     <include name="HomeSubMenuDisc">
-        <control type="image" id="90161">
+        <control type="image" id="10061">
             <include>SubMenuStart</include>
 			<visible>!Skin.HasSetting(TouchMode)</visible>
         </control>
@@ -655,7 +677,7 @@
 			<visible>!Skin.HasSetting(TouchMode)</visible>
 		</control>
 	</include>
-	<include name="HomeSubMenuLiveTV">
+	<include name="HomeSubMenuPVR">
 		<control type="image" id="90141">
 			<include>SubMenuStart</include>
 			<visible>!Skin.HasSetting(TouchMode)</visible>

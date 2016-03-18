@@ -635,7 +635,7 @@
                 <param name="id1" value="3152"/>
                 <param name="id2" value="3153"/>
                 <param name="id3" value="3154"/>
-                <param name="id4" value="3165"/>
+                <param name="id4" value="3155"/>
                 <param name="mainmenuitem" value="Musicvideos"/>
                 <param name="menutype" value="Submenu"/>
                 <param name="number" value="3"/>
@@ -697,14 +697,14 @@
                 <label>$LOCALIZE[13000] [LOWERCASE]$LOCALIZE[90023][/LOWERCASE]</label>
                 <selected>!Skin.HasSetting(NoSystemSubmenu)</selected>
                 <onclick>Skin.ToggleSetting(NoSystemSubmenu)</onclick>
-                <visible>!Skin.HasSetting(HomeMenuNoSystemButton)</visible>
+                <visible>[Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) | !Skin.HasSetting(HomeMenuNoSystemButton)]</visible>
             </control>
             <control type="radiobutton" id="3195">
                 <include>SettingsRadioButtonCommonValues</include>
                 <label>    $LOCALIZE[5]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemSettings.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemSettings.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + [Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) | !Skin.HasSetting(HomeMenuNoSystemButton)]</visible>
             </control>
             <control type="radiobutton" id="3196">
                 <include>SettingsRadioButtonCommonValues</include>
@@ -712,42 +712,42 @@
                 <selected>!Skin.HasSetting(SubmenuSystemOpenELEC.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemOpenELEC.Hidden)</onclick>
                 <visible>System.HasAddon(os.openelec.settings) | System.HasAddon(service.openelec.settings)</visible>
-                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + [Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) | !Skin.HasSetting(HomeMenuNoSystemButton)]</visible>
             </control>
             <control type="radiobutton" id="3197">
                 <include>SettingsRadioButtonCommonValues</include>
                 <label>    $LOCALIZE[7]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemFileManager.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemFileManager.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + [Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) | !Skin.HasSetting(HomeMenuNoSystemButton)]</visible>
             </control>
             <control type="radiobutton" id="3198">
                 <include>SettingsRadioButtonCommonValues</include>
                 <label>    $LOCALIZE[13200]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemProfiles.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemProfiles.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + [Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) | !Skin.HasSetting(HomeMenuNoSystemButton)]</visible>
             </control>
             <control type="radiobutton" id="3199">
                 <include>SettingsRadioButtonCommonValues</include>
                 <label>    $LOCALIZE[130]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemInfo.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemInfo.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + [Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) | !Skin.HasSetting(HomeMenuNoSystemButton)]</visible>
             </control>
             <control type="radiobutton" id="3200">
                 <include>SettingsRadioButtonCommonValues</include>
                 <label>    $LOCALIZE[31963]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemShutdown.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + [Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) | !Skin.HasSetting(HomeMenuNoSystemButton)]</visible>
             </control>
             <control type="radiobutton" id="3201">
                 <include>SettingsRadioButtonCommonValues</include>
                 <label>    $LOCALIZE[20077]</label>
                 <selected>!Skin.HasSetting(SubmenuSystemSkin.Hidden)</selected>
                 <onclick>Skin.ToggleSetting(SubmenuSystemSkin.Hidden)</onclick>
-                <visible>!Skin.HasSetting(NoSystemSubmenu) + !Skin.HasSetting(HomeMenuNoSystemButton)</visible>
+                <visible>!Skin.HasSetting(NoSystemSubmenu) + [Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) | !Skin.HasSetting(HomeMenuNoSystemButton)]</visible>
             </control>					
             <include name="CustomButtonSelector">
                 <param name="id1" value="3202"/>
@@ -823,7 +823,7 @@
                 <selected>!Skin.HasSetting(NoMainMenuCustom.2Submenu)</selected>
                 <onclick>Skin.ToggleSetting(NoMainMenuCustom.2Submenu)</onclick>
                 <visible>!Skin.HasSetting(HomeMenuNoMainMenuCustom.2Button) + !IsEmpty(Skin.String(MainMenuCustom.2.Type)) + !IsEmpty(Skin.String(MainMenuCustom.2.Path)) + !IsEmpty(Skin.String(MainMenuCustom.2.Label))</visible>
-            </control>					
+            </control>
                 
             <include name="CustomButtonSelector">
                 <param name="id1" value="3402"/>

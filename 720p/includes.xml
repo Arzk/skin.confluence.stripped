@@ -38,6 +38,7 @@
     <include file="IncludesSkinSettingsMainMenu.xml" />
     <include file="IncludesSkinSettingsSubmenu.xml" />
     <include file="IncludesKaiToast.xml" />
+    <include file="IncludesFavourites.xml" />
     <include file="IncludesScript-NextAired-TVGuide.xml" />
 
 

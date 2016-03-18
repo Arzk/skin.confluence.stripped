@@ -171,29 +171,52 @@
                             <label>7</label>
                             <onclick>Dialog.Close(Favourites)</onclick>
                             <onclick>ActivateWindow(FileManager)</onclick>
-                            <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemFileManager.Hidden) </visible>
+                            <visible>Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemFileManager.Hidden) </visible>
                         </item>
                         <item>
                             <label>130</label>
                             <onclick>Dialog.Close(Favourites)</onclick>
                             <onclick>ActivateWindow(SystemInfo)</onclick>
-                            <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemInfo.Hidden) </visible>
+                            <visible>Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemInfo.Hidden) </visible>
                         </item>
                         <item>
                             <label>13200</label>
                             <onclick>Dialog.Close(Favourites)</onclick>
                             <onclick>ActivateWindow(Profiles)</onclick>
-                            <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemProfiles.Hidden) </visible>
+                            <visible>Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemProfiles.Hidden) </visible>
+                        </item>
+                                               
+                        <item>
+                        <include name="SidebarCustomButton">
+                            <param name="number"                  value="1"/>
+                            <param name="mainmenuitem"            value="System"/>
+                        </include>
                         </item>
                         <item>
-                            <label>$INFO[Skin.String(SubmenuSystemCustom.1.Label)]</label>
-                            <onclick>Dialog.Close(Favourites)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.1.Path)],return)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.1.Path)]</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.1.Path)])</onclick>
-                            <visible>[!Skin.HasSetting(SubmenuSystemCustom.1.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.1.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
+                        <include name="SidebarCustomButton">
+                            <param name="number"                  value="2"/>
+                            <param name="mainmenuitem"            value="System"/>
+                        </include>
                         </item>
+                        <item>
+                        <include name="SidebarCustomButton">
+                            <param name="number"                  value="3"/>
+                            <param name="mainmenuitem"            value="System"/>
+                        </include> 
+                        </item>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         <item>
                         <label>$INFO[Skin.String(SubmenuSystemCustom.2.Label)]</label>
                             <onclick>Dialog.Close(Favourites)</onclick>
@@ -201,7 +224,7 @@
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.2.Path)]</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.2.Path)])</onclick>
-                            <visible>[!Skin.HasSetting(SubmenuSystemCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
+                            <visible>Skin.HasSetting(SideBarSystemButton) + [!Skin.HasSetting(SubmenuSystemCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
                         </item>
                         <item>
                             <label>$INFO[Skin.String(SubmenuSystemCustom.3.Label)]</label>
@@ -210,14 +233,14 @@
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.3.Path)]</onclick>
                             <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.3.Path)])</onclick>
-                            <visible>[!Skin.HasSetting(SubmenuSystemCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
+                            <visible>Skin.HasSetting(SideBarSystemButton) + [!Skin.HasSetting(SubmenuSystemCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
                         </item>
                         <item>
                             <label>31963</label>
                             <onclick>Dialog.Close(Favourites)</onclick>
                             <onclick>ActivateWindow(Shutdownmenu)</onclick>
                             <visible>!Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
-                            <visible>Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
+                            <visible>Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemShutdown.Hidden)</visible>
                         </item>
                     </content>
                 </control>

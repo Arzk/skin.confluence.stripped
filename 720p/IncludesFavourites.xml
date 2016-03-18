@@ -1,0 +1,15 @@
+<includes>
+    <include name="SidebarCustomButton">
+        <param name="mainmenuitem"/>
+        <param name="number"/>
+        <definition>
+                <label>$INFO[Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Label)]</label>
+                <onclick>Dialog.Close(Favourites)</onclick>
+                <onclick condition="Stringcompare(Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Type),Video Playlist) | Stringcompare(Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Path)],return)</onclick>
+                <onclick condition="Stringcompare(Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Path)],return)</onclick>
+                <onclick condition="Stringcompare(Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Type),Favourite)">$INFO[Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Path)]</onclick>
+                <onclick condition="Stringcompare(Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">RunAddon($INFO[Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Path)])</onclick>
+                <visible>Skin.HasSetting(SideBar$PARAM[mainmenuitem]Button) + [Skin.HasSetting(Submenu$PARAM[mainmenuitem].$PARAM[number].Enabled) + !IsEmpty(Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Type)) + !IsEmpty(Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Path)) + !IsEmpty(Skin.String(Submenu$PARAM[mainmenuitem].$PARAM[number].Label))] + Skin.HasSetting(SidebarShow$PARAM[mainmenuitem]Submenu)</visible>
+        </definition>
+    </include> 
+</includes>
