@@ -210,7 +210,7 @@
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
                 <onclick>Skin.Reset($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Icon)</onclick>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
-                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) | [Skin.HasSetting(SideBar$PARAM[mainmenuitem]Button) + Skin.HasSetting(SidebarShow$PARAM[mainmenuitem]Submenu])</visible>
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) | [Skin.HasSetting(SideBar$PARAM[mainmenuitem]Button) + Skin.HasSetting(SidebarShow$PARAM[mainmenuitem]Submenu)]</visible>
                 <visible>$PARAM[visible]</visible>
             </control>
             <control type="button" id="$PARAM[id2]">
@@ -250,7 +250,7 @@
                 <onclick condition="Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)">         Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label,$INFO[system.addontitle(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Path))])</onclick>
                 <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled)</visible>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
-                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) | [Skin.HasSetting(SideBar$PARAM[mainmenuitem]Button) + Skin.HasSetting(SidebarShow$PARAM[mainmenuitem]Submenu])</visible>
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) | [Skin.HasSetting(SideBar$PARAM[mainmenuitem]Button) + Skin.HasSetting(SidebarShow$PARAM[mainmenuitem]Submenu)]</visible>
                 <visible>$PARAM[visible]</visible>
             </control>
             <control type="button" id="$PARAM[id4]">
@@ -261,7 +261,7 @@
                 <onclick>Skin.SetString($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Label)</onclick>
                 <visible>Skin.HasSetting($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Enabled) + [Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Favourite) | Stringcompare(Skin.String($PARAM[menutype]$PARAM[mainmenuitem].$PARAM[number].Type),Addon)]</visible>
                 <visible>!Skin.HasSetting(No$PARAM[mainmenuitem]$PARAM[menutype])</visible>
-                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) | [Skin.HasSetting(SideBar$PARAM[mainmenuitem]Button) + Skin.HasSetting(SidebarShow$PARAM[mainmenuitem]Submenu])</visible>
+                <visible>!Skin.HasSetting(HomeMenuNo$PARAM[mainmenuitem]Button) | [Skin.HasSetting(SideBar$PARAM[mainmenuitem]Button) + Skin.HasSetting(SidebarShow$PARAM[mainmenuitem]Submenu)]</visible>
                 <visible>$PARAM[visible]</visible>
             </control>
         </definition>

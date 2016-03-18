@@ -8,6 +8,7 @@
 	</coordinates>
 	<controls>
 		<control type="group">
+            <include>CloseOnFocusLost</include>
 			<animation effect="slide" start="400,0" end="0,0" time="200" tween="quadratic" easing="out">WindowOpen</animation>
 			<animation effect="slide" start="0,0" end="400,0" time="200" tween="quadratic" easing="out">WindowClose</animation>
 			<control type="image">
@@ -17,24 +18,8 @@
 				<height>ScreenHeight</height>
 				<texture border="15,0,0,0" flipx="true">HomeBladeSub.png</texture>
 			</control>
-			<control type="button">
-				<description>Close Window button</description>
-				<posx>280r</posx>
-				<posy>0</posy>
-				<width>64</width>
-				<height>32</height>
-				<label>-</label>
-				<font>-</font>
-				<onclick>PreviousMenu</onclick>
-				<texturefocus>DialogCloseButton-focus.png</texturefocus>
-				<texturenofocus>DialogCloseButton.png</texturenofocus>
-				<onleft>450</onleft>
-				<onright>450</onright>
-				<onup>450</onup>
-				<ondown>450</ondown>
-				<visible>system.getbool(input.enablemouse)</visible>
-			</control>
 			<control type="group">
+                <visible>!Skin.HasSetting(TouchMode)</visible>
                 <visible>[Skin.HasSetting(HomeMenuNoSystemButton) + Skin.HasSetting(ShutdownHideSettings)] | Skin.HasSetting(SidebarShowHiddenItems)</visible>
                 <control type="image">
                     <posx>30r</posx>
@@ -184,8 +169,7 @@
                             <onclick>Dialog.Close(Favourites)</onclick>
                             <onclick>ActivateWindow(Profiles)</onclick>
                             <visible>Skin.HasSetting(SideBarSystemButton) + Skin.HasSetting(SidebarShowSystemSubmenu) + !Skin.HasSetting(SubmenuSystemProfiles.Hidden) </visible>
-                        </item>
-                                               
+                        </item>                                               
                         <item>
                         <include name="SidebarCustomButton">
                             <param name="number"                  value="1"/>
@@ -203,37 +187,6 @@
                             <param name="number"                  value="3"/>
                             <param name="mainmenuitem"            value="System"/>
                         </include> 
-                        </item>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <item>
-                        <label>$INFO[Skin.String(SubmenuSystemCustom.2.Label)]</label>
-                            <onclick>Dialog.Close(Favourites)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.2.Path)],return)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.2.Path)]</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.2.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.2.Path)])</onclick>
-                            <visible>Skin.HasSetting(SideBarSystemButton) + [!Skin.HasSetting(SubmenuSystemCustom.2.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.2.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
-                        </item>
-                        <item>
-                            <label>$INFO[Skin.String(SubmenuSystemCustom.3.Label)]</label>
-                            <onclick>Dialog.Close(Favourites)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Video Playlist) | Stringcompare(Skin.String(SubmenuSystemCustom.1.Type),Video Node)">XBMC.ActivateWindow(10025,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Music Playlist)">XBMC.ActivateWindow(10502,$INFO[Skin.String(SubmenuSystemCustom.3.Path)],return)</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Favourite)">$INFO[Skin.String(SubmenuSystemCustom.3.Path)]</onclick>
-                            <onclick condition="Stringcompare(Skin.String(SubmenuSystemCustom.3.Type),Addon)">RunAddon($INFO[Skin.String(SubmenuSystemCustom.3.Path)])</onclick>
-                            <visible>Skin.HasSetting(SideBarSystemButton) + [!Skin.HasSetting(SubmenuSystemCustom.3.Hidden) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Type)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Path)) + !IsEmpty(Skin.String(SubmenuSystemCustom.3.Label))] + Skin.HasSetting(SidebarShowSystemSubmenu)</visible>
                         </item>
                         <item>
                             <label>31963</label>
@@ -258,7 +211,7 @@
                     <ondown>450</ondown>
                     <pagecontrol>-</pagecontrol>
                     <scrolltime>200</scrolltime>
-                    <visible allowhiddenfocus="true">Control.HasFocus(450) + !Skin.HasSetting(HideFavourites)</visible>
+                    <visible allowhiddenfocus="true">[Control.HasFocus(450) | Skin.HasSetting(TouchMode)] + !Skin.HasSetting(HideFavourites)</visible>
                     <itemlayout height="40">
                         <control type="image">
                             <posx>0</posx>

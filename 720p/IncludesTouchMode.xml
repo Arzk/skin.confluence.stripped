@@ -36,8 +36,9 @@
                          Container(9900).HasFocus(13) + !Skin.HasSetting(NoGamesSubmenu) | 
                          Container(9900).HasFocus(14) + !Skin.HasSetting(NoMainMenuCustom.1Submenu) | 
                          Container(9900).HasFocus(15) + !Skin.HasSetting(NoMainMenuCustom.2Submenu) | 
-                         Container(9900).HasFocus(16) + !Skin.HasSetting(NoMainMenuCustom.3Submenu) | 
-                         Container(9900).HasFocus(17) + !Skin.HasSetting(NoMusicVideoSubmenu) </visible>
+                         Container(9900).HasFocus(16) + !Skin.HasSetting(NoMainMenuCustom.3Submenu)
+<!--                         Container(9900).HasFocus(17) + !Skin.HasSetting(NoMusicVideoSubmenu)-->
+                         </visible>
 				<visible>Window.IsActive(Home)</visible>
 			</control>
 
