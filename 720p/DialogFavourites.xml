@@ -198,7 +198,7 @@
                     </content>
                 </control>
             </control>
-			<control type="group">
+			<control type="group" id="452">
                 <visible>!Skin.HasSetting(HideFavourites)</visible>
                 <control type="list" id="450">
                     <posx>290r</posx>
